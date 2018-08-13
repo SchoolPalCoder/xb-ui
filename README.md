@@ -1,2 +1,2 @@
-# Xb-Basic-Components
-校宝Vue基础组件库项目
+# IBU前端VUE基础组件库项目 #
+
