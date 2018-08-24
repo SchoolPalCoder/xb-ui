@@ -11,7 +11,7 @@
 this is a tip
 :::
 
-``` js{4}
+``` js
 export default {
   data () {
     return {
@@ -20,5 +20,3 @@ export default {
   }
 }
 ```
-
-<aaa/>
