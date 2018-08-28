@@ -1,6 +1,31 @@
 {
-    "scripts": {
-        "dev": "vuepress dev docs",
-        "build": "vuepress build docs"
-    }
+  "name": "xb-ui",
+  "version": "0.0.1",
+  "description": "SchoolPal's UI components",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SchoolPalCoder/Xb-Basic-Components.git"
+  },
+  "keywords": [
+    "vue",
+    "ui",
+    "components"
+  ],
+  "author": "SchoolPal Coder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SchoolPalCoder/Xb-Basic-Components/issues"
+  },
+  "homepage": "https://github.com/SchoolPalCoder/Xb-Basic-Components#readme",
+  "devDependencies": {
+    "vuepress": "^0.14.2"
+  },
+  "dependencies": {
+    "element-ui": "^2.4.6"
+  }
 }
