@@ -23,9 +23,17 @@
   },
   "homepage": "https://github.com/SchoolPalCoder/Xb-Basic-Components#readme",
   "devDependencies": {
-    "vuepress": "^0.14.2"
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-sass": "^4.0.1",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.2"
   },
   "dependencies": {
-    "element-ui": "^2.4.6"
+    "element-ui": "^2.4.6",
+    "vuepress": "^0.14.2"
   }
 }

@@ -7,7 +7,6 @@
     "sinon": true
   },
   "plugins": ["html", "json"],
-  "extends": "elemefe",
   "rules": {
     "no-restricted-globals": ["error", "event", "fdescribe"]
   },

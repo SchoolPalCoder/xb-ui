@@ -44,5 +44,12 @@ module.exports = {
         ]
       }]
     }
-  }
+  },
+  // configureWebpack: (config, isServer) => {
+  //   console.log(config);
+  //   config.module.rules.push({
+  //     test: /\.scss$/,
+  //     loaders: ['style-loader', 'css-loader', 'sass-loader']
+  //   });
+  // }
 }

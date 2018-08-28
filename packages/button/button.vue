@@ -1,6 +1,9 @@
 <template>
   <button class="" @click="handleClick" :disabled="disabled" :type="nativeType">
     <i :class="icon" v-if="icon"></i>
+    <span v-if="$slots.default">
+      <slot></slot>
+    </span>
   </button>
 </template>
 
@@ -36,6 +39,5 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
 

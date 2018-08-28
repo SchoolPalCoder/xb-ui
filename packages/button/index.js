@@ -1,4 +1,4 @@
-import XbButton from './src/button.vue';
+import XbButton from './button.vue';
 
 XbButton.install = function (Vue) {
   Vue.component(XBButton.name, XBButton);
