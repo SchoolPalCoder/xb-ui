@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "XBButton",
+  name: "XbButton",
 
   props: {
     type: {
@@ -37,7 +37,4 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>
 

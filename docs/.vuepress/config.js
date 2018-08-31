@@ -6,7 +6,7 @@ module.exports = {
   evergreen: true,
   repo: 'https://github.com/SchoolPalCoder/Xb-Basic-Components', // 添加 github 链接
   themeConfig: {
-    repo: 'docschina/vuepress',
+    repo: 'schoolpalcoder/xb-basic-components',
     editLinks: true,
     docsDir: 'docs',
     nav: [{
@@ -31,16 +31,13 @@ module.exports = {
         collapsable: false,
         children: [
           'layout/layout.html',
-          'button',
-          'text',
+          'basic/button'
         ]
       }, {
         '组件': '组件',
         collapsable: false,
         children: [
-          '',
-          'button',
-          'text',
+          ''
         ]
       }]
     }
