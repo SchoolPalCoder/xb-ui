@@ -32,6 +32,12 @@ yarn
 npm run create:components
 ```
 
+预览文档
+
+```bash
+npm run dev:docs
+```
+
 ## 技术栈 ##
 
 - [vue](https://github.com/vuejs/vue)
