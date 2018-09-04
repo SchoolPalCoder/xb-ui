@@ -10,43 +10,84 @@ module.exports = {
     editLinks: true,
     docsDir: 'docs',
     nav: [{
-        text: '指南',
-        link: '/guide/',
-      },
-      {
-        text: '组件',
-        link: '/components/'
-      }
+      text: '开发指南',
+      link: '/guide/',
+    },
+    {
+      text: '组件',
+      link: '/components/'
+    }
     ],
+    // sidebar: [
+    //   {
+    //     title: '开发指南',
+    //     collapsable: false,
+    //     children: [
+    //       '/guide/',
+    //       '/guide/install',
+    //       '/guide/start',
+    //       '/guide/updateLog'
+    //     ]
+    //   },
+    //   {
+    //     title: '基础组件',
+    //     collapsable: false,
+    //     children: [
+    //       '/components/basic/button',
+    //     ]
+    //   },
+    //   {
+    //     title: '布局组件',
+    //     collapsable: false,
+    //     children: [
+    //       '/components/layout/layout',
+    //     ]
+    //   },
+    //   {
+    //     title: '表单组件',
+    //     collapsable: false,
+    //     children: [
+    //       '/components/form/radio',
+    //       '/components/form/checkbox',
+    //       '/components/form/form',
+    //     ]
+    //   },
+    // ]
+
     sidebar: {
       '/guide/': [{
         '指南': '指南',
         collapsable: false,
         children: [
-          ''
+          '',
+          'install',
+          'start',
+          'updateLog'
         ]
       }],
       '/components/': [{
-        '布局组件': '布局组件',
+        title: '基础组件',
         collapsable: false,
         children: [
-          'layout/layout.html',
-          'basic/button'
+          'basic/button',
         ]
-      }, {
-        '组件': '组件',
+      },
+      {
+        title: '布局组件',
         collapsable: false,
         children: [
-          ''
+          'layout/layout',
         ]
-      }]
+      },
+      {
+        title: '表单组件',
+        collapsable: false,
+        children: [
+          'form/radio',
+          'form/checkbox',
+          'form/form',
+        ]
+      },]
     }
   },
-  // configureWebpack: (config, isServer) => {
-  //   console.log(config);
-  //   config.module.rules.push({
-  //     test: /\.scss$/,
-  //     loaders: ['style-loader', 'css-loader', 'sass-loader']
-  //   });
-  // }
 }

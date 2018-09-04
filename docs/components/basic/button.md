@@ -1,5 +1,5 @@
 ---
-sidebarDepth: 0
+sidebarDepth: 1
 ---
 
 # Button 按钮
@@ -32,3 +32,5 @@ sidebarDepth: 0
   </div>
 </div>
 ```
+
+## 禁用
