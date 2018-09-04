@@ -6,7 +6,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "crete:components": "node tools/createComponents"
+    "create:component": "node tools/create-component"
   },
   "repository": {
     "type": "git",

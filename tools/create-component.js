@@ -24,19 +24,19 @@ const createVue = (component) => {
 
 <script>
 export default {
-name: "${component.name}",
+  name: "${component.name}",
 
-props: {
+  props: {
 
-},
+  },
 
-computed: {
+  computed: {
 
-},
+  },
 
-methods: {
+  methods: {
 
-}
+  }
 };
 </script>`;
 };
@@ -51,9 +51,8 @@ ${component.name}.install = function (Vue) {
 export default ${component.name};`
 };
 
-
 const component = {
-  name: "Xb" + upperFirst(argv[3].toLowerCase()),
+  name: "Xb" + upperFirst(utils.camelDashCaseTocamelCase(argv[3].toLowerCase())),
   file: argv[3].toLowerCase()
 };
 
@@ -70,5 +69,6 @@ mkdirp(path.join(componentDir, component.file), (err) => {
     utils.writeFileOrWarn(path.join(scssDir, `${component.file}.scss`), '');
     utils.writeFileOrWarn(path.join(mdDir, `${component.file}.md`), '');
     utils.console("Create component successfuly!", "green");
+    console.log();
   }
 });

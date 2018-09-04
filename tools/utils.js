@@ -1,4 +1,5 @@
 const fs = require("fs");
+const upperFirst = require('lodash/upperFirst');
 
 const colors = {
   'bold': ['\x1B[1m', '\x1B[22m'],
@@ -44,7 +45,15 @@ const writeFileOrWarn = (file, data) => {
   }
 };
 
+const camelDashCaseTocamelCase = (name) => {
+  return name
+    .split('-')
+    .map((name, index) => index === 0 ? name : upperFirst(name))
+    .join('');
+}
+
 module.exports = {
+  camelDashCaseTocamelCase,
   writeFileOrWarn,
   console: _console
 };

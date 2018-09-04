@@ -21,6 +21,8 @@
 ├── packages    存放我们需要打包的组件
 |   ├── ...          vue组件，自己Create
 |   └── theme-chalk  vue组件的静态样式
+|   |    ├── src           vue组件样式文件夹
+|   |    └── gulpfile.js   样式打包脚本，为的是能独立打包样式能做主题包切换
 ├── tools       项目工具文件夹
 |   ├── ...          工具脚本
 |   └── utils.js     实用工具类
@@ -60,7 +62,7 @@ yarn
 >`创建的组件不需要以Xb开头`
 
 ```bash
-npm run create:components 组件所属的文档范围  组件名
+npm run create:component 组件所属的文档范围  组件名
 ```
 
 预览文档
