@@ -18,42 +18,6 @@ module.exports = {
       link: '/components/'
     }
     ],
-    // sidebar: [
-    //   {
-    //     title: '开发指南',
-    //     collapsable: false,
-    //     children: [
-    //       '/guide/',
-    //       '/guide/install',
-    //       '/guide/start',
-    //       '/guide/updateLog'
-    //     ]
-    //   },
-    //   {
-    //     title: '基础组件',
-    //     collapsable: false,
-    //     children: [
-    //       '/components/basic/button',
-    //     ]
-    //   },
-    //   {
-    //     title: '布局组件',
-    //     collapsable: false,
-    //     children: [
-    //       '/components/layout/layout',
-    //     ]
-    //   },
-    //   {
-    //     title: '表单组件',
-    //     collapsable: false,
-    //     children: [
-    //       '/components/form/radio',
-    //       '/components/form/checkbox',
-    //       '/components/form/form',
-    //     ]
-    //   },
-    // ]
-
     sidebar: {
       '/guide/': [{
         '指南': '指南',
