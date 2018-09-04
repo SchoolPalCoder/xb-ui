@@ -29,8 +29,10 @@ yarn
 创建组件
 
 ```bash
-npm run create:components
+npm run create:components 组件所属的文档范围  组件名
 ```
+
+`创建的组件不需要以Xb开头`
 
 预览文档
 
