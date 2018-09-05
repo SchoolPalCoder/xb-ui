@@ -38,7 +38,7 @@
 ## TODO-List ##
 
 1. 组件规则
-   - 写一个tools自动生成组件文件结构。包含开发测试用文件，mdx文件，组件主体文件,参考[Element-UI](https://github.com/ElemeFE/element)
+   - 写一个tools自动生成组件文件结构。包含开发测试用文件，md文件，组件主体文件,参考[Element-UI](https://github.com/ElemeFE/element)
 1. 组件文档自动发布
    - 每个组件的demo、对外暴露的接口，参数使用详细说明等能够自动生成文档。
 1. 组件打包发布
