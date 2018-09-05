@@ -6,7 +6,8 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "create:component": "node tools/create-component"
+    "create:component": "node tools/create-component",
+    "dist:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,9 @@
     "gulp-autoprefixer": "^6.0.0",
     "gulp-sass": "^4.0.1",
     "node-sass": "^4.9.3",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-rename": "^1.2.2"
   },
   "peerDependencies": {
     "vue": "^2.5.2"
