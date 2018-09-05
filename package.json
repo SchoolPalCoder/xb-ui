@@ -7,7 +7,8 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "create:component": "node tools/create-component",
-    "dist:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js"
+    "dist:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
+    "dist:component": "webpack --config build/webpack.component.js"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,17 @@
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "gulp-clean-css": "^3.9.3",
-    "gulp-rename": "^1.2.2"
+    "gulp-rename": "^1.2.2",
+    "webpack": "^3.7.1",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-node-externals": "^1.6.0",
+    "progress-bar-webpack-plugin": "^1.11.0",
+    "babel-loader": "^7.1.2",
+    "vue-loader": "^13.3.0",
+    "json-loader": "^0.5.7",
+    "html-loader": "^0.5.1",
+    "url-loader": "^0.6.2",
+    "babel-core": "^6.14.0"
   },
   "peerDependencies": {
     "vue": "^2.5.2"
