@@ -23,4 +23,4 @@ gulp.task('css', function () {
 // });
 
 // 这里的build对应package.json中的 gulp build
-gulp.task('build', ['css']);
+gulp.task('default', ['css']);
