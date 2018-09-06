@@ -2,7 +2,7 @@
   "name": "xb-ui",
   "version": "0.0.1",
   "description": "SchoolPal's UI components",
-  "main": "index.js",
+  "main": "lib/xb-ui.common.js",
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
