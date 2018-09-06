@@ -1,0 +1,30 @@
+{
+  "presets": [
+    [
+      "es2015",
+      {
+        "loose": true
+      }
+    ]
+  ],
+  "plugins": [
+    "transform-vue-jsx"
+  ],
+  "env": {
+    "utils": {
+      "plugins": [
+        [
+          "module-resolver",
+          {
+            "root": [
+              "xb-ui"
+            ],
+            "alias": {
+              "xb-ui/src": "xb-ui/lib"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
