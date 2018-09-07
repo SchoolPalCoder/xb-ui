@@ -9,7 +9,7 @@
     "create:component": "node tools/create-component",
     "dist:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/dist lib/theme-chalk",
     "dist:component": "webpack --config build/webpack.component.js",
-    "dist": "webpack --config build/webpack.common.js && npm run dist:style"
+    "dist": "webpack --config build/webpack.common.js && webpack --config build/webpack.component.js && npm run dist:style"
   },
   "style": "lib/theme-chalk/index.css",
   "repository": {
