@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'ElCard',
+  name: 'XbCard',
   props: {
     header: {},
     bodyStyle: {},
