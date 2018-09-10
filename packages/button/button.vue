@@ -1,5 +1,5 @@
 <template>
-  <button class="" @click="handleClick" :disabled="disabled" :type="nativeType">
+  <button class="xb-button" @click="handleClick" :disabled="disabled" :type="nativeType">
     <i :class="icon" v-if="icon"></i>
     <span v-if="$slots.default">
       <slot></slot>
@@ -9,32 +9,31 @@
 
 <script>
 export default {
-  name: "XbButton",
+  name: 'XbButton',
 
   props: {
     type: {
       type: String,
-      default: "default"
+      default: 'default',
     },
     size: String,
     icon: {
       type: String,
-      default: ""
+      default: '',
     },
     nativeType: {
       type: String,
-      default: "button"
+      default: 'button',
     },
-    disabled: Boolean
+    disabled: Boolean,
   },
 
   computed: {},
 
   methods: {
     handleClick(evt) {
-      this.$emit("click", evt);
-    }
-  }
+      this.$emit('click', evt);
+    },
+  },
 };
 </script>
-

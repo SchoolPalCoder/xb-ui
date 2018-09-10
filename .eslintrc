@@ -6,9 +6,21 @@
     "expect": true,
     "sinon": true
   },
-  "plugins": ["html", "json"],
+  "plugins": [
+    "html",
+    "json"
+  ],
+  "extends": [
+    "plugin:vue/strongly-recommended",
+    "plugin:prettier/recommended"
+  ],
   "rules": {
-    "no-restricted-globals": ["error", "event", "fdescribe"]
+    "no-restricted-globals": [
+      "error",
+      "event",
+      "fdescribe"
+    ],
+    "prettier/prettier": "error"
   },
   "parserOptions": {
     "ecmaFeatures": {

@@ -1,6 +1,6 @@
 <template>
-  <div class="el-card">
-    <div class="el-card__body">
+  <div class="xb-card">
+    <div class="xb-card__body">
       <slot></slot>
     </div>
   </div>
@@ -13,8 +13,8 @@ export default {
     header: {},
     bodyStyle: {},
     shadow: {
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 };
 </script>
