@@ -68,7 +68,7 @@ npm run create:component 组件所属的文档范围  组件名
 预览文档
 
 ```bash
-npm run dev:docs
+npm run docs:dev
 ```
 
 ## 技术栈 ##

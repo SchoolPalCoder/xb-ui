@@ -1,5 +1,8 @@
 <template>
-  <button class="xb-button" @click="handleClick" :disabled="disabled" :type="nativeType">
+  <button class="xb-button" :class="[
+      disabled?'xb-button-disabled':'',
+      type ? 'xb-button-' + type : '',
+    ]" @click="handleClick" :disabled="disabled" :type="nativeType">
     <i :class="icon" v-if="icon"></i>
     <span v-if="$slots.default">
       <slot></slot>

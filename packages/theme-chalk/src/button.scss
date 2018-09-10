@@ -1,8 +1,21 @@
 .xb-button{
     padding: 5px 10px;
-    color: white;
-    color: #fff;
-    background-color: #409eff;
-    border-color: #409eff;
     border: 0;
+    outline: none;
+    border-radius:3px;
+}
+.xb-button-default{
+  color:rgba(255,255,255,1);
+  background:rgba(91,138,249,1);
+  border: 1px solid rgba(91,138,249,1);
+}
+.xb-button-reset{
+  color:rgba(115,115,115,1);
+  background:rgba(255,255,255,0.9);
+  border:1px solid rgba(170,170,170,1);
+}
+.xb-button-disabled{
+    color: rgba(170,170,170,1);
+    background-color: #f9f9f9;
+    border: 1px solid rgba(170,170,170,1);
 }

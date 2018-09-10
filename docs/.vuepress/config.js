@@ -41,6 +41,7 @@ module.exports = {
         collapsable: false,
         children: [
           'layout/layout',
+          'layout/card'
         ]
       },
       {
@@ -51,7 +52,14 @@ module.exports = {
           'form/checkbox',
           'form/form',
         ]
-      },]
+      },
+      {
+        title: '通知',
+        collapsable: false,
+        children: [
+          'notice/alert',
+        ]
+      }]
     }
   },
 }

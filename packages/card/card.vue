@@ -1,6 +1,6 @@
 <template>
   <div class="xb-card">
-    <div class="xb-card__body">
+    <div class="xb-card-body">
       <slot></slot>
     </div>
   </div>

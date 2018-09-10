@@ -12,7 +12,7 @@ const utils = require('./utils');
 const upperFirst = require('lodash/upperFirst');
 
 const argv = process.argv;
-if (argv.length !== 4) {
+if (argv.length !== 3) {
   utils.console("Create component failed! Reason: argv Error!", "red");
   return
 }

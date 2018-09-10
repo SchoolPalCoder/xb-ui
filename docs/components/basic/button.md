@@ -11,26 +11,71 @@ sidebarDepth: 1
 
 <div class="demo-button">
   <div>
-    <el-button>默认按钮</el-button>
-    <el-button type="primary">主要按钮</el-button>
-    <el-button type="success">成功按钮</el-button>
-    <el-button type="info">信息按钮</el-button>
-    <el-button type="warning">警告按钮</el-button>
-    <xb-button type="danger">危险按钮</xb-button>
+    <xb-button type="default">默认按钮</xb-button>
+    <xb-button type="reset">重置按钮</xb-button>
   </div>
 </div>
 
 ```js
-<div class="demo-button">
-  <div>
-    <el-button>默认按钮</el-button>
-    <el-button type="primary">主要按钮</el-button>
-    <el-button type="success">成功按钮</el-button>
-    <el-button type="info">信息按钮</el-button>
-    <el-button type="warning">警告按钮</el-button>
-    <el-button type="danger">危险按钮</el-button>
-  </div>
-</div>
+<xb-button type="default">默认按钮</xb-button>
+<xb-button type="reset">重置按钮</xb-button>
 ```
 
 ## 禁用
+
+禁用的按钮用法。
+
+<div class="demo-button">
+  <div>
+    <xb-button disabled="disabled" >默认按钮</xb-button>
+  </div>
+</div>
+
+```js
+<xb-button disabled="disabled" >默认按钮</xb-button>
+
+export default {
+  data(){
+    return{
+      disabled:true
+    }
+  }
+}
+```
+
+## 事件调用
+
+点击按钮的事件调用
+
+<div class="demo-button">
+  <div>
+    <xb-button @click="clickFunc()">click</xb-button>
+  </div>
+</div>
+
+```js
+<xb-button @click="clickFunc()">click</xb-button>
+
+export default {
+  methods: {
+    clickFunc(evt) {
+      alert("click")
+    }
+  }
+}
+```
+
+<script>
+export default {
+  data(){
+    return{
+      disabled:true
+    }
+  },
+  methods: {
+    clickFunc(evt) {
+      alert("click")
+    }
+  }
+}
+</script>
