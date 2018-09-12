@@ -7,6 +7,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "create:component": "node tools/create-component",
+    "create:componentMd": "node tools/create-componentMd",
     "dist:style": "node build/gen-cssfile && gulp --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/dist lib/theme-chalk",
     "dist:component": "webpack --config build/webpack.component.js",
     "dist": "webpack --config build/webpack.common.js && webpack --config build/webpack.component.js && npm run dist:style",

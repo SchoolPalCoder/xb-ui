@@ -1,74 +1,91 @@
 /**
- * 创建组件脚本工具
- * Author: SaberWang
- * CreateTime: 2018-08-31
- * Description:
- * npm run create:compoments 组件类型（md文档放哪个文件夹下） 组件名称
+ * npm run create:component 组件名
  */
-
 const mkdirp = require('mkdirp');
 const path = require('path');
+const fs = require('fs');
+const chalk = require('chalk');
 const utils = require('./utils');
-const upperFirst = require('lodash/upperFirst');
 
-const argv = process.argv;
-if (argv.length !== 3) {
-  utils.console("Create component failed! Reason: argv Error!", "red");
-  return
+// package/组件/index.js
+var indexJS = (component) => {
+  let componentName = component.name.substring(0, 1).toUpperCase() + component.name.substring(1);
+  return `
+    import Xb${componentName} from './index.vue';
+
+    Xb${componentName}.install = function (Vue) {
+      Vue.component(Xb${componentName}.name, Xb${componentName});
+    };
+
+    export default Xb${componentName};
+  `;
 }
 
-const createVue = (component) => {
-  return `<template>
+// package/组件/index.vue
+var indexVue = (component) => {
+  let componentName = component.name.substring(0, 1).toUpperCase() + component.name.substring(1);
+  return `
+    <template>
 
-</template>
+    </template>
 
-<script>
-export default {
-  name: "${component.name}",
+    <script>
+    export default {
+      name: 'Xb${componentName}',
+    };
+    </script>
+  `;
+}
 
-  props: {
+// package/theme-chalk/index.scss update
+var updateIndexScss = (component) => {
+  return `@import "./${component.name}.scss";\n`
+}
 
-  },
+var component = {
+  name: process.argv[2].toLowerCase(),
+}
 
-  computed: {
+let dir = path.resolve(__dirname, '../packages');
+let cssDir = path.resolve(__dirname, '../packages/theme-chalk');
 
-  },
-
-  methods: {
-
-  }
-};
-</script>`;
-};
-
-const createIndex = (component) => {
-  return `import ${component.name} from './${component.file}.vue';
-
-${component.name}.install = function (Vue) {
-  Vue.component(${component.name}.name, ${component.name});
-};
-
-export default ${component.name};`
-};
-
-const component = {
-  name: "Xb" + upperFirst(utils.camelDashCaseTocamelCase(argv[3].toLowerCase())),
-  file: argv[3].toLowerCase()
-};
-
-const componentDir = path.resolve(__dirname, "../packages"),
-  scssDir = path.resolve(__dirname, "../packages/theme-chalk/src"),
-  mdDir = path.resolve(__dirname, `../docs/components/${argv[2].toLowerCase()}`);
-
-mkdirp(path.join(componentDir, component.file), (err) => {
+//packages 增加对应组件包 ：index.vue index.js
+mkdirp(path.join(dir, component.name), (err) => {
   if (err) {
-    utils.console(err, 'yellow');
+    console.warn(chalk.red(err));
   } else {
-    utils.writeFileOrWarn(path.join(componentDir, component.file, `${component.file}.vue`), createVue(component));
-    utils.writeFileOrWarn(path.join(componentDir, component.file, `index.js`), createIndex(component));
-    utils.writeFileOrWarn(path.join(scssDir, `${component.file}.scss`), '');
-    utils.writeFileOrWarn(path.join(mdDir, `${component.file}.md`), '');
-    utils.console("Create component successfuly!", "green");
-    console.log();
+    utils.writeFileOrWarn(path.join(dir, component.name, 'index.js'), indexJS(component));
+    utils.writeFileOrWarn(path.join(dir, component.name, 'index.vue'), indexVue(component));
   }
 });
+
+//theme-chalk 增加 组件对应样式
+mkdirp(path.join(cssDir, 'src'), (err) => {
+  if (err) {
+    console.warn(chalk.red(err));
+  } else {
+    utils.writeFileOrWarn(path.join(cssDir, 'src', component.name + '.scss'), '');
+    utils.appendFile(path.join(cssDir, 'src', 'index.scss'), updateIndexScss(component));
+  }
+});
+
+//component.json 写入组件
+let componentJsonPath = path.resolve(__dirname, "../components.json");
+fs.readFile(componentJsonPath, 'utf-8', function (err, data) {
+  let list1 = data.split('\n');
+  let str1 = ''; //之前的str
+  list1.forEach((item, index) => {
+    if (item == "}") {
+      list1[index - 1] = list1[index - 1] + ",";//给上一行加上逗号
+      str1 = list1.slice(0, index).join("\n");
+    }
+  });
+  let dataList = data.split('}');
+  let str = '\n\t"' + component.name + '":"./packages/' + component.name + '/index.js"';
+  let newData = str1 + str + dataList[1] + "}";
+  fs.writeFile(componentJsonPath, newData, err => {
+    if (err) {
+      console.log(err);
+    }
+  });
+})

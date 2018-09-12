@@ -1,5 +1,5 @@
 {
   "button": "./packages/button/index.js",
-  "card": "./packages/card/index.js",
-  "alert": "./packages/alert/index.js"
+  "alert": "./packages/alert/index.js",
+  "card": "./packages/card/index.js"
 }
