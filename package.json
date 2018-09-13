@@ -1,6 +1,6 @@
 {
   "name": "xb-ui",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "SchoolPal's UI components",
   "main": "lib/xb-ui.common.js",
   "scripts": {
@@ -9,8 +9,8 @@
     "create:component": "node tools/create-component",
     "create:componentMd": "node tools/create-componentMd",
     "dist:style": "node build/gen-cssfile && gulp --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/dist lib/theme-chalk",
-    "dist:component": "webpack --config build/webpack.component.js",
-    "dist": "webpack --config build/webpack.common.js && webpack --config build/webpack.component.js && npm run dist:style",
+    "dist:component": "webpack --config build/webpack.component.js --mode production",
+    "dist": "webpack --config build/webpack.production.js --mode production && webpack --config build/webpack.component.js --mode production && npm run dist:style",
     "format": "prettier --write \"packages/**/*.js\" \"packages/**/*.vue\"",
     "precommit": "lint-staged"
   },
@@ -27,8 +27,10 @@
   },
   "keywords": [
     "vue",
+    "xb",
     "ui",
-    "components"
+    "components",
+    "vuepress"
   ],
   "author": "SchoolPal Coder",
   "license": "ISC",

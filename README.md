@@ -8,46 +8,61 @@
 
 ```txt
 .
+├── build       打包配置文件夹
+|   ├── entry.js             整个组件打包的入口文件
+|   ├── config.js             打包的配置文件
+|   ├── gen-cssfile.js        样式合并打包在index.css的配置文件
+|   ├── webpack.production.js     整体组件打包文件
+|   └── webpack.component.js  单个组件打包文件
 ├── docs        XBUI 静态站点文件夹
 |   ├── .vuepress    vuepress 所需要的配置环境文件夹
 |   |   ├── public         vuepress 公共静态文件夹
 |   |   ├── config.js      vuepress 配置文件
 |   |   └── enhanceApp.js  vuepress 应用级别配置文件(组件注入)
 |   ├── components   组件文档文件夹
-|   |   ├── basic          具体的组件分类文件夹
-|   |   └── layout         具体的组件分类文件夹
+|   |   ├── basic         具体的组件分类文件夹
+|   |   ├── form          具体的组件分类文件夹
+|   |   ├── layout        具体的组件分类文件夹
+|   |   └── notice        具体的组件分类文件夹
 |   ├── guide        指南说明
+|   |   ├── install.md     安装
+|   |   ├── README.md      介绍文档
+|   |   ├── start.md       快速开始
+|   |   └── updateLog      日志更新
 |   └── README.md    主页
+├── lib           打包后文件夹
+|   ├── theme-chakl   打包后样式所在文件夹
+|   |   ├── ...            组件对应的样式
+|   |   └── index.css      整个组件库的样式
+|   ├── ...                单个组件打包后文件
+|   └── xb-ui.common.js    整个组件库打包后的js文件
 ├── packages    存放我们需要打包的组件
-|   ├── ...          vue组件，自己Create
-|   └── theme-chalk  vue组件的静态样式
-|   |    ├── src           vue组件样式文件夹
-|   |    └── gulpfile.js   样式打包脚本，为的是能独立打包样式能做主题包切换
+|   ├── ...               vue组件，自己Create
+|   └── theme-chalk       vue组件的静态样式
+|   |    ├── src              vue组件样式文件夹
+|   |    └── gulpfile.js      样式打包脚本，为的是能独立打包样式能做主题包切换
 ├── tools       项目工具文件夹
-|   ├── ...          工具脚本
-|   └── utils.js     实用工具类
+|   ├── create-component.js             创建组件工具
+|   ├── create-componentMd.js           创建组件文档工具
+|   └── utils.js                        实用工具类
+├── .babelrc
 ├── .editorconfig
 ├── .eslintignore
 ├── .eslintrc
 ├── .gitignore
+├── components.json
 ├── package.json
-├── README.md
-└── yarn.lock
+├── prettier.config.js     代码自动化规范
+└── README.md
 ```
 
 ## TODO-List ##
 
-1. 组件规则
-   - 写一个tools自动生成组件文件结构。包含开发测试用文件，md文件，组件主体文件,参考[Element-UI](https://github.com/ElemeFE/element)
-1. 组件文档自动发布
-   - 每个组件的demo、对外暴露的接口，参数使用详细说明等能够自动生成文档。
-1. 组件打包发布
-   - 打包方式，只打包组件主体，不打包附加其他文件
-   - 集成到CI环境
-   - git hook的自动化处理打包上传，解包下载的钩子开发。
-1. 组件改动规则
-   - 何时改动组件，由谁来改动组件，怎么改动组件。只做抛转引玉的作用。
+1. 国际化
 1. 单元测试
+1. 组件改动审核规则
+   - 大家会进行组件CodeReview
+   - 每个组在各自分支开发，合并到master需要安然或者少波进行操作
 
 ## 开始 ##
 
@@ -62,7 +77,7 @@ yarn
 >`创建的组件不需要以Xb开头`
 
 ```bash
-npm run create:component 组件所属的文档范围  组件名
+npm run create:component 组件名
 ```
 
 预览文档
@@ -77,4 +92,4 @@ npm run docs:dev
 - [vuepress](https://github.com/vuejs/vuepress)
 
 ## 安装 ##
-npm install https://github.com/SchoolPalCoder/Xb-Basic-Components.git
+npm install xb-ui

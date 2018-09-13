@@ -11,6 +11,13 @@
 |-- button.scss (button组件的样式，如果需要单个组件能单独引用，将样式直接放在src下)
 
 ## 引用整体样式
+
+```js
+import 'xb-ui/lib/theme-chalk/index.css';
+```
+
+或
+
 ```html
 <link rel="stylesheet" href="整体包打包后地址/theme-chalk/dist/index.css">
 ```

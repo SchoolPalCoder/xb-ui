@@ -10,10 +10,10 @@
 ```txt
 .
 ├── build       打包配置文件夹
-|   ├── common.js             整个组件打包的入口文件
+|   ├── entry.js             整个组件打包的入口文件
 |   ├── config.js             打包的配置文件
 |   ├── gen-cssfile.js        样式合并打包在index.css的配置文件
-|   ├── webpack.common.js     整体组件打包文件
+|   ├── webpack.production.js     整体组件打包文件
 |   └── webpack.component.js  单个组件打包文件
 ├── docs        XBUI 静态站点文件夹
 |   ├── .vuepress    vuepress 所需要的配置环境文件夹
