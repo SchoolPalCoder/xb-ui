@@ -77,4 +77,4 @@ npm run docs:dev
 - [vuepress](https://github.com/vuejs/vuepress)
 
 ## 安装 ##
-npm install https://github.com/SchoolPalCoder/Xb-Basic-Components.git#vuepress
+npm install https://github.com/SchoolPalCoder/Xb-Basic-Components.git
