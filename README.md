@@ -66,12 +66,6 @@
 
 ## 开始 ##
 
-请用yarn安装依赖包
-
-```bash
-yarn
-```
-
 创建组件
 
 >`创建的组件不需要以Xb开头`
@@ -92,4 +86,7 @@ npm run docs:dev
 - [vuepress](https://github.com/vuejs/vuepress)
 
 ## 安装 ##
+
+```bash
 npm install xb-ui
+```
