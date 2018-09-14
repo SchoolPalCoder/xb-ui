@@ -37,14 +37,6 @@ module.exports = {
         ]
       },
       {
-        title: '布局组件',
-        collapsable: false,
-        children: [
-          'layout/xb-layout',
-          'layout/xb-card'
-        ]
-      },
-      {
         title: '表单组件',
         collapsable: false,
         children: [
@@ -54,10 +46,31 @@ module.exports = {
         ]
       },
       {
-        title: '通知',
+        title: '表格组件',
+        collapsable: false,
+        children: [
+          'data/xb-table'
+        ]
+      },
+      {
+        title: '通知组件',
         collapsable: false,
         children: [
           'notice/xb-alert',
+        ]
+      },
+      {
+        title: '导航组件',
+        collapsable: false,
+        children: [
+          'navigation/xb-nav'
+        ]
+      },
+      {
+        title: '其他组件',
+        collapsable: false,
+        children: [
+          'others/xb-collapse'
         ]
       }]
     }
