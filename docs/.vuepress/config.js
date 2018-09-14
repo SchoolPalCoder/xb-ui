@@ -70,7 +70,8 @@ module.exports = {
         title: '其他组件',
         collapsable: false,
         children: [
-          'others/xb-collapse'
+          'others/xb-collapse',
+          'others/xb-card'
         ]
       }]
     }
