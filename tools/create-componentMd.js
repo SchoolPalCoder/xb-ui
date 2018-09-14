@@ -57,7 +57,6 @@ fs.readFile(componentVuePath, 'utf-8', function (err, data) {
   //获取<script>下export default前的注释数组，根据注释在对应的文档生成参数表
   let reg = /@props\s+([^\f\n\r\t\v]+)(?=[\f\n\r\t\v])/gm;
   let paramList = data.match(reg); //注释参数
-  console.log(paramList);
   propsMD(paramList)
   utils.appendFile(componentMdPath, propsMD(paramList));
 })

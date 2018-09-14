@@ -15,7 +15,7 @@ module.exports = {
     },
     {
       text: '组件',
-      link: '/components/basic/button'
+      link: '/components/basic/xb-button'
     }
     ],
     sidebar: {
@@ -33,31 +33,31 @@ module.exports = {
         title: '基础组件',
         collapsable: false,
         children: [
-          'basic/button',
+          'basic/xb-button',
         ]
       },
       {
         title: '布局组件',
         collapsable: false,
         children: [
-          'layout/layout',
-          'layout/card'
+          'layout/xb-layout',
+          'layout/xb-card'
         ]
       },
       {
         title: '表单组件',
         collapsable: false,
         children: [
-          'form/radio',
-          'form/checkbox',
-          'form/form',
+          'form/xb-radio',
+          'form/xb-checkbox',
+          'form/xb-form',
         ]
       },
       {
         title: '通知',
         collapsable: false,
         children: [
-          'notice/alert',
+          'notice/xb-alert',
         ]
       }]
     }

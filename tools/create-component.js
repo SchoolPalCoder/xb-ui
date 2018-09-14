@@ -7,23 +7,35 @@ const fs = require('fs');
 const chalk = require('chalk');
 const utils = require('./utils');
 
+// xb-button 转换成 XbButton
+var transformName = (component) => {
+  let arr = component.name.toLowerCase().split("-");
+  let newArr = [];
+  arr.forEach(item => {
+    item = item.charAt(0).toUpperCase() + item.substring(1);//给字符串开头第一个变成大写'
+    newArr.push(item);
+  })
+  let newComponentName = newArr.join("");
+  return newComponentName;
+}
+
 // package/组件/index.js
 var indexJS = (component) => {
-  let componentName = component.name.substring(0, 1).toUpperCase() + component.name.substring(1);
+  let newComponentName = transformName(component);
   return `
-    import Xb${componentName} from './index.vue';
+    import ${newComponentName} from './index.vue';
 
-    Xb${componentName}.install = function (Vue) {
-      Vue.component(Xb${componentName}.name, Xb${componentName});
+    ${newComponentName}.install = function (Vue) {
+      Vue.component(${newComponentName}.name, ${newComponentName});
     };
 
-    export default Xb${componentName};
+    export default ${newComponentName};
   `;
 }
 
 // package/组件/index.vue
 var indexVue = (component) => {
-  let componentName = component.name.substring(0, 1).toUpperCase() + component.name.substring(1);
+  let newComponentName = transformName(component);
   return `
     <template>
 
@@ -31,7 +43,7 @@ var indexVue = (component) => {
 
     <script>
     export default {
-      name: 'Xb${componentName}',
+      name: '${newComponentName}',
     };
     </script>
   `;
