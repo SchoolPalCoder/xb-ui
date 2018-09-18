@@ -1,4 +1,5 @@
----sidebarDepth: 1
+---
+sidebarDepth: 1
 ---
 
 # xb-button 按钮

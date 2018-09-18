@@ -14,6 +14,17 @@ const requireComponent = require.context(
   /index\.js$/
 )
 
+var transformName = (component) => {
+  let arr = component.toLowerCase().split("-");
+  let newArr = [];
+  arr.forEach(item => {
+    item = item.charAt(0).toUpperCase() + item.substring(1);//给字符串开头第一个变成大写'
+    newArr.push(item);
+  })
+  let newComponentName = newArr.join("");
+  return newComponentName;
+}
+
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
   options, // 附加到根实例的一些选项
@@ -23,13 +34,12 @@ export default ({
   requireComponent.keys().forEach(fileName => {
     // 获取组件配置
     const componentConfig = requireComponent(fileName);
-
     // 获取组件的 PascalCase 命名
-    const componentName = 'Xb' + upperFirst(
-      // 剥去文件名开头的 `./` 和结尾的扩展名
-      fileName.replace(/^\.\/(.*)\/index\.js+$/, '$1')
-    );
-
+    // const componentName = 'Xb' + upperFirst(
+    //   // 剥去文件名开头的 `./` 和结尾的扩展名
+    //   fileName.replace(/^\.\/(.*)\/index\.js+$/, '$1')
+    // );
+    const componentName = transformName(fileName.replace(/^\.\/(.*)\/index\.js+$/, '$1'));
     // 全局注册组件
     Vue.component(
       componentName,
