@@ -6,11 +6,12 @@
 npm run create:component 组件名
 ```
 
-## 创建组件文档
+## 创建/更新组件文档
 
 ```bash
 npm run create:componentMd 组件分类文件夹名 组件名
 ```
+
 
 ## 运行
 

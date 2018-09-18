@@ -1,6 +1,6 @@
 {
   "name": "xb-ui",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "SchoolPal's UI components",
   "main": "lib/xb-ui.common.js",
   "scripts": {

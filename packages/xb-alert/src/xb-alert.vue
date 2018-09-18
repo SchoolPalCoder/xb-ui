@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import xbButton from '../xb-button/index';
+import xbButton from '../../xb-button/index';
 export default {
   name: 'XbAlert',
   component: { xbButton },

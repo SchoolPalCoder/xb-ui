@@ -7,6 +7,10 @@ const fs = require('fs');
 const chalk = require('chalk');
 const utils = require('./utils');
 
+var component = {
+  name: process.argv[2].toLowerCase(),
+}
+
 // xb-button 转换成 XbButton
 var transformName = (component) => {
   let arr = component.name.toLowerCase().split("-");
@@ -23,7 +27,7 @@ var transformName = (component) => {
 var indexJS = (component) => {
   let newComponentName = transformName(component);
   return `
-    import ${newComponentName} from './index.vue';
+    import ${newComponentName} from './src/${component.name}.vue';
 
     ${newComponentName}.install = function (Vue) {
       Vue.component(${newComponentName}.name, ${newComponentName});
@@ -33,7 +37,7 @@ var indexJS = (component) => {
   `;
 }
 
-// package/组件/index.vue
+// package/组件/src/组件.vue
 var indexVue = (component) => {
   let newComponentName = transformName(component);
   return `
@@ -54,20 +58,15 @@ var updateIndexScss = (component) => {
   return `@import "./${component.name}.scss";\n`
 }
 
-var component = {
-  name: process.argv[2].toLowerCase(),
-}
-
 let dir = path.resolve(__dirname, '../packages');
 let cssDir = path.resolve(__dirname, '../packages/theme-chalk');
-
-//packages 增加对应组件包 ：index.vue index.js
+//packages 增加对应组件包 : 组件.vue index.js
 mkdirp(path.join(dir, component.name), (err) => {
   if (err) {
     console.warn(chalk.red(err));
   } else {
-    utils.writeFileOrWarn(path.join(dir, component.name, 'index.js'), indexJS(component));
-    utils.writeFileOrWarn(path.join(dir, component.name, 'index.vue'), indexVue(component));
+    utils.writeFileOrWarn(path.resolve(__dirname, '../packages/' + component.name + "/index.js"), indexJS(component));
+    utils.writeFileOrWarn(path.resolve(__dirname, '../packages/' + component.name + "/src/" + component.name + ".vue"), indexVue(component));
   }
 });
 
