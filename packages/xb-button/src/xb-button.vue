@@ -43,6 +43,11 @@
  */
 export default {
   name: 'XbButton',
+  data() {
+    return {
+      num: 0,
+    };
+  },
   props: {
     type: {
       type: String,
@@ -64,6 +69,7 @@ export default {
 
   methods: {
     handleClick(evt) {
+      this.num++;
       this.$emit('click', evt);
     },
   },

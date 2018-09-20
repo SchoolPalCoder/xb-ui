@@ -90,3 +90,6 @@ npm run docs:dev
 ```bash
 npm install xb-ui
 ```
+
+#### 关于单元测试移步为知笔记：
+> 技术知识库--->IBU--->IBU技术推进文档--->前端新框架--->关于xbUI组件的单元测试.md

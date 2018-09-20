@@ -1,5 +1,6 @@
 <template>
   <div class="xb-card">
+    <h3>xbCard.vue</h3>
     <div class="xb-card-body">
       <slot></slot>
     </div>
