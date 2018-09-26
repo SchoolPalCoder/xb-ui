@@ -93,9 +93,8 @@ fs.readFile(componentJsonPath, 'utf-8', function (err, data) {
       str1 = list1.slice(0, index).join("\n");
     }
   });
-  let dataList = data.split('}');
   let str = '\n\t"' + component.name + '":"./packages/' + component.name + '/index.js"';
-  let newData = str1 + str + dataList[1] + "}";
+  let newData = str1 + str + "\n" + "}";
   fs.writeFile(componentJsonPath, newData, err => {
     if (err) {
       console.log(err);
