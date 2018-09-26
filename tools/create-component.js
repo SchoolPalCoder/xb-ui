@@ -66,7 +66,9 @@ mkdirp(path.join(dir, component.name), (err) => {
     console.warn(chalk.red(err));
   } else {
     utils.writeFileOrWarn(path.resolve(__dirname, '../packages/' + component.name + "/index.js"), indexJS(component));
-    utils.writeFileOrWarn(path.resolve(__dirname, '../packages/' + component.name + "/src/" + component.name + ".vue"), indexVue(component));
+    mkdirp(path.join(dir, component.name, "src"), (err) => {
+      utils.writeFileOrWarn(path.resolve(__dirname, '../packages/' + component.name + "/src/" + component.name + ".vue"), indexVue(component));
+    })
   }
 });
 
