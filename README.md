@@ -6,7 +6,7 @@
 
 ## 编码规范
 
-参考[Vue 风格指南](https://cn.vuejs.org/v2/style-guide/index.html)
+参考[书写规则](./Rules.md)
 
 ## 项目结构
 
@@ -72,7 +72,7 @@
 
 创建组件
 
-> `创建的组件不需要以Xb开头`
+> `创建的组件需要以Xb-开头`
 
 ```bash
 npm run create:component 组件名
