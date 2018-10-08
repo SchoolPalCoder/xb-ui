@@ -1,10 +1,14 @@
-# IBU前端VUE基础组件库项目 #
+# IBU 前端 VUE 基础组件库项目
 
-## 说明 ##
+## 说明
 
-这是IBU前端Vue基础组件库项目，目前处于起步阶段，后期需要大家不断的完善组件库内容，演变为强大并且通用的基础组件库。对标Element-UI。
+这是 IBU 前端 Vue 基础组件库项目，目前处于起步阶段，后期需要大家不断的完善组件库内容，演变为强大并且通用的基础组件库。对标 Element-UI。
 
-## 项目结构 ##
+## 编码规范
+
+参考[Vue 风格指南](https://cn.vuejs.org/v2/style-guide/index.html)
+
+## 项目结构
 
 ```txt
 .
@@ -56,19 +60,19 @@
 └── README.md
 ```
 
-## TODO-List ##
+## TODO-List
 
 1. 国际化
 1. 单元测试
 1. 组件改动审核规则
-   - 大家会进行组件CodeReview
-   - 每个组在各自分支开发，合并到master需要安然或者少波进行操作
+   - 大家会进行组件 CodeReview
+   - 每个组在各自分支开发，合并到 master 需要安然或者少波进行操作
 
-## 开始 ##
+## 开始
 
 创建组件
 
->`创建的组件不需要以Xb开头`
+> `创建的组件不需要以Xb开头`
 
 ```bash
 npm run create:component 组件名
@@ -80,16 +84,17 @@ npm run create:component 组件名
 npm run docs:dev
 ```
 
-## 技术栈 ##
+## 技术栈
 
 - [vue](https://github.com/vuejs/vue)
 - [vuepress](https://github.com/vuejs/vuepress)
 
-## 安装 ##
+## 安装
 
 ```bash
 npm install xb-ui
 ```
 
 #### 关于单元测试移步为知笔记：
-> 技术知识库--->IBU--->IBU技术推进文档--->前端新框架--->关于xbUI组件的单元测试.md
+
+> 技术知识库--->IBU--->IBU 技术推进文档--->前端新框架--->关于 xbUI 组件的单元测试.md

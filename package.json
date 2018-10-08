@@ -110,7 +110,6 @@
     "vue": "^2.5.2"
   },
   "dependencies": {
-    "element-ui": "^2.4.6",
     "vuepress": "^0.14.2"
   }
 }
