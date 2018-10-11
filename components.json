@@ -1,5 +1,6 @@
 {
   "xb-button": "./packages/xb-button/index.js",
   "xb-alert": "./packages/xb-alert/index.js",
-  "xb-card": "./packages/xb-card/index.js"
+  "xb-card": "./packages/xb-card/index.js",
+	"xb-icon":"./packages/xb-icon/index.js"
 }

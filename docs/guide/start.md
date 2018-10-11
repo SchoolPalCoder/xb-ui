@@ -12,6 +12,13 @@ npm run create:component 组件名
 npm run create:componentMd 组件分类文件夹名 组件名
 ```
 
+## 初始化图标库
+
+在packages/theme-chalk/src 下加入fonts文件夹以及更新xb-icon.scss后执行该命令，就可以在图标库上显示更新的图标
+
+```bash
+npm run init:icon
+```
 
 ## 运行
 

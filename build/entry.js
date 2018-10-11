@@ -2,11 +2,13 @@
 import XbButton from '../packages/xb-button/index.js';
 import XbCard from '../packages/xb-card/index.js';
 import XbAlert from '../packages/xb-alert/index.js';
+import XbIcon from '../packages/xb-icon/index.js';
 
 const components = [
   XbButton,
   XbCard,
-  XbAlert
+  XbAlert,
+  XbIcon
 ];
 
 const install = function (Vue, opts = {}) {
@@ -33,6 +35,7 @@ module.exports = {
   XbButton,
   XbCard,
   XbAlert,
+  XbIcon
 };
 
 module.exports.default = module.exports;

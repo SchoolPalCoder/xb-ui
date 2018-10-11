@@ -33,6 +33,7 @@ module.exports = {
         title: '基础组件',
         collapsable: false,
         children: [
+          'basic/xb-icon',
           'basic/xb-button',
         ]
       },
