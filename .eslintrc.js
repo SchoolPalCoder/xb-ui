@@ -218,11 +218,14 @@ module.exports = {
     'spaced-comment': 0, //注释风格要不要有空格什么的
     strict: 2, //使用严格模式
     'use-isnan': 2, //禁止比较时使用NaN，只能用isNaN()
-    'valid-jsdoc': [2, {
-      "prefer": {
-        "return": "returns"
-      }
-    }], //jsdoc规则
+    'valid-jsdoc': [
+      2,
+      {
+        prefer: {
+          return: 'returns',
+        },
+      },
+    ], //jsdoc规则
     'valid-typeof': 2, //必须使用合法的typeof的值
     'vars-on-top': 2, //var必须放在作用域顶部
     'wrap-iife': [2, 'inside'], //立即执行函数表达式的小括号风格

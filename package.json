@@ -12,7 +12,11 @@
     "dist:component": "webpack --config build/webpack.component.js --mode production",
     "dist": "webpack --config build/webpack.production.js --mode production && webpack --config build/webpack.component.js --mode production && npm run dist:style",
     "format": "prettier --write \"packages/**/*.js\" \"packages/**/*.vue\"",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "lint": "eslint * --fix"
+  },
+  "gitHooks": {
+    "pre-commit": "npm run lint"
   },
   "lint-staged": {
     "packages/**/*.{js,json,css,vue}": [

@@ -3,23 +3,17 @@ import XbButton from '../packages/xb-button/index.js';
 import XbCard from '../packages/xb-card/index.js';
 import XbAlert from '../packages/xb-alert/index.js';
 
-const components = [
-  XbButton,
-  XbCard,
-  XbAlert
-];
+const components = [XbButton, XbCard, XbAlert];
 
-const install = function (Vue, opts = {}) {
-
+const install = function(Vue, opts = {}) {
   components.forEach(component => {
     Vue.component(component.name, component);
   });
 
   Vue.prototype.$ELEMENT = {
     size: opts.size || '',
-    zIndex: opts.zIndex || 2000
+    zIndex: opts.zIndex || 2000,
   };
-
 };
 
 /* istanbul ignore if */
