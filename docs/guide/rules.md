@@ -4,7 +4,7 @@
 
 1. css 样式必须以 `xbui-` 开头，用于区分基础组件样式和业务代码的样式
 2. css 文件名和组件文件夹名称一致
-3. 在 vue 文件中禁止写样式，禁用 style 代码块，禁用 style 的 `scoped` 属性
+3. 在 vue 文件中禁止写样式，禁用 style 代码块，禁用 style 的 `scoped` 属性，为的是后续方便重写样式以满足特殊的业务场景
 
 ## 组件
 
@@ -29,7 +29,7 @@
 - 在声明 `prop` 的时候，其命名应该始终使用驼峰命名(首字母小写)。
 - 必须给 `prop` 添加 [JSDoc](http://www.css88.com/doc/jsdoc/index.html) 格式的注释。
 - 必须规定 `type` 或者使用 `validator` 进行验证
-- 如果有尺寸的参数 `size`，只能使用 `small`/`medium`/`large`，默认是 `medium`，调用者不用写，满足一般使用情况，特殊情况可以使用重写 css 或者 style 覆盖
+- 如果有尺寸的参数 `size`，只能使用 `small`/`medium`/`large`，默认是 `medium`，组件调用者可以不用写，满足一般使用情况，特殊情况可以使用重写 css 或者 style 覆盖
 
 ### 事件
 
