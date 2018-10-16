@@ -4,8 +4,8 @@
   "description": "SchoolPal's UI components",
   "main": "lib/xb-ui.common.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
     "create:component": "node tools/create-component",
     "create:componentMd": "node tools/create-componentMd",
     "dist:style": "node build/gen-cssfile && gulp --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/dist lib/theme-chalk",

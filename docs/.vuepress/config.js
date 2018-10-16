@@ -1,3 +1,14 @@
+// const requireComponentMD = require.context(
+//   // 其组件目录文档的相对路径
+//   '../components',
+//   // 是否查询其子目录
+//   true,
+//   // 匹配基础组件文件名的正则表达式
+//   /\*\.md$/,
+// );
+// console.log(requireComponentMD);
+// debugger;
+
 module.exports = {
   title: 'XB-UI',
   description: '校宝在线前端基础组件库',
@@ -8,6 +19,7 @@ module.exports = {
   themeConfig: {
     repo: 'schoolpalcoder/xb-basic-components',
     editLinks: true,
+    editLinkText: '在线编辑此文档',
     docsDir: 'docs',
     nav: [
       {
