@@ -1,21 +1,21 @@
 var path = require('path');
 var nodeExternals = require('webpack-node-externals');
 var Components = require('../components.json');
+var utilsList = fs.readdirSync(path.resolve(__dirname, '../src/utils'));
 var externals = {};
 
 Object.keys(Components).forEach(function(key) {
   externals[`xb-ui/packages/${key}`] = `xb-ui/lib/${key}`;
 });
 
-externals = [
-  Object.assign(
-    {
-      vue: 'vue',
-    },
-    externals,
-  ),
-  nodeExternals(),
-];
+utilsList.forEach(function (file) {
+  file = path.basename(file, '.js');
+  externals[`xb-ui/src/utils/${file}`] = `xb-ui/lib/utils/${file}`;
+});
+
+externals = [Object.assign({
+  vue: 'vue'
+}, externals), nodeExternals()];
 
 exports.externals = externals;
 
