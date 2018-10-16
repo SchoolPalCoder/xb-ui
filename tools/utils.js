@@ -1,5 +1,5 @@
 const fs = require("fs");
-const _ = require('lodash');
+const upperFirst = require('lodash/upperFirst');
 
 const colors = {
   'bold': ['\x1B[1m', '\x1B[22m'],
@@ -27,7 +27,6 @@ const colors = {
   'yellowBG': ['\x1B[43m', '\x1B[49m']
 };
 
-/**控制台输出有颜色的字体 */
 const _console = (text, color) => {
   const style = colors[color];
   if (style) {
@@ -37,7 +36,7 @@ const _console = (text, color) => {
   }
 };
 
-/**写入文件，失败报错 */
+
 const writeFileOrWarn = (file, data) => {
   if (fs.existsSync(file)) {
     _console(`warn:${file} already exists!`, 'yellow');
@@ -46,27 +45,28 @@ const writeFileOrWarn = (file, data) => {
   }
 };
 
-/**转换为Pascal命名规则，自动去除名称中的"-"、"_" */
-const pascalCase = (strText) => {
-  return _.upperFirst(_.camelCase(strText))
+const camelDashCaseTocamelCase = (name) => {
+  return name
+    .split('-')
+    .map((name, index) => index === 0 ? name : upperFirst(name))
+    .join('');
 }
 
-/**添加文件 */
 const appendFile = (file, data) => {
   fs.appendFile(file, data, (err) => {
     if (err) {
-      // 读文件时不存在报错
+      // 读文件是不存在报错
       // 意外错误
       // 文件权限问题
       // 文件夹找不到(不会自动创建文件夹)
-      _console(err, 'red');
+      console.log(err);
     }
   });
 }
 
 module.exports = {
+  camelDashCaseTocamelCase,
   writeFileOrWarn,
   appendFile,
-  pascalCase,
   console: _console
 };

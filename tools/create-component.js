@@ -7,26 +7,39 @@ const fs = require('fs');
 const chalk = require('chalk');
 const utils = require('./utils');
 
-const component = {
-  lowerName: process.argv[2].toLowerCase(),
-  pascalName: utils.pascalCase(process.argv[2])
+var component = {
+  name: process.argv[2].toLowerCase(),
+}
+
+// xb-button 转换成 XbButton
+var transformName = (component) => {
+  let arr = component.name.toLowerCase().split("-");
+  let newArr = [];
+  arr.forEach(item => {
+    item = item.charAt(0).toUpperCase() + item.substring(1);//给字符串开头第一个变成大写'
+    newArr.push(item);
+  })
+  let newComponentName = newArr.join("");
+  return newComponentName;
 }
 
 // package/组件/index.js
-const indexJS = (component) => {
+var indexJS = (component) => {
+  let newComponentName = transformName(component);
   return `
-    import ${component.pascalName} from './src/${component.lowerName}.vue';
+    import ${newComponentName} from './src/${component.name}.vue';
 
-    ${component.pascalName}.install = function (Vue) {
-      Vue.component(${component.pascalName}.name, ${component.pascalName});
+    ${newComponentName}.install = function (Vue) {
+      Vue.component(${newComponentName}.name, ${newComponentName});
     };
 
-    export default ${component.pascalName};
+    export default ${newComponentName};
   `;
 }
 
 // package/组件/src/组件.vue
-const indexVue = (component) => {
+var indexVue = (component) => {
+  let newComponentName = transformName(component);
   return `
     <template>
 
@@ -34,28 +47,27 @@ const indexVue = (component) => {
 
     <script>
     export default {
-      name: '${component.pascalName}',
+      name: '${newComponentName}',
     };
     </script>
   `;
 }
 
 // package/theme-chalk/index.scss update
-const updateIndexScss = (component) => {
-  return `@import "./${component.lowerName}.scss";\n`
+var updateIndexScss = (component) => {
+  return `@import "./${component.name}.scss";\n`
 }
 
 let dir = path.resolve(__dirname, '../packages');
 let cssDir = path.resolve(__dirname, '../packages/theme-chalk');
-
 //packages 增加对应组件包 : 组件.vue index.js
-mkdirp(path.join(dir, component.lowerName), (err) => {
+mkdirp(path.join(dir, component.name), (err) => {
   if (err) {
-    console.warn(chalk.yellow(err));
+    console.warn(chalk.red(err));
   } else {
-    utils.writeFileOrWarn(path.resolve(__dirname, '../packages/' + component.lowerName + "/index.js"), indexJS(component));
-    mkdirp(path.join(dir, component.lowerName, "src"), (err) => {
-      utils.writeFileOrWarn(path.resolve(__dirname, '../packages/' + component.lowerName + "/src/" + component.lowerName + ".vue"), indexVue(component));
+    utils.writeFileOrWarn(path.resolve(__dirname, '../packages/' + component.name + "/index.js"), indexJS(component));
+    mkdirp(path.join(dir, component.name, "src"), (err) => {
+      utils.writeFileOrWarn(path.resolve(__dirname, '../packages/' + component.name + "/src/" + component.name + ".vue"), indexVue(component));
     })
   }
 });
@@ -65,7 +77,7 @@ mkdirp(path.join(cssDir, 'src'), (err) => {
   if (err) {
     console.warn(chalk.red(err));
   } else {
-    utils.writeFileOrWarn(path.join(cssDir, 'src', component.lowerName + '.scss'), '');
+    utils.writeFileOrWarn(path.join(cssDir, 'src', component.name + '.scss'), '');
     utils.appendFile(path.join(cssDir, 'src', 'index.scss'), updateIndexScss(component));
   }
 });
@@ -77,11 +89,11 @@ fs.readFile(componentJsonPath, 'utf-8', function (err, data) {
   let str1 = ''; //之前的str
   list1.forEach((item, index) => {
     if (item == "}") {
-      list1[index - 1] = list1[index - 1] + ","; //给上一行加上逗号
+      list1[index - 1] = list1[index - 1] + ",";//给上一行加上逗号
       str1 = list1.slice(0, index).join("\n");
     }
   });
-  let str = '\n\t"' + component.lowerName + '":"./packages/' + component.lowerName + '/index.js"';
+  let str = '\n\t"' + component.name + '":"./packages/' + component.name + '/index.js"';
   let newData = str1 + str + "\n" + "}";
   fs.writeFile(componentJsonPath, newData, err => {
     if (err) {
