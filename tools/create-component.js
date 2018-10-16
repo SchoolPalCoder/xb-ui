@@ -27,13 +27,13 @@ var transformName = (component) => {
 var indexJS = (component) => {
   let newComponentName = transformName(component);
   return `
-    import ${newComponentName} from './src/${component.name}.vue';
+import ${newComponentName} from './src/${component.name}.vue';
 
-    ${newComponentName}.install = function (Vue) {
-      Vue.component(${newComponentName}.name, ${newComponentName});
-    };
+${newComponentName}.install = function (Vue) {
+  Vue.component(${newComponentName}.name, ${newComponentName});
+};
 
-    export default ${newComponentName};
+export default ${newComponentName};
   `;
 }
 
@@ -41,15 +41,15 @@ var indexJS = (component) => {
 var indexVue = (component) => {
   let newComponentName = transformName(component);
   return `
-    <template>
+<template>
 
-    </template>
+</template>
 
-    <script>
-    export default {
-      name: '${newComponentName}',
-    };
-    </script>
+<script>
+export default {
+  name: '${newComponentName}',
+};
+</script>
   `;
 }
 
