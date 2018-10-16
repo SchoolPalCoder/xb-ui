@@ -1,11 +1,9 @@
-var fs = require('fs');
-var path = require('path');
-var Components = require('../components.json');
-var themes = [
-  'theme-chalk'
-];
+const fs = require('fs');
+const path = require('path');
+const Components = require('../components.json');
+const themes = ['theme-chalk'];
 Components = Object.keys(Components);
-var basepath = path.resolve(__dirname, '../packages/');
+const basepath = path.resolve(__dirname, '../packages/');
 
 function fileExists(filePath) {
   try {
@@ -15,17 +13,20 @@ function fileExists(filePath) {
   }
 }
 
-themes.forEach((theme) => {
-  var isSCSS = theme !== 'theme-default';
-  var indexContent = '';
-  Components.forEach(function (key) {
-    var fileName = key + (isSCSS ? '.scss' : '.css');
+themes.forEach(theme => {
+  const isSCSS = theme !== 'theme-default';
+  const indexContent = '';
+  Components.forEach(function(key) {
+    const fileName = key + (isSCSS ? '.scss' : '.css');
     indexContent += '@import "./' + fileName + '";\n';
-    var filePath = path.resolve(basepath, theme, 'src', fileName);
+    const filePath = path.resolve(basepath, theme, 'src', fileName);
     if (!fileExists(filePath)) {
       fs.writeFileSync(filePath, '', 'utf8');
       console.log(theme, ' 创建遗漏的 ', fileName, ' 文件');
     }
   });
-  fs.writeFileSync(path.resolve(basepath, theme, 'src', isSCSS ? 'index.scss' : 'index.css'), indexContent);
+  fs.writeFileSync(
+    path.resolve(basepath, theme, 'src', isSCSS ? 'index.scss' : 'index.css'),
+    indexContent,
+  );
 });

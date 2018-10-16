@@ -1,112 +1,111 @@
 .xb-button {
-  padding: 5px 10px;
-  border: 0;
-  outline: 0;
-  border-radius: 3px;
+    padding: 5px 10px;
+    border: 0;
+    outline: 0;
+    border-radius: 3px;
 }
 .xb-button-default {
-  color: #fff;
-  background: #5b8af9;
-  border: 1px solid #5b8af9;
+    color: #fff;
+    background: #5b8af9;
+    border: 1px solid #5b8af9;
 }
 .xb-button-reset {
-  color: #737373;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #aaa;
+    color: #737373;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #aaa;
 }
 .xb-button-disabled {
-  color: #aaa;
-  background-color: #f9f9f9;
-  border: 1px solid #aaa;
+    color: #aaa;
+    background-color: #f9f9f9;
+    border: 1px solid #aaa;
 }
 .xb-alert {
-  display: inline-block;
-  width: 100%;
-  padding-bottom: 10px;
-  background-color: #fff;
-  border-radius: 4px;
-  font-size: 18px;
-  padding: 8px 16px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 8px 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
 }
 .xb-alert-x {
-  position: absolute;
-  top: 5px;
-  right: 15px;
-  padding: 0;
-  color: #c0c4cc;
-  cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    padding: 0;
+    color: #c0c4cc;
+    cursor: pointer;
 }
 .xb-alert-success {
-  background-color: #f0f9eb;
-  color: #67c23a;
+    background-color: #f0f9eb;
+    color: #67c23a;
 }
 .xb-alert-error {
-  background-color: #fef0f0;
-  color: #f56c6c;
+    background-color: #fef0f0;
+    color: #f56c6c;
 }
 .xb-alert-warning {
-  background-color: #fdf6ec;
-  color: #e6a23c;
+    background-color: #fdf6ec;
+    color: #e6a23c;
 }
 .xb-card {
-  padding: 10px;
-  border: 1px solid #ccc;
+    padding: 10px;
+    border: 1px solid #ccc;
 }
 .xb-card-body {
-  background: #fff;
+    background: #fff;
 }
 @font-face {
-  font-family: icomoon;
-  src: url(fonts/icomoon.eot?jko83b);
-  src: url(fonts/icomoon.eot?jko83b#iefix) format('embedded-opentype'),
-    url(fonts/icomoon.ttf?jko83b) format('truetype'),
-    url(fonts/icomoon.woff?jko83b) format('woff'),
-    url(fonts/icomoon.svg?jko83b#icomoon) format('svg');
-  font-weight: 400;
-  font-style: normal;
+    font-family: icomoon;
+    src: url(fonts/icomoon.eot?jko83b);
+    src: url(fonts/icomoon.eot?jko83b#iefix) format("embedded-opentype"),
+        url(fonts/icomoon.ttf?jko83b) format("truetype"), url(fonts/icomoon.woff?jko83b) format("woff"),
+        url(fonts/icomoon.svg?jko83b#icomoon) format("svg");
+    font-weight: 400;
+    font-style: normal;
 }
-[class*=' xbui-icon-'],
-[class^='xbui-icon-'] {
-  font-family: icomoon !important;
-  speak: none;
-  font-style: normal;
-  font-weight: 400;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+[class*=" xbui-icon-"],
+[class^="xbui-icon-"] {
+    font-family: icomoon !important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 .xbui-icon-uniE901:before {
-  content: '\e901';
-  color: #737373;
+    content: "\e901";
+    color: #737373;
 }
 .xbui-icon-uniE900:before {
-  content: '\e900';
-  color: #737373;
+    content: "\e900";
+    color: #737373;
 }
 .xbui-icon-home:before {
-  content: '\e902';
+    content: "\e902";
 }
 .xbui-icon-home2:before {
-  content: '\e904';
+    content: "\e904";
 }
 .xbui-icon-office:before {
-  content: '\e90a';
+    content: "\e90a";
 }
 .xbui-icon-newspaper:before {
-  content: '\e906';
+    content: "\e906";
 }
 .xbui-icon-pencil:before {
-  content: '\e905';
+    content: "\e905";
 }
 .xbui-icon-image:before {
-  content: '\e90d';
+    content: "\e90d";
 }
 .xbui-icon-search:before {
-  content: '\e986';
+    content: "\e986";
 }

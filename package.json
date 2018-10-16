@@ -4,8 +4,8 @@
   "description": "SchoolPal's UI components",
   "main": "lib/xb-ui.common.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
     "create:component": "node tools/create-component",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore build/entry.js",
     "create:componentMd": "node tools/create-componentMd",
@@ -114,7 +114,6 @@
     "vue": "^2.5.2"
   },
   "dependencies": {
-    "element-ui": "^2.4.6",
     "postcss": "^7.0.2",
     "vuepress": "^0.14.2"
   }
