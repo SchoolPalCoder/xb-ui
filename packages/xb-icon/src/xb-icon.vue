@@ -5,10 +5,10 @@
 
 <script>
 export default {
-  name: 'XbIcon',
+    name: "XbIcon",
 
-  props: {
-    name: String,
-  },
+    props: {
+        name: String,
+    },
 };
 </script>

@@ -1,11 +1,10 @@
 var path = require('path');
-var fs = require('fs');
 var nodeExternals = require('webpack-node-externals');
 var Components = require('../components.json');
 var utilsList = fs.readdirSync(path.resolve(__dirname, '../src/utils'));
 var externals = {};
 
-Object.keys(Components).forEach(function (key) {
+Object.keys(Components).forEach(function(key) {
   externals[`xb-ui/packages/${key}`] = `xb-ui/lib/${key}`;
 });
 
@@ -23,16 +22,15 @@ exports.externals = externals;
 exports.alias = {
   main: path.resolve(__dirname, '../src'),
   packages: path.resolve(__dirname, '../packages'),
-  docs: path.resolve(__dirname, '../docs'),
-  'xb-ui': path.resolve(__dirname, '../')
+  examples: path.resolve(__dirname, '../examples'),
+  'xb-ui': path.resolve(__dirname, '../'),
 };
 
 exports.vue = {
   root: 'Vue',
   commonjs: 'vue',
   commonjs2: 'vue',
-  amd: 'vue'
+  amd: 'vue',
 };
 
 exports.jsexclude = /node_modules|utils\/popper\.js|utils\/date.\js/;
-
