@@ -6,7 +6,7 @@ const expect = chai.expect
 
 
 describe('这是xbButton组件，点击后希望num的值为1', () => {
-  it('num 执行正常，预期结果为1.', () => {
+  it('num 执行正常，预期结果为1', () => {
     const wrapper = mount(xbButton);
 
     const increBtn = wrapper.find('.xb-button');

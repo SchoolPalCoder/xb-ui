@@ -14,7 +14,8 @@
     "dist": "webpack --config build/webpack.production.js --mode production && webpack --config build/webpack.component.js --mode production && npm run build:utils && npm run dist:style",
     "format": "prettier --write \"packages/**/*.js\" \"packages/**/*.vue\"",
     "precommit": "lint-staged",
-    "init:icon": "node build/iconinit"
+    "init:icon": "node build/iconinit",
+    "create:karma": "node tools/create-karma"
   },
   "lint-staged": {
     "packages/**/*.{js,json,css,vue}": [
@@ -115,6 +116,7 @@
   },
   "dependencies": {
     "postcss": "^7.0.2",
-    "vuepress": "^0.14.2"
+    "vuepress": "^0.14.2",
+    "yarn": "^1.10.1"
   }
 }

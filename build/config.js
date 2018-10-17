@@ -1,10 +1,11 @@
 var path = require('path');
+var fs = require('fs');
 var nodeExternals = require('webpack-node-externals');
 var Components = require('../components.json');
 var utilsList = fs.readdirSync(path.resolve(__dirname, '../src/utils'));
 var externals = {};
 
-Object.keys(Components).forEach(function(key) {
+Object.keys(Components).forEach(function (key) {
   externals[`xb-ui/packages/${key}`] = `xb-ui/lib/${key}`;
 });
 

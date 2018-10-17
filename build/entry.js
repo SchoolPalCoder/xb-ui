@@ -4,7 +4,14 @@ import XbCard from '../packages/xb-card/index.js';
 import XbAlert from '../packages/xb-alert/index.js';
 import XbIcon from '../packages/xb-icon/index.js';
 
-const components = [XbButton, XbCard, XbAlert, XbIcon];
+const components = [
+  XbButton,
+  XbCard,
+  XbAlert,
+  XbIcon
+];
+
+const install = function (Vue, opts = {}) {
 
 const install = function(Vue, opts = {}) {
   components.forEach(component => {
@@ -28,7 +35,7 @@ module.exports = {
   XbButton,
   XbCard,
   XbAlert,
-  XbIcon,
+  XbIcon
 };
 
 module.exports.default = module.exports;
