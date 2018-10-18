@@ -35,7 +35,6 @@
     "homepage": "https://github.com/SchoolPalCoder/Xb-Basic-Components#readme",
     "devDependencies": {
         "@types/lodash": "^4.14.117",
-        "@types/webpack": "^4.4.17",
         "@types/webpack-env": "^1.13.6",
         "@vue/test-utils": "^1.0.0-beta.23",
         "babel": "^6.23.0",
@@ -89,7 +88,6 @@
         "markdown-it-anchor": "^5.0.2",
         "markdown-it-container": "^2.0.0",
         "mocha": "^5.2.0",
-        "node-sass": "^4.9.4",
         "postcss-loader": "0.11.1",
         "prettier": "^1.14.2",
         "progress-bar-webpack-plugin": "^1.11.0",

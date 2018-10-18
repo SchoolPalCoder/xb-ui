@@ -12,7 +12,7 @@ const requireComponent = require.context(
     // 是否查询其子目录
     true,
     // 匹配基础组件文件名的正则表达式
-    /index\.js$/,
+    /index\.ts$/,
 );
 
 requireComponent.keys().forEach((fileName: string) => {
@@ -24,7 +24,7 @@ requireComponent.keys().forEach((fileName: string) => {
         "Xb" +
         upperFirst(
             // 剥去文件名开头的 `./` 和结尾的扩展名
-            fileName.replace(/^\.\/(.*)\/index\.js+$/, "$1"),
+            fileName.replace(/^\.\/(.*)\/index\.ts+$/, "$1"),
         );
 
     // 全局注册组件
