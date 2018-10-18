@@ -1,29 +1,31 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "allowJs": false,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "types": ["node"],
-    "paths": {
-      "@/*": ["src/*"]
+    "compilerOptions": {
+        "target": "es5",
+        "module": "esnext",
+        "strict": true,
+        "jsx": "preserve",
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "allowJs": false,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "types": ["node"],
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
-  },
-  "include": [
-    "packages/**/*.ts",
-    "packages/**/*.tsx",
-    "packages/**/*.vue",
-    "test/**/*.ts",
-    "test/**/*.tsx"
-  ],
-  "exclude": ["node_modules"]
+    "include": [
+        "types/**/*.d.ts",
+        "packages/**/*.ts",
+        "packages/**/*.vue",
+        "examples/**/*.ts",
+        "examples/**/*.vue",
+        "test/**/*.ts",
+        "test/**/*.tsx"
+    ],
+    "exclude": ["node_modules"]
 }

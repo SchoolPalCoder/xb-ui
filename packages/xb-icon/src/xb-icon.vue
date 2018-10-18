@@ -3,12 +3,11 @@
   </i>
 </template>
 
-<script>
-export default {
-    name: "XbIcon",
-
-    props: {
-        name: String,
-    },
-};
+<script lang="ts">
+import { Component, Prop, Watch, Vue } from "vue-property-decorator";
+@Component({})
+export default class XbIcon extends Vue {
+    @Prop({ required: true })
+    name!: string;
+}
 </script>

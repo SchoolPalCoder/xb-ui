@@ -5,34 +5,29 @@
   </div>
 </template>
 
-<script>
-import xbButton from '../../xb-button/index';
-export default {
-  name: 'XbAlert',
-  component: { xbButton },
-  data() {
-    return {
-      isShow: true
-    }
-  },
-  props: {
-    type: {
-      type: String,
-      default: 'default',
-    },
-    nativeType: {
-      type: String,
-      default: '',
-    },
-    title: {
-      type: String,
-      default: '',
-    },
-  },
-  methods: {
+
+<script lang="ts">
+import xbButton from "../../xb-button";
+import { Component, Prop, Watch, Vue } from "vue-property-decorator";
+
+@Component({
+    components: { xbButton },
+})
+export default class XbAlert extends Vue {
+    @Prop({ default: "default" })
+    type!: string;
+
+    @Prop({ default: "" })
+    nativeType!: string;
+
+    @Prop({ default: "" })
+    title!: string;
+
+    isShow: boolean = true;
+
     close() {
-      this.isShow = false;
+        this.isShow = false;
     }
-  },
-};
+}
 </script>
+

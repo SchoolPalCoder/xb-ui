@@ -1,0 +1,162 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js
+
+PATH: 
+  C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;E:\YiLian\apache-cxf-3.1.7\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\nodejs\;C:\Users\SaberWang\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\SaberWang\AppData\Local\Programs\Python\Python36-32\;C:\Users\SaberWang\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Fiddler2;C:\Users\SaberWang\AppData\Local\Microsoft\WindowsApps;C:\Users\SaberWang\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\SaberWang\AppData\Local\Yarn\bin;C:\Users\SaberWang\AppData\Local\phantomjs\bin;C:\Users\SaberWang\AppData\Roaming\npm
+
+Yarn version: 
+  1.9.4
+
+Node version: 
+  8.12.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: Invalid value type 2:0 in E:\Xb-Basic-Components\.yarnrc
+      at Parser.unexpected (C:\Program Files (x86)\Yarn\lib\cli.js:61367:11)
+      at Parser.parse (C:\Program Files (x86)\Yarn\lib\cli.js:61495:16)
+      at Parser.parse (C:\Program Files (x86)\Yarn\lib\cli.js:61452:26)
+      at parse (C:\Program Files (x86)\Yarn\lib\cli.js:61569:17)
+      at module.exports.exports.default (C:\Program Files (x86)\Yarn\lib\cli.js:61133:96)
+      at YarnRegistry.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:87566:64)
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:92:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:103:13
+      at <anonymous>
+
+npm manifest: 
+  {
+      "name": "xb-ui",
+      "version": "1.1.0",
+      "description": "SchoolPal's UI components",
+      "main": "lib/xb-ui.common.js",
+      "scripts": {
+          "dev": "vuepress dev docs",
+          "build": "vuepress build docs",
+          "create:component": "node tools/create-component",
+          "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore build/entry.js",
+          "create:componentMd": "node tools/create-componentMd",
+          "dist:style": "node build/gen-cssfile && gulp --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/dist lib/theme-chalk",
+          "dist:component": "webpack --config build/webpack.component.js --mode production",
+          "dist": "webpack --config build/webpack.production.js --mode production && webpack --config build/webpack.component.js --mode production && npm run build:utils && npm run dist:style",
+          "format": "prettier --write \"packages/**/*.js\" \"packages/**/*.vue\"",
+          "init:icon": "node build/iconinit"
+      },
+      "style": "lib/theme-chalk/index.css",
+      "repository": {
+          "type": "git",
+          "url": "git+https://github.com/SchoolPalCoder/Xb-Basic-Components.git"
+      },
+      "keywords": [
+          "vue",
+          "xb",
+          "ui",
+          "components",
+          "vuepress"
+      ],
+      "author": "SchoolPal Coder",
+      "license": "ISC",
+      "bugs": {
+          "url": "https://github.com/SchoolPalCoder/Xb-Basic-Components/issues"
+      },
+      "homepage": "https://github.com/SchoolPalCoder/Xb-Basic-Components#readme",
+      "devDependencies": {
+          "@types/lodash": "^4.14.117",
+          "@types/webpack": "^4.4.17",
+          "@types/webpack-env": "^1.13.6",
+          "@vue/test-utils": "^1.0.0-beta.23",
+          "babel": "^6.23.0",
+          "babel-cli": "^6.26.0",
+          "babel-core": "^6.14.0",
+          "babel-loader": "^7.1.2",
+          "babel-plugin-add-module-exports": "^0.2.1",
+          "babel-plugin-istanbul": "^5.0.1",
+          "babel-plugin-module-resolver": "^2.2.0",
+          "babel-plugin-syntax-jsx": "^6.8.0",
+          "babel-plugin-transform-runtime": "^6.23.0",
+          "babel-plugin-transform-vue-jsx": "^3.7.0",
+          "babel-preset-env": "^1.7.0",
+          "babel-preset-es2015": "^6.14.0",
+          "babel-preset-stage-0": "^6.24.1",
+          "babel-preset-stage-2": "^6.24.1",
+          "babel-register": "^6.26.0",
+          "chai": "^4.1.2",
+          "cp-cli": "^1.0.2",
+          "cross-env": "^5.2.0",
+          "css-loader": "^0.28.7",
+          "element-ui": "^2.4.8",
+          "gulp": "^3.9.1",
+          "gulp-autoprefixer": "^6.0.0",
+          "gulp-clean-css": "^3.9.3",
+          "gulp-rename": "^1.2.2",
+          "gulp-sass": "^4.0.1",
+          "html-loader": "^0.5.1",
+          "husky": "^0.14.3",
+          "isparta": "^4.1.0",
+          "isparta-loader": "^2.0.0",
+          "istanbul": "^0.4.5",
+          "istanbul-instrumenter-loader": "^3.0.1",
+          "json-loader": "^0.5.7",
+          "karma": "^3.0.0",
+          "karma-babel-preprocessor": "^7.0.0",
+          "karma-chai": "^0.1.0",
+          "karma-chrome-launcher": "^2.2.0",
+          "karma-coverage": "^1.1.2",
+          "karma-coverage-istanbul-reporter": "^2.0.2",
+          "karma-mocha": "^1.3.0",
+          "karma-mocha-reporter": "^2.2.5",
+          "karma-sinon": "^1.0.5",
+          "karma-sinon-chai": "^2.0.2",
+          "karma-sourcemap-loader": "^0.3.7",
+          "karma-spec-reporter": "^0.0.32",
+          "karma-webpack": "^3.0.5",
+          "karma-webpack-grep": "^1.0.1",
+          "lint-staged": "^7.2.2",
+          "markdown-it": "^8.4.2",
+          "markdown-it-anchor": "^5.0.2",
+          "markdown-it-container": "^2.0.0",
+          "mocha": "^5.2.0",
+          "node-sass": "^4.9.3",
+          "postcss-loader": "0.11.1",
+          "prettier": "^1.14.2",
+          "progress-bar-webpack-plugin": "^1.11.0",
+          "sass-loader": "^7.1.0",
+          "sinon": "^6.3.3",
+          "sinon-chai": "^3.2.0",
+          "style-loader": "^0.19.0",
+          "surge": "^0.18.0",
+          "svg-sprite-generator": "0.0.7",
+          "svg-sprite-loader": "^0.3.0",
+          "ts-loader": "^5.2.2",
+          "tslint": "^5.11.0",
+          "tslint-config-standard": "^8.0.1",
+          "tslint-loader": "^3.5.4",
+          "typescript": "^3.1.3",
+          "url-loader": "^0.6.2",
+          "vue-loader": "^15.2.4",
+          "vue-markdown-loader": "^2.4.1",
+          "vue-property-decorator": "^7.2.0",
+          "vue-resource": "^1.2.1",
+          "vue-router": "^2.3.0",
+          "vue-template-compiler": "^2.4.4",
+          "webpack": "^4.6.0",
+          "webpack-cli": "^3.0.7",
+          "webpack-dev-server": "^3.1.4",
+          "webpack-node-externals": "^1.6.0"
+      },
+      "peerDependencies": {
+          "vue": "^2.5.2"
+      },
+      "dependencies": {
+          "postcss": "^7.0.2",
+          "vuepress": "^0.14.2"
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
