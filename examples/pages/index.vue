@@ -13,15 +13,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      height: document.documentElement.clientHeight
-    }
-  }
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({})
+export default class Index extends Vue {
+    height: number = document.documentElement.clientHeight;
 }
 </script>
+
 <style type="text/less" lang="less">
 .pg-index {
     .index-container {

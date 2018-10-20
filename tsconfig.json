@@ -12,9 +12,10 @@
         "allowJs": false,
         "sourceMap": true,
         "baseUrl": ".",
-        "types": ["node"],
+        "types": ["node", "webpack-env"],
         "paths": {
-            "@/*": ["src/*"]
+            "@/*": ["packages/*"],
+            "$/*": ["examples/*"]
         },
         "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
     },

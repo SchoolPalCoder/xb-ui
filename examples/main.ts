@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import demoBlock from "./components/demo-block.vue";
-import { upperFirst } from "lodash";
+import { camelCase } from "lodash";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
@@ -20,12 +20,10 @@ requireComponent.keys().forEach((fileName: string) => {
     const componentConfig = requireComponent(fileName);
 
     // 获取组件的 PascalCase 命名
-    const componentName =
-        "Xb" +
-        upperFirst(
-            // 剥去文件名开头的 `./` 和结尾的扩展名
-            fileName.replace(/^\.\/(.*)\/index\.ts+$/, "$1"),
-        );
+    const componentName = camelCase(
+        // 剥去文件名开头的 `./` 和结尾的扩展名
+        fileName.replace(/^\.\/(.*)\/index\.ts+$/, "$1"),
+    );
 
     // 全局注册组件
     Vue.component(

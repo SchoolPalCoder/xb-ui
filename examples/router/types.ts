@@ -1,13 +1,14 @@
-// Nav路由条配置type
-export type NavRouterItem = {
-    name?: string;
-    path: string;
-    desc?: string;
-    type?: string;
-    items?: NavRouterItem[];
-};
+import { RouteConfig } from "vue-router";
+
+// 扩展RouteConfig
+export interface XbRouteConfig extends RouteConfig {
+    // 路由文案
+    text?: string;
+    // 子级路由
+    children?: XbRouteConfig[];
+}
 
 // NavConfig的type
 export type NavConfig = {
-    [k: string]: NavRouterItem[];
+    [k: string]: XbRouteConfig[];
 };

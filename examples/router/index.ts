@@ -1,32 +1,32 @@
 import Vue from "vue";
 import Router from "vue-router";
-import { NavRouterItem } from "./types";
-import { navConfig } from "./router-config";
+import { XbRouteConfig, NavConfig } from "./types";
+import navConfig from "./header.config.json";
+import { sidebarConfig } from "./sidebar.config";
 
 Vue.use(Router);
 
-// 注册组件方式
-const addComponent = (router: NavRouterItem[]) => {
-    router.forEach((route) => {
-        if (route.items) {
-            addComponent(route.items);
-            routes = routes.concat(route.items);
-        } else {
-            if (route.type === "pages") {
-                route.component = (r) => require.ensure([], () => r(require(`../pages/${route.name}.vue`)));
-                return;
-            }
-            route.component = (r) => require.ensure([], () => r(require(`../docs/${route.name}.md`)));
-        }
-    });
-};
+// const getFullPath = (router: XbRouteConfig) => {
+//     const children = router.children;
+//     if (children === undefined) {
+//     } else {
+//         getFullPath(children);
+//     }
+//     return;
+// };
 
-let routes: NavRouterItem[] = [];
+// // 动态注册组件
+// const addComponent = (router: XbRouteConfig[]) => {
+//     router.forEach((route) => {
+//         route.component = (r) => require.ensure([], () => r(require(`../docs${route.path}.md`)));
+//     });
+// };
 
-Object.keys(navConfig).forEach((header) => {
-    routes = routes.concat(navConfig[header]);
-});
-addComponent(routes);
+const routes: XbRouteConfig[] = navConfig;
+
+// addComponent(sidebarConfig);
+
+routes[1].children = sidebarConfig;
 
 export default new Router({
     routes,
