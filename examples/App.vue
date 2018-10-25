@@ -2,7 +2,7 @@
   <div id="app">
     <mainHeader></mainHeader>
     <div class="container" v-if="!isIndex">
-      <sideNav class="nav"></sideNav>
+      <Sidebar class="nav"></Sidebar>
       <router-view class="view"></router-view>
     </div>
     <router-view class="page" v-else></router-view>
@@ -14,12 +14,12 @@
 import { Component, Watch, Vue } from "vue-property-decorator";
 import mainHeader from "./components/header.vue";
 import mainFooter from "./components/footer.vue";
-import sideNav from "./components/side-nav.vue";
+import Sidebar from "./components/sidebar.vue";
 
 @Component({
     components: {
         mainHeader,
-        sideNav,
+        Sidebar,
         mainFooter,
     },
 })

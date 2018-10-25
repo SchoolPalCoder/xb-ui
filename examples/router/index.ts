@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import { XbRouteConfig, NavConfig } from "./types";
-import navConfig from "./header.config.json";
 import { sidebarConfig } from "./sidebar.config";
+import { navConfig } from "./header.config";
 
 Vue.use(Router);
 

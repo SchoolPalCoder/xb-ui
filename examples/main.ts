@@ -36,7 +36,7 @@ requireComponent.keys().forEach((fileName: string) => {
 });
 
 Vue.use(ElementUI);
-Vue.component("demo-block", demoBlock);
+Vue.component('demo-block', demoBlock);
 Vue.config.productionTip = false;
 
 /* tslint:disable-next-line:no-unused-expression */
