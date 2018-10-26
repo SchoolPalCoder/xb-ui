@@ -6,7 +6,6 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const nodeExternals = require("webpack-node-externals");
 const Components = require("../components.json");
 const utilsList = fs.readdirSync(path.resolve(__dirname, "../src/utils"));
-const vueLoader = require("./vue-loader.conf");
 
 let externals = {};
 

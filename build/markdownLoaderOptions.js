@@ -21,9 +21,9 @@ const vueMarkdown = {
       {
         validate: (params) => params.trim().match(/^demo\s*(.*)$/),
         render: function(tokens, idx) {
-          var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
+          // var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
           if (tokens[idx].nesting === 1) {
-            var desc = tokens[idx + 2].content;
+            // var desc = tokens[idx + 2].content;
             const html = utils.convertHtml(striptags(tokens[idx + 1].content, "script"));
             // 移除描述，防止被添加到代码块
             tokens[idx + 2].children = [];

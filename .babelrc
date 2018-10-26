@@ -7,18 +7,14 @@
       }
     ]
   ],
-  "plugins": [
-    "transform-vue-jsx"
-  ],
+  "plugins": ["transform-vue-jsx"],
   "env": {
     "utils": {
       "plugins": [
         [
           "module-resolver",
           {
-            "root": [
-              "xb-ui"
-            ],
+            "root": ["xb-ui"],
             "alias": {
               "xb-ui/src": "xb-ui/lib"
             }

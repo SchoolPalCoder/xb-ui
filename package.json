@@ -5,6 +5,7 @@
   "main": "lib/xb-ui.common.js",
   "scripts": {
     "dev": "webpack-dev-server --config ./build/webpack.examples.conf.js ",
+    "debug": "node --inspect-brk node_modules/.bin/webpack --config ./build/webpack.examples.conf.js",
     "dev1": "vuepress dev docs",
     "build": "vuepress build docs",
     "create:component": "node tools/create-component",
@@ -117,7 +118,7 @@
     "vue-resource": "^1.2.1",
     "vue-router": "^2.3.0",
     "vue-template-compiler": "^2.4.4",
-    "webpack": "^4.6.0",
+    "webpack": "^4.23.1",
     "webpack-cli": "^3.0.7",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.4",

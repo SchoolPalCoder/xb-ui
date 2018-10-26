@@ -1,11 +1,12 @@
 const path = require("path");
-const webpackMerge = require("webpack-merge");
-const baseConfig = require("./webpack.base");
+const webpack = require("webpack");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 const MarkdownItContainer = require("markdown-it-container");
 const stripTags = require("./strip-tags");
+const vueLoaderConfig = require("./vue-loader.conf");
 const utils = require("./utils");
 
 const vueMarkdown = {
@@ -54,39 +55,56 @@ const webpackConfig = {
     publicPath: "/",
     noInfo: true,
   },
-  devtool: "inline-source-map",
+  devtool: "eval-source-map",
   output: {
     path: path.resolve(process.cwd(), "./examples/dist/"),
-    publicPath: "/dev/",
-    filename: "[name].[hash:7].js",
+    publicPath: "",
+    filename: "[name].js",
     chunkFilename: "[name].js",
   },
   resolve: {
     extensions: [".js", ".vue", ".json", ".ts"],
     alias: {
-      // main: path.resolve(__dirname, "../src"),
-      // packages: path.resolve(__dirname, "../packages"),
-      // examples: path.resolve(__dirname, "../examples"),
-      // "xb-ui": path.resolve(__dirname, "../"),
+      "@": path.resolve(__dirname, "../packages"),
+      $: path.resolve(__dirname, "../examples"),
     },
     modules: ["node_modules"],
   },
-  externals: externals,
   module: {
     rules: [
       {
-        enforce: "pre",
         test: /\.ts$/,
         exclude: /node_modules/,
-        loader: "tslint-loader",
+        use: [
+          {
+            loader: "babel-loader",
+          },
+          {
+            loader: "ts-loader",
+            options: {
+              transpileOnly: true,
+              appendTsSuffixTo: ["\\.vue$"],
+              happyPackMode: false,
+            },
+          },
+        ],
       },
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
         exclude: /node_modules/,
-        options: {
-          appendTsSuffixTo: [/\.vue$/],
-        },
+        use: [
+          {
+            loader: "babel-loader",
+          },
+          {
+            loader: "ts-loader",
+            options: {
+              transpileOnly: true,
+              appendTsSuffixTo: ["\\.vue$"],
+              happyPackMode: false,
+            },
+          },
+        ],
       },
       {
         test: /\.(jsx?|babel|es6)$/,
@@ -96,19 +114,33 @@ const webpackConfig = {
       },
       {
         test: /\.md$/,
-        loader: "vue-markdown-loader",
-        options: vueMarkdown,
-      },
-      {
-        test: /\.less$/,
-        loader: "style-loader!css-loader!less-loader",
+        use: [
+          {
+            loader: "vue-loader",
+          },
+          {
+            loader: "vue-markdown-loader/lib/markdown-compiler",
+            options: {
+              raw: true,
+            },
+          },
+        ],
       },
       {
         test: /\.vue$/,
         loader: "vue-loader",
         options: {
           preserveWhitespace: false,
+          ts: "ts-loader",
         },
+      },
+      {
+        test: /\.css$/,
+        loader: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.less$/,
+        use: ["vue-style-loader", "css-loader", "less-loader"],
       },
       {
         test: /\.json$/,
@@ -151,6 +183,7 @@ const webpackConfig = {
       favicon: "./examples/favicon.ico",
     }),
     new ProgressBarPlugin(),
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production"),
     }),

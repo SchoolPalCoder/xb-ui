@@ -24,11 +24,7 @@ const cssLoaders = function(options) {
       });
     }
 
-    if (options.isProduction) {
-      return ["vue-style-loader"].concat(loaders).concat(MiniCssExtractPlugin.loader);
-    } else {
-      return ["vue-style-loader"].concat(loaders);
-    }
+    return ["vue-style-loader"].concat(loaders);
   }
 
   return {
@@ -39,27 +35,18 @@ const cssLoaders = function(options) {
     scss: generateLoaders("sass"),
     stylus: generateLoaders("stylus"),
     styl: generateLoaders("stylus"),
+    ts: "ts-loader",
   };
 };
 
-module.exports.vueLoaderConfig = (options) => {
-  return {
-    loaders: cssLoaders({
-      sourceMap: !options.isProduction,
-      isProduction: options.isProduction,
-    }),
-    transformToRequire: {
-      video: "src",
-      source: "src",
-      img: "src",
-      image: "xlink:href",
-    },
-  };
-};
-
-module.exports.miniCssExtractPlugin = (options) => {
-  return new MiniCssExtractPlugin({
-    filename: options.isProduction ? "[name].[hash].css" : "[name].css",
-    chunkFilename: options.isProduction ? "[id].[hash].css" : "[id].css",
-  });
+module.exports = {
+  loaders: cssLoaders({
+    sourceMap: true,
+  }),
+  transformAssetUrls: {
+    video: "src",
+    source: "src",
+    img: "src",
+    image: "xlink:href",
+  },
 };

@@ -1,32 +1,33 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "esnext",
-        "strict": true,
-        "jsx": "preserve",
-        "importHelpers": true,
-        "moduleResolution": "node",
-        "experimentalDecorators": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "allowJs": false,
-        "sourceMap": true,
-        "baseUrl": ".",
-        "types": ["node", "webpack-env"],
-        "paths": {
-            "@/*": ["packages/*"],
-            "$/*": ["examples/*"]
-        },
-        "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "allowJs": false,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": ["node", "webpack-env"],
+    "paths": {
+      "@/*": ["packages/*"],
+      "$/*": ["examples/*"]
     },
-    "include": [
-        "types/**/*.d.ts",
-        "packages/**/*.ts",
-        "packages/**/*.vue",
-        "examples/**/*.ts",
-        "examples/**/*.vue",
-        "test/**/*.ts",
-        "test/**/*.tsx"
-    ],
-    "exclude": ["node_modules"]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  },
+  "include": [
+    "types/**/*.d.ts",
+    "packages/**/*.ts",
+    "packages/**/*.vue",
+    "examples/**/*.ts",
+    "examples/**/*.vue",
+    "test/**/*.ts",
+    "test/**/*.tsx"
+  ],
+  "exclude": ["node_modules"]
 }

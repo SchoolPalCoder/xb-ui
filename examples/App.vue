@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <mainHeader></mainHeader>
     <div class="container" v-if="!isIndex">
       <Sidebar class="nav"></Sidebar>
@@ -17,53 +17,53 @@ import mainFooter from "./components/footer.vue";
 import Sidebar from "./components/sidebar.vue";
 
 @Component({
-    components: {
-        mainHeader,
-        Sidebar,
-        mainFooter,
-    },
+  components: {
+    mainHeader,
+    Sidebar,
+    mainFooter,
+  },
 })
 export default class App extends Vue {
-    init: boolean = false;
-    isIndex: boolean = true;
+  init: boolean = false;
+  isIndex: boolean = true;
 
-    @Watch("$route")
-    onRouteChange() {
-        this.isIndex = this.$route.name === "index";
-    }
+  @Watch("$route")
+  onRouteChange() {
+    this.isIndex = this.$route.name === "index";
+  }
 
-    mounted() {
-        // 这里模拟数据请求
-        setTimeout(() => {
-            this.init = true;
-        }, 250);
-    }
+  mounted() {
+    // 这里模拟数据请求
+    setTimeout(() => {
+      this.init = true;
+    }, 250);
+  }
 }
 </script>
 
-<style lang="less" type="text/less">
+<style lang="less" >
 @import "./assets/less/index";
 
 .container {
-    margin: 48px auto;
-    width: 90%;
-    background-color: #fff;
-    box-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
-    .nav {
-        float: left;
-        width: 210px;
-    }
-    .view {
-        float: left;
-        width: calc(~"100% - 215px");
-        padding: 32px 48px 48px;
-        box-sizing: border-box;
-    }
+  margin: 48px auto;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 4px 30px 0 rgba(223, 225, 230, 0.5);
+  .nav {
+    float: left;
+    width: 210px;
+  }
+  .view {
+    float: left;
+    width: calc(~"100% - 215px");
+    padding: 32px 48px 48px;
+    box-sizing: border-box;
+  }
 }
 
 .container:after {
-    content: "";
-    clear: both;
-    display: block;
+  content: "";
+  clear: both;
+  display: block;
 }
 </style>
