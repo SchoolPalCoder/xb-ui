@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import { XbRouteConfig, NavConfig } from "./types";
 import { sidebarConfig } from "./sidebar.config";
-import { navConfig } from "./header.config";
+import navConfig from "./header.config";
 
 Vue.use(Router);
 
@@ -22,12 +22,23 @@ Vue.use(Router);
 //     });
 // };
 
-const routes: XbRouteConfig[] = navConfig;
+const indexRoute: XbRouteConfig = {
+  text: "首页",
+  name: "index",
+  path: "/",
+  component: (r) => require.ensure([], () => r(require("../pages/index.vue"))),
+  // () => import(/* webpackChunkName: "about" */ "../pages/index.vue"),
+};
+const navRouter = navConfig();
+
+navRouter.unshift(indexRoute);
+
+const routes: XbRouteConfig[] = navRouter;
 
 // addComponent(sidebarConfig);
 
 routes[1].children = sidebarConfig;
 
 export default new Router({
-    routes,
+  routes,
 });

@@ -3,7 +3,6 @@ const webpack = require("webpack");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-
 const MarkdownItContainer = require("markdown-it-container");
 const stripTags = require("./strip-tags");
 const vueLoaderConfig = require("./vue-loader.conf");
@@ -48,32 +47,36 @@ const vueMarkdown = {
 
 const webpackConfig = {
   mode: "development",
-  entry: "./examples/main.ts",
+  entry: {
+    app: "./examples/main.ts",
+  },
   devServer: {
     host: "127.0.0.1",
     port: 8086,
+    open: true,
+    inline: true,
     publicPath: "/",
     noInfo: true,
+    historyApiFallback: true,
   },
-  devtool: "eval-source-map",
+  devtool: "inline-source-map",
   output: {
     path: path.resolve(process.cwd(), "./examples/dist/"),
-    publicPath: "",
     filename: "[name].js",
-    chunkFilename: "[name].js",
   },
   resolve: {
     extensions: [".js", ".vue", ".json", ".ts"],
     alias: {
       "@": path.resolve(__dirname, "../packages"),
-      $: path.resolve(__dirname, "../examples"),
+      "$/": path.resolve(__dirname, "../examples"),
     },
     modules: ["node_modules"],
   },
   module: {
+    noParse: /^(vue|vue-router|vuex|vuex-router-sync)$/,
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: [
           {
@@ -84,24 +87,6 @@ const webpackConfig = {
             options: {
               transpileOnly: true,
               appendTsSuffixTo: ["\\.vue$"],
-              happyPackMode: false,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-          },
-          {
-            loader: "ts-loader",
-            options: {
-              transpileOnly: true,
-              appendTsSuffixTo: ["\\.vue$"],
-              happyPackMode: false,
             },
           },
         ],
@@ -184,12 +169,6 @@ const webpackConfig = {
     }),
     new ProgressBarPlugin(),
     new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify("production"),
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-    }),
   ],
 };
 

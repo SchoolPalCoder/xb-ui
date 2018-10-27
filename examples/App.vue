@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mainHeader></mainHeader>
+    <mainHeader :headerRouter="headerRouter"></mainHeader>
     <div class="container" v-if="!isIndex">
       <Sidebar class="nav"></Sidebar>
       <router-view class="view"></router-view>
@@ -15,6 +15,7 @@ import { Component, Watch, Vue } from "vue-property-decorator";
 import mainHeader from "./components/header.vue";
 import mainFooter from "./components/footer.vue";
 import Sidebar from "./components/sidebar.vue";
+import navConfig from "./router/header.config";
 
 @Component({
   components: {
@@ -26,6 +27,8 @@ import Sidebar from "./components/sidebar.vue";
 export default class App extends Vue {
   init: boolean = false;
   isIndex: boolean = true;
+
+  headerRouter = navConfig();
 
   @Watch("$route")
   onRouteChange() {
