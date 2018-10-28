@@ -4,7 +4,6 @@
     <div class="header-container">
       <router-link :to="{name: 'index'}"><img src="../assets/img/banner.png" width="100"></router-link>
       <router-link v-for="nav in headerRouter" :key="nav.path" :to="nav.path">{{nav.text}}</router-link>
-      <a href="https://github.com/SchoolPalCoder/Xb-Basic-Components" target="_balck">GitHub</a>
     </div>
   </header>
 </template>
