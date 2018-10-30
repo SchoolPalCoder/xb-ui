@@ -68,7 +68,9 @@ const webpackConfig = {
     extensions: [".js", ".vue", ".json", ".ts"],
     alias: {
       "@": path.resolve(__dirname, "../packages"),
-      "$/": path.resolve(__dirname, "../examples"),
+      examples: path.resolve(__dirname, "../examples"),
+      guide: path.resolve(__dirname, "../examples/docs/guide"),
+      components: path.resolve(__dirname, "../examples/docs/components"),
     },
     modules: ["node_modules"],
   },

@@ -1,8 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import { XbRouteConfig } from "./types";
-import { sidebarConfig } from "./sidebar.config";
-import navConfig from "./header.config";
+import { headerConfig } from "./config";
 
 Vue.use(Router);
 
@@ -22,21 +21,27 @@ const addComponent = (router: XbRouteConfig[]) => {
   });
 };
 
-const indexRoute: XbRouteConfig = {
-  text: "首页",
-  name: "index",
-  path: "/",
-  component: (r) => require.ensure([], () => r(require("../pages/index.vue"))),
-  // () => import(/* webpackChunkName: "about" */ "../pages/index.vue"),
-};
+const indexRoute: XbRouteConfig[] = [
+  {
+    text: "首页",
+    name: "index",
+    path: "/",
+    component: (r) => require.ensure([], () => r(require("../pages/index.vue"))),
+  },
+  {
+    name: "container",
+    path: "/container",
+    component: (r) => require.ensure([], () => r(require("../pages/container.vue"))),
+  },
+];
 
-const routes: XbRouteConfig[] = navConfig();
+indexRoute[1].children = headerConfig();
+
+const routes: XbRouteConfig[] = indexRoute;
 
 // addComponent(sidebarConfig);
 
-routes.unshift(indexRoute);
-
-routes[1].children = sidebarConfig;
+// routes[2].children = sidebarConfig();
 
 export default new Router({
   routes,

@@ -15,64 +15,64 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { XbRouteConfig } from "$/router/types";
+import { XbRouteConfig } from "examples/router/types";
 
 @Component({})
 export default class Sidebar extends Vue {
-    @Prop()
-    sidebarConf!: XbRouteConfig[];
+  @Prop()
+  sidebarConf!: XbRouteConfig[];
 }
 </script>
 
 <style lang="less" type="text/less">
 .side-nav {
-    display: inline-block;
-    margin: 32px 0;
-    padding: 0;
-    color: #3f536e;
-    background-color: #fff;
-    z-index: 99;
-    .group-container {
-        margin-bottom: 32px;
+  display: inline-block;
+  margin: 32px 0;
+  padding: 0;
+  color: #3f536e;
+  background-color: #fff;
+  z-index: 99;
+  .group-container {
+    margin-bottom: 32px;
+  }
+  .side-nav-title {
+    padding: 0 24px 8px;
+    color: #8dabc4;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .side-nav-items {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.8;
+    a {
+      display: block;
+      position: relative;
+      padding: 8px 24px;
+      color: #3f536e;
+      font-weight: normal;
+      line-height: 1.5;
+      cursor: pointer;
     }
-    .side-nav-title {
-        padding: 0 24px 8px;
-        color: #8dabc4;
-        font-size: 12px;
-        font-weight: bold;
-        letter-spacing: 1px;
-        text-transform: uppercase;
+    .side-nav-group {
+      display: block;
+      position: relative;
+      padding: 6px 0 6px 24px;
+      color: #2c405a;
+      font-weight: bold;
     }
-    .side-nav-items {
-        font-size: 14px;
-        font-weight: normal;
-        line-height: 1.8;
-        a {
-            display: block;
-            position: relative;
-            padding: 8px 24px;
-            color: #3f536e;
-            font-weight: normal;
-            line-height: 1.5;
-            cursor: pointer;
-        }
-        .side-nav-group {
-            display: block;
-            position: relative;
-            padding: 6px 0 6px 24px;
-            color: #2c405a;
-            font-weight: bold;
-        }
-        .slid-nav-component {
-            display: block;
-            position: relative;
-            padding: 6px 24px 6px 32px;
-            color: #616367;
-            font-size: 14px;
-        }
-        .active {
-            color: #3faaf5;
-        }
+    .slid-nav-component {
+      display: block;
+      position: relative;
+      padding: 6px 24px 6px 32px;
+      color: #616367;
+      font-size: 14px;
     }
+    .active {
+      color: #3faaf5;
+    }
+  }
 }
 </style>

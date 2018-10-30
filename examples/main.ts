@@ -15,31 +15,30 @@ const requireComponent = require.context(
   /index\.ts$/,
 );
 
-requireComponent.keys().forEach((fileName: string) => {
-  // 获取组件配置
-  const componentConfig = requireComponent(fileName);
+// requireComponent.keys().forEach((fileName: string) => {
+//   // 获取组件配置
+//   const componentConfig = requireComponent(fileName);
 
-  // 获取组件的 PascalCase 命名
-  const componentName = camelCase(
-    // 剥去文件名开头的 `./` 和结尾的扩展名
-    fileName.replace(/^\.\/(.*)\/index\.ts+$/, "$1"),
-  );
+//   // 获取组件的 PascalCase 命名
+//   const componentName = camelCase(
+//     // 剥去文件名开头的 `./` 和结尾的扩展名
+//     fileName.replace(/^\.\/(.*)\/index\.ts+$/, "$1"),
+//   );
 
-  // 全局注册组件
-  Vue.component(
-    componentName,
-    // 如果这个组件选项是通过 `export default` 导出的，
-    // 那么就会优先使用 `.default`，
-    // 否则回退到使用模块的根。
-    componentConfig.default || componentConfig,
-  );
-});
+//   // 全局注册组件
+//   Vue.component(
+//     componentName,
+//     // 如果这个组件选项是通过 `export default` 导出的，
+//     // 那么就会优先使用 `.default`，
+//     // 否则回退到使用模块的根。
+//     componentConfig.default || componentConfig,
+//   );
+// });
 
 Vue.use(ElementUI);
 Vue.component("demo-block", demoBlock);
 Vue.config.productionTip = false;
 
-/* tslint:disable-next-line:no-unused-expression */
 window.app = new Vue({
   router,
   render: (h) => h(App),

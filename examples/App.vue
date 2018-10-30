@@ -1,24 +1,22 @@
 <template>
   <div>
     <mainHeader :headerRouter="headerRouter"></mainHeader>
-    <Container></Container>
+    <router-view class="view"></router-view>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Watch, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import mainHeader from "./components/header.vue";
-import navConfig from "./router/header.config";
-import Container from "./pages/container.vue";
+import { headerConfig } from "./router/config";
 
 @Component({
   components: {
     mainHeader,
-    Container,
   },
 })
 export default class App extends Vue {
-  headerRouter = navConfig();
+  headerRouter = headerConfig();
 }
 </script>
 
