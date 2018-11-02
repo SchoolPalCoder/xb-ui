@@ -3,46 +3,66 @@ const webpack = require("webpack");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const MarkdownItAncher = require("markdown-it-anchor");
 const MarkdownItContainer = require("markdown-it-container");
 const stripTags = require("./strip-tags");
-const vueLoaderConfig = require("./vue-loader.conf");
 const utils = require("./utils");
 
 const vueMarkdown = {
-  preprocess: (MarkdownIt, source) => {
-    MarkdownIt.renderer.rules.table_open = function() {
-      return '<table class="table">';
-    };
-    MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(MarkdownIt.renderer.rules.fence);
-
-    const code_inline = MarkdownIt.renderer.rules.code_inline;
-    MarkdownIt.renderer.rules.code_inline = function(...args) {
-      args[0][args[1]].attrJoin("class", "code_inline");
-      return code_inline(...args);
-    };
-    return source;
-  },
   use: [
+    [
+      MarkdownItAncher,
+      {
+        level: 2,
+        // slugify: slugify,
+        permalink: true,
+        permalinkBefore: true,
+      },
+    ],
     [
       MarkdownItContainer,
       "demo",
       {
         validate: (params) => params.trim().match(/^demo\s*(.*)$/),
         render: function(tokens, idx) {
+          const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
           if (tokens[idx].nesting === 1) {
-            const html = utils.convertHtml(stripTags(tokens[idx + 1].content, "script"));
-            // 移除描述，防止被添加到代码块
-            tokens[idx + 2].children = [];
+            const description = m && m.length > 1 ? m[1] : "";
+            const content = tokens[idx + 1].content;
+            const html = utils
+              .convertHtml(stripTags.strip(content, ["script", "style"]))
+              .replace(/(<[^>]*)=""(?=.*>)/g, "$1");
+
+            const script = striptags.fetch(content, "script");
+            const style = striptags.fetch(content, "style");
+            const jsfiddle = { html: html, script: script, style: style };
+            const descriptionHTML = description ? md.render(description) : "";
+
+            jsfiddle = md.utils.escapeHtml(JSON.stringify(jsfiddle));
 
             return `<demo-block>
-                        <div slot="desc">${html}</div>
-                        <div slot="highlight">`;
+                            <div class="source" slot="desc">${html}</div>
+                            ${descriptionHTML}
+                            <div class="highlight" slot="highlight">`;
           }
           return "</div></demo-block>\n";
         },
       },
     ],
   ],
+  preprocess: (MarkdownIt, source) => {
+    MarkdownIt.renderer.rules.table_open = function() {
+      return '<table class="table">';
+    };
+    MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(MarkdownIt.renderer.rules.fence);
+
+    let code_inline = MarkdownIt.renderer.rules.code_inline;
+    MarkdownIt.renderer.rules.code_inline = function(...args) {
+      args[0][args[1]].attrJoin("class", "code_inline");
+      return code_inline(...args);
+    };
+    return source;
+  },
 };
 
 const webpackConfig = {
@@ -107,9 +127,7 @@ const webpackConfig = {
           },
           {
             loader: "vue-markdown-loader/lib/markdown-compiler",
-            options: {
-              raw: true,
-            },
+            options: { raw: true },
           },
         ],
       },

@@ -32,15 +32,15 @@ const registerRoute = (navConfigs) => {
         if (nav.groups) {
           nav.groups.forEach((group) => {
             group.list.forEach((item) => {
-              addDocsRoute(item, group.folder, index);
+              addDocsRoute(item, `${group.folder}`, index);
             });
           });
         } else if (nav.children) {
           nav.children.forEach((child) => {
-            addDocsRoute(child, "", index);
+            addDocsRoute(child, "guide", index);
           });
         } else {
-          addDocsRoute(nav, "", index);
+          addDocsRoute(nav, "guide", index);
         }
       });
     }

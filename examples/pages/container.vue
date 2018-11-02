@@ -27,7 +27,7 @@ export default class Layout extends Vue {
   @Watch("$route")
   onRounteChange() {
     const currentRoute = headerConfig.find((router: XbRouteConfig) => {
-      return router.path === this.$route.path;
+      return this.$route.path.includes(router.path);
     });
     if (currentRoute && currentRoute.children) {
       this.sidebarConf = currentRoute.children;
