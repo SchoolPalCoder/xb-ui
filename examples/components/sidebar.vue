@@ -1,14 +1,17 @@
 <template>
   <div class="side-nav">
-    <div v-for="item in sidebarConf" :key="item.path" class="group-container">
-      <p class="side-nav-title">{{item.text}}</p>
-      <div class="side-nav-items" v-for="nav in item.children" :key="nav.path" v-if="item.children&&item.children.length">
-        <router-link :class="$route.name===nav.name ? 'active' : ''" v-if="nav.name" :to="{name: nav.name}">{{nav.name}}</router-link>
-        <p v-else class="side-nav-group">{{nav.desc}}</p>
-        <div v-for="item in nav.items" :key="item">
-          <router-link :to="{name: item.name}" :class="$route.name===item.name ? 'active' : ''" class="slid-nav-component">{{item.desc}}</router-link>
+    <div v-for="nav in sidebarConf" :key="nav.path" class="group-container">
+      <div v-if="nav.children&&nav.children.length">
+        <p class="side-nav-title">{{nav.text}}</p>
+        <div class="side-nav-items" v-for="nav1 in nav.children" :key="nav1.path">
+          <p v-if="nav1.children" class="side-nav-group">{{nav1.text}}</p>
+          <router-link :class="$route.path===nav1.path ? 'active' : ''" v-else :to="nav1.path">{{nav1.text}}</router-link>
+          <div v-for="nav2 in nav1.children" :key="nav2.path">
+            <router-link :to="nav2.path" :class="$route.path===nav2.path ? 'active' : ''" class="slid-nav-component">{{nav2.text}}</router-link>
+          </div>
         </div>
       </div>
+      <router-link class="side-nav-href" v-else tag="p" :to="nav.path">{{nav.text}}</router-link>
     </div>
   </div>
 </template>
@@ -21,6 +24,10 @@ import { XbRouteConfig } from "examples/router/types";
 export default class Sidebar extends Vue {
   @Prop()
   sidebarConf!: XbRouteConfig[];
+
+  created() {
+    console.log(this.sidebarConf);
+  }
 }
 </script>
 
@@ -73,6 +80,17 @@ export default class Sidebar extends Vue {
     .active {
       color: #3faaf5;
     }
+  }
+
+  .side-nav-href {
+    font-size: 14px;
+    line-height: 1.8;
+    display: block;
+    position: relative;
+    padding: 6px 0 6px 24px;
+    color: #2c405a;
+    font-weight: bold;
+    cursor: pointer;
   }
 }
 </style>

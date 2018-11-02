@@ -18,7 +18,7 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component({})
 export default class Index extends Vue {
-  height: number = document.documentElement.clientHeight;
+  // height: number = document.documentElement.clientHeight;
 }
 </script>
 

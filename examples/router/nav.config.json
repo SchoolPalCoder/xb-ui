@@ -1,0 +1,56 @@
+[
+  {
+    "text": "指南",
+    "path": "/guide"
+  },
+  {
+    "text": "组件",
+    "path": "/components",
+    "children": [
+      { "text": "更新日志", "path": "/updateLog" },
+      {
+        "text": "开发指南",
+        "children": [
+          { "text": "书写规则", "path": "/rules" },
+          { "text": "安装", "path": "/install" },
+          { "text": "开始使用", "path": "/start" }
+        ]
+      },
+      {
+        "text": "组件",
+        "groups": [
+          {
+            "groupName": "基础组件",
+            "folder": "basic",
+            "list": [{ "text": "xb-button", "path": "/xb-button" }]
+          },
+          {
+            "groupName": "表单组件",
+            "folder": "form",
+            "list": [{ "text": "xb-button", "path": "/xb-button" }]
+          },
+          {
+            "groupName": "数据组件",
+            "folder": "data",
+            "list": [{ "text": "xb-button", "path": "/xb-button" }]
+          },
+          {
+            "groupName": "通知组件",
+            "folder": "notice",
+            "list": [{ "text": "xb-button", "path": "/xb-button" }]
+          },
+          {
+            "groupName": "导航组件",
+            "folder": "navigation",
+            "list": [{ "text": "xb-button", "path": "/xb-button" }]
+          },
+          {
+            "groupName": "其他组件",
+            "folder": "others",
+            "list": [{ "text": "xb-button", "path": "/xb-button" }]
+          }
+        ]
+      }
+    ]
+  }
+]

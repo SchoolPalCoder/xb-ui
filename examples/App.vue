@@ -8,7 +8,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import mainHeader from "./components/header.vue";
-import { headerConfig } from "./router/config";
+import router from "./router/nav.config.json";
 
 @Component({
   components: {
@@ -16,7 +16,14 @@ import { headerConfig } from "./router/config";
   },
 })
 export default class App extends Vue {
-  headerRouter = headerConfig();
+  get headerRouter() {
+    return router.map((route) => {
+      return {
+        text: route.text,
+        path: route.path,
+      };
+    });
+  }
 }
 </script>
 

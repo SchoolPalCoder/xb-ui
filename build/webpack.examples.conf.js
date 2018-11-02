@@ -53,7 +53,6 @@ const webpackConfig = {
   devServer: {
     host: "127.0.0.1",
     port: 8086,
-    open: true,
     inline: true,
     publicPath: "/",
     noInfo: true,
@@ -69,6 +68,7 @@ const webpackConfig = {
     alias: {
       "@": path.resolve(__dirname, "../packages"),
       examples: path.resolve(__dirname, "../examples"),
+      docs: path.resolve(__dirname, "../examples/docs"),
       guide: path.resolve(__dirname, "../examples/docs/guide"),
       components: path.resolve(__dirname, "../examples/docs/components"),
     },
@@ -130,6 +130,7 @@ const webpackConfig = {
         use: ["vue-style-loader", "css-loader", "less-loader"],
       },
       {
+        type: "javascript/auto",
         test: /\.json$/,
         loader: "json-loader",
       },
