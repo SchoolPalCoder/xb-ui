@@ -1,17 +1,25 @@
 <template>
   <div class="side-nav">
     <div v-for="nav in sidebarConf" :key="nav.path" class="group-container">
+      <!-- 开发指南 -->
       <div v-if="nav.children&&nav.children.length">
         <p class="side-nav-title">{{nav.text}}</p>
         <div class="side-nav-items" v-for="nav1 in nav.children" :key="nav1.path">
-          <p v-if="nav1.children" class="side-nav-group">{{nav1.text}}</p>
-          <router-link :class="$route.path===nav1.path ? 'active' : ''" v-else :to="nav1.path">{{nav1.text}}</router-link>
-          <div v-for="nav2 in nav1.children" :key="nav2.path">
-            <router-link :to="nav2.path" :class="$route.path===nav2.path ? 'active' : ''" class="slid-nav-component">{{nav2.text}}</router-link>
+          <router-link active-class="active" :to="{name:base+nav1.text}">{{nav1.text}}</router-link>
+        </div>
+      </div>
+      <!-- 渲染组件 -->
+      <div v-else-if="nav.groups">
+        <p class="side-nav-title">{{nav.text}}</p>
+        <div class="side-nav-items" v-for="nav1 in nav.groups" :key="nav1.folder">
+          <p class="side-nav-group">{{nav1.groupName}}</p>
+          <div v-for="item in nav1.list" :key="item.path">
+            <router-link active-class="active" class="slid-nav-component" :to="{name:base+item.text}">{{item.text}}</router-link>
           </div>
         </div>
       </div>
-      <router-link class="side-nav-href" v-else tag="p" :to="nav.path">{{nav.text}}</router-link>
+      <!-- 更新日志 -->
+      <router-link class="side-nav-href" v-else tag="p" :to="{name:base+nav.text}">{{nav.text}}</router-link>
     </div>
   </div>
 </template>
@@ -19,14 +27,17 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { XbRouteConfig } from "examples/router/types";
+import eventBus from "examples/event-bus";
 
-@Component({})
+@Component
 export default class Sidebar extends Vue {
   @Prop()
   sidebarConf!: XbRouteConfig[];
 
+  base: string = "component-";
+
   created() {
-    console.log(this.sidebarConf);
+    // console.log(this.sidebarConf);
   }
 }
 </script>

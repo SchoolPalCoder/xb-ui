@@ -6,7 +6,7 @@
     </div>
     <div class="separate-panel">
       <div class="about">
-        <router-link :to="{name: 'giude'}">开始使用</router-link>
+        <router-link :to="'/guide'">开始使用</router-link>
         <a target="_blank" class="btn-github" href="https://github.com/SchoolPalCoder/Xb-Basic-Components">GitHub</a>
       </div>
     </div>

@@ -3,19 +3,24 @@
   <header class="page-header" :style="$route.path === '/' ? 'box-shadow:none' : 'box-shadow:0 10px 60px 0 rgba(29,29,31,0.07)'">
     <div class="header-container">
       <router-link :to="'/'"><img src="../assets/img/banner.png" width="100"></router-link>
-      <router-link v-for="nav in headerRouter" :key="nav.path" :to="nav.path">{{nav.text}}</router-link>
+      <router-link v-for="conf in headerConf" :key="conf.path" :to="conf.path">{{conf.text}}</router-link>
     </div>
   </header>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import { XbRouteConfig } from "../router/types";
+import headerConfig from "examples/router/nav.config.json";
+import eventBus from "examples/event-bus";
 
 @Component({})
 export default class MainHeader extends Vue {
-  @Prop({ default: [] })
-  headerRouter!: XbRouteConfig;
+  headerConf = headerConfig;
+
+  // clickHeader(config) {
+  //   eventBus.$emit("headerClick", config.children);
+  // }
 }
 </script>
 

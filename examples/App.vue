@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mainHeader :headerRouter="headerRouter"></mainHeader>
+    <mainHeader></mainHeader>
     <router-view class="view"></router-view>
   </div>
 </template>
@@ -15,16 +15,7 @@ import router from "./router/nav.config.json";
     mainHeader,
   },
 })
-export default class App extends Vue {
-  get headerRouter() {
-    return router.map((route) => {
-      return {
-        text: route.text,
-        path: route.path,
-      };
-    });
-  }
-}
+export default class App extends Vue {}
 </script>
 
 <style lang="less" >

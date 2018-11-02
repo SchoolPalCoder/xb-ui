@@ -2,7 +2,7 @@
   <div>
     <div class="layout">
       <Sidebar class="nav" :sidebarConf="sidebarConf"></Sidebar>
-      <router-view class="view" name="container"></router-view>
+      <router-view class="view"></router-view>
     </div>
     <mainFooter></mainFooter>
   </div>
@@ -13,7 +13,7 @@ import { Component, Watch, Vue } from "vue-property-decorator";
 import mainFooter from "examples/components/footer.vue";
 import Sidebar from "examples/components/sidebar.vue";
 import { XbRouteConfig } from "examples/router/types";
-import { headerConfig } from "examples/router/config";
+import headerConfig from "examples/router/nav.config.json";
 
 @Component({
   components: {
@@ -23,15 +23,16 @@ import { headerConfig } from "examples/router/config";
 })
 export default class Layout extends Vue {
   sidebarConf: XbRouteConfig[] = [];
-  private headerConf = headerConfig();
 
   @Watch("$route")
   onRounteChange() {
-    const currentRoute = this.headerConf.find((router: XbRouteConfig) => {
+    const currentRoute = headerConfig.find((router: XbRouteConfig) => {
       return router.path === this.$route.path;
     });
     if (currentRoute && currentRoute.children) {
       this.sidebarConf = currentRoute.children;
+    } else {
+      this.sidebarConf = [];
     }
   }
 
