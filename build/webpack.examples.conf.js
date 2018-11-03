@@ -144,6 +144,10 @@ const webpackConfig = {
         loader: ["style-loader", "css-loader"],
       },
       {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
         test: /\.less$/,
         use: ["vue-style-loader", "css-loader", "less-loader"],
       },

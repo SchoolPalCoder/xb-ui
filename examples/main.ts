@@ -4,7 +4,7 @@ import router from "./router";
 import demoBlock from "./components/demo-block.vue";
 import { camelCase, upperFirst } from "lodash";
 // import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
+import "../packages/theme-chalk/src/index.scss";
 
 const requireComponent = require.context(
   // 其组件目录的相对路径
