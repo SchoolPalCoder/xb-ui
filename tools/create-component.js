@@ -27,8 +27,7 @@ export const ${component.camelCaseName}: PluginObject<${component.pascalCaseName
   install: (Vue) => {
     Vue.component("${component.pascalCaseName}", ${component.pascalCaseName});
   },
-};
-  `;
+};`;
 };
 
 // package/组件/src/组件.vue
