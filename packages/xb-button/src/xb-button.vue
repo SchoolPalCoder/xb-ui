@@ -7,68 +7,38 @@
   </button>
 </template>
 
+<script lang="ts">
+import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 
+@Component
+export default class XbButton extends Vue {
+  /** 按钮样式 */
+  @Prop({ default: "default" })
+  type!: string;
 
-<script>
-/**
-<docs>
-  ## 参数表1
- |参数名|参数说明|类型|可选值|默认值
- |:----|:---|:-----|-----|:-----
- |参数名1|参数说明1|类型1|可选值1|默认值1
- |参数名2|参数说明2|类型2|可选值2|默认值2
+  /** 按钮尺寸 */
+  @Prop({ default: "medium" })
+  size!: string;
 
+  /** icon配置 */
+  @Prop()
+  icon!: string;
 
-   ## 参数表12222
- |参数名|参数说明|类型|可选值|默认值
- |:----|:---|:-----|-----|:-----
- |参数名1|参数说明1|类型1|可选值1|默认值1
- |参数名2|参数说明2|类型2|可选值2|默认值2
+  /** 按钮类型 */
+  @Prop({ default: "button" })
+  nativeType!: string;
 
-   ## 参数表12222
- |参数名|参数说明|类型|可选值|默认值
- |:----|:---|:-----|-----|:-----
- |参数名1|参数说明1|类型1|可选值1|默认值1
- |参数名2|参数说明2|类型2|可选值2|默认值2
+  /** 是否禁用 */
+  @Prop({ default: false })
+  disabled!: boolean;
 
-  ## 参数表12222
- |参数名|参数说明|类型|可选值|默认值
- |:----|:---|:-----|-----|:-----
- |参数名1|参数说明1|类型1|可选值1|默认值1
- |参数名2|参数说明2|类型2|可选值2|默认值2
-</docs>
- */
-export default {
-  name: 'XbButton',
-  data() {
-    return {
-      num: 0,
-    };
-  },
-  props: {
-    type: {
-      type: String,
-      default: 'default',
-    },
-    size: String,
-    icon: {
-      type: String,
-      default: '',
-    },
-    nativeType: {
-      type: String,
-      default: 'button',
-    },
-    disabled: Boolean,
-  },
+  // 按钮计数
+  times: number = 0;
 
-  computed: {},
-
-  methods: {
-    handleClick(evt) {
-      this.num++;
-      this.$emit('click', evt);
-    },
-  },
-};
+  // 点击事件
+  handleClick(event: void) {
+    this.times++;
+    this.$emit("click", event);
+  }
+}
 </script>

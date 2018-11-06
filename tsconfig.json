@@ -9,19 +9,23 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
     "allowJs": false,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["node"],
+    "types": ["node", "webpack-env"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["packages/*"],
+      "examples/*": ["examples/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
+    "types/**/*.d.ts",
     "packages/**/*.ts",
-    "packages/**/*.tsx",
     "packages/**/*.vue",
+    "examples/**/*.ts",
+    "examples/**/*.vue",
     "test/**/*.ts",
     "test/**/*.tsx"
   ],
