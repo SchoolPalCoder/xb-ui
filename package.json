@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "webpack-dev-server --config ./build/webpack.examples.conf.js ",
     "debug": "node --inspect-brk node_modules/.bin/webpack --config ./build/webpack.examples.conf.js",
-    "dev1": "vuepress dev docs",
     "build": "vuepress build docs",
     "create:component": "node tools/create-component",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore build/entry.js",

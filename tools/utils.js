@@ -4,7 +4,7 @@ const chalk = require("chalk");
 
 const writeFileOrWarn = (file, data) => {
   if (fs.existsSync(file)) {
-    console.error(chalk.yellow(`warn:${file} already exists!`));
+    console.error(chalk.bgRed(`warn:${file} already exists!`));
   } else {
     fs.writeFileSync(file, data);
   }
@@ -22,7 +22,7 @@ const appendFile = (file, data) => {
       // 意外错误
       // 文件权限问题
       // 文件夹找不到(不会自动创建文件夹)
-      console.error(chalk.red(err));
+      console.error(chalk.bgRed(err));
     }
   });
 };

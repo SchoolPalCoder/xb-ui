@@ -15,7 +15,7 @@ const componentInfo = {
 
 const folderNames = ["basic", "form", "data", "notice", "navigation", "others"];
 
-if (folderNames.includes(componentInfo.folderName)) {
+if (!folderNames.includes(componentInfo.folderName)) {
   throw new Error(chalk.red("文档文件夹不存在！"));
 }
 
