@@ -6,7 +6,14 @@
 
 ## 编码规范
 
-参考[书写规则](./Rules.md)
+1. 书写规则
+   参考[书写规则](./examples/docs/guide/rules.md)
+
+2. 编辑器及插件要求
+
+- 使用 `VSCODE`
+- 包管理使用 `yarn`
+- 安装 `Prettier` 插件
 
 ## 项目结构
 
@@ -18,22 +25,13 @@
 |   ├── gen-cssfile.js        样式合并打包在index.css的配置文件
 |   ├── webpack.production.js     整体组件打包文件
 |   └── webpack.component.js  单个组件打包文件
-├── docs        XBUI 静态站点文件夹
-|   ├── .vuepress    vuepress 所需要的配置环境文件夹
-|   |   ├── public         vuepress 公共静态文件夹
-|   |   ├── config.js      vuepress 配置文件
-|   |   └── enhanceApp.js  vuepress 应用级别配置文件(组件注入)
-|   ├── components   组件文档文件夹
-|   |   ├── basic         具体的组件分类文件夹
-|   |   ├── form          具体的组件分类文件夹
-|   |   ├── layout        具体的组件分类文件夹
-|   |   └── notice        具体的组件分类文件夹
-|   ├── guide        指南说明
-|   |   ├── install.md     安装
-|   |   ├── README.md      介绍文档
-|   |   ├── start.md       快速开始
-|   |   └── updateLog      日志更新
-|   └── README.md    主页
+├── examples         XBUI 静态站点文件夹
+|   ├── docs       组件文档文件夹
+|   |   ├── basic         基础组件分类文件夹
+|   |   ├── form          表单组件分类文件夹
+|   |   ├── layout        布局组件组件分类文件夹
+|   |   ├── notice        提示组件分类文件夹
+|   |   └── guide         指南说明文件夹
 ├── lib           打包后文件夹
 |   ├── theme-chakl   打包后样式所在文件夹
 |   |   ├── ...            组件对应的样式
@@ -56,7 +54,7 @@
 ├── .gitignore
 ├── components.json
 ├── package.json
-├── prettier.config.js     代码自动化规范
+├── prettierrc.yml            代码自动化规范(Prettier插件读取此配置)
 └── README.md
 ```
 
@@ -81,13 +79,12 @@ npm run create:component 组件名
 预览文档
 
 ```bash
-npm run docs:dev
+npm run dev
 ```
 
 ## 技术栈
 
 - [vue](https://github.com/vuejs/vue)
-- [vuepress](https://github.com/vuejs/vuepress)
 
 ## 安装
 

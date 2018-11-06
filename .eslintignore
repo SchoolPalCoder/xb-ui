@@ -1,0 +1,10 @@
+packages
+examples
+*.sh
+node_modules
+lib
+coverage
+*.md
+*.scss
+*.woff
+*.ttf

@@ -1,28 +1,28 @@
 {
-    "defaultSeverity": "warning",
-    "extends": ["tslint:recommended"],
-    "linterOptions": {
-        "exclude": ["node_modules/**"]
-    },
-    "rules": {
-        "quotemark": false,
-        "no-namespace": false,
-        "indent": [true, "spaces", 2],
-        "interface-name": false,
-        "ordered-imports": false,
-        "max-classes-per-file": false,
-        "semicolon": [true, "always", "ignore-interfaces"],
-        "trailing-comma": [true, "never"],
-        "arrow-parens": true, // 围绕箭头函数定义的参数需要括号
-        "object-literal-sort-keys": false,
-        "no-consecutive-blank-lines": [true, 2], // 禁止连续超过两行空行
-        "no-trailing-whitespace": true, // 尾部空格检测
-        "typedef-whitespace": true, // 类型声明的冒号之前是否需要空格
-        "member-access": false, //类成员必须声明 private public ....
-        "no-invalid-template-strings": true, // 警告在非模板字符中使用${
-        "prefer-const": true, // const偏好
-        "no-bitwise": false, // 允许位运算
-        "no-var-keyword": true, // 不允许关键字var
-        "interface-over-type-literal": false // interface 修饰符优先覆盖 type 修饰符
-    }
+  "defaultSeverity": "warning",
+  "extends": ["tslint:recommended"],
+  "linterOptions": {
+    "exclude": ["node_modules/**"]
+  },
+  "rules": {
+    "quotemark": false,
+    "no-namespace": false,
+    "indent": [true, "spaces", 2],
+    "interface-name": false,
+    "ordered-imports": false,
+    "max-classes-per-file": false,
+    "semicolon": [true, "always", "ignore-interfaces"],
+    "trailing-comma": [true, "never"],
+    "arrow-parens": true, // 围绕箭头函数定义的参数需要括号
+    "object-literal-sort-keys": false,
+    "no-consecutive-blank-lines": [true, 2], // 禁止连续超过两行空行
+    "no-trailing-whitespace": true, // 尾部空格检测
+    "typedef-whitespace": true, // 类型声明的冒号之前是否需要空格
+    "member-access": false, //类成员必须声明 private public ....
+    "no-invalid-template-strings": true, // 警告在非模板字符中使用${
+    "prefer-const": true, // const偏好
+    "no-bitwise": false, // 允许位运算
+    "no-var-keyword": true, // 不允许关键字var
+    "interface-over-type-literal": false // interface 修饰符优先覆盖 type 修饰符
+  }
 }
