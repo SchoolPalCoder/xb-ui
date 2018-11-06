@@ -43,8 +43,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 export default class ${component.pascalCaseName} extends Vue {
 
 }
-</script>
-  `;
+</script>`;
 };
 
 // package/theme-chalk/index.scss update

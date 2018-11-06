@@ -4,6 +4,26 @@
 
 这是 IBU 前端 Vue 基础组件库项目，目前处于起步阶段，后期需要大家不断的完善组件库内容，演变为强大并且通用的基础组件库。对标 Element-UI。
 
+## 从 JS 迁移至 TS
+
+1. 本地新建项目文件夹
+2. 从新 clone 本项目`master`分支
+3. 运行以下命令创建并切换个人分支
+
+```bash
+# XXX是个人分支名称
+git checkout -b XXX
+```
+
+4. 运行以下命令推送新分支到 GitHub
+
+```bash
+# XXX是个人分支名称
+git push origin XXX:XXX
+```
+
+5. 从原本的已经写了组件的项目中将 JS 组件翻译为 TS 组件并提交和创建 `PR(PullRequest)`
+
 ## 编码规范
 
 1. 书写规则
