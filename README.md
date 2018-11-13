@@ -22,7 +22,7 @@ git checkout -b XXX
 git push origin XXX:XXX
 ```
 
-5. 从原本的已经写了组件的项目中将 JS 组件翻译为 TS 组件并提交和创建 `PR(PullRequest)`
+5. 从原本的已经写了组件的项目中将 JS 组件翻译为 TS 组件并提交和创建 `PR(Pull Request)`
 
 ## 编码规范
 
@@ -33,7 +33,7 @@ git push origin XXX:XXX
 
 - 使用 `VSCODE`
 - 包管理使用 `yarn`
-- 安装 `Prettier` 插件
+- 安装 `Prettier - Code formatter` 插件
 
 ## 项目结构
 
