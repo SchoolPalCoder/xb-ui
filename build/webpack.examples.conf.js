@@ -24,7 +24,7 @@ const vueMarkdown = {
       "demo",
       {
         validate: (params) => params.trim().match(/^demo\s*(.*)$/),
-        render: function(tokens, idx) {
+        render: function (tokens, idx) {
           const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
           if (tokens[idx].nesting === 1) {
             const description = m && m.length > 1 ? m[1] : "";
@@ -51,13 +51,13 @@ const vueMarkdown = {
     ],
   ],
   preprocess: (MarkdownIt, source) => {
-    MarkdownIt.renderer.rules.table_open = function() {
+    MarkdownIt.renderer.rules.table_open = function () {
       return '<table class="table">';
     };
     MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(MarkdownIt.renderer.rules.fence);
 
     let code_inline = MarkdownIt.renderer.rules.code_inline;
-    MarkdownIt.renderer.rules.code_inline = function(...args) {
+    MarkdownIt.renderer.rules.code_inline = function (...args) {
       args[0][args[1]].attrJoin("class", "code_inline");
       return code_inline(...args);
     };
@@ -91,6 +91,7 @@ const webpackConfig = {
       docs: path.resolve(__dirname, "../examples/docs"),
       guide: path.resolve(__dirname, "../examples/docs/guide"),
       components: path.resolve(__dirname, "../examples/docs/components"),
+      main: path.resolve(__dirname, "../src")
     },
     modules: ["node_modules"],
   },

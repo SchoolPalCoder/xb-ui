@@ -9,9 +9,15 @@
 
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
+import Locale from "../../../src/mixins/locale";
 
-@Component
+@Component({
+  mixins: [Locale]
+})
+
 export default class XbButton extends Vue {
+
+
   /** 按钮样式 */
   @Prop({ default: "default" })
   type!: string;
@@ -37,6 +43,7 @@ export default class XbButton extends Vue {
 
   // 点击事件
   handleClick(event: void) {
+    console.log(this.t("xb.button.test11"));
     this.times++;
     this.$emit("click", event);
   }
