@@ -38,6 +38,10 @@
               {
                 "text": "xb-button",
                 "path": "/xb-button"
+              },
+              {
+                "text": "xb-input-number",
+                "path": "/xb-input-number"
               }
             ]
           },
