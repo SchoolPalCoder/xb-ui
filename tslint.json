@@ -23,6 +23,7 @@
     "prefer-const": true, // const偏好
     "no-bitwise": false, // 允许位运算
     "no-var-keyword": true, // 不允许关键字var
-    "interface-over-type-literal": false // interface 修饰符优先覆盖 type 修饰符
+    "interface-over-type-literal": false, // interface 修饰符优先覆盖 type 修饰符
+    "only-arrow-functions": false // 禁止传统（非箭头）函数表达式。
   }
 }

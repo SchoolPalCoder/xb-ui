@@ -13,27 +13,16 @@
     "allowJs": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": [
-      "node",
-      "webpack-env"
-    ],
+    "types": ["node", "webpack-env"],
     "paths": {
-      "@/*": [
-        "packages/*"
-      ],
-      "examples/*": [
-        "examples/*"
-      ]
+      "@/*": ["packages/*"],
+      "examples/*": ["examples/*"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
     "types/**/*.d.ts",
+    "src/**/*ts",
     "packages/**/*.ts",
     "packages/**/*.vue",
     "examples/**/*.ts",
@@ -41,7 +30,5 @@
     "test/**/*.ts",
     "test/**/*.tsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
