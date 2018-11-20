@@ -29,7 +29,8 @@ export default class XbInputNumber extends Vue {
   min!: number;
 
   /**最大值 */
-  @Prop({ default: 1.7976931348623157e10308 })
+  /**设定这个默认值，是因为大于这个值以后，就会以科学计入法的方式展示在input输入框内，展示出来的数据对用户并不友好 */
+  @Prop({ default: 999999999999999 })
   max!: number;
 
   /**步进 */

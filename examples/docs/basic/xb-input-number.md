@@ -13,8 +13,8 @@
 </div>
 
 ```html
-// 初始输入值：0，最小值：0，步进：1，只允许输入纯数字
-// input输入框宽：180px，input输入框高：40px，右侧按钮宽：40px
+// 初始输入值：0，最小值：0，步进：1，只允许输入纯数字，input输入框宽：180px，input输入框高：40px，右侧按钮宽：40px
+
 <xb-input-number></xb-input-number>
 ```
 
@@ -30,6 +30,7 @@
 
 ```html
 // 初始值：20
+
 <xb-input-number :firstNum="20"></xb-input-number>
 ```
 
@@ -42,7 +43,8 @@
 </div>
 
 ```html
-// 只能存在 一位正数 
+// 只能存在 一位正数
+
 <xb-input-number regExp="^\d{1}$"></xb-input-number>
 ```
 
@@ -55,7 +57,8 @@
 </div>
 
 ```html
-// 最大值：10 
+// 最大值：10
+
 <xb-input-number :max="10"></xb-input-number>
 ```
 
@@ -68,7 +71,8 @@
 </div>
 
 ```html
-// 最小值：-5 
+// 最小值：-5
+
 <xb-input-number :min="-5"></xb-input-number>
 ```
 
@@ -78,12 +82,12 @@ disabled 属性接受一个 Boolean，设置为 true 即可禁用整个组件，
 
 <div class="demo-button">
   <div>
-    <xb-input-number disabled="disabled"></xb-input-number>
+    <xb-input-number disabled="true"></xb-input-number>
   </div>
 </div>
 
 ```html
-<xb-input-number disabled="disabled"></xb-input-number>
+<xb-input-number disabled="true"></xb-input-number>
 ```
 
 ## 步进
@@ -97,7 +101,8 @@ disabled 属性接受一个 Boolean，设置为 true 即可禁用整个组件，
 </div>
 
 ```html
-// 每次改变值为5 
+// 每次改变值为5
+
 <xb-input-number step="5"></xb-input-number>
 ```
 
@@ -113,6 +118,7 @@ disabled 属性接受一个 Boolean，设置为 true 即可禁用整个组件，
 
 ```html
 // 只修改input输入框的尺寸，最小高度为30px
+
 <xb-input-number :inputStyle="{'width':'100px','height':'30px'}"></xb-input-number>
 ```
 
