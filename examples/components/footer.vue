@@ -11,8 +11,7 @@
             <p>Github: Xb-Basic-Components</p>
           </div>
         </div>
-        <div :span="12" class="text-right">
-        </div>
+        <div :span="12" class="text-right"></div>
       </div>
     </div>
   </div>
@@ -21,12 +20,12 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-@Component({})
+@Component
 export default class Footer extends Vue {}
 </script>
 
 
-<style lang="less" type="text/less" scoped>
+<style lang="scss"  >
 .page-footer {
   padding: 30px 0 30px;
   color: #6190e8;

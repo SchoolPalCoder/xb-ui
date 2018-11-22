@@ -150,10 +150,6 @@ const webpackConfig = {
         use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.less$/,
-        use: ["vue-style-loader", "css-loader", "less-loader"],
-      },
-      {
         type: "javascript/auto",
         test: /\.json$/,
         loader: "json-loader",
