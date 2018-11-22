@@ -91,7 +91,7 @@ const webpackConfig = {
       docs: path.resolve(__dirname, "../examples/docs"),
       guide: path.resolve(__dirname, "../examples/docs/guide"),
       components: path.resolve(__dirname, "../examples/docs/components"),
-      main: path.resolve(__dirname, "../src"),
+      src: path.resolve(__dirname, "../src"),
     },
     modules: ["node_modules"],
   },

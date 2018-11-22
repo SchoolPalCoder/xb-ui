@@ -1,0 +1,20 @@
+// 全局css样式字首定义
+$css-prefix: xbui-;
+$css-prefix-iconfont: xbui-icon;
+
+// 全局颜色样式定义
+$primary-color: #409eff !default; /** 主颜色样式*/
+$border-color-base: #dddee1 !default;
+$input-placeholder-color: #bbbec4 !default;
+
+// 动画
+$animation-time: 0.3s;
+$transition-time: 0.2s;
+$ease-in-out: ease-in-out;
+
+// 字体
+$font-size-base: 14px;
+$font-size-small: 12px;
+
+// 全局其他样式定义
+$cursor-disabled: not-allowed; /**鼠标经过禁用样式*/
