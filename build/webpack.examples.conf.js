@@ -77,6 +77,7 @@ const webpackConfig = {
     publicPath: "/",
     noInfo: true,
     historyApiFallback: true,
+    open: true,
   },
   devtool: "inline-source-map",
   output: {
