@@ -34,7 +34,7 @@
 <div class="demo-checkbox">
   <div>
     <xb-checkbox disabled>不喜欢？</xb-checkbox>
-    <xb-checkbox v-model="checked" disabled>不，你喜欢！</xb-checkbox>
+    <xb-checkbox v-model="checked" disabled="true">不，你喜欢！</xb-checkbox>
   </div>
 </div>
 

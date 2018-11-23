@@ -48,7 +48,12 @@
           {
             "groupName": "表单组件",
             "folder": "form",
-            "list": []
+            "list": [
+              {
+                "text": "xb-checkbox",
+                "path": "/xb-checkbox"
+              }
+            ]
           },
           {
             "groupName": "数据组件",
@@ -62,6 +67,10 @@
               {
                 "text": "xb-popup-window",
                 "path": "/xb-popup-window"
+              },
+              {
+                "text": "xb-message-tips",
+                "path": "/xb-message-tips"
               }
             ]
           },

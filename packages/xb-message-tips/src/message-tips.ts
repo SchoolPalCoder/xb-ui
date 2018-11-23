@@ -11,11 +11,26 @@ const defaults: Options = {
 };
 
 const iconTypes = {
-  info: "xbui-icon-uniE901",
-  success: "xbui-icon-uniE900",
-  warning: "xbui-icon-home",
-  error: "xbui-icon-home2",
-  loading: "xbui-icon-search",
+  info: {
+    name: "info-circle",
+    color: "#1890FF",
+  },
+  success: {
+    name: "success-circle",
+    color: "#52C41A",
+  },
+  warning: {
+    name: "warning-circle",
+    color: "#FAAD14",
+  },
+  error: {
+    name: "error-circle",
+    color: "#F5222D",
+  },
+  loading: {
+    name: "info-circle",
+    color: "blue",
+  },
 };
 
 const messageConstructor = Vue.extend(messageVue);

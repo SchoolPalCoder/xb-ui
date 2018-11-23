@@ -2,8 +2,8 @@
   <transition name="slide-fade" v-on:after-leave="afterLeave">
     <div v-if="show" class="xbui-message-tips">
       <div class="xbui-message-tips-content">
-        <!-- <xb-icon :class="type"></xb-icon> -->
-        <span>{{type}}---{{text}}</span>
+        <xb-icon :type="this.type.name" :color="this.type.color"></xb-icon>
+        <span>{{text}}</span>
         <span class="xbui-message-tips_close" v-if="closable" @click="closeClick">x<i class="xbui-icon-uniE901"></i></span>
       </div>
     </div>

@@ -36,6 +36,9 @@ const install = function(Vue, opts = {}) {
         // 否则回退到使用模块的根。
         componentConfig.default || componentConfig
       );
+      if (componentName === "XbMessageTips") {
+        Vue.prototype.$message = componentConfig.default;
+      }
     }
   });
 
