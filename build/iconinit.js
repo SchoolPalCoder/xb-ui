@@ -9,7 +9,7 @@ var classList = [];
 
 nodes.forEach((node) => {
   var selector = node.selector || '';
-  var reg = new RegExp(/\.xbui-icon-([^:]+):before/);
+  var reg = new RegExp(/\.xb-icon-([^:]+):before/);
   var arr = selector.match(reg);
 
   if (arr && arr[1]) {
@@ -17,4 +17,4 @@ nodes.forEach((node) => {
   }
 });
 
-fs.writeFile(path.resolve(__dirname, '../docs/icon.json'), JSON.stringify(classList), () => { });
+fs.writeFile(path.resolve(__dirname, '../examples/docs/icon.json'), JSON.stringify(classList), () => { });
