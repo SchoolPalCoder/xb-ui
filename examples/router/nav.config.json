@@ -38,18 +38,17 @@
               {
                 "text": "xb-button",
                 "path": "/xb-button"
+              },
+              {
+                "text": "xb-icon",
+                "path": "/xb-icon"
               }
             ]
           },
           {
             "groupName": "表单组件",
             "folder": "form",
-            "list": [
-              {
-                "text": "xb-checkbox",
-                "path": "/xb-checkbox"
-              }
-            ]
+            "list": []
           },
           {
             "groupName": "数据组件",
@@ -61,8 +60,8 @@
             "folder": "notice",
             "list": [
               {
-                "text": "xb-message-tips",
-                "path": "/xb-message-tips"
+                "text": "xb-popup-window",
+                "path": "/xb-popup-window"
               }
             ]
           },

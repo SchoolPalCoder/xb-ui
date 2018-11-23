@@ -13,9 +13,10 @@ import router from "./router/nav.config.json";
 @Component({
   components: {
     mainHeader,
-  },
+  }
 })
-export default class App extends Vue {}
+
+export default class App extends Vue { }
 </script>
 
 <style lang="less" >

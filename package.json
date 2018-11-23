@@ -8,7 +8,7 @@
     "debug": "node --inspect-brk node_modules/.bin/webpack --config ./build/webpack.examples.conf.js",
     "build": "vuepress build docs",
     "create:component": "node tools/create-component",
-    "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore build/entry.js",
+    "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
     "create:componentMd": "node tools/create-componentMd",
     "dist:style": "node build/gen-cssfile && gulp --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/dist lib/theme-chalk",
     "dist:component": "webpack --config build/webpack.component.js --mode production",
@@ -118,5 +118,7 @@
   "peerDependencies": {
     "vue": "^2.5.17"
   },
-  "dependencies": {}
+  "dependencies": {
+    "deepmerge": "^2.2.1"
+  }
 }

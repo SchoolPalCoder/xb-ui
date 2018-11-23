@@ -11,6 +11,10 @@ const chalk = require("chalk");
 const lodash = require("lodash");
 const utils = require("./utils");
 
+if (process.argv[2] === undefined) {
+  throw new Error(chalk.bgRed("请输入组件名！"));
+}
+
 const componentInfo = {
   lowerCaseName: process.argv[2].toLowerCase(),
   camelCaseName: lodash.camelCase(process.argv[2]),
