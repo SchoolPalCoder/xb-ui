@@ -6,7 +6,7 @@
     </div>
     <div class="separate-panel">
       <div class="about">
-        <router-link :to="'/guide'">开始使用</router-link>
+        <router-link :to="'/components'">开始使用</router-link>
         <a
           target="_blank"
           class="btn-github"

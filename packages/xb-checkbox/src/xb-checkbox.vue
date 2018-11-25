@@ -3,13 +3,16 @@
     <span :class="checkboxClasses">
       <span :class="innerClasses"></span>
       <input
-        v-if="isGroup"
+        v-if="group"
         type="checkbox"
         :class="inputClasses"
         :disabled="disabled"
         :value="label"
         v-model="model"
-        @onChange="onChange"
+        :name="name"
+        @change="change"
+        @focus="onFocus"
+        @blur="onBlur"
       >
       <input
         v-else
@@ -17,7 +20,10 @@
         :class="inputClasses"
         :disabled="disabled"
         :checked="currentValue"
-        @onChange="onChange"
+        :name="name"
+        @change="change"
+        @focus="onFocus"
+        @blur="onBlur"
       >
     </span>
     <slot>
@@ -27,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Mixins } from "vue-property-decorator";
+import { Component, Prop, Vue, Mixins, Watch } from "vue-property-decorator";
 import { findComponentUpward } from "src/utils/utils";
 import XbCheckboxGroup from "./xb-checkbox-group.vue";
 import Emmiter from "src/mixins/emmiter";
@@ -37,49 +43,64 @@ const prefixCls = "xbui-checkbox";
 @Component({ name: "XbCheckBox", mixins: [Emmiter] })
 export default class XbCheckbox extends Mixins(Emmiter) {
   /** 只在单独使用时有效。可以使用 v-model 双向绑定数据 */
-  @Prop({ default: false })
+  @Prop({ type: [String, Number, Boolean], default: false })
   value!: string | number | boolean;
 
   /** 只在组合使用时有效。指定当前选项的 value 值，组合会自动判断是否选中 */
-  @Prop({ default: "" })
+  @Prop({ type: [String, Number, Boolean], default: "" })
   label!: string | number | boolean;
 
   /** 设置 indeterminate 状态，是否半选中状态，只负责样式控制 */
-  @Prop({ default: false })
+  @Prop({ type: Boolean, default: false })
   indeterminate!: boolean;
 
   /** 选中时的值，当使用类似 1 和 0 来判断是否选中时会很有用 */
-  @Prop({ default: true })
+  @Prop({ type: [String, Number, Boolean], default: true })
   trueValue!: string | number | boolean;
 
   /** 选中时的值，当使用类似 1 和 0 来判断是否选中时会很有用 */
-  @Prop({ default: false })
+  @Prop({ type: [String, Number, Boolean], default: false })
   falseValue!: string | number | boolean;
 
   /** 是否禁用 */
-  @Prop({ default: false })
+  @Prop({ type: Boolean, default: false })
   disabled!: boolean;
 
+  /** 尺寸大小 */
+  @Prop({
+    type: String,
+    default: "medium",
+    validator(value) {
+      return ["small", "medium", "large"].includes(value);
+    },
+  })
+  size!: string;
+
+  @Prop({ type: String })
+  name!: string;
+
   // 是否是CheckboxGroup,值的改变由XbCheckboxGroup组件控制
-  isGroup: boolean = false;
+  group: boolean = false;
 
   // 数据模型
   model: any[] = [];
 
-  currentValue: boolean = false;
+  currentValue: string | number | boolean = this.value;
 
   showSlot: boolean = true;
 
   // 用于存放XbCheckboxGroup组件的Vue实例
-  private parent!: XbCheckboxGroup;
+  parent!: XbCheckboxGroup;
+
+  focusInner: boolean = false;
 
   mounted() {
     this.parent = findComponentUpward(this, "XbCheckboxGroup") as XbCheckboxGroup;
     if (this.parent) {
-      this.isGroup = true;
+      this.group = true;
     }
 
-    if (this.isGroup) {
+    if (this.group) {
       this.parent.updateModel(true);
     } else {
       this.updateModel();
@@ -91,7 +112,7 @@ export default class XbCheckbox extends Mixins(Emmiter) {
     this.currentValue = this.value === this.trueValue;
   }
 
-  onChange(event) {
+  change(event) {
     if (this.disabled) {
       return false;
     }
@@ -100,11 +121,30 @@ export default class XbCheckbox extends Mixins(Emmiter) {
     this.currentValue = checked;
 
     const value = checked ? this.trueValue : this.falseValue;
+    this.$emit("input", value);
 
-    if (this.isGroup) {
-      this.parent.onChange(this.model);
+    if (this.group) {
+      this.parent.change(this.model);
     } else {
       this.$emit("on-change", value);
+      this.dispatch("FormItem", "on-form-change", value);
+    }
+  }
+
+  onBlur() {
+    this.focusInner = false;
+  }
+
+  onFocus() {
+    this.focusInner = true;
+  }
+
+  @Watch("value")
+  onValueChanged(val) {
+    if (val === this.trueValue || val === this.falseValue) {
+      this.updateModel();
+    } else {
+      throw new Error("Value should be trueValue or falseValue.");
     }
   }
 
@@ -112,7 +152,7 @@ export default class XbCheckbox extends Mixins(Emmiter) {
     return [
       `${prefixCls}-wrapper`,
       {
-        [`${prefixCls}-group-item`]: this.isGroup,
+        [`${prefixCls}-group-item`]: this.group,
         [`${prefixCls}-wrapper-checked`]: this.currentValue,
         [`${prefixCls}-wrapper-disabled`]: this.disabled,
       },

@@ -1,3 +1,19 @@
+<script>
+  module.exports= {
+    data() {
+      return {
+        checked: true,
+        checkOptiations: ['facebook', 'github']
+      };
+    },
+    methods:{
+      created(){
+        console.log(this.checkOptiations)
+      }
+    }
+  };
+</script>
+
 # xb-checkbox
 
 ---
@@ -8,8 +24,11 @@
 
 # 示例
 
+## 基础用法
+
 <template>
   <xb-checkbox v-model="checked">备选项</xb-checkbox>
+  {{checked}}
 </template>
 <script>
   export default {
@@ -23,14 +42,57 @@
 
 ```js
 <template>
-  <!-- `checked` 为 true 或 false -->
   <xb-checkbox v-model="checked">备选项</xb-checkbox>
 </template>
 <script>
   export default {
     data() {
       return {
-        checked: true
+        checked: true,
+        checkOptiations: ['facebook', 'github']
+      };
+    }
+  };
+</script>
+```
+
+## 组合使用
+
+<template>
+  <xb-checkbox-group v-model="checkOptiations">
+    <xb-checkbox label="checked"></xb-checkbox>
+    <!-- <xb-checkbox label="checked1"></xb-checkbox>
+    <xb-checkbox label="checked2"></xb-checkbox> -->
+  </xb-checkbox-group>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        checkOptiations: ['facebook', 'github']
+      };
+    },
+    methods:{
+      created(){
+        console.log(this.checkOptiations)
+      }
+    }
+  };
+</script>
+
+```js
+<template>
+<xb-checkbox-group v-model="checkOptiations">
+  <xb-checkbox label="checked"></xb-checkbox>
+  <xb-checkbox label="checked1"></xb-checkbox>
+  <xb-checkbox label="checked2"></xb-checkbox>
+</xb-checkbox-group>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        checkOptiations: ['facebook', 'github']
       };
     }
   };

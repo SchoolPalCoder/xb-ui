@@ -5,15 +5,34 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Mixins, Watch } from "vue-property-decorator";
+import { Component, Prop, Vue, Mixins, Watch, Emit } from "vue-property-decorator";
 import { findComponentsDownward } from "src/utils/utils";
 import XbCheckbox from "./xb-checkbox.vue";
+import Emitter from "src/mixins/emmiter";
+
+const prefixCls = "xbui-checkbox";
 
 @Component({ name: "XbCheckboxGroup" })
-export default class XbCheckboxGroup extends Vue {
+export default class XbCheckboxGroup extends Mixins(Emitter) {
+  // readonly name: string = "XbCheckboxGroup";
   /** 选中的值 */
-  @Prop({ default: [] })
+  @Prop({
+    type: Array,
+    default() {
+      return [];
+    },
+  })
   value!: any[];
+
+  /** 尺寸大小 */
+  @Prop({
+    type: String,
+    default: "medium",
+    validator(value) {
+      return ["small", "medium", "large"].includes(value);
+    },
+  })
+  size!: string;
 
   // 当前值
   private currentValue: any[] = this.value;
@@ -21,10 +40,8 @@ export default class XbCheckboxGroup extends Vue {
   // 当前组件实例所有子级组件集合
   private childrens: XbCheckbox[] = [];
 
-  // change事件
-  onChange(data) {
-    this.currentValue = data;
-    this.$emit("on-change", data);
+  mounted() {
+    this.updateModel(true);
   }
 
   // 外部value值改变事件
@@ -34,20 +51,35 @@ export default class XbCheckboxGroup extends Vue {
   }
 
   // 更新子组件内的值
-  updateModel(isUpdate: boolean) {
-    this.childrens = findComponentsDownward(this, "XbCheckbox") as XbCheckbox[];
-
-    if (this.childrens.length > 0) {
+  updateModel(update) {
+    this.childrens = findComponentsDownward(this, "Checkbox") as XbCheckbox[];
+    if (this.childrens) {
       const { value } = this;
       this.childrens.forEach((child) => {
-        child.isGroup = true;
         child.model = value;
 
-        if (isUpdate) {
-          child.currentValue = value.includes(child.label);
+        if (update) {
+          child.currentValue = value.indexOf(child.label) >= 0;
+          child.group = true;
         }
       });
     }
+  }
+
+  change(data) {
+    this.currentValue = data;
+    this.$emit("input", data);
+    this.$emit("on-change", data);
+    this.dispatch("FormItem", "on-form-change", data);
+  }
+
+  get classes() {
+    return [
+      `${prefixCls}-group`,
+      {
+        [`${prefixCls}-${this.size}`]: !!this.size,
+      },
+    ];
   }
 }
 </script>

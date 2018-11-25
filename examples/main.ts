@@ -37,7 +37,6 @@ requireComponent.keys().forEach((fileName: string) => {
     );
   }
 });
-
 Vue.component("demo-block", demoBlock);
 Vue.config.productionTip = false;
 window.app = new Vue({
