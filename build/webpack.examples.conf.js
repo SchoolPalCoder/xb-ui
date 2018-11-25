@@ -77,6 +77,7 @@ const webpackConfig = {
     publicPath: "/",
     noInfo: true,
     historyApiFallback: true,
+    open: true,
   },
   devtool: "inline-source-map",
   output: {
@@ -91,7 +92,7 @@ const webpackConfig = {
       docs: path.resolve(__dirname, "../examples/docs"),
       guide: path.resolve(__dirname, "../examples/docs/guide"),
       components: path.resolve(__dirname, "../examples/docs/components"),
-      main: path.resolve(__dirname, "../src"),
+      src: path.resolve(__dirname, "../src"),
     },
     modules: ["node_modules"],
   },
@@ -147,10 +148,6 @@ const webpackConfig = {
       {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.less$/,
-        use: ["vue-style-loader", "css-loader", "less-loader"],
       },
       {
         type: "javascript/auto",

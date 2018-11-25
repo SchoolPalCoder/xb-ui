@@ -43,7 +43,7 @@ const indexVue = (component) => {
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component
+@Component({ name: "${component.pascalCaseName}" })
 export default class ${component.pascalCaseName} extends Vue {
 
 }
