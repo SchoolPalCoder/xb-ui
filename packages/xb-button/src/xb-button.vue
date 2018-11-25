@@ -1,5 +1,11 @@
 <template>
-  <button class="xb-button" :class="[disabled?'xb-button-disabled':'',type ? 'xb-button-' + type : '',]" @click="handleClick" :disabled="disabled" :type="nativeType">
+  <button
+    class="xb-button"
+    :class="[disabled?'xb-button-disabled':'',type ? 'xb-button-' + type : '',]"
+    @click="handleClick"
+    :disabled="disabled"
+    :type="nativeType"
+  >
     <i :class="icon" v-if="icon"></i>
     <span v-if="$slots.default">
       <slot></slot>
@@ -9,8 +15,11 @@
 
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
+import Locale from "../../../src/mixins/locale";
 
-@Component
+@Component({
+  mixins: [Locale],
+})
 export default class XbButton extends Vue {
   /** 按钮样式 */
   @Prop({ default: "default" })

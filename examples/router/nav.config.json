@@ -42,6 +42,10 @@
               {
                 "text": "xb-input-number",
                 "path": "/xb-input-number"
+              },
+              {                
+                "text": "xb-icon",
+                "path": "/xb-icon"
               }
             ]
           },
@@ -58,7 +62,12 @@
           {
             "groupName": "通知组件",
             "folder": "notice",
-            "list": []
+            "list": [
+              {
+                "text": "xb-popup-window",
+                "path": "/xb-popup-window"
+              }
+            ]
           },
           {
             "groupName": "导航组件",

@@ -8,6 +8,14 @@ const fs = require("fs");
 const chalk = require("chalk");
 const utils = require("./utils");
 
+if (process.argv[2] === undefined) {
+  throw new Error(chalk.bgRed("请输入文件夹名和组件文档名！"));
+}
+
+if (process.argv[3] === undefined) {
+  throw new Error(chalk.bgRed("请输入组件文档名！"));
+}
+
 const componentInfo = {
   folderName: process.argv[2].toLowerCase(),
   name: process.argv[3].toLowerCase(),
@@ -16,7 +24,7 @@ const componentInfo = {
 const folderNames = ["basic", "form", "data", "notice", "navigation", "others"];
 
 if (!folderNames.includes(componentInfo.folderName)) {
-  throw new Error(chalk.red("文档文件夹不存在！"));
+  throw new Error(chalk.bgRed("文档文件夹不存在！"));
 }
 
 // docs/components/组件.md
@@ -37,7 +45,7 @@ const _dir = path.resolve(__dirname, mdPath);
 const createMd = (component) => {
   mkdirp(path.join(dir, component.folderName), (err) => {
     if (err) {
-      console.warn(chalk.red(err));
+      console.warn(chalk.bgRed(err));
     } else {
       utils.writeFileOrWarn(path.join(dir, component.folderName, component.name + ".md"), componentMd(component));
     }
@@ -51,7 +59,7 @@ const createParamForm = (component) => {
   fs.readdir(componentSrcPath, (err, files) => {
     //遍历读取src下的vue文件，将每个组件的参数都放在md文档显示
     if (err) {
-      console.warn(chalk.red(err));
+      console.warn(chalk.bgRed(err));
     } else {
       files.forEach((filename) => {
         const componentVuePath = path.resolve(__dirname, srcPath + "/" + filename);
@@ -79,7 +87,7 @@ const updateParamForm = (component) => {
     const newData = data.replace(str, "");
     fs.writeFile(path.join(dir, component.folderName, component.name + ".md"), newData, (err) => {
       if (err) {
-        throw new Error(chalk.red(err));
+        throw new Error(chalk.bgRed(err));
       }
     });
   });
@@ -90,7 +98,7 @@ const updateExampleRouter = (component) => {
   const jsonPath = path.join(__dirname, "../examples/router/nav.config.json");
   fs.readFile(jsonPath, "utf-8", (error, data) => {
     if (error) {
-      throw new Error(chalk.red(error));
+      throw new Error(chalk.bgRed(error));
     } else {
       const findComponent = (router) => {
         return router.text === "组件";
@@ -109,7 +117,7 @@ const updateExampleRouter = (component) => {
         const newJson = JSON.stringify(json, null, 2);
         fs.writeFile(jsonPath, newJson, (err) => {
           if (err) {
-            throw new Error(chalk.red(err));
+            throw new Error(chalk.bgRed(err));
           }
         });
       }
