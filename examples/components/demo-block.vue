@@ -26,7 +26,7 @@ export default class DemoBlock extends Vue {
 }
 </script>
 
-<style lang="less" type="text/less">
+<style lang="scss" >
 .demo-container {
   transition: max-height 0.3s ease;
   overflow: hidden;

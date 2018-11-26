@@ -16,7 +16,8 @@
     "types": ["node", "webpack-env"],
     "paths": {
       "@/*": ["packages/*"],
-      "examples/*": ["examples/*"]
+      "examples/*": ["examples/*"],
+      "src/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },

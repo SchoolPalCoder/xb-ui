@@ -1,8 +1,13 @@
 
 <template>
-  <header class="page-header" :style="$route.path === '/' ? 'box-shadow:none' : 'box-shadow:0 10px 60px 0 rgba(29,29,31,0.07)'">
+  <header
+    class="page-header"
+    :style="$route.path === '/' ? 'box-shadow:none' : 'box-shadow:0 10px 60px 0 rgba(29,29,31,0.07)'"
+  >
     <div class="header-container">
-      <router-link :to="'/'"><img src="../assets/img/banner.png" width="100"></router-link>
+      <router-link :to="'/'">
+        <img src="../assets/img/banner.png" width="100">
+      </router-link>
       <router-link v-for="conf in headerConf" :key="conf.path" :to="conf.path">{{conf.text}}</router-link>
     </div>
   </header>
@@ -24,9 +29,7 @@ export default class MainHeader extends Vue {
 }
 </script>
 
-<style type="text/less" lang="less">
-@import "../assets/less/index";
-
+<style  lang="scss">
 .page-header {
   background-color: #fff;
   box-shadow: 0 10px 60px 0 rgba(29, 29, 31, 0.07);
