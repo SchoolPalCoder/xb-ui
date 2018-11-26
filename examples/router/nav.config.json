@@ -48,12 +48,7 @@
           {
             "groupName": "表单组件",
             "folder": "form",
-            "list": [
-              {
-                "text": "xb-checkbox",
-                "path": "/xb-checkbox"
-              }
-            ]
+            "list": []
           },
           {
             "groupName": "数据组件",
