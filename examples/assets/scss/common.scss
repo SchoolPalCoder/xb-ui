@@ -1,12 +1,52 @@
-article, aside, blockquote, body, button, code, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
+article,
+aside,
+blockquote,
+body,
+button,
+code,
+dd,
+details,
+div,
+dl,
+dt,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+input,
+legend,
+li,
+menu,
+nav,
+ol,
+p,
+pre,
+section,
+td,
+textarea,
+th,
+ul {
   margin: 0;
   padding: 0;
 }
 a {
   text-decoration: none;
 }
-code, kbd, pre, samp {
-  font-family: Consolas,Menlo,Courier,monospace;
+code,
+kbd,
+pre,
+samp {
+  font-family: Consolas, Menlo, Courier, monospace;
 }
 .grid-content {
   border-radius: 4px;
@@ -17,7 +57,7 @@ code, kbd, pre, samp {
   background: #99a9bf;
 }
 
-.bg-purple{
+.bg-purple {
   background: #d3dce6;
 }
 .bg-purple-light {
@@ -34,7 +74,7 @@ code, kbd, pre, samp {
   margin-left: 10px;
 }
 
-.row-bg{
+.row-bg {
   padding: 10px 0;
   background-color: #f9fafc;
 }
@@ -65,4 +105,30 @@ code, kbd, pre, samp {
 }
 .fs-24 {
   font-size: 24px;
+}
+
+table {
+  font-family: Consolas, Menlo, Courier, monospace;
+  font-size: 12px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #e9e9e9;
+  width: 100%;
+  margin-bottom: 24px;
+
+  th {
+    background: #f7f7f7;
+    white-space: nowrap;
+    color: #5c6b77;
+    font-weight: 600;
+    border: 1px solid #e9e9e9;
+    padding: 8px 16px;
+    text-align: left;
+  }
+  td {
+    border: 1px solid #e9e9e9;
+    padding: 8px 16px;
+    text-align: left;
+  }
 }

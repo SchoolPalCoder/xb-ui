@@ -61,8 +61,8 @@
 <template>
   <xb-checkbox-group v-model="checkOptiations">
     <xb-checkbox label="checked"></xb-checkbox>
-    <!-- <xb-checkbox label="checked1"></xb-checkbox>
-    <xb-checkbox label="checked2"></xb-checkbox> -->
+    <xb-checkbox label="checked1"></xb-checkbox>
+    <xb-checkbox label="checked2"></xb-checkbox>
   </xb-checkbox-group>
 </template>
 <script>
