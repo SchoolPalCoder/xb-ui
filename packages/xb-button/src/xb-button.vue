@@ -1,7 +1,7 @@
 <template>
   <button
     class="xb-button"
-    :class="[disabled?'xb-button-disabled':'',type ? 'xb-button-' + type : '',]"
+    :class="[disabled?'xb-button-disabled':'',type ? 'xb-button-' + type : '','xb-button-' + size,long?'xb-button-long':'']"
     @click="handleClick"
     :disabled="disabled"
     :type="nativeType"
@@ -40,6 +40,10 @@ export default class XbButton extends Vue {
   /** 是否禁用 */
   @Prop({ default: false })
   disabled!: boolean;
+
+  /** 是否为长按钮 */
+  @Prop({ default: false })
+  long!: boolean;
 
   // 按钮计数
   times: number = 0;

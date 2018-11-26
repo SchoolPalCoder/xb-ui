@@ -1,21 +1,105 @@
-.xb-button{
-    padding: 5px 10px;
-    border: 0;
-    outline: none;
-    border-radius:3px;
+@mixin baseStyle($color, $background, $borderColor) {
+  color: $color;
+  background: $background;
+  border: 1px solid $borderColor;
 }
-.xb-button-default{
-  color:rgba(255,255,255,1);
-  background:rgba(91,138,249,1);
-  border: 1px solid rgba(91,138,249,1);
+.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
-.xb-button-reset{
-  color:rgba(115,115,115,1);
-  background:rgba(255,255,255,0.9);
-  border:1px solid rgba(170,170,170,1);
-}
-.xb-button-disabled{
-    color: rgba(170,170,170,1);
-    background-color: #f9f9f9;
-    border: 1px solid rgba(170,170,170,1);
+.xb-button {
+  font-size: 14px;
+  padding: 6px 15px;
+  border: 0;
+  outline: none;
+  border-radius: 4px;
+  min-width: 70px;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: all 0.7s;
+  &-default {
+    @include baseStyle(#ffffff, #5b8af9, #5b8af9);
+    &:hover {
+      background: #86afff;
+      border: 1px solid #86afff;
+    }
+    &:active {
+      background: #446ad4;
+      border: 1px solid #446ad4;
+    }
+    &.xb-button:disabled {
+      @extend .disabled;
+      &:hover {
+        @include baseStyle(#ffffff, #5b8af9, #5b8af9);
+      }
+    }
+  }
+  &-reset {
+    @include baseStyle(#5b8af9, #f4f8ff, #86afff);
+    &:hover {
+      background: #86afff;
+      color: #fff;
+    }
+    &:active {
+      color: #fff;
+      background: #446ad4;
+      border: 1px solid #446ad4;
+    }
+    &.xb-button:disabled {
+      @extend .disabled;
+      &:hover {
+        @include baseStyle(#5b8af9, #f4f8ff, #86afff);
+      }
+    }
+  }
+  &-error {
+    @include baseStyle(#ffffff, #f45d5d, #f45d5d);
+    &:hover {
+      background: #ff7a7a;
+      border: 1px solid #ff7a7a;
+    }
+    &:active {
+      background: #f13737;
+      border: 1px solid #f13737;
+    }
+    &.xb-button:disabled {
+      @extend .disabled;
+      &:hover {
+        @include baseStyle(#ffffff, #f45d5d, #f45d5d);
+      }
+    }
+  }
+  &-text {
+    @include baseStyle(#5b8af9, none, none);
+    &:hover {
+      color: #86afff;
+      border: 1px solid none;
+    }
+    &:active {
+      color: #446ad4;
+      border: 1px solid none;
+    }
+    &.xb-button:disabled {
+      @extend .disabled;
+      &:hover {
+        @include baseStyle(#5b8af9, none, none);
+      }
+    }
+  }
+  &-large {
+    padding: 8px 20px;
+    min-width: 80px;
+  }
+  &-small {
+    padding: 3px 5px;
+    font-size: 12px;
+    min-width: 60px;
+  }
+  &-long {
+    width: 100%;
+    max-width: none;
+  }
 }
