@@ -31,7 +31,7 @@
           showTips(){
             this.$message.info({
               text:'我是一个快乐的提示',
-              duration:'2000',
+              duration:'20000',
               closable:true
             });
           },
@@ -67,9 +67,10 @@
         },
         methods:{
           showTips(){
+            console.log(this.$message)
             this.$message.info({
               text:'我是一个快乐的提示',
-              duration:'2000',
+              duration:'20000',
               closable:true
             });
           },
@@ -94,3 +95,23 @@
         }
     }
 </script>
+
+## API
+
+通过直接调用以下方法来使用组件：
+
+this.\$message.info(config)
+
+this.\$message.success(config)
+
+this.\$message.warning(config)
+
+this.\$message.error(config)
+
+config 内容
+
+| 属性     | 说明                     | 类型    | 默认值 |
+| :------- | :----------------------- | :------ | :----- |
+| text     | 提示文案修改             | String  | -      |
+| duration | 自动关闭的延时，单位毫秒 | Number  | 2000   |
+| closable | 是否显示关闭按钮         | Boolean | false  |

@@ -19,19 +19,20 @@
     margin: 10px 0;
     display: inline-block;
   }
+  &-text {
+    margin-left: 3px;
+  }
   &_close {
     margin-left: 50px;
     cursor: pointer;
   }
 }
-.slide-fade-enter-active {
-  transition: all 0.5s ease;
-}
+.slide-fade-enter-active,
 .slide-fade-leave-active {
   transition: all 0.5s ease;
 }
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active for below version 2.1.8 */ {
+.slide-fade-enter,
+.slide-fade-leave-to {
   transform: translateY(-10px);
   opacity: 0;
 }

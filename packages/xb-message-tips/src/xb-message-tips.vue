@@ -3,8 +3,10 @@
     <div v-if="show" class="xbui-message-tips">
       <div class="xbui-message-tips-content">
         <xb-icon :type="this.type.name" :color="this.type.color"></xb-icon>
-        <span>{{text}}</span>
-        <span class="xbui-message-tips_close" v-if="closable" @click="closeClick">x<i class="xbui-icon-uniE901"></i></span>
+        <span class="xbui-message-tips-text">{{text}}</span>
+        <span class="xbui-message-tips_close" v-if="closable" @click="closeClick">
+          <xb-icon type="close"></xb-icon>
+        </span>
       </div>
     </div>
   </transition>
