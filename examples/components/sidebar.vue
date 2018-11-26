@@ -14,7 +14,11 @@
         <div class="side-nav-items" v-for="nav1 in nav.groups" :key="nav1.folder">
           <p class="side-nav-group">{{nav1.groupName}}</p>
           <div v-for="item in nav1.list" :key="item.path">
-            <router-link active-class="active" class="slid-nav-component" :to="{name:base+item.text}">{{item.text}}</router-link>
+            <router-link
+              active-class="active"
+              class="slid-nav-component"
+              :to="{name:base+item.text}"
+            >{{item.text}}</router-link>
           </div>
         </div>
       </div>
@@ -42,7 +46,7 @@ export default class Sidebar extends Vue {
 }
 </script>
 
-<style lang="less" type="text/less">
+<style lang="scss" >
 .side-nav {
   display: inline-block;
   margin: 32px 0;

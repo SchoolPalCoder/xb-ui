@@ -40,6 +40,10 @@
                 "path": "/xb-button"
               },
               {
+                "text": "xb-input-number",
+                "path": "/xb-input-number"
+              },
+              {                
                 "text": "xb-icon",
                 "path": "/xb-icon"
               }
@@ -48,7 +52,12 @@
           {
             "groupName": "表单组件",
             "folder": "form",
-            "list": []
+            "list": [
+              {
+                "text": "xb-checkbox",
+                "path": "/xb-checkbox"
+              }
+            ]
           },
           {
             "groupName": "数据组件",
