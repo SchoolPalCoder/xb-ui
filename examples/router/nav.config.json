@@ -71,6 +71,10 @@
               {
                 "text": "xb-popup-window",
                 "path": "/xb-popup-window"
+              },
+              {
+                "text": "xb-message-tips",
+                "path": "/xb-message-tips"
               }
             ]
           },

@@ -35,6 +35,9 @@ requireComponent.keys().forEach((fileName: string) => {
       // 否则回退到使用模块的根。
       componentConfig.default || componentConfig
     );
+    if (componentName === "XbMessageTips") {
+      Vue.prototype.$message = componentConfig.default;
+    }
   }
 });
 Vue.component("demo-block", demoBlock);
