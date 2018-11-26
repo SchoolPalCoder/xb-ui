@@ -14,7 +14,6 @@ const prefixCls = "xbui-checkbox";
 
 @Component({ name: "XbCheckboxGroup" })
 export default class XbCheckboxGroup extends Mixins(Emitter) {
-  // readonly name: string = "XbCheckboxGroup";
   /** 选中的值 */
   @Prop({
     type: Array,
