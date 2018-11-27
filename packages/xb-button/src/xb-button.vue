@@ -22,11 +22,11 @@ import Locale from "../../../src/mixins/locale";
 })
 export default class XbButton extends Vue {
   /** 按钮样式 */
-  @Prop({ default: "default" })
+  @Prop({ type: String, default: "default" })
   type!: string;
 
   /** 按钮尺寸 */
-  @Prop({ default: "medium" })
+  @Prop({ type: String, default: "medium" })
   size!: string;
 
   /** icon配置 */
@@ -34,15 +34,15 @@ export default class XbButton extends Vue {
   icon!: string;
 
   /** 按钮类型 */
-  @Prop({ default: "button" })
+  @Prop({ type: String, default: "button" })
   nativeType!: string;
 
   /** 是否禁用 */
-  @Prop({ default: false })
+  @Prop({ type: Boolean, default: false })
   disabled!: boolean;
 
   /** 是否为长按钮 */
-  @Prop({ default: false })
+  @Prop({ type: Boolean, default: false })
   long!: boolean;
 
   // 按钮计数

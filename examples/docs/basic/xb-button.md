@@ -58,7 +58,7 @@ export default {
 <xb-button type="default">正常按钮</xb-button>
 <xb-button type="default" size="small">小按钮</xb-button>
 
-<div style="width:100%"><xb-button type="default" long="true">长度100%按钮</xb-button></div>
+<div style="width:100%"><xb-button type="default" long>长度100%按钮</xb-button></div>
 
 ```js
 <xb-button type="default" size="large">很大而且很长会超出的按钮</xb-button>
