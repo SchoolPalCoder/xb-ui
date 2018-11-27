@@ -1,12 +1,10 @@
 <template>
   <button
-    class="xb-button"
-    :class="[disabled?'xb-button-disabled':'',type ? 'xb-button-' + type : '','xb-button-' + size,long?'xb-button-long':'']"
+    :class="classes"
     @click="handleClick"
     :disabled="disabled"
-    :type="nativeType"
   >
-    <i :class="icon" v-if="icon"></i>
+    <xb-icon v-if="icon" :type="icon"></xb-icon>
     <span v-if="$slots.default">
       <slot></slot>
     </span>
@@ -17,6 +15,7 @@
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import Locale from "../../../src/mixins/locale";
 
+const prefixCls = "xbui-button";
 @Component({
   mixins: [Locale],
 })
@@ -33,10 +32,6 @@ export default class XbButton extends Vue {
   @Prop()
   icon!: string;
 
-  /** 按钮类型 */
-  @Prop({ type: String, default: "button" })
-  nativeType!: string;
-
   /** 是否禁用 */
   @Prop({ type: Boolean, default: false })
   disabled!: boolean;
@@ -45,13 +40,21 @@ export default class XbButton extends Vue {
   @Prop({ type: Boolean, default: false })
   long!: boolean;
 
-  // 按钮计数
-  times: number = 0;
-
   // 点击事件
   handleClick(event: void) {
-    this.times++;
     this.$emit("click", event);
+  }
+
+  get classes() {
+    return [
+      {
+        [`${prefixCls}`]: true,
+        [`${prefixCls}-${this.size}`]: true,
+        [`${prefixCls}-disabled`]: this.disabled,
+        [`${prefixCls}-${this.type}`]: this.size !== "default",
+        [`${prefixCls}-long`]: this.long,
+      },
+    ];
   }
 }
 </script>
