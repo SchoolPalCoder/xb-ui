@@ -1,7 +1,7 @@
 @import "common/var.scss";
 
-$checkbox-prefix: $css-prefix + "checkbox";
-$checkbox-prefix-inner: $checkbox-prefix + "-inner";
+$checkbox-prefix: $css-prefix + "checkbox" !default;
+$checkbox-prefix-inner: $checkbox-prefix + "-inner" !default;
 
 .#{$checkbox-prefix}-focus {
   box-shadow: 0 0 0 2px fade($color-primary, 20%);
@@ -34,7 +34,7 @@ $checkbox-prefix-inner: $checkbox-prefix + "-inner";
     position: relative;
     top: 0;
     left: 0;
-    border: 1px solid $color-disabled-base;
+    border: 1px solid $color-border-base;
     border-radius: 2px;
     background-color: #fff;
     transition: border-color $transition-time $ease-in-out, background-color $transition-time $ease-in-out,
@@ -149,13 +149,13 @@ $checkbox-prefix-inner: $checkbox-prefix + "-inner";
   &#{$checkbox-prefix}-checked {
     &:hover {
       .#{$checkbox-prefix-inner} {
-        border-color: $color-disabled-base;
+        border-color: $color-border-base;
       }
     }
 
     .#{checkbox-prefix-inner} {
       background-color: #f3f3f3;
-      border-color: $color-disabled-base;
+      border-color: $color-border-base;
 
       &:after {
         animation-name: none;
@@ -166,12 +166,12 @@ $checkbox-prefix-inner: $checkbox-prefix + "-inner";
 
   &:hover {
     .#{$checkbox-prefix-inner} {
-      border-color: $color-disabled-base;
+      border-color: $color-border-base;
     }
   }
 
   .#{$checkbox-prefix-inner} {
-    border-color: $color-disabled-base;
+    border-color: $color-border-base;
     background-color: #f3f3f3;
     &:after {
       animation-name: none;
@@ -213,7 +213,7 @@ $checkbox-prefix-inner: $checkbox-prefix + "-inner";
   &#{$checkbox-prefix}-disabled {
     .#{$checkbox-prefix-inner} {
       background-color: #f3f3f3;
-      border-color: $color-disabled-base;
+      border-color: $color-border-base;
     }
     .#{$checkbox-prefix-inner}:after {
       border-color: $color-border-base;

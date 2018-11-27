@@ -26,6 +26,7 @@ $color-blue: #1890ff !default;
 $color-green: #52c41a !default;
 $color-orange: #faad14 !default;
 $color-red: #f5222d !default;
+$coloe-gray: $color-gray3 !default;
 
 // 其他
 $color-background-base: $color-gray1 !default; /** 灰，一般用作背景色*/
@@ -44,12 +45,12 @@ $font-size-24: 24pt !default;
 $font-size-32: 32pt !default;
 $font-color-base: $color-gray6 !default;
 $font-placeholder-base: $color-gray4 !default; /** 灰，一般用作placeholder，常用*/
-/** 全局字体样式定义 -- START*/
+/** 全局字体样式定义 -- END*/
 
 // 动画
-$animation-time: 0.3s;
-$transition-time: 0.2s;
-$ease-in-out: ease-in-out;
+$animation-time: 0.3s !default;
+$transition-time: 0.2s !default;
+$ease-in-out: ease-in-out !default;
 
 // 其他全局样式定义
-$cursor-disabled: not-allowed; /**鼠标经过禁用样式*/
+$cursor-disabled: not-allowed !default; /**鼠标经过禁用样式*/
