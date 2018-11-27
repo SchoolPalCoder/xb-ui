@@ -34,14 +34,14 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Mixins, Watch } from "vue-property-decorator";
-import { findComponentUpward } from "src/utils/utils";
+import { findComponentUpward } from "src/utils/assist";
 import XbCheckboxGroup from "./xb-checkbox-group.vue";
-import Emmiter from "src/mixins/emmiter";
+import Emitter from "src/mixins/emitter";
 
 const prefixCls = "xbui-checkbox";
 
-@Component({ name: "XbCheckBox", mixins: [Emmiter] })
-export default class XbCheckbox extends Mixins(Emmiter) {
+@Component({ name: "XbCheckBox", mixins: [Emitter] })
+export default class XbCheckbox extends Mixins(Emitter) {
   /** 只在单独使用时有效。可以使用 v-model 双向绑定数据 */
   @Prop({ type: [String, Number, Boolean], default: false })
   value!: string | number | boolean;
