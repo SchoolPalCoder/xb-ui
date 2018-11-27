@@ -33,7 +33,15 @@ git push origin XXX:XXX
 
 - 使用 `VSCODE`
 - 包管理使用 `yarn`
-- 安装 `Prettier - Code formatter` 插件
+- 安装以下插件：
+  - `"TSLint"`<br/>
+    **代码省察，一定要装！！！**
+  - `"TSLint Vue"`<br/>
+    **基于 `TS` 开发 `Vue` 需要用到的代码省察，一定要装！！！**
+  - `"Vetur"`<br/>
+    **`Vue`开发神器，不解释，一定要装！！！**
+  - `"Prettier - Code formatter"`<br/>
+    **会读取`.prettierrc.yml`自动格式化统一代码，强烈建议装！！！**
 
 ## 项目结构
 
