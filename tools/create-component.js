@@ -31,11 +31,12 @@ export const ${component.camelCaseName}: PluginObject<${component.pascalCaseName
   install: (Vue) => {
     Vue.component("${component.pascalCaseName}", ${component.pascalCaseName});
   },
-};`;
+};
+`;
 };
 
 // package/组件/src/组件.vue
-const indexVue = (component) => {
+const indexVue = (pascalCaseName) => {
   return `<template>
 
 </template>
@@ -43,16 +44,24 @@ const indexVue = (component) => {
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component({ name: "${component.pascalCaseName}" })
-export default class ${component.pascalCaseName} extends Vue {
+@Component({ name: "${pascalCaseName}" })
+export default class ${pascalCaseName} extends Vue {
 
 }
 </script>`;
 };
 
 // package/theme-chalk/index.scss update
-const updateIndexScss = (component) => {
-  return `@import "./${component.lowerCaseName}.scss";\n`;
+const updateIndexScss = (fileName) => {
+  return `@import "./${fileName}.scss";\n`;
+};
+
+// 生成scss文件基础信息
+const indexScss = (originName) => {
+  return `@import "common/var.scss";
+
+$${originName}-prefix: $css-prefix + "${originName}";
+  `;
 };
 
 let dir = path.resolve(__dirname, "../packages");
@@ -72,7 +81,7 @@ mkdirp(path.join(dir, componentInfo.lowerCaseName), (err) => {
           __dirname,
           "../packages/" + componentInfo.lowerCaseName + "/src/" + componentInfo.lowerCaseName + ".vue"
         ),
-        indexVue(componentInfo)
+        indexVue(componentInfo.pascalCaseName)
       );
     });
   }
@@ -83,7 +92,10 @@ mkdirp(path.join(cssDir, "src"), (err) => {
   if (err) {
     console.error(chalk.bgRed(err));
   } else {
-    utils.writeFileOrWarn(path.join(cssDir, "src", componentInfo.lowerCaseName + ".scss"), "");
-    utils.appendFile(path.join(cssDir, "src", "index.scss"), updateIndexScss(componentInfo));
+    utils.writeFileOrWarn(
+      path.join(cssDir, "src", componentInfo.lowerCaseName + ".scss"),
+      indexScss(componentInfo.lowerCaseName.substring(3))
+    );
+    utils.appendFile(path.join(cssDir, "src", "index.scss"), updateIndexScss(componentInfo.lowerCaseName));
   }
 });
