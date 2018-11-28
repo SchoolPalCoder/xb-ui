@@ -1,7 +1,8 @@
 export default {
   xb: {
-    button: {
-      test11: "test11",
+    popupWidow: {
+      okText: "确定",
+      cancelText: "取消"
     },
   },
 };
