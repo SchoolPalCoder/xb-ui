@@ -30,7 +30,7 @@ function getPropByPath(obj, path) {
     if (key in tempObj) {
       tempObj = tempObj[key];
     } else {
-      throw new Error('[iView warn]: please transfer a valid prop path to form item!');
+      throw new Error('[XbUI warn]: please transfer a valid prop path to form item!');
     }
   }
   return {
@@ -47,7 +47,7 @@ export default class XbFormItem extends Mixins(Emmiter) {
   @Prop(Number)
   labelWidth!: number;
   @Prop(String)
-  type!: string;
+  prop!: string;
   @Prop({ type: Boolean, default: false })
   required!: boolean;
   @Prop({ type: [Object, Array] })
@@ -223,7 +223,7 @@ export default class XbFormItem extends Mixins(Emmiter) {
 
   mounted() {
     if (this.prop) {
-        this.dispatch('iForm', 'on-form-item-add', this);
+        this.dispatch('XbForm', 'on-form-item-add', this);
 
         Object.defineProperty(this, 'initialValue', {
             value: this.fieldValue
@@ -233,7 +233,7 @@ export default class XbFormItem extends Mixins(Emmiter) {
     }
   }
   beforeDestroy () {
-      this.dispatch('iForm', 'on-form-item-remove', this);
+      this.dispatch('XbForm', 'on-form-item-remove', this);
   }
 }
 </script>

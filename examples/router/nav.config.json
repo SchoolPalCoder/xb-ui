@@ -43,7 +43,7 @@
                 "text": "xb-input-number",
                 "path": "/xb-input-number"
               },
-              {                
+              {
                 "text": "xb-icon",
                 "path": "/xb-icon"
               }
@@ -56,6 +56,10 @@
               {
                 "text": "xb-checkbox",
                 "path": "/xb-checkbox"
+              },
+              {
+                "text": "xb-form",
+                "path": "/xb-form"
               }
             ]
           },

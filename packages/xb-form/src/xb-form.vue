@@ -5,6 +5,8 @@
 <script lang="ts">
 import { Component, Prop, Vue, Provide, Watch } from "vue-property-decorator";
 
+const prefixCls = 'xbui-form';
+
 @Component({ name: 'XbForm' })
 export default class XbForm extends Vue {
   @Prop(Object) model!: object
@@ -31,7 +33,15 @@ export default class XbForm extends Vue {
 
   fields: any[] = []
 
-  classes: string[] = []
+  get classes() {
+    return [
+      `${prefixCls}`,
+      `${prefixCls}-label-${this.labelPosition}`,
+      {
+        [`${prefixCls}-inline`]: this.inline
+      }
+    ]
+  }
 
   created() {
     this.$on('on-form-item-add', field => {
