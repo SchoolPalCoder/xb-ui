@@ -6,14 +6,16 @@
 
 # 示例
 
-
 ## 基础用法
-带有确定事件、取消事件
+
+使用 `v-model` 实现双向绑定,控制属性 `value` 来显示 / 隐藏对话框</br>
+可通过 `title` 设置标题，`on-ok` 触发确定事件、`on-cancel` 触发取消事件
 
 <xb-button type="default" @click="click">点击</xb-button>
 <xb-popup-window v-model="modal" title="标题" @on-ok="ok" @on-cancel="cancel"><div>自定义内容</div></xb-popup-window>
 
 ```js
+<xb-button type="default" @click="click">点击</xb-button>
 <xb-popup-window v-model="modal" title="标题" @on-ok="ok" @on-cancel="cancel"><div>自定义内容</div></xb-popup-window>
 <script>
   export default {
@@ -24,9 +26,11 @@
     },
     methods: {
       ok () {
+        alert("ok");
         this.modal = false;
       },
       cancel () {
+        alert("cancel");
         this.modal = false;
       },
       click () {
@@ -39,17 +43,22 @@
 
 ## 设置宽度、按钮文案、右上角关闭按钮控制显示、点击遮罩层关闭弹框、不带标题栏
 
+有一些属性可以自定义弹框操作: `width`、`ok-text` 、`cancel-text`、 `closable`、 `maskClosable`
+
 <xb-button type="default" @click="click1">设置宽度、按钮文案</xb-button>
 <xb-button type="default" @click="click7">右上角关闭按钮控制显示、点击遮罩层关闭弹框</xb-button>
 <xb-button type="default" @click="click2">不带标题栏</xb-button>
-<xb-popup-window v-model="modal1" title="自定义标题" @on-ok="ok1" @on-cancel="cancel1"  width="800" ok-text="自定义确定按钮文案" cancel-text="自定义取消按钮文案"><div>自定义内容</div></xb-popup-window>
-<xb-popup-window v-model="modal7"  title="自定义标题"  :closable="closable" :maskClosable="maskClosable" @on-ok="ok7" @on-cancel="cancel7"><div>自定义内容</div></xb-popup-window>
-<xb-popup-window v-model="modal2"  @on-ok="ok2" @on-cancel="cancel2"><div>自定义内容</div></xb-popup-window>
+<xb-popup-window v-model="modal1" title="自定义标题" @on-ok="ok1" @on-cancel="cancel1" width="800" ok-text="自定义确定按钮文案" cancel-text="自定义取消按钮文案"><div>自定义内容</div></xb-popup-window>
+<xb-popup-window v-model="modal7" title="自定义标题" :closable="closable" :maskClosable="maskClosable" @on-ok="ok7" @on-cancel="cancel7"><div>自定义内容</div></xb-popup-window>
+<xb-popup-window v-model="modal2" @on-ok="ok2" @on-cancel="cancel2"><div>自定义内容</div></xb-popup-window>
 
 ```js
-<xb-popup-window v-model="modal1" title="自定义标题" @on-ok="ok1" @on-cancel="cancel1"  width="800" ok-text="自定义确定按钮文案" cancel-text="自定义取消按钮文案"><div>自定义内容</div></xb-popup-window>
-<xb-popup-window v-model="modal7"  title="自定义标题"  :closable="closable" :maskClosable="maskClosable" @on-ok="ok7" @on-cancel="cancel7"><div>自定义内容</div></xb-popup-window>
-<xb-popup-window v-model="modal2"  @on-ok="ok2" @on-cancel="cancel2"><div>自定义内容</div></xb-popup-window>
+<xb-button type="default" @click="click1">设置宽度、按钮文案</xb-button>
+<xb-button type="default" @click="click7">右上角关闭按钮控制显示、点击遮罩层关闭弹框</xb-button>
+<xb-button type="default" @click="click2">不带标题栏</xb-button>
+<xb-popup-window v-model="modal1" title="自定义标题" @on-ok="ok1" @on-cancel="cancel1" width="800" ok-text="自定义确定按钮文案" cancel-text="自定义取消按钮文案"><div>自定义内容</div></xb-popup-window>
+<xb-popup-window v-model="modal7" title="自定义标题" :closable="closable" :maskClosable="maskClosable" @on-ok="ok7" @on-cancel="cancel7"><div>自定义内容</div></xb-popup-window>
+<xb-popup-window v-model="modal2" @on-ok="ok2" @on-cancel="cancel2"><div>自定义内容</div></xb-popup-window>
 <script>
   export default {
     data () {
@@ -57,7 +66,7 @@
           modal1: false,
           closable:false,
           modal2:false,
-          maskClosable:true,
+          maskClosable:false,
           modal7:false,
         }
     },
@@ -94,19 +103,28 @@
 </script>
 ```
 
-## 自定义头部和底部
+## 自定义头部和底部、底部隐藏
+
+可以通过 `slot` 自定义头部和底部</br>
+通过 `footerHide` 隐藏底部
 
 <xb-button type="default" @click="click3">自定义头部和底部</xb-button>
 <xb-button type="default" @click="click6">底部不显示</xb-button>
 <xb-popup-window v-model="modal3"><div slot="header" style="text-align:center"><xb-icon type="warning-circle"></xb-icon>是否删除</div><div>自定义内容</div><div slot="footer" style="text-align:center"><xb-button type="default" @click="cancel3">自定义按钮</xb-button></div></xb-popup-window>
 <xb-popup-window v-model="modal6" title="标题" :footer-hide="footerHide"><div>自定义内容</div></xb-popup-window>
+
 ```js
+<xb-button type="default" @click="click3">自定义头部和底部</xb-button>
+<xb-button type="default" @click="click6">底部不显示</xb-button>
 <xb-popup-window v-model="modal3"><div slot="header" style="text-align:center"><xb-icon type="warning-circle"></xb-icon>是否删除</div><div>自定义内容</div><div slot="footer" style="text-align:center"><xb-button type="default" @click="cancel3">自定义按钮</xb-button></div></xb-popup-window>
+<xb-popup-window v-model="modal6" title="标题" :footer-hide="footerHide"><div>自定义内容</div></xb-popup-window>
+
 <script>
   export default {
     data () {
         return {
           modal3: false,
+          modal6:false,
           footerHide:true
         }
     },
@@ -126,10 +144,11 @@
 ```
 
 ## 自定义样式
-可以通过style 或者 className 对弹框做自定义样式
 
-<xb-button type="default" @click="click4">通过style自定义样式</xb-button>
-<xb-button type="default" @click="click5">通过className自定义样式</xb-button>
+可以通过 `style` 或者 `className` 对弹框做自定义样式
+
+<xb-button type="default" @click="click4">通过 style 自定义样式</xb-button>
+<xb-button type="default" @click="click5">通过 className 自定义样式</xb-button>
 <xb-popup-window v-model="modal4" title="标题" :styles="{top: '20px',color:'red'}" @on-ok="ok4" @on-cancel="cancel4">自定义内容</xb-popup-window>
 <xb-popup-window v-model="modal5" title="标题" class-name="addClass" @on-ok="ok5" @on-cancel="cancel5">自定义内容</xb-popup-window>
 
@@ -141,6 +160,8 @@
 </style>
 
 ```js
+<xb-button type="default" @click="click4">通过 style 自定义样式</xb-button>
+<xb-button type="default" @click="click5">通过 className 自定义样式</xb-button>
 <xb-popup-window v-model="modal4" title="标题" :styles="{top: '20px',color:'red'}" @on-ok="ok4" @on-cancel="cancel4">自定义内容</xb-popup-window>
 <xb-popup-window v-model="modal5" title="标题" class-name="addClass" @on-ok="ok5" @on-cancel="cancel5">自定义内容</xb-popup-window>
 
@@ -183,11 +204,14 @@
 ```
 
 ## 设置页面是否可以滚动
-通过scrollable属性设置页面是否可以滚动。默认是不滚动
+
+通过 `scrollable` 属性设置页面是否可以滚动。默认是不滚动
 
 <xb-button type="default" @click="click8">设置页面是否可以滚动</xb-button>
 <xb-popup-window v-model="modal8" title="标题" @on-ok="ok8" @on-cancel="cancel8" scrollable="scrollable">自定义内容</xb-popup-window>
+
 ```js
+<xb-button type="default" @click="click8">设置页面是否可以滚动</xb-button>
 <xb-popup-window v-model="modal8" title="标题" @on-ok="ok8" @on-cancel="cancel8" scrollable="scrollable">自定义内容</xb-popup-window>
 export default {
   data () {
@@ -214,35 +238,35 @@ export default {
 
 ### xb-popup-window props
 
-| 参数名        | 参数说明                                                            | 类型                      | 可选值                     | 默认值   |
-| ------------- | -------------------------------------------------------------------| ------------------------- | -------------------------- | -------- |
-| value         | 使用 v-model 双向绑定数据,控制弹框的显示隐藏                          | Boolean                   | ——                         | false    |
-| maskClosable  |  点击遮罩层关闭弹窗                                                  | Boolean                   | ——                         | true      |
-| closable      |   控制右上角关闭按钮是否显示                                          | Boolean                   | ——                         | true    |
-| title         | 设置标题文案                                                        | String                   | ——                         | ——    |
-| width         | 设置弹框的宽度                                                     | Number, String            | ——                         | 520px |
-| ok-text       | 设置确定按钮文案                                                     | String                    | ——                         | ——     |
-| cancel-text   | 设置取消按钮文案                                                  | String                    | ——                         | ——     |
-| styles        | 可以通过style设置弹框样式                                            | Object                    | ——                         | ——     |
-| class-name    | 可以通过class增加类名设置弹框样式                                     | String                    | ——                         | ——     |
-| footer-hide   | 设置底部是否隐藏                                                     | Boolean                    | ——                         | false    |
-| scrollable    | 设置页面是否可以滚动                                                  | Boolean                    | ——                         | false     |
+| 参数名       | 参数说明                                     | 类型           | 可选值 | 默认值 |
+| ------------ | -------------------------------------------- | -------------- | ------ | ------ |
+| value        | 使用 v-model 双向绑定数据,控制弹框的显示隐藏 | Boolean        | ——     | false  |
+| maskClosable | 点击遮罩层关闭弹窗                           | Boolean        | ——     | true   |
+| closable     | 控制右上角关闭按钮是否显示                   | Boolean        | ——     | true   |
+| title        | 设置标题文案                                 | String         | ——     | ——     |
+| width        | 设置弹框的宽度                               | Number, String | ——     | 520px  |
+| ok-text      | 设置确定按钮文案                             | String         | ——     | ——     |
+| cancel-text  | 设置取消按钮文案                             | String         | ——     | ——     |
+| styles       | 可以通过 style 设置弹框样式                  | Object         | ——     | ——     |
+| class-name   | 可以通过 class 增加类名设置弹框样式          | String         | ——     | ——     |
+| footer-hide  | 设置底部是否隐藏                             | Boolean        | ——     | false  |
+| scrollable   | 设置页面是否可以滚动                         | Boolean        | ——     | false  |
 
 ### xb-popup-window events
 
-| 事件名    | 说明                                                                           | 返回值        |
-| --------- | ------------------------------------------------------------------------------ | ------------- |
-| on-ok | 点击确定的回调                                                                   | 无 |
-| on-cancel | 点击取消的回调                                                                   | 无 |
+| 事件名    | 说明           | 返回值 |
+| --------- | -------------- | ------ |
+| on-ok     | 点击确定的回调 | 无     |
+| on-cancel | 点击取消的回调 | 无     |
 
 ### xb-popup-window slot
 
-| 名称   | 说明                                                                           |
-| --------- | ------------------------------------------------------------------------------ |
-| header | 自定义页头                                                                   |
-| footer | 自定义页脚                                                                   |
-| close | 自定义右上角关闭按钮                                                                  |
-| 无	 | 自定义主体内容                                                                         |
+| 名称   | 说明                 |
+| ------ | -------------------- |
+| header | 自定义页头           |
+| footer | 自定义页脚           |
+| close  | 自定义右上角关闭按钮 |
+| 无     | 自定义主体内容       |
 
 <script>
   export default {

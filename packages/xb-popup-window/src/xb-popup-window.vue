@@ -1,5 +1,4 @@
 <template>
-  <!-- <transition name="slide-fade" @after-leave="animationFinish"> -->
   <div v-if="visible">
     <div :class="maskClasses" @click="mask"></div>
     <div :class="wrapClasses">
@@ -28,7 +27,6 @@
       </div>
     </div>
   </div>
-  <!-- <transition> -->
 </template>
 
 <script lang="ts">
@@ -36,7 +34,7 @@ import { Component, Prop, Vue, Mixins, Watch } from "vue-property-decorator";
 import XbIcon from "../../xb-icon";
 import XbButton from "../../xb-button";
 import Locale from "../../../src/mixins/locale";
-import Emmiter from "src/mixins/emmiter";
+import Emmiter from "src/mixins/emitter";
 import { debug } from "util";
 import scrollbar from "./scrollbar";
 const prefixCls = "xbui-popup-window";
@@ -182,13 +180,6 @@ export default class XbPopupWindow extends Vue {
   ok() {
     this.visible = false;
     this.$emit("on-ok");
-  }
-
-  animationFinish(el) {
-    if (el && el.parentNode) {
-      el.parentNode.removeChild(el);
-    }
-    this.$destroy();
   }
 
   @Watch("value")
