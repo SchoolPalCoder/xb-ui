@@ -6,15 +6,14 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Mixins, Watch, Emit } from "vue-property-decorator";
-import { findComponentsDownward } from "src/utils/utils";
+import { findComponentsDownward } from "src/utils/assist";
 import XbCheckbox from "./xb-checkbox.vue";
-import Emitter from "src/mixins/emmiter";
+import Emitter from "src/mixins/emitter";
 
 const prefixCls = "xbui-checkbox";
 
 @Component({ name: "XbCheckboxGroup" })
 export default class XbCheckboxGroup extends Mixins(Emitter) {
-  // readonly name: string = "XbCheckboxGroup";
   /** 选中的值 */
   @Prop({
     type: Array,
