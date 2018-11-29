@@ -9,8 +9,8 @@ $form-item-prefix-cls: $form-prefix-cls + "-item";
     text-align: right;
     vertical-align: middle;
     float: left;
-    font-size: $font-size-small;
-    color: $text-color;
+    font-size: $font-size-12;
+    color: $color-black;
     line-height: 1;
     padding: 10px 12px 10px 0;
     box-sizing: border-box;
@@ -37,7 +37,7 @@ $form-item-prefix-cls: $form-prefix-cls + "-item";
   &-content {
       position: relative;
       line-height: 32px;
-      font-size: $font-size-small;
+      font-size: $font-size-12;
   }
   & & {
       margin-bottom: 0;
@@ -52,7 +52,7 @@ $form-item-prefix-cls: $form-prefix-cls + "-item";
       left: 0;
       line-height: 1;
       padding-top: 6px;
-      color: $error-color; //
+      color: $color-red; //
   }
 
   &-required {
@@ -62,8 +62,8 @@ $form-item-prefix-cls: $form-prefix-cls + "-item";
           margin-right: 4px;
           line-height: 1;
           font-family: SimSun;
-          font-size: $font-size-small;
-          color: $error-color;
+          font-size: $font-size-12;
+          color: $color-red;
       }
   }
 
@@ -72,7 +72,7 @@ $form-item-prefix-cls: $form-prefix-cls + "-item";
     // 用于处理报错时各组件内部的边框、图标等样式；用于表单的组件都建议写上
     input {
       // TODO: 这条是示例，后期删掉
-      border: 1px solid red;
+      border: 1px solid $color-red;
     }
   }
 

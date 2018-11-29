@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { Component, Prop, Inject, Mixins, Vue, Watch } from 'vue-property-decorator';
-import Emmiter from 'src/mixins/emmiter';
+import Emmiter from 'src/mixins/emitter';
 import AsyncValidator from 'async-validator';
 
 const prefixCls = 'xbui-form-item';
