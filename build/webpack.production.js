@@ -28,7 +28,7 @@ module.exports = {
     },
     modules: ["node_modules"],
   },
-  externals: { vue: "ue" },
+  externals: { vue: "Vue" },
   module: {
     rules: [
       {
