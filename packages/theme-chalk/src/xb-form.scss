@@ -1,0 +1,82 @@
+@import "common/var.scss";
+
+$form-prefix-cls: $css-prefix + "form";
+$form-item-prefix-cls: $form-prefix-cls + "-item";
+
+.#{$form-prefix-cls} {
+
+  .#{$form-item-prefix-cls}-label {
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    font-size: $font-size-12;
+    color: $color-black;
+    line-height: 1;
+    padding: 10px 12px 10px 0;
+    box-sizing: border-box;
+  }
+  &-label-left .#{$form-item-prefix-cls}-label {
+    text-align: left;
+  }
+  &-label-right .#{$form-item-prefix-cls}-label {
+    text-align: left;
+  }
+  &-inline {
+    .#{$form-item-prefix-cls} {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+  }
+}
+
+.#{$form-item-prefix-cls} {
+  margin-bottom: 24px;
+  vertical-align: top;
+  @include clearfix;
+  &-content {
+      position: relative;
+      line-height: 32px;
+      font-size: $font-size-12;
+  }
+  & & {
+      margin-bottom: 0;
+  }
+  & & &-content {
+      margin-left: 0!important;
+  }
+
+  &-error-tip{
+      position: absolute;
+      top: 100%;
+      left: 0;
+      line-height: 1;
+      padding-top: 6px;
+      color: $color-red; //
+  }
+
+  &-required {
+      .#{$form-item-prefix-cls}-label:before {
+          content: '*';
+          display: inline-block;
+          margin-right: 4px;
+          line-height: 1;
+          font-family: SimSun;
+          font-size: $font-size-12;
+          color: $color-red;
+      }
+  }
+
+  &-error {
+    // 各种组件的验证错误样式
+    // 用于处理报错时各组件内部的边框、图标等样式；用于表单的组件都建议写上
+    input {
+      // TODO: 这条是示例，后期删掉
+      border: 1px solid $color-red;
+    }
+  }
+
+  &-validating {
+    // 验证中，可不写，写了更好
+  }
+}

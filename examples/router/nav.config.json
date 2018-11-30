@@ -60,6 +60,10 @@
               {
                 "text": "xb-checkbox",
                 "path": "/xb-checkbox"
+              },
+              {
+                "text": "xb-form",
+                "path": "/xb-form"
               }
             ]
           },
