@@ -11,6 +11,10 @@ const chalk = require("chalk");
 const lodash = require("lodash");
 const utils = require("./utils");
 
+if (process.argv[2] === undefined) {
+  throw new Error(chalk.bgRed("请输入组件名！"));
+}
+
 const componentInfo = {
   lowerCaseName: process.argv[2].toLowerCase(),
   camelCaseName: lodash.camelCase(process.argv[2]),
@@ -27,11 +31,12 @@ export const ${component.camelCaseName}: PluginObject<${component.pascalCaseName
   install: (Vue) => {
     Vue.component("${component.pascalCaseName}", ${component.pascalCaseName});
   },
-};`;
+};
+`;
 };
 
 // package/组件/src/组件.vue
-const indexVue = (component) => {
+const indexVue = (pascalCaseName) => {
   return `<template>
 
 </template>
@@ -39,16 +44,24 @@ const indexVue = (component) => {
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component
-export default class ${component.pascalCaseName} extends Vue {
+@Component({ name: "${pascalCaseName}" })
+export default class ${pascalCaseName} extends Vue {
 
 }
 </script>`;
 };
 
-// package/theme-chalk/index.scss update
-const updateIndexScss = (component) => {
-  return `@import "./${component.lowerCaseName}.scss";\n`;
+// package/theme-chalk/index.less update
+const updateIndexScss = (fileName) => {
+  return `@import "./${fileName}.less";\n`;
+};
+
+// 生成less文件基础信息
+const indexScss = (originName) => {
+  return `@import "common/var.less";
+
+@${originName}-prefix: ~"@{css-prefix}${originName}";
+  `;
 };
 
 let dir = path.resolve(__dirname, "../packages");
@@ -68,7 +81,7 @@ mkdirp(path.join(dir, componentInfo.lowerCaseName), (err) => {
           __dirname,
           "../packages/" + componentInfo.lowerCaseName + "/src/" + componentInfo.lowerCaseName + ".vue"
         ),
-        indexVue(componentInfo)
+        indexVue(componentInfo.pascalCaseName)
       );
     });
   }
@@ -79,7 +92,10 @@ mkdirp(path.join(cssDir, "src"), (err) => {
   if (err) {
     console.error(chalk.bgRed(err));
   } else {
-    utils.writeFileOrWarn(path.join(cssDir, "src", componentInfo.lowerCaseName + ".scss"), "");
-    utils.appendFile(path.join(cssDir, "src", "index.scss"), updateIndexScss(componentInfo));
+    utils.writeFileOrWarn(
+      path.join(cssDir, "src", componentInfo.lowerCaseName + ".less"),
+      indexScss(componentInfo.lowerCaseName.substring(3))
+    );
+    utils.appendFile(path.join(cssDir, "src", "index.less"), updateIndexScss(componentInfo.lowerCaseName));
   }
 });

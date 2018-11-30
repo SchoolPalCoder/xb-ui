@@ -19,5 +19,5 @@ export default class App extends Vue {}
 </script>
 
 <style lang="less" >
-@import "./assets/less/index";
+@import "./assets/less/index.less";
 </style>

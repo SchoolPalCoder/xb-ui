@@ -10,18 +10,20 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
-    "allowJs": false,
+    "allowJs": true,
     "sourceMap": true,
     "baseUrl": ".",
     "types": ["node", "webpack-env"],
     "paths": {
       "@/*": ["packages/*"],
-      "examples/*": ["examples/*"]
+      "examples/*": ["examples/*"],
+      "src/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
     "types/**/*.d.ts",
+    "src/**/*ts",
     "packages/**/*.ts",
     "packages/**/*.vue",
     "examples/**/*.ts",

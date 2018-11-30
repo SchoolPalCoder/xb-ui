@@ -33,7 +33,15 @@ git push origin XXX:XXX
 
 - 使用 `VSCODE`
 - 包管理使用 `yarn`
-- 安装 `Prettier - Code formatter` 插件
+- 安装以下插件：
+  - `"TSLint"`<br/>
+    **代码省察，一定要装！！！**
+  - `"TSLint Vue"`<br/>
+    **基于 `TS` 开发 `Vue` 需要用到的代码省察，一定要装！！！**
+  - `"Vetur"`<br/>
+    **`Vue`开发神器，不解释，一定要装！！！**
+  - `"Prettier - Code formatter"`<br/>
+    **会读取`.prettierrc.yml`自动格式化统一代码，强烈建议装！！！**
 
 ## 项目结构
 
@@ -66,6 +74,7 @@ git push origin XXX:XXX
 ├── tools       项目工具文件夹
 |   ├── create-component.js             创建组件工具
 |   ├── create-componentMd.js           创建组件文档工具
+|   ├── update-componentsJson.js        更新components.json文件工具
 |   └── utils.js                        实用工具类
 ├── .babelrc
 ├── .editorconfig
@@ -81,10 +90,11 @@ git push origin XXX:XXX
 ## TODO-List
 
 1. 国际化
+1. 打包
 1. 单元测试
 1. 组件改动审核规则
    - 大家会进行组件 CodeReview
-   - 每个组在各自分支开发，合并到 master 需要安然或者少波进行操作
+   - 每个人在各自分支开发，合并到 master 需要安然或者少波进行操作
 
 ## 开始
 
@@ -93,13 +103,21 @@ git push origin XXX:XXX
 > `创建的组件需要以Xb-开头`
 
 ```bash
-npm run create:component 组件名
+yarn create:component 组件名
+```
+
+创建文档
+
+> 文件夹仅限于`basic`（基础组件）, `form`（表单组件）, `data`（数据展示组件）, `notice`（提示组件）, `navigation`（导航组件）, `others`（其他）这几个
+
+```bash
+yarn create:componentMd 文档文件夹名 组件文档名
 ```
 
 预览文档
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 ## 技术栈

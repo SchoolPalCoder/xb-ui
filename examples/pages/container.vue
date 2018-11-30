@@ -55,7 +55,7 @@ export default class Layout extends Vue {
   }
   .view {
     float: left;
-    width: calc(~"100% - 215px");
+    width: calc(100% - 215px);
     padding: 32px 48px 48px;
     box-sizing: border-box;
   }

@@ -1,0 +1,45 @@
+@import "common/var.less";
+
+@message-tips-prefix: ~"@{css-prefix}message-tips";
+
+.@{message-tips-prefix}-messageBox {
+  position: fixed;
+  top: 0%;
+  z-index: 999;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+}
+.@{message-tips-prefix}-message-tips {
+  pointer-events: all;
+  position: relative;
+  text-align: center;
+  &-content {
+    padding: 10px 16px;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    font-size: 14px;
+    margin: 10px 0;
+    display: inline-block;
+  }
+  &-text {
+    margin-left: 3px;
+  }
+  &_close {
+    margin-left: 50px;
+    cursor: pointer;
+  }
+}
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.5s ease;
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+.slide-fade-leave-to {
+  margin-top: -60px;
+}

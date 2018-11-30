@@ -8,7 +8,7 @@
     "debug": "node --inspect-brk node_modules/.bin/webpack --config ./build/webpack.examples.conf.js",
     "build": "vuepress build docs",
     "create:component": "node tools/create-component",
-    "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore build/entry.js",
+    "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
     "create:componentMd": "node tools/create-componentMd",
     "dist:style": "node build/gen-cssfile && gulp --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/dist lib/theme-chalk",
     "dist:component": "webpack --config build/webpack.component.js --mode production",
@@ -83,17 +83,16 @@
     "karma-spec-reporter": "^0.0.32",
     "karma-webpack": "^3.0.5",
     "karma-webpack-grep": "^1.0.1",
-    "less": "^3.8.1",
+    "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "lodash": "^4.17.11",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.0.2",
     "markdown-it-container": "^2.0.0",
     "mocha": "^5.2.0",
-    "node-sass": "^4.9.4",
     "postcss": "^7.0.2",
     "postcss-loader": "0.11.1",
     "progress-bar-webpack-plugin": "^1.11.0",
-    "sass-loader": "^7.1.0",
     "sinon": "^6.3.3",
     "sinon-chai": "^3.2.0",
     "style-loader": "^0.19.0",
@@ -119,6 +118,8 @@
     "vue": "^2.5.17"
   },
   "dependencies": {
-    "yarn": "^1.12.3"
+    "async-validator": "^1.10.0",
+    "deepmerge": "^2.2.1",
+    "element-resize-detector": "^1.1.14"
   }
 }

@@ -3,67 +3,67 @@ const webpack = require("webpack");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-const MarkdownItAncher = require("markdown-it-anchor");
-const MarkdownItContainer = require("markdown-it-container");
-const stripTags = require("./strip-tags");
-const utils = require("./utils");
+// const MarkdownItAncher = require("markdown-it-anchor");
+// const MarkdownItContainer = require("markdown-it-container");
+// const stripTags = require("./strip-tags");
+// const utils = require("./utils");
 
-const vueMarkdown = {
-  use: [
-    [
-      MarkdownItAncher,
-      {
-        level: 2,
-        // slugify: slugify,
-        permalink: true,
-        permalinkBefore: true,
-      },
-    ],
-    [
-      MarkdownItContainer,
-      "demo",
-      {
-        validate: (params) => params.trim().match(/^demo\s*(.*)$/),
-        render: function(tokens, idx) {
-          const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
-          if (tokens[idx].nesting === 1) {
-            const description = m && m.length > 1 ? m[1] : "";
-            const content = tokens[idx + 1].content;
-            const html = utils
-              .convertHtml(stripTags.strip(content, ["script", "style"]))
-              .replace(/(<[^>]*)=""(?=.*>)/g, "$1");
+// const vueMarkdown = {
+//   use: [
+//     [
+//       MarkdownItAncher,
+//       {
+//         level: 2,
+//         // slugify: slugify,
+//         permalink: true,
+//         permalinkBefore: true,
+//       },
+//     ],
+//     [
+//       MarkdownItContainer,
+//       "demo",
+//       {
+//         validate: (params) => params.trim().match(/^demo\s*(.*)$/),
+//         render: function(tokens, idx) {
+//           const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
+//           if (tokens[idx].nesting === 1) {
+//             const description = m && m.length > 1 ? m[1] : "";
+//             const content = tokens[idx + 1].content;
+//             const html = utils
+//               .convertHtml(stripTags.strip(content, ["script", "style"]))
+//               .replace(/(<[^>]*)=""(?=.*>)/g, "$1");
 
-            const script = striptags.fetch(content, "script");
-            const style = striptags.fetch(content, "style");
-            const jsfiddle = { html: html, script: script, style: style };
-            const descriptionHTML = description ? md.render(description) : "";
+//             const script = striptags.fetch(content, "script");
+//             const style = striptags.fetch(content, "style");
+//             const jsfiddle = { html: html, script: script, style: style };
+//             const descriptionHTML = description ? md.render(description) : "";
 
-            jsfiddle = md.utils.escapeHtml(JSON.stringify(jsfiddle));
+//             jsfiddle = md.utils.escapeHtml(JSON.stringify(jsfiddle));
 
-            return `<demo-block>
-                            <div class="source" slot="desc">${html}</div>
-                            ${descriptionHTML}
-                            <div class="highlight" slot="highlight">`;
-          }
-          return "</div></demo-block>\n";
-        },
-      },
-    ],
-  ],
-  preprocess: (MarkdownIt, source) => {
-    MarkdownIt.renderer.rules.table_open = function() {
-      return '<table class="table">';
-    };
-    MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(MarkdownIt.renderer.rules.fence);
+//             return `<demo-block>
+//                             <div class="source" slot="desc">${html}</div>
+//                             ${descriptionHTML}
+//                             <div class="highlight" slot="highlight">`;
+//           }
+//           return "</div></demo-block>\n";
+//         },
+//       },
+//     ],
+//   ],
+//   preprocess: (MarkdownIt, source) => {
+//     MarkdownIt.renderer.rules.table_open = function() {
+//       return '<table class="table">';
+//     };
+//     MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(MarkdownIt.renderer.rules.fence);
 
-    let code_inline = MarkdownIt.renderer.rules.code_inline;
-    MarkdownIt.renderer.rules.code_inline = function(...args) {
-      args[0][args[1]].attrJoin("class", "code_inline");
-      return code_inline(...args);
-    };
-    return source;
-  },
-};
+//     let code_inline = MarkdownIt.renderer.rules.code_inline;
+//     MarkdownIt.renderer.rules.code_inline = function(...args) {
+//       args[0][args[1]].attrJoin("class", "code_inline");
+//       return code_inline(...args);
+//     };
+//     return source;
+//   },
+// };
 
 const webpackConfig = {
   mode: "development",
@@ -77,6 +77,7 @@ const webpackConfig = {
     publicPath: "/",
     noInfo: true,
     historyApiFallback: true,
+    open: true,
   },
   devtool: "inline-source-map",
   output: {
@@ -91,6 +92,7 @@ const webpackConfig = {
       docs: path.resolve(__dirname, "../examples/docs"),
       guide: path.resolve(__dirname, "../examples/docs/guide"),
       components: path.resolve(__dirname, "../examples/docs/components"),
+      src: path.resolve(__dirname, "../src"),
     },
     modules: ["node_modules"],
   },
@@ -144,12 +146,8 @@ const webpackConfig = {
         loader: ["style-loader", "css-loader"],
       },
       {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
         test: /\.less$/,
-        use: ["vue-style-loader", "css-loader", "less-loader"],
+        use: ["style-loader", "css-loader", "less-loader"],
       },
       {
         type: "javascript/auto",
