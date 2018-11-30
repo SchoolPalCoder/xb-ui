@@ -18,6 +18,6 @@ import router from "./router/nav.config.json";
 export default class App extends Vue {}
 </script>
 
-<style lang="scss" >
-@import "./assets/scss/index.scss";
+<style lang="less" >
+@import "./assets/less/index.less";
 </style>
