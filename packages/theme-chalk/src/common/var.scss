@@ -3,30 +3,57 @@ $css-prefix: "xbui-" !default; /** css前缀名称 */
 $css-prefix-iconfont: "xbui-icon" !default; /** css-icon前缀名称 */
 
 /** 全局颜色样式定义 -- START*/
+$color-white: #fff !default; /**纯白**/
+$color-black: #000 !default; /**纯黑**/
 // 品牌色
-$color-primary1: #f4f8ff !default;
-$color-primary2: #d9e8ff !default;
-$color-primary3: #86afff !default;
 $color-primary: #5b8af9 !default; /** 主颜色样式--品牌色*/
-$color-primary5: #446ad4 !default;
-$color-primary6: #2f4cad !default;
-$color-primary7: #1e3387 !default;
+$color-primary1: mix($color-white, $color-primary, 90%) !default;
+$color-primary2: mix($color-white, $color-primary, 60%) !default;
+$color-primary3: mix($color-white, $color-primary, 30%) !default;
+$color-primary5: mix($color-black, $color-primary, 20%) !default;
+$color-primary6: mix($color-black, $color-primary, 40%) !default;
+$color-primary7: mix($color-black, $color-primary, 60%) !default;
 // 中性色
-$color-white: #ffffff !default; /** 纯白*/
 $color-gray1: #f5f5f5 !default;
 $color-gray2: #e5e5e5 !default;
 $color-gray3: #cccccc !default;
 $color-gray4: #aaaaaa !default;
 $color-gray5: #737373 !default;
 $color-gray6: #333333 !default;
-$color-black: #000000 !default;
+$coloe-gray: $color-gray3 !default;
 
 // 功能色
 $color-blue: #1890ff !default;
+$color-blue1: mix($color-white, $color-blue, 90%) !default;
+$color-blue2: mix($color-white, $color-blue, 60%) !default;
+$color-blue3: mix($color-white, $color-blue, 30%) !default;
+$color-blue5: mix($color-black, $color-blue, 20%) !default;
+$color-blue6: mix($color-black, $color-blue, 40%) !default;
+$color-blue7: mix($color-black, $color-blue, 60%) !default;
+
 $color-green: #52c41a !default;
+$color-green1: mix($color-white, $color-green, 90%) !default;
+$color-green2: mix($color-white, $color-green, 60%) !default;
+$color-green3: mix($color-white, $color-green, 30%) !default;
+$color-green5: mix($color-black, $color-green, 20%) !default;
+$color-green6: mix($color-black, $color-green, 40%) !default;
+$color-green7: mix($color-black, $color-green, 60%) !default;
+
 $color-orange: #faad14 !default;
+$color-orange1: mix($color-white, $color-orange, 90%) !default;
+$color-orange2: mix($color-white, $color-orange, 60%) !default;
+$color-orange3: mix($color-white, $color-orange, 30%) !default;
+$color-orange5: mix($color-black, $color-orange, 20%) !default;
+$color-orange6: mix($color-black, $color-orange, 40%) !default;
+$color-orange7: mix($color-black, $color-orange, 60%) !default;
+
 $color-red: #f5222d !default;
-$coloe-gray: $color-gray3 !default;
+$color-red1: mix($color-white, $color-red, 90%) !default;
+$color-red2: mix($color-white, $color-red, 60%) !default;
+$color-red3: mix($color-white, $color-red, 30%) !default;
+$color-red5: mix($color-black, $color-red, 20%) !default;
+$color-red6: mix($color-black, $color-red, 40%) !default;
+$color-red7: mix($color-black, $color-red, 60%) !default;
 
 // 其他
 $color-background-base: $color-gray1 !default; /** 灰，一般用作背景色*/
