@@ -46,7 +46,7 @@ export default class Sidebar extends Vue {
 }
 </script>
 
-<style lang="scss" >
+<style lang="less" >
 .side-nav {
   display: inline-block;
   margin: 32px 0;
