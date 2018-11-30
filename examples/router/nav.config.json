@@ -36,6 +36,10 @@
             "folder": "basic",
             "list": [
               {
+                "text": "color",
+                "path": "/xb-color"
+              },
+              {
                 "text": "xb-button",
                 "path": "/xb-button"
               },
