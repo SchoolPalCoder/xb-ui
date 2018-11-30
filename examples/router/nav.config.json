@@ -42,6 +42,10 @@
               {
                 "text": "xb-input-number",
                 "path": "/xb-input-number"
+              },
+              {
+                "text": "xb-text",
+                "path": "/xb-text"
               }
             ]
           },

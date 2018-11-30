@@ -118,5 +118,7 @@
   "peerDependencies": {
     "vue": "^2.5.17"
   },
-  "dependencies": {}
+  "dependencies": {
+    "yarn": "^1.12.3"
+  }
 }
