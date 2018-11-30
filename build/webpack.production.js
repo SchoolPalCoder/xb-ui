@@ -2,32 +2,55 @@ const path = require("path");
 const webpack = require("webpack");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-const config = require("./config");
 
 module.exports = {
   mode: "production",
   entry: {
-    app: ["../src/index.js"],
+    app: "./src/index.ts",
   },
   output: {
     path: path.resolve(process.cwd(), "./lib"),
-    publicPath: "/dist/",
+    publicPath: "/lib/",
     filename: "xb-ui.common.js",
     chunkFilename: "[id].js",
     libraryTarget: "commonjs2",
   },
   resolve: {
-    extensions: [".js", ".vue", ".json"],
-    alias: config.alias,
+    extensions: [".js", ".vue", ".json", ".ts"],
+    alias: {
+      "@": path.resolve(__dirname, "../packages"),
+      main: path.resolve(__dirname, "../src"),
+      examples: path.resolve(__dirname, "../examples"),
+      docs: path.resolve(__dirname, "../examples/docs"),
+      guide: path.resolve(__dirname, "../examples/docs/guide"),
+      components: path.resolve(__dirname, "../examples/docs/components"),
+      src: path.resolve(__dirname, "../src"),
+    },
     modules: ["node_modules"],
   },
-  externals: config.externals,
+  externals: { vue: "ue" },
   module: {
     rules: [
       {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+          },
+          {
+            loader: "ts-loader",
+            options: {
+              transpileOnly: true,
+              appendTsSuffixTo: ["\\.vue$"],
+            },
+          },
+        ],
+      },
+      {
         test: /\.(jsx?|babel|es6)$/,
         include: process.cwd(),
-        exclude: config.jsexclude,
+        exclude: /node_modules/,
         loader: "babel-loader",
       },
       {
@@ -35,6 +58,7 @@ module.exports = {
         loader: "vue-loader",
         options: {
           preserveWhitespace: false,
+          ts: "ts-loader",
         },
       },
       {
@@ -43,7 +67,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ["style-loader", "css-loader", "postcss-loader"],
+        loaders: ["style-loader", "css-loader"],
       },
       {
         test: /\.scss$/,
