@@ -1,6 +1,5 @@
 <template>
-  <i :class="classes" :style="styles">
-  </i>
+  <i :class="classes" :style="styles"></i>
 </template>
 
 <script lang="ts">
@@ -8,22 +7,22 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 const prefixCls = "xb-icon";
 @Component
 export default class XbIcon extends Vue {
-  @Prop()
-  type: string;
+  @Prop({ type: String })
+  type!: string;
 
   @Prop()
-  size: any;
+  size!: any;
 
-  @Prop()
-  color: string;
+  @Prop({ type: String })
+  color!: string;
 
   get classes(): string {
     return `${prefixCls}-${this.type}`;
   }
 
   get styles(): object {
-    let style = {};
-    let reg = /^[0-9]*$/;
+    const style = {};
+    const reg = /^[0-9]*$/;
     if (reg.test(this.size)) {
       style["font-size"] = `${this.size}px`;
     } else {
