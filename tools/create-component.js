@@ -51,16 +51,16 @@ export default class ${pascalCaseName} extends Vue {
 </script>`;
 };
 
-// package/theme-chalk/index.scss update
+// package/theme-chalk/index.less update
 const updateIndexScss = (fileName) => {
-  return `@import "./${fileName}.scss";\n`;
+  return `@import "./${fileName}.less";\n`;
 };
 
-// 生成scss文件基础信息
+// 生成less文件基础信息
 const indexScss = (originName) => {
-  return `@import "common/var.scss";
+  return `@import "common/var.less";
 
-$${originName}-prefix: $css-prefix + "${originName}";
+@${originName}-prefix: ~"@{css-prefix}${originName}";
   `;
 };
 
@@ -93,9 +93,9 @@ mkdirp(path.join(cssDir, "src"), (err) => {
     console.error(chalk.bgRed(err));
   } else {
     utils.writeFileOrWarn(
-      path.join(cssDir, "src", componentInfo.lowerCaseName + ".scss"),
+      path.join(cssDir, "src", componentInfo.lowerCaseName + ".less"),
       indexScss(componentInfo.lowerCaseName.substring(3))
     );
-    utils.appendFile(path.join(cssDir, "src", "index.scss"), updateIndexScss(componentInfo.lowerCaseName));
+    utils.appendFile(path.join(cssDir, "src", "index.less"), updateIndexScss(componentInfo.lowerCaseName));
   }
 });

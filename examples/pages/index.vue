@@ -26,7 +26,7 @@ export default class Index extends Vue {
 }
 </script>
 
-<style  lang="scss">
+<style  lang="less">
 .pg-index {
   .index-container {
     width: 960px;

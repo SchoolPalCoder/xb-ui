@@ -1,11 +1,15 @@
-.xbui-whole-div {
+@import "common/var.less";
+
+@input-number-prefix: ~"@{css-prefix}input-number";
+
+.@{input-number-prefix}-whole-div {
   position: relative;
   display: inline-block;
   height: 100%;
 }
 
 // input输入框
-.xbui-input-div {
+.@{input-number-prefix}-input-div {
   width: 180px;
   height: 40px;
   min-height: 30px;
@@ -15,7 +19,7 @@
   border-radius: 3px;
 }
 
-.xbui-input {
+.@{input-number-prefix}-input {
   padding: 0 55px 0 10px;
   margin: 0;
   width: calc(100% - 65px);
@@ -24,7 +28,7 @@
   background: transparent;
 }
 
-.xbui-input-disabled {
+.@{input-number-prefix}-input-disabled {
   background-color: #f5f7fa;
   border-color: #e4e7ed;
   color: #c0c4cc;
@@ -32,7 +36,7 @@
 }
 
 // 右侧操作按钮
-.xbui-arrow-div {
+.@{input-number-prefix}-arrow-div {
   position: absolute;
   width: 40px;
   height: 100%;
@@ -42,7 +46,7 @@
   border-left: 1px solid #ddd;
 }
 
-.xbui-arrow {
+.@{input-number-prefix}-arrow {
   width: 100%;
   height: 50%;
   border-bottom: none;
@@ -52,11 +56,11 @@
   display: inline-block;
 }
 
-.xbui-arrow-disabled {
+.@{input-number-prefix}-arrow-disabled {
   cursor: not-allowed;
   color: #c0c4cc;
 }
 
-.xbui-arrow-down {
+.@{input-number-prefix}-arrow-down {
   border-bottom: 1px solid #ddd;
 }

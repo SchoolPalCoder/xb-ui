@@ -25,7 +25,7 @@ export default class Footer extends Vue {}
 </script>
 
 
-<style lang="scss"  >
+<style lang="less"  >
 .page-footer {
   padding: 30px 0 30px;
   color: #6190e8;
