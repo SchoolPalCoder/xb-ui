@@ -7,7 +7,8 @@ const format = Format();
 let lang = defaultLang;
 let merged = false;
 
-let i18nHandler = function(this: any): any {
+let i18nHandler = function(this: Vue): any {
+  // 查看Vue的原型上是否有$t，有说明采用了i18n的东西
   const vuei18n = Object.getPrototypeOf(Vue).$t;
   if (typeof vuei18n === "function" && !!Vue.locale) {
     if (!merged) {

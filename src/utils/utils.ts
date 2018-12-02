@@ -10,7 +10,7 @@ export function hasOwn(obj, key): boolean {
 /* istanbul ignore next */
 export const on = (function() {
   if (!isServer && document.addEventListener) {
-    return function(element: HTMLElement, event: string, handler: EventListenerOrEventListenerObject) {
+    return function(element: HTMLElement | Window, event: string, handler: EventListenerOrEventListenerObject) {
       if (element && event && handler) {
         element.addEventListener(event, handler, false);
       }
@@ -27,7 +27,7 @@ export const on = (function() {
 /* istanbul ignore next */
 export const off = (function() {
   if (!isServer && document.removeEventListener) {
-    return function(element: HTMLElement, event: string, handler: EventListenerOrEventListenerObject) {
+    return function(element: HTMLElement | Window, event: string, handler: EventListenerOrEventListenerObject) {
       if (element && event) {
         element.removeEventListener(event, handler, false);
       }
