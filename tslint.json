@@ -24,6 +24,7 @@
     "no-bitwise": false, // 允许位运算
     "no-var-keyword": true, // 不允许关键字var
     "interface-over-type-literal": false, // interface 修饰符优先覆盖 type 修饰符
-    "only-arrow-functions": false // 禁止传统（非箭头）函数表达式。
+    "only-arrow-functions": false, // 禁止传统（非箭头）函数表达式。
+    "no-string-literal": false // 禁止不必要的字符串文字属性访问。允许obj [“prop-erty”]（不能是常规属性访问）。禁止obj [“property”]（应该是obj.property）。
   }
 }
