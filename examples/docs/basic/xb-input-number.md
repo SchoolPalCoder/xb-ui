@@ -141,3 +141,5 @@ disabled 属性接受一个 Boolean，设置为 true 即可禁用整个组件，
 回调函数
 
 额外提供 medium、small、mini 三种尺寸的数字输入框处理
+
+“+ - ”符号是手动写入的，而不是 xb-icon 传入的，等设计稿出来后进行修改

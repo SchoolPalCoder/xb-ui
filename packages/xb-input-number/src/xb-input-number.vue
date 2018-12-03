@@ -1,21 +1,39 @@
 <template>
-  <div class="xbui-whole-div">
-    <div class="xbui-input-div" :style="inputStyle">
+  <div :class="wholeClasses">
+    <div
+      :class="inputDivClasses"
+      :style="inputStyle"
+    >
       <!-- :是v-bind的缩写，是为了动态绑定数据。 -->
       <!-- @input：每次输入都触发相关函数，@change：鼠标焦点离开输入框时触发相关函数 -->
-      <input class="xbui-input" type="text" v-model="num" :class="[disabled?'xbui-input-disabled':'']" :disabled="disabled" @input="inputChange(num)" @change="changeInput(num)" @focus="focus()" />
+      <input
+        type="text"
+        v-model="num"
+        :class="inputClasses"
+        :disabled="disabled"
+        @input="inputChange(num)"
+        @change="changeInput(num)"
+        @focus="focus()"
+      />
     </div>
-    <span class="xbui-arrow-div">
+    <span :class="arrowDivClasses">
       <!-- 添加 -->
-      <span class="xbui-arrow xbui-arrow-down" :class="[disabled?'xbui-arrow-disabled':'']" @click="addValue(disabled?true:false)">+</span>
+      <span
+        :class="arrowDownClasses"
+        @click="addValue(disabled?true:false)"
+      >+</span>
       <!-- 减少 -->
-      <span class="xbui-arrow" :class="[disabled?'xbui-arrow-disabled':'']" @click="subtractValue(disabled?true:false)">-</span>
+      <span
+        :class="arrowClasses"
+        @click="subtractValue(disabled?true:false)"
+      >-</span>
     </span>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+const prefixCls = "xbui-input-number";
 
 @Component
 export default class XbInputNumber extends Vue {
@@ -24,36 +42,35 @@ export default class XbInputNumber extends Vue {
   @Prop({ default: 1 })
   firstNum!: number;
 
-  /**最小值 */
+  /** 最小值 */
   @Prop({ default: 0 })
   min!: number;
 
-  /**最大值 */
-  /**设定这个默认值，是因为大于这个值以后，就会以科学计入法的方式展示在input输入框内，展示出来的数据对用户并不友好 */
+  /** 最大值 */
+  /** 设定这个默认值，是因为大于这个值以后，就会以科学计入法的方式展示在input输入框内，展示出来的数据对用户并不友好 */
   @Prop({ default: 999999999999999 })
   max!: number;
 
-  /**步进 */
+  /** 步进 */
   @Prop({ default: 1 })
   step!: number;
 
-  /**正则表达式 */
+  /** 正则表达式 */
   @Prop()
   regExp!: string;
 
-  /**input样式 */
+  /** input样式 */
   @Prop()
-  inputStyle!: Object;
+  inputStyle!: object;
 
-  /**禁用 */
+  /** 禁用 */
   @Prop()
-  disabled!: Boolean;
+  disabled!: boolean;
 
-  /** 子组件内的初始值*/
-  /** 由于firstNum是存在于props的，如果通过props传入的值，直接修改组件内容，vue2是会报错的
-   解决方法：1、双向绑定数据 2、将firstNum赋值给num，而num作为组件的原生参数，存在于页面中*/
+  /** 子组件内的初始值,由于firstNum是存在于props的，如果通过props传入的值，直接修改组件内容，vue2是会报错的 */
+  /** 解决方法：1、双向绑定数据 2、将firstNum赋值给num，而num作为组件的原生参数，存在于页面中 */
   num: number = this.firstNum;
-  /**子组件内展示的数值，如果输入的数字不符合正则表达式，则展示原来的数值 */
+  /** 子组件内展示的数值，如果输入的数字不符合正则表达式，则展示原来的数值 */
   showNum: number = 0;
 
   // 增加步进
@@ -130,6 +147,46 @@ export default class XbInputNumber extends Vue {
   // 将输入框内的数值修改为“数字”类型
   changeNumType(num) {
     num = parseInt(String(num));
+  }
+
+  // 样式处理
+  get wholeClasses() {
+    return [`${prefixCls}-whole-div`];
+  }
+
+  get inputDivClasses() {
+    return [`${prefixCls}-input-div`];
+  }
+
+  get inputClasses() {
+    return [
+      `${prefixCls}-input`,
+      {
+        [`${prefixCls}-input-disabled`]: this.disabled,
+      },
+    ];
+  }
+
+  get arrowDivClasses() {
+    return [`${prefixCls}-arrow-div`];
+  }
+
+  get arrowDownClasses() {
+    return [
+      `${prefixCls}-arrow`,
+      `${prefixCls}-arrow-down`,
+      {
+        [`${prefixCls}-arrow-disabled`]: this.disabled,
+      },
+    ];
+  }
+  get arrowClasses() {
+    return [
+      `${prefixCls}-arrow`,
+      {
+        [`${prefixCls}-arrow-disabled`]: this.disabled,
+      },
+    ];
   }
 }
 </script>
