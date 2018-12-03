@@ -48,10 +48,6 @@
                 "path": "/xb-input-number"
               },
               {
-                "text": "xb-text",
-                "path": "/xb-text"
-              },
-              {
                 "text": "xb-icon",
                 "path": "/xb-icon"
               }
