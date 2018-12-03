@@ -65,9 +65,9 @@ function camelCase(name) {
 }
 
 /** 获取指定元素上的样式 */
-export function getStyle(element: HTMLElement, styleName: string): CSSStyleDeclaration | null {
+export function getStyle(element: HTMLElement, styleName: string): string {
   if (!element || !styleName) {
-    return null;
+    return "";
   }
   styleName = camelCase(styleName);
   if (styleName === "float") {
