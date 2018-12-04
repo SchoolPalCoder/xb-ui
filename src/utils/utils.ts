@@ -91,10 +91,10 @@ export function seriesLoadScripts(scripts: string[], callback: () => void) {
   const HEAD = document.getElementsByTagName("head").item(0) || document.documentElement;
   const s = new Array();
   const last = scripts.length - 1;
-  const recursiveLoad = function (i) {
+  const recursiveLoad = function(i) {
     // 递归
     s[i] = document.createElement("script");
-    s[i].setAttribute("type","text/javascript");
+    s[i].setAttribute("type", "text/javascript");
     s[i].onload = s[i].onreadystatechange = function() {
       // Attach handlers for all browsers
       if (!0 || this.readyState === "loaded" || this.readyState === "complete") {
@@ -107,10 +107,15 @@ export function seriesLoadScripts(scripts: string[], callback: () => void) {
         }
       }
     };
-    s[i].setAttribute("src",scripts[i]);
+    console.log(scripts[i]);
+    s[i].setAttribute("src", scripts[i]);
+
     if (HEAD) {
       HEAD.appendChild(s[i]);
+      console.log('js代码');
+      console.log(HEAD);
     }
+
   };
   recursiveLoad(0);
 }
