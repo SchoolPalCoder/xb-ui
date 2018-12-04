@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
-var postcss = require('postcss');
-var fs = require('fs');
-var path = require('path');
-var fontFile = fs.readFileSync(path.resolve(__dirname, '../packages/theme-chalk/src/xb-icon.scss'), 'utf8');
+var postcss = require("postcss");
+var fs = require("fs");
+var path = require("path");
+var fontFile = fs.readFileSync(path.resolve(__dirname, "../packages/theme-chalk/src/xb-icon.less"), "utf8");
 var nodes = postcss.parse(fontFile).nodes;
 var classList = [];
 
 nodes.forEach((node) => {
-  var selector = node.selector || '';
-  var reg = new RegExp(/\.xbui-icon-([^:]+):before/);
+  var selector = node.selector || "";
+  var reg = new RegExp(/\.\@{css-prefix-iconfont}([^:]+):before/);
   var arr = selector.match(reg);
 
   if (arr && arr[1]) {
@@ -17,4 +17,4 @@ nodes.forEach((node) => {
   }
 });
 
-fs.writeFile(path.resolve(__dirname, '../docs/icon.json'), JSON.stringify(classList), () => { });
+fs.writeFile(path.resolve(__dirname, "../examples/docs/icon.json"), JSON.stringify(classList), () => {});

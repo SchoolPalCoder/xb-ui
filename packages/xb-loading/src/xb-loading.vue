@@ -11,24 +11,20 @@
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 @Component
 export default class XbLoading extends Vue {
-  /** 是否显示loading */
+  // 是否显示loading
   @Prop()
-  loadShow!: Boolean;
+  loadShow!: boolean;
 
-  /**loading图标*/
+  // loading图标
   @Prop({ default: "./load.png" })
   loadingImg?: string;
 
-  /** loading文字描述 */
+  // loading文字描述
   @Prop({default:'加载中……'})
   loadTxt?: string;
 
-  /** 自定义样式 */
+  // 自定义样式
   @Prop({ default: "fixed" })
   customClass?: string;
-
-  created(){
-    console.log(this.loadShow);
-  }
 }
 </script>

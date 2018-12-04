@@ -1,0 +1,92 @@
+// 全局css样式字首定义
+@css-prefix: "xbui-"; /** css前缀名称 */
+@css-prefix-iconfont: "xbui-icon-"; /** css-icon前缀名称 */
+
+/** 全局颜色样式定义 -- START*/
+@color-white: #fff; /**纯白**/
+@color-black: #000; /**纯黑**/
+// 品牌色
+@color-primary: #5b8af9; /** 主颜色样式--品牌色*/
+@color-primary1: mix(@color-white, @color-primary, 90%);
+@color-primary2: mix(@color-white, @color-primary, 60%);
+@color-primary3: mix(@color-white, @color-primary, 30%);
+@color-primary5: mix(@color-black, @color-primary, 20%);
+@color-primary6: mix(@color-black, @color-primary, 40%);
+@color-primary7: mix(@color-black, @color-primary, 60%);
+// 中性色
+@color-gray1: #f5f5f5;
+@color-gray2: #e5e5e5;
+@color-gray3: #cccccc;
+@color-gray4: #aaaaaa;
+@color-gray5: #737373;
+@color-gray6: #333333;
+@coloe-gray: @color-gray3;
+
+// 功能色
+@color-blue: #1890ff;
+@color-blue1: mix(@color-white, @color-blue, 90%);
+@color-blue2: mix(@color-white, @color-blue, 60%);
+@color-blue3: mix(@color-white, @color-blue, 30%);
+@color-blue5: mix(@color-black, @color-blue, 20%);
+@color-blue6: mix(@color-black, @color-blue, 40%);
+@color-blue7: mix(@color-black, @color-blue, 60%);
+
+@color-green: #52c41a;
+@color-green1: mix(@color-white, @color-green, 90%);
+@color-green2: mix(@color-white, @color-green, 60%);
+@color-green3: mix(@color-white, @color-green, 30%);
+@color-green5: mix(@color-black, @color-green, 20%);
+@color-green6: mix(@color-black, @color-green, 40%);
+@color-green7: mix(@color-black, @color-green, 60%);
+
+@color-orange: #faad14;
+@color-orange1: mix(@color-white, @color-orange, 90%);
+@color-orange2: mix(@color-white, @color-orange, 60%);
+@color-orange3: mix(@color-white, @color-orange, 30%);
+@color-orange5: mix(@color-black, @color-orange, 20%);
+@color-orange6: mix(@color-black, @color-orange, 40%);
+@color-orange7: mix(@color-black, @color-orange, 60%);
+
+@color-red: #f5222d;
+@color-red1: mix(@color-white, @color-red, 90%);
+@color-red2: mix(@color-white, @color-red, 60%);
+@color-red3: mix(@color-white, @color-red, 30%);
+@color-red5: mix(@color-black, @color-red, 20%);
+@color-red6: mix(@color-black, @color-red, 40%);
+@color-red7: mix(@color-black, @color-red, 60%);
+
+// 其他
+@color-background-base: @color-gray1; /** 灰，一般用作背景色*/
+@color-disabled-base: @color-gray2; /** 灰，用作组件禁用时的背景色*/
+@color-border-base: @color-gray3; /** 灰，用作边框、分割线*/
+
+/** 全局颜色样式定义 -- END*/
+
+/** 全局字体样式定义 -- START*/
+@font-size-12: 12pt;
+@font-size-base: 14pt;
+@font-size-16: 16pt;
+@font-size-18: 18pt;
+@font-size-20: 20pt;
+@font-size-24: 24pt;
+@font-size-32: 32pt;
+@font-color-base: @color-gray6;
+@font-placeholder-base: @color-gray4; /** 灰，一般用作placeholder，常用*/
+/** 全局字体样式定义 -- END*/
+
+// 动画
+@animation-time: 0.3s;
+@transition-time: 0.2s;
+@ease-in-out: ease-in-out;
+
+// Shadow
+@shadow-color : rgba(0, 0, 0, .2);
+@shadow-base : @shadow-down;
+@shadow-card : 0 1px 1px 0 rgba(0,0,0,.1);
+@shadow-up : 0 -1px 6px @shadow-color;
+@shadow-down : 0 1px 6px @shadow-color;
+@shadow-left : -1px 0 6px @shadow-color;
+@shadow-right : 1px 0 6px @shadow-color;
+
+// 其他全局样式定义
+@cursor-disabled: "not-allowed"; /**鼠标经过禁用样式*/

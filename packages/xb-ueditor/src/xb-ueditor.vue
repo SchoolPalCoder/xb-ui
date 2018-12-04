@@ -8,13 +8,6 @@
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import {seriesLoadScripts} from '../../../src/utils/utils';
 
-/*
-import '../../../src/assets/ueditor/ueditor.config.js';
-import '../../../src/assets/ueditor.all.js';
-import '../../../src/assets/lang/zh-cn/zh-cn.js';
-import '../../../src/assets/lang/en/en.js';
-*/
-
 @Component
 export default class XbUeditor extends Vue {
 

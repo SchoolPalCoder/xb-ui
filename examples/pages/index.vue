@@ -6,8 +6,12 @@
     </div>
     <div class="separate-panel">
       <div class="about">
-        <router-link :to="'/guide'">开始使用</router-link>
-        <a target="_blank" class="btn-github" href="https://github.com/SchoolPalCoder/Xb-Basic-Components">GitHub</a>
+        <router-link :to="'/components'">开始使用</router-link>
+        <a
+          target="_blank"
+          class="btn-github"
+          href="https://github.com/SchoolPalCoder/Xb-Basic-Components"
+        >GitHub</a>
       </div>
     </div>
   </div>
@@ -22,7 +26,7 @@ export default class Index extends Vue {
 }
 </script>
 
-<style type="text/less" lang="less">
+<style  lang="less">
 .pg-index {
   .index-container {
     width: 960px;

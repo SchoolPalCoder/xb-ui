@@ -36,18 +36,43 @@
             "folder": "basic",
             "list": [
               {
+                "text": "color",
+                "path": "/xb-color"
+              },
+              {
                 "text": "xb-button",
                 "path": "/xb-button"
               },{
                 "text":"xb-loading",
                 "path":"/xb-loading"
+              },
+              {
+                "text": "xb-input-number",
+                "path": "/xb-input-number"
+              },
+              {
+                "text": "xb-icon",
+                "path": "/xb-icon"
               }
             ]
           },
           {
             "groupName": "表单组件",
             "folder": "form",
-            "list": []
+            "list": [
+              {
+                "text": "xb-checkbox",
+                "path": "/xb-checkbox"
+              },
+              {
+                "text": "xb-form",
+                "path": "/xb-form"
+              },
+              {
+                "text": "xb-table",
+                "path": "/xb-table"
+              }
+            ]
           },
           {
             "groupName": "数据组件",
@@ -57,7 +82,16 @@
           {
             "groupName": "通知组件",
             "folder": "notice",
-            "list": []
+            "list": [
+              {
+                "text": "xb-popup-window",
+                "path": "/xb-popup-window"
+              },
+              {
+                "text": "xb-message-tips",
+                "path": "/xb-message-tips"
+              }
+            ]
           },
           {
             "groupName": "导航组件",

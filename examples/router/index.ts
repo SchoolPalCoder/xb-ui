@@ -15,7 +15,6 @@ const indexRoute: XbRouteConfig = {
 const routes: XbRouteConfig[] = headerConf; // headerConfig();
 
 routes.unshift(indexRoute);
-console.log(routes);
 
 export default new Router({
   routes,

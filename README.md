@@ -33,7 +33,15 @@ git push origin XXX:XXX
 
 - 使用 `VSCODE`
 - 包管理使用 `yarn`
-- 安装 `Prettier - Code formatter` 插件
+- 安装以下插件：
+  - `"TSLint"`<br/>
+    **代码省察，一定要装！！！**
+  - `"TSLint Vue"`<br/>
+    **基于 `TS` 开发 `Vue` 需要用到的代码省察，一定要装！！！**
+  - `"Vetur"`<br/>
+    **`Vue`开发神器，不解释，一定要装！！！**
+  - `"Prettier - Code formatter"`<br/>
+    **会读取`.prettierrc.yml`自动格式化统一代码，强烈建议装！！！**
 
 ## 项目结构
 
@@ -55,7 +63,7 @@ git push origin XXX:XXX
 ├── lib           打包后文件夹
 |   ├── theme-chakl   打包后样式所在文件夹
 |   |   ├── ...            组件对应的样式
-|   |   └── index.css      整个组件库的样式
+|   |   └── index.less      整个组件库的样式
 |   ├── ...                单个组件打包后文件
 |   └── xb-ui.common.js    整个组件库打包后的js文件
 ├── packages    存放我们需要打包的组件
@@ -84,6 +92,7 @@ git push origin XXX:XXX
 1. 国际化
 1. 打包
 1. 单元测试
+1. example 站点能配置开发模式和发布模式（打包前、打包后）
 1. 组件改动审核规则
    - 大家会进行组件 CodeReview
    - 每个人在各自分支开发，合并到 master 需要安然或者少波进行操作

@@ -14,7 +14,7 @@ npm run create:componentMd 组件分类文件夹名 组件名
 
 ## 初始化图标库
 
-在 packages/theme-chalk/src 下加入 fonts 文件夹以及更新 xb-icon.scss 后执行该命令，就可以在图标库上显示更新的图标
+在 packages/theme-chalk/src 下加入 fonts 文件夹以及更新 xb-icon.less 后执行该命令，就可以在图标库上显示更新的图标
 
 ```bash
 npm run init:icon
@@ -37,8 +37,8 @@ npm run dist
 在 main.js 中写入以下内容：
 
 ```js
-import XbUI from 'xb-ui';
-import 'xb-ui/lib/theme-chalk/index.css';
+import XbUI from "xb-ui";
+import "xb-ui/lib/theme-chalk/index.css";
 
 Vue.use(XbUI);
 ```
@@ -46,9 +46,9 @@ Vue.use(XbUI);
 或者
 
 ```js
-import { Button } from 'xb-ui';
-import { Card } from 'xb-ui';
-import 'xb-ui/lib/theme-chalk/index.css';
+import { Button } from "xb-ui";
+import { Card } from "xb-ui";
+import "xb-ui/lib/theme-chalk/index.css";
 
 Vue.use(Button);
 Vue.use(Card);
