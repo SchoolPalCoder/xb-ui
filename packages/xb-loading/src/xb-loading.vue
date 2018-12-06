@@ -13,16 +13,12 @@ import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import Locale from "../../../src/mixins/locale";
 import XbIcon from "../../xb-icon";
 const prefixCls = "xbui-loading";
-
 @Component({
   components: {
     XbIcon
    },
   mixins: [Locale],
 })
-
-
-
 export default class XbLoading extends Vue {
   prefixCls: string = prefixCls;
   // 是否显示loading
@@ -36,14 +32,13 @@ export default class XbLoading extends Vue {
   // loading图标尺寸
   @Prop({ default: "20px" })
   loadSize?: string;
-
   // 是否显示文字
   @Prop({default: true})
   showTxt?: boolean;
 
   // loading文字描述
   @Prop({default: ''})
-  loadTxt?: string;
+loadTxt?: string;
 
   // 自定义样式
   @Prop({ default: "fixed" })
