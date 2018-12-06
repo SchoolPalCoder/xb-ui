@@ -276,15 +276,5 @@ export default class XbText extends Vue {
   get classesFailIcon() {
     return [`${prefixCls}-fail-icon`];
   }
-  // valueChange: '&?', //由ng-paste触发的回调函数
-  // blur: '&?', //ng-blur触发的回调函数
-  // keyboard: '&?', //用键盘控制光标，但是好像传个Boolean就可以了，有时间问问作者，我只是个写注释的
-  // focus: '&?', //ng-focus触发的回到函数
-  // className: '=?', //键盘控制光标所用到的属性，作用于特定类名的元素
-  // maxLengthFun: '&?', //最大值可输入长度回调，适用于那些可输入最大值非固定的场景
-  // isFocus: '<', //初始化是否自动聚焦
-  // keyupAction: "&",
-  // keydownAction: '&',
-  // borderNone: '<?',//判断是否需要有border外框
 }
 </script>
