@@ -7,6 +7,7 @@
       :placeholder="placeHolder"
       :class='classesText'
       :disabled="disabled"
+      :readonly="readonly"
       :maxlength="maxlength?maxlength:''"
       @input="inputChange(num)"
     />
@@ -18,6 +19,7 @@
       :placeholder="placeHolder"
       :class='classesTextarea'
       :disabled="disabled"
+      :readonly="readonly"
       :maxlength="maxlength?maxlength:''"
       @input="textareaChange()"
     >
@@ -99,6 +101,10 @@ export default class XbText extends Vue {
   /** 禁用 */
   @Prop({ default: false })
   disabled!: boolean;
+
+  /** 禁用 */
+  @Prop({ default: false })
+  readonly!: boolean;
 
   /** 清空，成功，失败状态 */
   @Prop({ default: "" })

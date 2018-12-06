@@ -84,6 +84,20 @@ disabled 属性接受一个 Boolean，设置为 true 即可禁用整个组件
 <xb-text disabled="true"></xb-text>
 ```
 
+## 只读
+
+readonly 属性接受一个 Boolean，设置为 true 便对输入框内容不可编辑
+
+<div class="demo-button">
+  <div>
+    <xb-text readonly="true"></xb-text>
+  </div>
+</div>
+
+```html
+<xb-text readonly="true"></xb-text>
+```
+
 ## icon 显示
 
 #### 清空 成功 失败状态
@@ -256,6 +270,7 @@ iconStyle 只有 icon 有作用，对 input 无效
 | placeHolder | 输入框占位文本                         | string         | ——                                          | 请输入 |                  |                                                            |
 | maxlength   | 可输入的最大字符串长度                 | number         | ——                                          | ——     |                  |                                                            |
 | disabled    | 禁用                                   | boolean        | ——                                          | false  |                  |                                                            |
+| readonly    | 只读                                   | boolean        | ——                                          | false  |                  |                                                            |
 | inputStyle  | 外部样式                               | object         | ——                                          | ——     |                  |                                                            |
 | maxNum      | 最大值                                 | number         | ——                                          | ——     | type!="textarea" |                                                            |
 | regExp      | 正则表达式                             | string         | ——                                          | ——     | type!="textarea" |                                                            |
