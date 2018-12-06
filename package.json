@@ -16,7 +16,7 @@
   "style": "lib/theme-chalk/index.css",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SchoolPalCoder/Xb-Basic-Components.git"
+    "url": "git+ssh://git@github.com/SchoolPalCoder/Xb-Basic-Components.git"
   },
   "keywords": [
     "vue",
