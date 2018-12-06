@@ -68,6 +68,10 @@
               {
                 "text": "xb-form",
                 "path": "/xb-form"
+              },
+              {
+                "text": "xb-table",
+                "path": "/xb-table"
               }
             ]
           },
