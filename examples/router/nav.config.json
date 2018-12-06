@@ -50,6 +50,10 @@
               {
                 "text": "xb-icon",
                 "path": "/xb-icon"
+              },
+              {
+                "text": "xb-text",
+                "path": "/xb-text"
               }
             ]
           },
