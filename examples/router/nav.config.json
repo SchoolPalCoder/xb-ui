@@ -42,9 +42,10 @@
               {
                 "text": "xb-button",
                 "path": "/xb-button"
-              },{
-                "text":"xb-loading",
-                "path":"/xb-loading"
+              },
+              {
+                "text": "xb-loading",
+                "path": "/xb-loading"
               },
               {
                 "text": "xb-input-number",
@@ -57,6 +58,10 @@
               {
                 "text": "xb-text",
                 "path": "/xb-text"
+              },
+              {
+                "text": "xb-search-btn",
+                "path": "/xb-search-btn"
               }
             ]
           },
@@ -105,10 +110,12 @@
           {
             "groupName": "其他组件",
             "folder": "others",
-            "list": [{
-              "text":"xb-ueditor",
-              "path":"/xb-ueditor"
-            }]
+            "list": [
+              {
+                "text": "xb-ueditor",
+                "path": "/xb-ueditor"
+              }
+            ]
           }
         ]
       }
