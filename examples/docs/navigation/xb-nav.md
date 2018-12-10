@@ -4,46 +4,48 @@
 
 ## 示例
 
-## 顶栏
-
-<template>
-    <xb-nav mode="horizontal" active-name="system">
-      <xb-nav-item name="person">个人中心</xb-nav-item>
-      <xb-nav-item name="file">文件管理</xb-nav-item>
-      <xb-nav-item name="system">系统设置</xb-nav-item>
-      <xb-nav-item name="pictures">图库管理</xb-nav-item>
-    </xb-nav-item>
-</template>
-
-```js
-<template>
-    <xb-nav active-name="system">
-      <xb-nav-item name="person">个人中心</xb-nav-item>
-      <xb-nav-item name="file">文件管理</xb-nav-item>
-      <xb-nav-item name="system">系统设置</xb-nav-item>
-      <xb-nav-item name="pictures">图库管理</xb-nav-item>
-    </xb-nav-item>
-</template>
-```
-
 ## 侧栏
 
 <template>
     <xb-nav active-name="person">
-      <xb-nav-item name="person">个人中心</xb-nav-item>
-      <xb-nav-item name="file">文件管理</xb-nav-item>
-      <xb-nav-item name="system">系统设置</xb-nav-item>
-      <xb-nav-item name="pictures">图库管理</xb-nav-item>
+      <xb-nav-item name="person">
+        <xb-icon type="user"></xb-icon>
+        个人中心
+      </xb-nav-item>
+      <xb-nav-item name="file">
+        <xb-icon type="annex"></xb-icon>
+        文件管理
+      </xb-nav-item>
+      <xb-nav-item name="system">
+        <xb-icon type="teaching-setting"></xb-icon>
+        系统设置
+      </xb-nav-item>
+      <xb-nav-item name="pictures">
+        <xb-icon type="curriculum"></xb-icon>
+        图库管理
+      </xb-nav-item>
     </xb-nav>
 </template>
 
 ```js
 <template>
     <xb-nav mode="vertical" active-name="person">
-      <xb-nav-item name="person">个人中心</xb-nav-item>
-      <xb-nav-item name="file">文件管理</xb-nav-item>
-      <xb-nav-item name="system">系统设置</xb-nav-item>
-      <xb-nav-item name="pictures">图库管理</xb-nav-item>
+      <xb-nav-item name="person">
+        <xb-icon type="user"></xb-icon>
+        个人中心
+      </xb-nav-item>
+      <xb-nav-item name="file">
+        <xb-icon type="annex"></xb-icon>
+        文件管理
+      </xb-nav-item>
+      <xb-nav-item name="system">
+        <xb-icon type="teaching-setting"></xb-icon>
+        系统设置
+      </xb-nav-item>
+      <xb-nav-item name="pictures">
+        <xb-icon type="curriculum"></xb-icon>
+        图库管理
+      </xb-nav-item>
     </xb-nav>
 </template>
 ```

@@ -1,4 +1,5 @@
 @import "common/var.less";
+@import "mixins/clearfix.less";
 
 @nav-prefix: ~"@{css-prefix}nav";
 
@@ -14,30 +15,19 @@
 @menu-hover-color: #fff;
 
 .@{nav-prefix}{
+    position: relative;
+    z-index: 1000;
     display: block;
     margin: 0;
     padding: 0;
     outline: none;
     list-style: none;
-    color: #fff;
+    color: @color-gray2;
     font-size: @font-size-base;
-    position: relative;
-    z-index: 1000;
-    // 暂定
-    // &-light{
-    //     background: @menu-theme-light;
-    // }
-    // &-primary{
-    //     background: @menu-theme-primary;
-    // }
-    &-dark{
-        background: @menu-theme-dark;
+    .clearfix;
+    &-primary{
+        background: @color-primary6;
     }
-    &-horizontal{
-        height: 60px;
-        line-height: 60px;
-    }
-    /* ------ item ------ */
     &-item{
         position: relative;
         display: block;
@@ -59,40 +49,39 @@
         cursor: pointer;
         z-index: 1;
         transition: all @transition-time @ease-in-out;
-        // &:hover{
-        //     color: @menu-theme-primary;
-        // }
     }
-    &-horizontal &-item{
-        float: left;
-        padding: 0 20px;
-        position: relative;
-        cursor: pointer;
-        z-index: 3;
-        transition: all @transition-time @ease-in-out;
-    }
-    /* 垂直样式 */
-    &-dark{
+    // &-horizontal &-item{
+    //     float: left;
+    //     padding: 0 20px;
+    //     position: relative;
+    //     cursor: pointer;
+    //     z-index: 3;
+    //     transition: all @transition-time @ease-in-out;
+    //     height: 60px;
+    //     line-height: 60px;
+    // }
+    &-primary{
         &.xbui-nav-vertical .xbui-nav-item{
-            color: @menu-dark-subsidiary-color;
+            color: @color-gray2;
             &:hover{
-                color: @menu-hover-color;
+                color: @color-white;
+                background: @color-primary5;
             }
             &-active, &-active:hover{
-                color: @menu-theme-primary;
-                background: @menu-dark-hover-bg;
+                color: @color-white;
+                background: @color-primary5;
             }
         }
-        &.xbui-nav-horizontal .xbui-nav-item{
-            color: @menu-dark-subsidiary-color;
-            &:hover{
-                color: @menu-hover-color;
-            }
-            &-active, &-active:hover{
-                color: @menu-theme-primary;
-                background: @menu-dark-hover-bg;
-            }
-        }
+        // &.xbui-nav-horizontal .xbui-nav-item{
+        //     color: @menu-dark-subsidiary-color;
+        //     &:hover{
+        //         color: @color-primary5;
+        //     }
+        //     &-active, &-active:hover{
+        //         color: @menu-theme-primary;
+        //         background: @menu-dark-hover-bg;
+        //     }
+        // }
     }
 }
 

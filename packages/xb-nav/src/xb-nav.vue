@@ -22,15 +22,15 @@
             type: String,
             default: 'vertical',
             validator(value) {
-                return ['horizontal', 'vertical'].includes(value);
+                return ['vertical', 'horizontal'].includes(value);
             },
         }) mode!: string
         /* 菜单主题 */
         @Prop({ 
             type: String,
-            default: 'dark',
+            default: 'primary',
             validator(value) {
-                return ['light', 'dark', 'primary'].includes(value);
+                return ['primary', 'light', 'dark'].includes(value);
             },
         }) theme!: string
         /* 激活菜单的name值 */
