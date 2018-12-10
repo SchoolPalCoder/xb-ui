@@ -7,4 +7,5 @@ interface Window {
   MozMutationObserver: MutationObserver;
   mozRequestAnimationFrame: number;
   msRequestAnimationFrame: number;
+  UE: any;
 }
