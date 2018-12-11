@@ -6,11 +6,13 @@
     <input
       :class="classesInput"
       :placeholder="placeholder"
+      v-model="value"
     />
 
     <div
       v-if="!hidden"
       :class="classesSearchDiv"
+      @click="handleClick"
     >
       <i class="xb-icon-search"></i>
     </div>
@@ -18,6 +20,7 @@
     <div
       v-if="hidden"
       :class="classesSearchDivHidden"
+      @click="handleClick"
     >
       <i class="xb-icon-search"></i>
     </div>
@@ -46,6 +49,12 @@ export default class XbSearchBtn extends Vue {
   /** 搜索icon的显示样式 */
   @Prop({ default: false })
   hidden!: boolean;
+
+  value: any = "";
+  // 搜索的点击事件
+  handleClick() {
+    this.$emit("click", this.value);
+  }
 
   // 样式
   get classesDiv() {
