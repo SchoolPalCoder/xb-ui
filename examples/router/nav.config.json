@@ -46,6 +46,9 @@
               {
                 "text": "xb-button",
                 "path": "/xb-button"
+              },{
+                "text":"xb-loading",
+                "path":"/xb-loading"
               },
               {
                 "text": "xb-input-number",
@@ -54,6 +57,10 @@
               {
                 "text": "xb-icon",
                 "path": "/xb-icon"
+              },
+              {
+                "text": "xb-text",
+                "path": "/xb-text"
               }
             ]
           },
@@ -102,7 +109,10 @@
           {
             "groupName": "其他组件",
             "folder": "others",
-            "list": []
+            "list": [{
+              "text":"xb-ueditor",
+              "path":"/xb-ueditor"
+            }]
           }
         ]
       }
