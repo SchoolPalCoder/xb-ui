@@ -9,39 +9,38 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Watch, Vue } from "vue-property-decorator";
+import { Component, Prop, Watch, Mixins, Vue } from "vue-property-decorator";
 import Locale from "../../../src/mixins/locale";
 import XbIcon from "../../xb-icon";
 const prefixCls = "xbui-loading";
 @Component({
   components: {
     XbIcon
-   },
-  mixins: [Locale],
+   }
 })
-export default class XbLoading extends Vue {
+export default class XbLoading extends Mixins(Locale) {
   prefixCls: string = prefixCls;
   // 是否显示loading
-  @Prop()
+  @Prop({type: Boolean})
   loadShow!: boolean;
 
   // loading图标颜色
-  @Prop({default:''})
+  @Prop({default: '', type: String })
   loadColor?: string;
 
   // loading图标尺寸
-  @Prop({ default: "20px" })
+  @Prop({ default: "20px", type: String })
   loadSize?: string;
   // 是否显示文字
-  @Prop({default: true})
+  @Prop({default: true, type: Boolean})
   showTxt?: boolean;
 
   // loading文字描述
-  @Prop({default: ''})
+  @Prop({default: '', type: Boolean})
 loadTxt?: string;
 
   // 自定义样式
-  @Prop({ default: "fixed" })
+  @Prop({ default: "fixed" , type: String})
   customClass?: string;
 
    get localeLoadText() {

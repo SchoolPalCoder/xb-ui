@@ -57,21 +57,19 @@ export default class XbUeditor extends Vue {
   };
 
   /** 编辑器配置 */
-  @Prop({ default: {}
-  })
+  @Prop({ default: {},  type: Object})
   config!: object;
 
   /** 编辑器内容 */
-  @Prop({ default: "" })
+  @Prop({ default: "", type: String })
   content!: string;
 
   created(){
-    //合并配置
+    // 合并配置
     this.defaultConfig = this.config && Object.assign(this.config, this.defaultConfig);
-    console.log(this.defaultConfig);
   }
   mounted(){
-    //判断编辑器对象存不存在
+    // 判断编辑器对象存不存在
     if (window.UE) {
       this.initUeditor();
     } else {
@@ -98,7 +96,7 @@ export default class XbUeditor extends Vue {
            this.instance = window.UE.getEditor(that.randomNumber, that.defaultConfig);
            // 绑定事件，当 UEditor 初始化完成后，将编辑器实例通过自定义的 ready 事件交出去
             this.instance.addListener('ready', () => {
-            this.$emit('ready', this.instance);
+              this.$emit('ready', this.instance);
             });
       })
     }
