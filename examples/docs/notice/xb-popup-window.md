@@ -1,5 +1,7 @@
 # xb-popup-window 消息弹框
 
+---
+
 # 概述
 
 提供消息弹框，用于消息提示、确认消息和提交内容
@@ -26,11 +28,19 @@
     },
     methods: {
       ok () {
-        alert("ok");
+        this.$message.info({
+          text:'OK提示',
+          duration:'20000',
+          closable:true
+        });
         this.modal = false;
       },
       cancel () {
-        alert("cancel");
+        this.$message.info({
+          text:'cancel提示',
+          duration:'20000',
+          closable:true
+        });
         this.modal = false;
       },
       click () {
@@ -289,11 +299,19 @@ export default {
     },
     methods: {
       ok () {
-        alert("ok");
+        this.$message.info({
+          text:'OK提示',
+          duration:'20000',
+          closable:true
+        });
         this.modal = false;
       },
       cancel () {
-        alert("cancel");
+        this.$message.info({
+          text:'cancel提示',
+          duration:'20000',
+          closable:true
+        });
         this.modal = false;
       },
       click () {
