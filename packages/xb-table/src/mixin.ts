@@ -1,6 +1,6 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component({ name: "XbTable" })
+@Component
 export default class XbTableMixin extends Vue {
   alignCls(column, row = {}) {
     let cellClassName = "";
@@ -34,7 +34,9 @@ export default class XbTableMixin extends Vue {
     } else if (this.columnsWidth[column._index]) {
       width = this.columnsWidth[column._index].width;
     }
-    if (width === "0") width = "";
+    if (width === "0") {
+      width = "";
+    }
     return width;
   }
 }
