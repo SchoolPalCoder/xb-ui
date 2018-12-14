@@ -41,11 +41,24 @@
           margin-right: 6px;  
         }
     }
-    &-vertical &-item{
+    &-vertical &-item,
+    &-vertical &-subnav-title{
         padding: 14px 24px;
         position: relative;
         cursor: pointer;
         z-index: 1;
+        transition: all @transition-time @ease-in-out;
+        &-icon{
+            float: right;
+            position: relative;
+            top: 4px;
+            transition: transform @transition-time @ease-in-out;
+        }
+    }
+    &-vertical &-subnav-title{
+        background-color:  @color-primary7;
+    }
+    &-subnav-list{
         transition: all @transition-time @ease-in-out;
     }
     // &-horizontal &-item{
@@ -70,16 +83,9 @@
                 background: @color-primary5;
             }
         }
-        // &.xbui-nav-horizontal .xbui-nav-item{
-        //     color: @menu-dark-subsidiary-color;
-        //     &:hover{
-        //         color: @color-primary5;
-        //     }
-        //     &-active, &-active:hover{
-        //         color: @menu-theme-primary;
-        //         background: @menu-dark-hover-bg;
-        //     }
-        // }
+    }
+    &-opened > * > &-subnav-title-icon{
+        transform: rotate(180deg);
     }
 }
 

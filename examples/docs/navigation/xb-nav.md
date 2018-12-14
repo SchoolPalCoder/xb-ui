@@ -4,6 +4,57 @@
 
 ## 示例
 
+## 子菜单
+
+<template>
+    <xb-nav active-name="person">
+      <xb-subnav>
+        <template slot="title">
+          <xb-icon type="user"></xb-icon>
+          内容管理
+        </template>
+        <xb-nav-item name="person">
+          <xb-icon type="user"></xb-icon>
+          个人中心
+        </xb-nav-item>
+        <xb-nav-item name="file">
+          <xb-icon type="annex"></xb-icon>
+          文件管理
+        </xb-nav-item>
+        <xb-nav-item name="system">
+          <xb-icon type="teaching-setting"></xb-icon>
+          系统设置
+        </xb-nav-item>
+        <xb-nav-item name="pictures">
+          <xb-icon type="curriculum"></xb-icon>
+          图库管理
+        </xb-nav-item>
+      </xb-subnav>
+      <xb-subnav>
+        <template slot="title">
+          <xb-icon type="user"></xb-icon>
+          内容管理1
+        </template>
+        <xb-nav-item name="person1">
+          <xb-icon type="user"></xb-icon>
+          个人中心1
+        </xb-nav-item>
+        <xb-nav-item name="file1">
+          <xb-icon type="annex"></xb-icon>
+          文件管理1
+        </xb-nav-item>
+        <xb-nav-item name="system1">
+          <xb-icon type="teaching-setting"></xb-icon>
+          系统设置1
+        </xb-nav-item>
+        <xb-nav-item name="pictures1">
+          <xb-icon type="curriculum"></xb-icon>
+          图库管理1
+        </xb-nav-item>
+      </xb-subnav>
+    </xb-nav>
+</template>
+
 ## 侧栏
 
 <template>
