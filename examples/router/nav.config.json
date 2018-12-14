@@ -36,6 +36,10 @@
             "folder": "basic",
             "list": [
               {
+                "text": "font",
+                "path": "/xb-font"
+              },
+              {
                 "text": "color",
                 "path": "/xb-color"
               },
@@ -44,12 +48,24 @@
                 "path": "/xb-button"
               },
               {
+                "text": "xb-loading",
+                "path": "/xb-loading"
+              },
+              {
                 "text": "xb-input-number",
                 "path": "/xb-input-number"
               },
               {
                 "text": "xb-icon",
                 "path": "/xb-icon"
+              },
+              {
+                "text": "xb-text",
+                "path": "/xb-text"
+              },
+              {
+                "text": "xb-search-btn",
+                "path": "/xb-search-btn"
               }
             ]
           },
@@ -68,6 +84,10 @@
               {
                 "text": "xb-table",
                 "path": "/xb-table"
+              },
+              {
+                "text": "xb-radio",
+                "path": "/xb-radio"
               }
             ]
           },
@@ -103,7 +123,12 @@
           {
             "groupName": "其他组件",
             "folder": "others",
-            "list": []
+            "list": [
+              {
+                "text": "xb-ueditor",
+                "path": "/xb-ueditor"
+              }
+            ]
           }
         ]
       }

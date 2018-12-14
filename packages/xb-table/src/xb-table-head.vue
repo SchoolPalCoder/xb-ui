@@ -124,7 +124,7 @@ export default class XbTableHead extends Mixins(Mixin, Locale) {
   @Prop({ type: String })
   prefixCls!: string;
   @Prop({ type: Object })
-  styleObject!: object;
+  styleObject!: CSSStyleDeclaration;
   @Prop({ type: Array })
   columns!: any[];
   @Prop({ type: Object })
@@ -144,10 +144,12 @@ export default class XbTableHead extends Mixins(Mixin, Locale) {
   fixedColumnRows!: any[];
 
   get styles() {
-    const style = Object.assign({}, this.styleObject);
-    const width = parseInt(this.styleObject.width, 10);
-    style.width = `${width}px`;
-    return style;
+    if (this.styleObject.width) {
+      const style = Object.assign({}, this.styleObject);
+      const width = parseInt(this.styleObject.width, 10);
+      style.width = `${width}px`;
+      return style;
+    }
   }
   get isSelectAll() {
     let isSelectAll = true;
@@ -157,8 +159,8 @@ export default class XbTableHead extends Mixins(Mixin, Locale) {
     if (!this.data.find((item) => !item._disabled)) {
       isSelectAll = false;
     } // #1751
-    for (let i = 0; i < this.data.length; i++) {
-      if (!this.objData[this.data[i]._index]._isChecked && !this.objData[this.data[i]._index]._isDisabled) {
+    for (const data of this.data) {
+      if (!this.objData[data._index]._isChecked && !this.objData[data._index]._isDisabled) {
         isSelectAll = false;
         break;
       }
@@ -186,13 +188,15 @@ export default class XbTableHead extends Mixins(Mixin, Locale) {
   }
   scrollBarCellClass() {
     let hasRightFixed = false;
-    for (let i in this.headRows) {
-      for (let j in this.headRows[i]) {
-        if (this.headRows[i][j].fixed === "right") {
+    for (const headRows of this.headRows) {
+      for (const headRow of headRows) {
+        if (headRow.fixed === "right") {
           hasRightFixed = true;
           break;
         }
-        if (hasRightFixed) break;
+        if (hasRightFixed) {
+          break;
+        }
       }
     }
     return [

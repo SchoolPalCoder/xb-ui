@@ -65,6 +65,8 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 //   },
 // };
 
+console.log("run at http://127.0.0.1:8086");
+
 const webpackConfig = {
   mode: "development",
   entry: {

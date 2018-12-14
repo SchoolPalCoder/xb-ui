@@ -63,13 +63,13 @@
 /** 全局颜色样式定义 -- END*/
 
 /** 全局字体样式定义 -- START*/
-@font-size-12: 12pt;
-@font-size-base: 14pt;
-@font-size-16: 16pt;
-@font-size-18: 18pt;
-@font-size-20: 20pt;
-@font-size-24: 24pt;
-@font-size-32: 32pt;
+@font-size-12: 12px;
+@font-size-base: 14px;
+@font-size-16: 16px;
+@font-size-18: 18px;
+@font-size-20: 20px;
+@font-size-24: 24px;
+@font-size-32: 32px;
 @font-color-base: @color-gray6;
 @font-placeholder-base: @color-gray4; /** 灰，一般用作placeholder，常用*/
 /** 全局字体样式定义 -- END*/
@@ -90,3 +90,10 @@
 
 // 其他全局样式定义
 @cursor-disabled: "not-allowed"; /**鼠标经过禁用样式*/
+
+//默认字体及大小定义
+body {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial,
+    sans-serif;
+  font-size: @font-size-base;
+}
