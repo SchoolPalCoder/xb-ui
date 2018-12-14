@@ -24,7 +24,7 @@
 
     @Component({ name: 'XbNavItem' })
     class XbNavItem extends Mixins(Emitter) {
-        active: boolean = false
+        active: boolean = false;
         
         // 唯一标识
         @Prop({

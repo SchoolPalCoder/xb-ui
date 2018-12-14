@@ -15,12 +15,11 @@
     @Component({ name: 'XbNav' })
     class XbNav extends Mixins(Emitter) {
         currentActiveName: string = '';
-        // broadcast: Function =() => void;
 
         /* 菜单类型 */
         @Prop({
             type: String,
-            default: 'vertical',
+            default: 'vertical', // 目前使用场景主要是 vertical
             validator(value) {
                 return ['vertical', 'horizontal'].includes(value);
             },
@@ -28,7 +27,7 @@
         /* 菜单主题 */
         @Prop({ 
             type: String,
-            default: 'primary',
+            default: 'primary', // 目前以主色调为主
             validator(value) {
                 return ['primary', 'light', 'dark'].includes(value);
             },
