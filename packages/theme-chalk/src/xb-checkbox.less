@@ -23,7 +23,7 @@
 
   &:hover {
     .@{checkbox-prefix-inner} {
-      border-color: @bcbcbc;
+      border-color: @color-gray4;
     }
   }
 
@@ -36,7 +36,7 @@
     left: 0;
     border: 1px solid @color-border-base;
     border-radius: 2px;
-    background-color: @fff;
+    background-color: @color-white;
     transition: border-color @transition-time @ease-in-out, background-color @transition-time @ease-in-out,
       box-shadow @transition-time @ease-in-out;
 
@@ -48,7 +48,7 @@
       position: absolute;
       top: 1px;
       left: 4px;
-      border: 2px solid @fff;
+      border: 2px solid @color-white;
       border-top: 0;
       border-left: 0;
       transform: rotate(45deg) scale(0);
@@ -115,7 +115,7 @@
       position: absolute;
       top: 1px;
       left: 4px;
-      border: 2px solid @fff;
+      border: 2px solid @color-white;
       border-top: 0;
       border-left: 0;
       transform: rotate(45deg) scale(1);
@@ -154,12 +154,12 @@
     }
 
     .@{checkbox-prefix-inner} {
-      background-color: @f3f3f3;
+      background-color: @color-gray2;
       border-color: @color-border-base;
 
       &:after {
         animation-name: none;
-        border-color: @ccc;
+        border-color: @color-gray3;
       }
     }
   }
@@ -172,10 +172,10 @@
 
   .@{checkbox-prefix-inner} {
     border-color: @color-border-base;
-    background-color: @f3f3f3;
+    background-color: @color-gray2;
     &:after {
       animation-name: none;
-      border-color: @f3f3f3;
+      border-color: @color-gray2;
     }
   }
 
@@ -184,7 +184,7 @@
   }
 
   & + span {
-    color: @ccc;
+    color: @color-gray3;
     cursor: @cursor-disabled;
   }
 }
@@ -212,7 +212,7 @@
   }
   &@{checkbox-prefix}-disabled {
     .@{checkbox-prefix-inner} {
-      background-color: @f3f3f3;
+      background-color: @color-gray2;
       border-color: @color-border-base;
     }
     .@{checkbox-prefix-inner}:after {

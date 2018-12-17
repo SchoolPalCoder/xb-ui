@@ -5,6 +5,7 @@
   "main": "lib/xb-ui.common.js",
   "scripts": {
     "dev": "webpack-dev-server --config ./build/webpack.examples.conf.js ",
+    "dist:dev": "webpack --config ./build/webpack.examples.dist.conf.js",
     "debug": "node --inspect-brk node_modules/.bin/webpack --config ./build/webpack.examples.conf.js",
     "create:component": "node tools/create-component",
     "create:componentMd": "node tools/create-componentMd",

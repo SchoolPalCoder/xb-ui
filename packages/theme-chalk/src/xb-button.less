@@ -1,15 +1,6 @@
 @import "common/var.less";
 
 @button-prefix: ~"@{css-prefix}button";
-// 这里是暂时处理编译失败的，@黄李杰看一下
-@f45d5d: #f45d5d;
-@ff7a7a: #ff7a7a;
-@f13737: #f13737;
-@bcbcbc: #bcbcbc;
-@fff: #fff;
-@f3f3f3: #f3f3f3;
-@ccc: #ccc;
-@e8eaec: #e8eaec;
 
 .baseStyle(@color, @background, @borderColor) {
   color: @color;
@@ -70,19 +61,19 @@
     }
   }
   &-error {
-    .baseStyle(@color-white, @f45d5d, @f45d5d);
+    .baseStyle(@color-white, @color-red, @color-red);
     &:hover {
-      background: @ff7a7a;
-      border: 1px solid @ff7a7a;
+      background: @color-red3;
+      border: 1px solid @color-red3;
     }
     &:active {
-      background: @f13737;
-      border: 1px solid @f13737;
+      background: @color-red5;
+      border: 1px solid @color-red5;
     }
     &.@{button-prefix}:disabled {
       &:extend(.disabled);
       &:hover {
-        .baseStyle(@color-white, @f45d5d, @f45d5d);
+        .baseStyle(@color-white, @color-red, @color-red);
       }
     }
   }
