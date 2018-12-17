@@ -26,6 +26,12 @@
         opened: boolean = false;
         active: boolean = false;
 
+         // 唯一标识
+        @Prop({
+            type: [String, Number],
+            default: '-',
+        }) name!: string | number
+
         get classes() {
             const subnavPrefixCls = `${prefixCls}-subnav`;
             return [
@@ -39,9 +45,9 @@
 
         handleMouseEnter() {}
         handleMouseLeave() {}
+        
         handleClick() {
             const opened = this.opened;
-
             this.opened = !opened;
         }
 

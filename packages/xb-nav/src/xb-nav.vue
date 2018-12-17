@@ -6,6 +6,7 @@
 </template>
 <script lang="ts">
     import { Component, Prop, Mixins, Watch, Emit } from 'vue-property-decorator';
+    import { findComponentsDownward } from "src/utils/assist";
     import Emitter from "src/mixins/emitter";
 
     const prefixCls = 'xbui-nav';
@@ -37,7 +38,10 @@
             type: [String, Number],
             default: '-',
         }) activeName!: string | number
-        // @Prop({ default: [] }) openNames: Array[]
+        @Prop({ 
+            type: Array,
+            default: [] 
+        }) openNames!: Array<string | number>[]
         /* 手风琴模式 */
         // @Prop({ default: false }) accordion!: boolean
         /* 菜单宽度 */

@@ -3,7 +3,7 @@
         v-if="to != '-'"
         :href="getLinkUrl"
         :target="target"
-        :class="getClass"
+        :class="itemClass"
         @click.exact="handleClick($event, false)"
         @click.ctrl="handleClick($event, true)"
         @click.meta="handleClick($event, true)"
@@ -11,13 +11,14 @@
     <li 
         v-else
         :key="name"
-        :class="getClass"
+        :class="itemClass"
+        :style="itemStyle"
         @click.stop="handleClick"
     ><slot></slot></li>
 </template>
 <script lang="ts">
     import { Component, Prop, Watch, Mixins } from 'vue-property-decorator';
-    import { findComponentUpward } from "src/utils/assist";
+    import { findComponentUpward, findComponentDownward, findComponentsUpward } from "src/utils/assist";
     import Emitter from "src/mixins/emitter";
 
     const prefixCls = 'xbui-nav';
@@ -48,16 +49,23 @@
         }) target!: string
 
         // Computed
-        get getClass() {
+        get itemClass() {
             const itemPrefixCls = `${prefixCls}-item`;
             return [
                 itemPrefixCls,
                 {
                     [`${itemPrefixCls}-active`]: this.active,
                     [`${itemPrefixCls}-selected`]: this.active,
-                    // [`${itemPrefixCls}-disabled`]: this.disabled,
                 },
             ];
+        }
+
+        get itemStyle() {
+            const hasParentSubnav = !!findComponentsUpward(this, 'XbSubnav');
+            const parentSubnavLength = findComponentsUpward(this, 'XbSubnav').length;
+            return hasParentSubnav ? {
+                paddingLeft: 43 + (parentSubnavLength - 1) * 24 + 'px',
+            } : {};
         }
 
         get getLinkUrl()　{
