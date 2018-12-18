@@ -88,6 +88,10 @@
               {
                 "text": "xb-radio",
                 "path": "/xb-radio"
+              },
+              {
+                "text": "xb-pagination",
+                "path": "/xb-pagination"
               }
             ]
           },

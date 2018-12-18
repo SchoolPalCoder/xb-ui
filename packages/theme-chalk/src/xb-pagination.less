@@ -1,0 +1,31 @@
+@import "common/var.less";
+
+@pagination-prefix: ~"@{css-prefix}pagination";
+
+.@{pagination-prefix}{
+  color: #333;
+  padding: 20px;
+  border:1px solid #ff0;
+  a{
+    color:#333;
+  }
+  &-total{
+    display: inline-block;
+    margin-right: 20px;
+  }
+  ul{
+    margin:0;
+    padding:0;
+    display: inline-block;
+  }
+  &-item{
+    margin-right: 30px;
+    display: inline-block;
+  }
+  &-current{
+    color: #5B8AF9;
+  }
+  &-item:last-child{
+    margin-right: 0;
+  }
+}
