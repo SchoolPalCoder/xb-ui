@@ -94,7 +94,12 @@
           {
             "groupName": "其他组件",
             "folder": "others",
-            "list": []
+            "list": [
+              {
+                "text":"xb-universal-dropdown",
+                "path":"/xb-universal-dropdown"
+              }
+            ]
           }
         ]
       }

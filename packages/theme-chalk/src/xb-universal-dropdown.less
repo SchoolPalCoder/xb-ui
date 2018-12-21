@@ -1,0 +1,183 @@
+@import "common/var.less";
+
+.@{universal-dropdown-prefix}main{
+  width:180px;
+}
+
+@universal-dropdown-prefix: ~"@{css-prefix}";
+.@{universal-dropdown-prefix}main-div {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  padding: 5px 10px;
+  width:100%;
+  // cursor: pointer;
+}
+
+.@{universal-dropdown-prefix}search-div{
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  padding: 5px 10px;
+  width:80%;
+  margin: 5px;
+}
+
+.@{universal-dropdown-prefix}drop-content{
+  position: absolute;
+  border: 1px solid;
+  border-radius: 3px;
+  width:200px;
+  border-color: #ccc;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .2);
+  padding: 5px 0;
+  z-index: 1;
+  transition: all .3s ease 0s;
+  background-color: #fff;
+}
+
+.@{universal-dropdown-prefix}dropped{
+  display:block;
+}
+
+.@{universal-dropdown-prefix}dropless{
+  display:none;
+}
+
+.@{universal-dropdown-prefix}drop-item{
+  color: #737373;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.@{universal-dropdown-prefix}drop-item:hover{
+  background-color: #CCCCCC;
+}
+
+.@{universal-dropdown-prefix}icon-pointer{
+  cursor: pointer;
+}
+
+.@{universal-dropdown-prefix}border{
+  border:1px solid transparent;
+  border-color:#CCCCCC;
+  border-radius: 3px;
+}
+
+.@{universal-dropdown-prefix}border:hover{
+  border:1px solid transparent;
+  // border-color:#c0c4cc;
+  border-color:#656565;
+  border-radius: 3px;
+}
+
+.@{universal-dropdown-prefix}border:active{
+  border:1px solid transparent;
+  border-color:#656565;
+  border-radius: 3px;
+}
+
+.@{universal-dropdown-prefix}search-border{
+  border:1px solid transparent;
+  border-color: #c0c4cc;
+}
+
+.@{universal-dropdown-prefix}search-border:hover{
+  border-color:#5b8af9;
+}
+
+.@{universal-dropdown-prefix}noBorder{
+  border:none;
+}
+
+//input样式
+.@{universal-dropdown-prefix}input {
+  margin: 0;
+  width: 143px;//最理想的状态为：输入框根据输入内容调节长度(TODO)
+  height: 100%;
+  border: none;
+  background: transparent;
+  outline: none;//有丶东西
+  color: #c0c4cc;
+}
+
+.@{universal-dropdown-prefix}input1 {
+  margin: 0;
+  width: 157px;//最理想的状态为：输入框根据输入内容调节长度(TODO)
+  height: 100%;
+  border: none;
+  background: transparent;
+  outline: none;//有丶东西
+  color: #c0c4cc;
+}
+
+.@{universal-dropdown-prefix}search-input {
+  border: none;
+  background: transparent;
+  outline: none;//有丶东西
+  color: #c0c4cc;
+  width:100%-14px;
+}
+
+.@{input-number-prefix}input-disabled {
+  background-color: #f5f7fa;
+  border-color: #e4e7ed;
+  color: #c0c4cc;
+  cursor: not-allowed;
+}
+
+.@{universal-dropdown-prefix}cascader{
+  width: 100%;
+  border: 1px solid #CCCCCC;
+  padding: 0 10px;
+}
+
+.@{universal-dropdown-prefix}cascader-item{
+  cursor: pointer;
+  padding:5px 0;
+  margin: 5px 0;
+  border: 1px solid transparent;
+}
+
+.@{universal-dropdown-prefix}cascader-item:hover{
+  background-color: #CACFEB;
+  border: 1px solid #A7ADDF;
+}
+
+.@{universal-dropdown-prefix}cascader-focus{
+  cursor: pointer;
+  padding:5px 0;
+  margin: 5px 0;
+  border: 1px solid transparent;
+  background-color: #CACFEB;
+  border: 1px solid #A7ADDF;
+}
+
+.@{universal-dropdown-prefix}cascader-second{
+  cursor: pointer;
+  padding:5px 20px;
+  margin: 5px 0;
+  border: 1px solid transparent;
+}
+
+.@{universal-dropdown-prefix}cascader-second:hover{
+  background-color: #CACFEB;
+  border: 1px solid #A7ADDF;
+}
+
+.@{universal-dropdown-prefix}cascader-second-focus{
+  cursor: pointer;
+  padding:5px 20px;
+  margin: 5px 0;
+  border: 1px solid transparent;
+  background-color: #CACFEB;
+  border: 1px solid #A7ADDF;
+}
+
+.@{universal-dropdown-prefix}icon-div{
+  display:inline-block;
+}
+
+.@{universal-dropdown-prefix}circle-close{
+  display: none;
+}
