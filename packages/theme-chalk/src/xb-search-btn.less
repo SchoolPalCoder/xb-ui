@@ -1,0 +1,77 @@
+@import "common/var.less";
+
+@search-btn-prefix: ~"@{css-prefix}search-btn";
+// div样式
+.@{search-btn-prefix}-div {
+  width: 260px;
+  position: relative;
+}
+
+// input尺寸
+.@{search-btn-prefix}-input {
+  background-color: @color-white;
+  background-image: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border: 1px solid @color-gray3;
+  box-sizing: border-box;
+  color: @color-gray6;
+  display: inline-block;
+  width: calc(100% - 46px);
+  height: 100%;
+  font-size: @font-size-base;
+  vertical-align: top;
+  border-right: none;
+  outline-color: transparent;
+  float: left;
+}
+
+// size ———— large 相关尺寸
+.@{search-btn-prefix}-div-large {
+  height: 40px;
+}
+.@{search-btn-prefix}-div-large .@{search-btn-prefix}-input {
+  padding: 0 15px;
+}
+
+// size ———— medium 相关尺寸
+.@{search-btn-prefix}-div-medium {
+  height: 32px;
+}
+.@{search-btn-prefix}-div-medium .@{search-btn-prefix}-input {
+  padding: 0 12px;
+}
+
+// size ———— small 相关尺寸
+.@{search-btn-prefix}-div-small {
+  height: 28px;
+}
+.@{search-btn-prefix}-div-small .@{search-btn-prefix}-input {
+  padding: 0 10px;
+}
+
+// icon尺寸
+.@{search-btn-prefix}-icon-div {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  width: 46px;
+  height: 100%;
+  padding: 0 12px;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: top;
+  cursor: pointer;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: Center;
+}
+.@{search-btn-prefix}-icon-show {
+  background: @color-primary;
+  color: @color-white;
+  border: 1px solid @color-primary;
+}
+.@{search-btn-prefix}-icon-hidden {
+  border: 1px solid @color-gray3;
+  border-left: none;
+}
