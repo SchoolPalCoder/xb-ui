@@ -5,9 +5,9 @@ function broadcast(this: Vue, componentName: string, eventName: string, params: 
     const name = child.$options.name;
 
     if (name === componentName) {
-      child.$emit.apply(child, [eventName].concat(params));
+      child.$emit.apply(child, [eventName].concat(params) as any);
     } else {
-      broadcast.apply(child, [componentName, eventName].concat([params]));
+      broadcast.apply(child, [componentName, eventName].concat([params]) as any);
     }
   });
 }
@@ -26,7 +26,7 @@ export default class Emitter extends Vue {
       }
     }
     if (parent) {
-      parent.$emit.apply(parent, [eventName].concat(params));
+      parent.$emit.apply(parent, [eventName].concat(params) as any);
     }
   }
 
