@@ -1,0 +1,35 @@
+@import "common/var.less";
+
+@location-prefix: ~"@{css-prefix}location";
+
+
+.@{location-prefix} {
+    color: #999;
+    font-size: 14px;
+
+
+    & > span:last-child &-item-separator {
+        display: none;
+    }
+
+    &-item-separator {
+        margin: 0 8px;
+        color: @color-border-base;
+    }
+
+    &-item {
+        > .ivu-icon + span {
+            margin-left: 4px;
+        }
+    }
+
+    &-item-link {
+        color: @font-color-base;
+        transition: color @transition-time @ease-in-out;
+        &:hover {
+          color: tint(@color-primary, 20%);
+          cursor: pointer;
+        }
+    }
+
+}

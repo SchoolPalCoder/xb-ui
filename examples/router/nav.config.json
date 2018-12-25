@@ -93,7 +93,12 @@
           {
             "groupName": "导航组件",
             "folder": "navigation",
-            "list": []
+            "list": [
+              {
+                "text": "xb-location",
+                "path": "/xb-location"
+              }
+            ]
           },
           {
             "groupName": "其他组件",
