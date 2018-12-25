@@ -110,9 +110,9 @@
 <template>
     <xb-nav active-name="file" @on-select="handleSelect">
       <xb-nav-item name="person">个人中心</xb-nav-item>
-      <xb-nav-item name="file" to="/file">文件管理</xb-nav-item>
+      <xb-nav-item name="file" to="/components/xb-message-tips">文件管理</xb-nav-item>
       <xb-nav-item name="system" to="/system" target="_blank">系统设置</xb-nav-item>
-      <xb-nav-item name="pictures" to="/pictures" replace="true">图库管理</xb-nav-item>
+      <xb-nav-item name="pictures" to="/components/xb-message-tips" replace="true">图库管理</xb-nav-item>
     </xb-nav>
 </template>
 <script>
@@ -129,9 +129,9 @@
 <template>
     <xb-nav active-name="file" @on-select="handleSelect">
       <xb-nav-item name="person">个人中心</xb-nav-item>
-      <xb-nav-item name="file" to="/file">文件管理</xb-nav-item>
+      <xb-nav-item name="file" to="/components/xb-message-tips">文件管理</xb-nav-item>
       <xb-nav-item name="system" to="/system" target="_blank">系统设置</xb-nav-item>
-      <xb-nav-item name="pictures" to="/pictures" replace="true">图库管理</xb-nav-item>
+      <xb-nav-item name="pictures" to="/components/xb-message-tips" replace="true">图库管理</xb-nav-item>
     </xb-nav>
 </template>
 <script>

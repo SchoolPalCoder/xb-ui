@@ -1,5 +1,5 @@
 import { PluginObject } from "vue";
-import XbNavItem from "./src/xb-nav-item.vue";
+import XbNavItem from "../xb-nav/src/xb-nav-item.vue";
 export default XbNavItem;
 
 export const xbNavItem: PluginObject<XbNavItem> = {
