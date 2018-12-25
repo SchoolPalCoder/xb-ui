@@ -37,22 +37,28 @@
         @Prop({
             type: [String, Number],
             default: '-',
-        }) activeName!: string | number
-        @Prop({ 
-            type: Array,
-            default: [] 
-        }) openNames!: Array<string | number>[]
+        }) activeName!: string | number;
+        // @Prop({ 
+        //     type: Array,
+        //     default: [] 
+        // }) openNames!: Array<string | number>[];
+        @Prop({
+            type: Boolean,
+            default: false,
+        }) collapse !: boolean;
         /* 手风琴模式 */
         // @Prop({ default: false }) accordion!: boolean
         /* 菜单宽度 */
         @Prop({ default: '240px' }) width!: string;
 
         get getClass () {
+            console.warn(this.collapse)
             return [
                 `${prefixCls}`,
                 `${prefixCls}-${this.theme}`,
                 {
                     [`${prefixCls}-${this.mode}`]: this.mode,
+                    [`${prefixCls}-collapse`]: this.collapse,
                 },
             ];
         }
@@ -88,6 +94,11 @@
                 this.currentActiveName = value;
             }
         }
+
+        // @Watch('collapse', { immediate: true })
+        // updateCollapse(value: boolean) {
+        //     this.collapse = value;
+        // }
 
         // Emit 事件分发
         @Emit()
