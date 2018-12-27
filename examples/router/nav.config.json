@@ -113,7 +113,12 @@
           {
             "groupName": "导航组件",
             "folder": "navigation",
-            "list": []
+            "list": [
+              {
+                "text": "xb-nav",
+                "path": "/xb-nav"
+              }
+            ]
           },
           {
             "groupName": "其他组件",
