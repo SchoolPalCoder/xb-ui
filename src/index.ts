@@ -1,5 +1,4 @@
-import XbButton from "../packages/xb-button/index";
-import locale from "./locale";
+import Vue from "vue";
 import { camelCase, upperFirst } from "lodash";
 
 const requireComponent = require.context(
@@ -11,11 +10,9 @@ const requireComponent = require.context(
   /index\.ts$/
 );
 
-const install = function(Vue, opts = {}) {
-  locale.use(opts.locale);
-  locale.i18n(opts.i18n);
+const install = function (Vue, opts = {}) {
 
-  requireComponent.keys().forEach((fileName) => {
+  requireComponent.keys().forEach((fileName: string) => {
     if (fileName !== "theme-chalk") {
       // 获取组件配置
       const componentConfig = requireComponent(fileName);
@@ -48,17 +45,9 @@ const install = function(Vue, opts = {}) {
   };
 };
 
-/* istanbul ignore if */
-if (typeof window !== "undefined" && window.Vue) {
-  install(window.Vue);
-}
-
 module.exports = {
   version: "1.0.0",
-  locale: locale.use,
-  i18n: locale.i18n,
   install,
-  XbButton,
 };
 
 module.exports.default = module.exports;
