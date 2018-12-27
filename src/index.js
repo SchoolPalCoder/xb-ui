@@ -1,4 +1,3 @@
-import Vue from "vue";
 import { camelCase, upperFirst } from "lodash";
 
 const requireComponent = require.context(
@@ -12,7 +11,7 @@ const requireComponent = require.context(
 
 const install = function (Vue, opts = {}) {
 
-  requireComponent.keys().forEach((fileName: string) => {
+  requireComponent.keys().forEach((fileName) => {
     if (fileName !== "theme-chalk") {
       // 获取组件配置
       const componentConfig = requireComponent(fileName);
@@ -38,11 +37,6 @@ const install = function (Vue, opts = {}) {
       }
     }
   });
-
-  Vue.prototype.$ELEMENT = {
-    size: opts.size || "",
-    zIndex: opts.zIndex || 2000,
-  };
 };
 
 module.exports = {
