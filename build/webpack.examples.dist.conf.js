@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const webpackConfig = {
   mode: "production",
@@ -122,6 +123,10 @@ const webpackConfig = {
     }),
     new ProgressBarPlugin(),
     new VueLoaderPlugin(),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, "../static/"),
+        to:path.resolve(__dirname, "../examples/dist/static/")
+  }])
   ],
 };
 

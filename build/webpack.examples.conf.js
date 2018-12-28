@@ -194,6 +194,7 @@ const webpackConfig = {
     }),
     new ProgressBarPlugin(),
     new VueLoaderPlugin(),
+
   ],
 };
 
