@@ -39,6 +39,10 @@ const install = function (Vue, opts = {}) {
   });
 };
 
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue);
+}
+
 module.exports = {
   version: "1.0.0",
   install,

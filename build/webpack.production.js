@@ -28,8 +28,9 @@ module.exports = {
     },
     modules: ["node_modules"],
   },
-  externals: { vue: "Vue" },
+  // externals: { vue: "Vue" },
   module: {
+    noParse: /^(vue|vue-router|vuex|vuex-router-sync)$/,
     rules: [
       {
         test: /\.(ts|tsx)$/,
