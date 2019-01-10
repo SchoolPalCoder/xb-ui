@@ -183,6 +183,48 @@ export default {
 };
 ```
 
+## 外部传入的样式
+
+#### 根据设计稿，设定相关宽度
+
+<div class="demo-button">
+  <div>
+  <xb-select width="500" :options="option9" ></xb-select>
+  </div>
+</div>
+
+```html
+只修改输入框的尺寸
+
+<xb-select width="500" :options="option9"></xb-select>
+```
+
+#### 组件内提供的 3 种尺寸
+
+<div class="demo-button">
+  <div>
+    <xb-select size="large" :options="option10" ></xb-select>
+    <br>
+    <xb-select size="medium" :options="option11"></xb-select>
+     <br>
+    <xb-select size="small" :options="option12"></xb-select>
+  </div>
+</div>
+
+```html
+大尺寸
+
+<xb-select size="large" :options="option10"></xb-select>
+
+默认尺寸
+
+<xb-select size="medium" :options="option11"></xb-select>
+
+小尺寸
+
+<xb-select size="small" :options="option12"></xb-select>
+```
+
 <script>
   export default {
     data() {
@@ -218,6 +260,14 @@ export default {
         }],
 
         option8: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+
+        option9: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+
+        option10: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+
+        option11: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+
+        option12: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
       }
     }
   }
@@ -226,11 +276,7 @@ export default {
 
 ## TODO
 
-分组 多选 未完成
-
-不同尺寸
-
-可搜索 分组 未完成
+在分组的情况下，存在多选的情况
 
 点击旁边，关闭筛选框
 
@@ -238,11 +284,13 @@ export default {
 
 ## 参数表
 
-| 参数名      | 参数说明       | 类型    | 可选值 | 默认值    |
-| :---------- | :------------- | :------ | :----- | :-------- |
-| placeHolder | 输入框占位文本 | string  | ——     | 请选择... |
-| options     | 下拉框的数组   | array   | ——     | ——        |
-| disabled    | 禁用           | boolean | ——     | false     |
-| clearable   | 可清空单选     | boolean | ——     | false     |
-| multiple    | 多选           | boolean | ——     | false     |
-| filterable  | 可搜索         | boolean | ——     | false     |
+| 参数名      | 参数说明       | 类型    | 可选值                 | 默认值    |
+| :---------- | :------------- | :------ | :--------------------- | :-------- |
+| placeHolder | 输入框占位文本 | string  | ——                     | 请选择... |
+| options     | 下拉框的数组   | array   | ——                     | ——        |
+| disabled    | 禁用           | boolean | ——                     | false     |
+| clearable   | 可清空单选     | boolean | ——                     | false     |
+| multiple    | 多选           | boolean | ——                     | false     |
+| filterable  | 可搜索         | boolean | ——                     | false     |
+| width       | 输入框宽度     | number  | ——                     | 240       |
+| size        | 输入框尺寸     | string  | large / medium / small | medium    |

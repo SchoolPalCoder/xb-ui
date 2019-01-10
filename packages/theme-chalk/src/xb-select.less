@@ -1,6 +1,7 @@
 @import "common/var.less";
 
 @select-prefix: ~"@{css-prefix}select";
+
 // 输入框样式
 .@{select-prefix}-div {
   position: relative;
@@ -8,11 +9,21 @@
 
 .@{select-prefix}-input {
   width: 100%;
-  height: 32px;
-  padding: 6px 12px;
   border: 1px solid #cccccc;
   border-radius: 3px;
   box-sizing: border-box;
+}
+.@{select-prefix}-input-large {
+  height: 40px;
+  padding: 6px 15px;
+}
+.@{select-prefix}-input-medium {
+  height: 32px;
+  padding: 6px 12px;
+}
+.@{select-prefix}-input-small {
+  height: 28px;
+  padding: 6px 10px;
 }
 
 .@{select-prefix}-input:hover {
@@ -36,6 +47,7 @@
   border: none;
   height: 100%;
   outline: none;
+  width: calc(100% - 10px);
 }
 
 .@{select-prefix}-input-disabled-show {
@@ -50,8 +62,8 @@
   min-height: 32px;
 }
 .@{select-prefix}-multiple {
-  background-color: rgba(91,138,249,0.1);
-  color: #5A5E66;
+  background-color: rgba(91, 138, 249, 0.1);
+  color: #5a5e66;
   padding: 3px 6px 3px 10px;
   border-radius: 3px;
   height: 18px;
@@ -61,24 +73,23 @@
   margin-bottom: 5px;
   margin-right: 10px;
 }
-.@{select-prefix}-multiple-show{
+.@{select-prefix}-multiple-show {
   vertical-align: middle;
   display: inline-block;
   margin-top: -2px;
 }
-.@{select-prefix}-multiple-icon{
+.@{select-prefix}-multiple-icon {
   vertical-align: middle;
   margin-left: 8px;
   margin-top: -2px;
   display: inline-block;
-  color: #AAAAAA;
+  color: #aaaaaa;
   background: white;
   border-radius: 50%;
 }
 // icon显示
 .@{select-prefix}-icon {
   position: absolute;
-  right: 10px;
   top: 30%;
 }
 .@{select-prefix}-icon-multiple {
@@ -164,5 +175,3 @@
 .@{select-prefix}-select-disabled:hover {
   background-color: transparent !important;
 }
-
-

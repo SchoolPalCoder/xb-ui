@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 240px;">
+  <div :style="{width: width +'px'}" >
     <!-- 输入框 -->
     <div :class='classesDiv' @click="toggleMenu">
       <div :class='classesInput'>
@@ -12,9 +12,9 @@
             <i :class='classesMultipleIcon' @click="clearMultipleValue($event,itemMultiple)"></i>
           </span>
         </div>
+        <!-- icon显示 -->
+        <i :class='[classesIcon,(this.multiple && valueMultiple.length>2)?`xbui-select-icon-multiple`:``]' @click="clearValue"></i>
       </div>
-      <!-- icon显示 -->
-      <i :class='[classesIcon,(this.multiple && valueMultiple.length>2)?`xbui-select-icon-multiple`:``]' @click="clearValue"></i>
     </div>
     <!-- 筛选框 -->
     <div :class='classesSelectDiv' v-if="toggleMenuShow">
@@ -27,7 +27,7 @@
         <!-- 分组 -->
         <ul v-if="item.group&&item.group.length!=0" :class='[item.group?classesSelectLiGroup:""]' v-for="item in selectArray">
           <li :class='[classesSelectLi,classesSelectLiGroupTitle]'>{{item.title}}</li>
-          <li :class='[itemGroup.disabled?classesSelectDisabled:"",classesSelectLi,classesSelectLiGroupContent]' v-for="itemGroup in item.group" @click="toggleMenuLi(itemGroup)">
+          <li :class='[itemGroup.disabled?classesSelectDisabled:"",classesSelectLi,classesSelectLiGroupContent]' v-for="itemGroup in item.group" @click="toggleMenuLi(itemGroup,item)">
             <span :class='classesSelectLiSpan'>{{itemGroup.value}}</span>
             <i :class='classesSelectLiIcon' v-if="itemGroup.isCheck"></i>
           </li>
@@ -39,6 +39,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+
 const prefixCls = "xbui-select";
 @Component({ name: "XbSelect" })
 export default class XbSelect extends Vue {
@@ -66,12 +67,23 @@ export default class XbSelect extends Vue {
   @Prop({ default: false })
   filterable!: boolean;
 
+  /** input 宽度样式 */
+  @Prop({ default: 240 })
+  width!: number;
+
+  /** 输入框尺寸，组件内提供3种 */
+  @Prop({ default: "medium" })
+  size!: string;
+
   readonlyShow: boolean = !this.filterable;
   toggleMenuShow: boolean = false;
   textValue: string = "";
   valueMultiple: any = [];
   selectArray: any = this.options;
 
+  get classesWholeDiv() {
+    return [`${prefixCls}-whole-div`];
+  }
   // 输入框
   get classesDiv() {
     return [`${prefixCls}-div`];
@@ -82,6 +94,9 @@ export default class XbSelect extends Vue {
       {
         [`${prefixCls}-input-multiple`]: this.multiple,
         [`${prefixCls}-input-disabled`]: this.disabled,
+        [`${prefixCls}-input-large`]: this.size === "large",
+        [`${prefixCls}-input-medium`]: this.size === "medium" || !this.size,
+        [`${prefixCls}-input-small`]: this.size === "small",
       },
     ];
   }
@@ -143,7 +158,7 @@ export default class XbSelect extends Vue {
   }
 
   // 点击展开、收缩 数据框
-  toggleMenu() {
+  toggleMenu(state) {
     if (!this.disabled) {
       if (!this.clearable || (this.clearable && !this.toggleMenuShow)) {
         this.toggleMenuShow = !this.toggleMenuShow;
@@ -151,7 +166,9 @@ export default class XbSelect extends Vue {
     }
   }
   // 选中一个筛选项
-  toggleMenuLi(item) {
+  toggleMenuLi(item, group) {
+    // item：被点击的li的项目
+    // group：分组的项目，所包含的title，group等信息
     if (!item.disabled) {
       if (this.multiple) {
         // 多选
@@ -227,8 +244,25 @@ export default class XbSelect extends Vue {
   getValue(value) {
     this.selectArray = [];
     this.options.forEach((re) => {
-      if (re.value.indexOf(value) !== -1) {
-        this.selectArray.push(re);
+      if (re.group) {
+        // 分组
+        const newArray = [];
+        re.group.forEach((i) => {
+          if (i.value.indexOf(value) !== -1) {
+            newArray.push(i);
+          }
+        });
+        if (newArray.length) {
+          this.selectArray.push({
+            title: re.title,
+            group: newArray,
+          });
+        }
+      } else {
+        // 不分组
+        if (re.value.indexOf(value) !== -1) {
+          this.selectArray.push(re);
+        }
       }
     });
     if (this.selectArray.length === 0) {
