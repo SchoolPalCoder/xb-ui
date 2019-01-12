@@ -15,7 +15,7 @@ function broadcast(this: Vue, componentName: string, eventName: string, params: 
 @Component
 export default class Emitter extends Vue {
   /** 根据组件名向上广播数据 */
-  dispatch(componentName, eventName, params) {
+  dispatch(componentName: string, eventName: string, params: any) {
     let parent = this.$parent || this.$root;
     let name = parent.$options.name;
 
@@ -31,7 +31,7 @@ export default class Emitter extends Vue {
   }
 
   /** 根据组件名，向下广播数据 */
-  broadcast(componentName, eventName, params) {
+  broadcast(componentName: string, eventName: string, params: any) {
     broadcast.call(this, componentName, eventName, params);
   }
 }
