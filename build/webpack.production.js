@@ -6,7 +6,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 module.exports = {
   mode: "production",
   entry: {
-    app: "./src/index.ts",
+    app: "./src/index.js",
   },
   output: {
     path: path.resolve(process.cwd(), "./lib"),
@@ -28,8 +28,9 @@ module.exports = {
     },
     modules: ["node_modules"],
   },
-  externals: { vue: "Vue" },
+  // externals: { vue: "Vue" },
   module: {
+    noParse: /^(vue|vue-router|vuex|vuex-router-sync)$/,
     rules: [
       {
         test: /\.(ts|tsx)$/,
