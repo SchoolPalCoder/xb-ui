@@ -1,5 +1,5 @@
 <template>
-  <div :style="{width: width +'px'}" >
+  <div :style="{width: width +'px'}" v-clickoutside="handleClose">
     <!-- 输入框 -->
     <div :class='classesDiv' @click="toggleMenu">
       <div :class='classesInput'>
@@ -39,9 +39,9 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-
+import clickoutside from "src/directives/clickoutside";
 const prefixCls = "xbui-select";
-@Component({ name: "XbSelect" })
+@Component({ name: "XbSelect",directives:{ clickoutside } })
 export default class XbSelect extends Vue {
   // 默认文案
   @Prop({ default: "请选择..." })
@@ -268,6 +268,9 @@ export default class XbSelect extends Vue {
     if (this.selectArray.length === 0) {
       this.selectArray.push({ value: "无匹配数据", isValue: false });
     }
+  }
+  handleClose(){
+        this.toggleMenuShow = false;
   }
 }
 </script>

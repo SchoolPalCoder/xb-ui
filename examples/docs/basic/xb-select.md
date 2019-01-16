@@ -26,7 +26,7 @@ export default {
 
 <div class="demo-button">
   <div>
-    <xb-select :options="option2" placeHolder="修改默认值" ></xb-select>
+    <xb-select :options="option1" placeHolder="修改默认值" ></xb-select>
   </div>
 </div>
 
