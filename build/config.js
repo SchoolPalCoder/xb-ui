@@ -1,36 +1,39 @@
-var path = require('path');
-var nodeExternals = require('webpack-node-externals');
-var Components = require('../components.json');
-var utilsList = fs.readdirSync(path.resolve(__dirname, '../src/utils'));
-var externals = {};
+const path = require("path");
+const fs = require("fs");
+const nodeExternals = require("webpack-node-externals");
+const Components = require("../components.json");
+const utilsList = fs.readdirSync(path.resolve(__dirname, "../src/utils"));
+const externals = {};
 
-Object.keys(Components).forEach(function(key) {
+Object.keys(Components).forEach((key) => {
   externals[`xb-ui/packages/${key}`] = `xb-ui/lib/${key}`;
 });
 
-utilsList.forEach(function (file) {
-  file = path.basename(file, '.js');
+externals["xb-ui/src/locale"] = "xb-ui/lib/locale";
+utilsList.forEach(function(file) {
+  file = path.basename(file, ".ts");
   externals[`xb-ui/src/utils/${file}`] = `xb-ui/lib/utils/${file}`;
 });
 
-externals = [Object.assign({
-  vue: 'vue'
-}, externals), nodeExternals()];
+const newExternals = [
+  Object.assign(externals, {
+    vue: "vue",
+  }),
+  nodeExternals(),
+];
 
-exports.externals = externals;
+exports.externals = newExternals;
 
 exports.alias = {
-  main: path.resolve(__dirname, '../src'),
-  packages: path.resolve(__dirname, '../packages'),
-  examples: path.resolve(__dirname, '../examples'),
-  'xb-ui': path.resolve(__dirname, '../'),
+  "@": path.resolve(__dirname, "../packages"),
+  src: path.resolve(__dirname, "../src"),
 };
 
 exports.vue = {
-  root: 'Vue',
-  commonjs: 'vue',
-  commonjs2: 'vue',
-  amd: 'vue',
+  root: "Vue",
+  commonjs: "vue",
+  commonjs2: "vue",
+  amd: "vue",
 };
 
 exports.jsexclude = /node_modules|utils\/popper\.js|utils\/date.\js/;
