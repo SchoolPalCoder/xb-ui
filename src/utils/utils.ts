@@ -107,13 +107,10 @@ export function seriesLoadScripts(scripts: string[], callback: () => void) {
         }
       }
     };
-    console.log(scripts[i]);
     s[i].setAttribute("src", scripts[i]);
 
     if (HEAD) {
       HEAD.appendChild(s[i]);
-      console.log('js代码');
-      console.log(HEAD);
     }
 
   };

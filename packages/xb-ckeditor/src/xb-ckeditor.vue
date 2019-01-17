@@ -1,180 +1,177 @@
 <template>
   <div>
     <textarea
-      :name="name"
-      :id="id"
+      :id="randomNumber"
       :value="value"
       :types="types"
-      :config="config"
-      :disabled="readOnlyMode">
-    </textarea>
+      :config="defaultConfig"
+      :disabled="readOnlyMode"
+    ></textarea>
   </div>
 </template>
 
 
 <script lang="ts">
-//import "../static/ckeditor/ckeditor.js";
-import {seriesLoadScripts} from '../../../src/utils/utils';
+import { seriesLoadScripts } from "../../../src/utils/utils";
 import { Component, Prop, Watch, Mixins, Vue } from "vue-property-decorator";
 import Locale from "../../../src/mixins/locale";
-import XbIcon from "../../xb-icon";
-const prefixCls = "xbui-ckeditor";
-import { debug } from 'util';
+import { debug } from "util";
 
-let inc = new Date().getTime();
-
-const defaultConfig = {
-      height: 300,
-      basePath: "http://127.0.0.1:8086/static/ckeditor/"
-};
-
-@Component({
-
-  name: "XbCkeditor" ,
-  components: {
-    XbIcon
-  }
-})
+@Component
 export default class XbCkeditor extends Mixins(Locale) {
-  prefixCls: string = prefixCls;
-  instanceValue: string = '';
-
-   // 编辑器名称
-  @Prop({type: String, default: () => `editor-${++inc}`})
-  name?: string;
+  instance: object = {};
+  randomNumber: string = "";
+  defaultConfig: object = {
+    height: 300,
+    basePath: "./static/ckeditor/",
+    toolbarGroups: [
+      { name: "styles", groups: ["styles"] },
+      { name: "basicstyles", groups: ["basicstyles", "cleanup"] },
+      { name: "paragraph", groups: ["list", "blocks", "indent", "align", "bidi", "paragraph"] },
+      { name: "clipboard", groups: ["clipboard", "undo"] },
+      { name: "editing", groups: ["find", "selection", "spellchecker", "editing"] },
+      { name: "links", groups: ["links"] },
+      { name: "insert", groups: ["insert"] },
+      { name: "forms", groups: ["forms"] },
+      { name: "tools", groups: ["tools"] },
+      { name: "document", groups: ["mode", "document", "doctools"] },
+      { name: "others", groups: ["others"] },
+      { name: "colors", groups: ["colors"] },
+      { name: "about", groups: ["about"] },
+    ],
+    removeButtons: "Subscript,Superscript,Strike,About,Indent,Outdent,Scayt",
+  };
 
   // 编辑器内容
-  @Prop({type: String})
+  @Prop({ type: String })
   value?: string;
 
-   // 编辑器 ID
-  @Prop({type: String, default: () => `editor-${inc}`})
+  // 编辑器 ID
+  @Prop({ type: String })
   id?: string;
 
   // 编辑器样式类型
-   @Prop({type: String, default: () => `classic`})
+  @Prop({ type: String, default: () => `classic` })
   types?: string;
 
   // 编辑器配置
-  @Prop({ default: () => {
-      return defaultConfig;
-  },  type: Object})
+  @Prop({ type: Object })
   config?: object;
 
   // 编辑器加载后的回调方法
-  @Prop({type: Function})
+  @Prop({ type: Function })
   instanceReadyCallback!: () => void;
 
   // 是否可编辑
-  @Prop({type: Boolean, default: false})
+  @Prop({ type: Boolean, default: false })
   readOnlyMode?: boolean;
 
+  created() {
+    this.defaultConfig = (this.config && Object.assign(this.config, this.defaultConfig)) || this.defaultConfig;
+  }
 
-  initUeditor() {
-    window.CKEDITOR_BASEPATH  = "http://127.0.0.1:8086/static/ckeditor";
-    CKEDITOR.basePath  = "http://127.0.0.1:8086/static/ckeditor/";
-
-    if (typeof CKEDITOR === 'undefined') {
-
-      console.log('CKEDITOR is missing (http://ckeditor.com/)');
+  mounted() {
+    // 判断编辑器对象存不存在
+    if (window.CKEDITOR) {
+      this.init();
     } else {
+      this.load();
+    }
+  }
 
-      if (this.types === 'inline') {
-        CKEDITOR.inline(this.id, this.config);
+  init() {
+    const that = this;
+
+    if (!this.randomNumber) {
+      this.randomNumber =
+        "ckeditor_" +
+        Math.random()
+          .toString(6)
+          .substring(2);
+    }
+
+    this.$nextTick(() => {
+      if (that.types === "inline") {
+        this.instance = CKEDITOR.inline(that.randomNumber, that.defaultConfig);
       } else {
-        CKEDITOR.replace(this.id, this.config);
+        this.instance = CKEDITOR.replace(that.randomNumber, that.defaultConfig);
       }
 
       this.instance.setData(this.value);
 
-      this.instance.on('instanceReady', () => {
+      this.instance.on("instanceReady", () => {
         this.instance.setData(this.value);
       });
 
       // Ckeditor change event
-      this.instance.on('change', this.onChange);
+      this.instance.on("change", this.onChange);
 
       // Ckeditor mode html or source
-      this.instance.on('mode', this.onMode);
+      this.instance.on("mode", this.onMode);
 
       // Ckeditor blur event
-      this.instance.on('blur', (evt) => {
-        this.$emit('blur', evt);
+      this.instance.on("blur", (evt) => {
+        this.$emit("blur", evt);
       });
 
       // Ckeditor focus event
-      this.instance.on('focus', (evt) => {
-          this.$emit('focus', evt);
+      this.instance.on("focus", (evt) => {
+        this.$emit("focus", evt);
       });
 
       // Ckeditor contentDom event
-      this.instance.on('contentDom', (evt) => {
-        this.$emit('contentDom', evt);
-      });
-
-      // Ckeditor dialog definition event
-      CKEDITOR.on('dialogDefinition', (evt) => {
-          this.$emit('dialogDefinition', evt);
+      this.instance.on("contentDom", (evt) => {
+        this.$emit("contentDom", evt);
       });
 
       // Ckeditor file upload request event
-      this.instance.on('fileUploadRequest', (evt) => {
-          this.$emit('fileUploadRequest', evt);
+      this.instance.on("fileUploadRequest", (evt) => {
+        this.$emit("fileUploadRequest", evt);
       });
 
       // Ckditor file upload response event
-      this.instance.on('fileUploadResponse', (evt) => {
-          setTimeout(() => {
-            this.onChange();
-          }, 0);
-          this.$emit('fileUploadResponse', evt);
+      this.instance.on("fileUploadResponse", (evt) => {
+        setTimeout(() => {
+          this.onChange();
+        }, 0);
+        this.$emit("fileUploadResponse", evt);
       });
 
       // Listen for instanceReady event
-      if (typeof this.instanceReadyCallback !== 'undefined') {
-        this.instance.on('instanceReady', this.instanceReadyCallback);
+      if (typeof this.instanceReadyCallback !== "undefined") {
+        this.instance.on("instanceReady", this.instanceReadyCallback);
       }
+    });
+  }
 
+  load() {
+    const jsUrl = ["../static/ckeditor/ckeditor.js", "../static/ckeditor/lang/zh-cn.js"];
+    if (this.defaultConfig.language && this.defaultConfig.language === "en") {
+      jsUrl.splice(jsUrl.length - 1, 1);
+      jsUrl.push("../static/ckeditor/lang/en.js");
     }
-  }
-
-  mounted(){
-
-     seriesLoadScripts(['../static/ckeditor/ckeditor.js'], this.initUeditor);
-
-
-
-
-  }
-   get instance(){
-    return CKEDITOR.instances[this.id];
-  }
-
-  update(val) {
-    if (this.instanceValue !== val) {
-      this.instance.setData(val, { internal: false });
-    }
+    seriesLoadScripts(jsUrl, this.init);
   }
 
   destroy() {
-      try {
-        const editor = window['CKEDITOR'];
-        if (editor.instances) {
-          for (const instance in editor.instances) {
-            if ( instance ) {
-              instance.destroy();
-            }
+    try {
+      const editor = window["CKEDITOR"];
+      if (editor.instances) {
+        for (const instance in editor.instances) {
+          if (instance) {
+            instance.destroy();
           }
         }
-      } catch (e) {
-        debug(e);
       }
+    } catch (e) {
+      debug(e);
+    }
   }
 
   onMode() {
-    if (this.instance.mode === 'source') {
+    if (this.instance.mode === "source") {
       const editable = this.instance.editable();
-      editable.attachListener(editable, 'input', () => {
+      editable.attachListener(editable, "input", () => {
         this.onChange();
       });
     }
@@ -183,12 +180,9 @@ export default class XbCkeditor extends Mixins(Locale) {
   onChange() {
     const html = this.instance.getData();
     if (html !== this.value) {
-      this.$emit('input', html);
-      this.instanceValue = html;
+      this.$emit("input", html);
     }
   }
-
-
 }
 </script>
 
