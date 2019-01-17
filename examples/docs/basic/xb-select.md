@@ -26,7 +26,7 @@ export default {
 
 <div class="demo-button">
   <div>
-    <xb-select :options="option1" placeHolder="修改默认值" ></xb-select>
+    <xb-select :options="option2" placeHolder="修改默认值" ></xb-select>
   </div>
 </div>
 
@@ -165,6 +165,8 @@ export default {
 
 可以利用搜索功能快速查找选项
 
+#### 默认搜索功能
+
 <div class="demo-button">
   <div>
     <xb-select :options="option8" filterable="true"></xb-select>
@@ -183,46 +185,110 @@ export default {
 };
 ```
 
+#### 搜索后，下拉列表为空，显示自定义文案
+
+<div class="demo-button">
+  <div>
+    <xb-select :options="option9" filterable="true" notFoundText="找不到相关内容"></xb-select>
+  </div>
+</div>
+
+```js
+<xb-select :options="option9" filterable="true" notFoundText="找不到相关内容"></xb-select>;
+
+export default {
+  data() {
+    return {
+      option9: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+    };
+  },
+};
+```
+
 ## 外部传入的样式
 
 #### 根据设计稿，设定相关宽度
 
 <div class="demo-button">
   <div>
-  <xb-select width="500" :options="option9" ></xb-select>
+  <xb-select width="500" :options="option10" ></xb-select>
   </div>
 </div>
 
-```html
-只修改输入框的尺寸
-
-<xb-select width="500" :options="option9"></xb-select>
+```js
+// 只修改输入框的尺寸
+<xb-select width="500" :options="option10" ></xb-select>
+export default {
+  data() {
+    return {
+      option10: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+    };
+  },
+};
 ```
 
 #### 组件内提供的 3 种尺寸
 
 <div class="demo-button">
   <div>
-    <xb-select size="large" :options="option10" ></xb-select>
+    <xb-select size="large" :options="option11" ></xb-select>
     <br>
-    <xb-select size="medium" :options="option11"></xb-select>
+    <xb-select size="medium" :options="option12"></xb-select>
      <br>
-    <xb-select size="small" :options="option12"></xb-select>
+    <xb-select size="small" :options="option13"></xb-select>
   </div>
 </div>
 
-```html
-大尺寸
+```js
+// 大尺寸
+<xb-select size="large" :options="option11" ></xb-select>
+export default {
+  data() {
+    return {
+      option11: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+    };
+  },
+};
 
-<xb-select size="large" :options="option10"></xb-select>
+// 默认尺寸
+<xb-select size="medium" :options="option12" ></xb-select>
+export default {
+  data() {
+    return {
+      option12: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+    };
+  },
+};
 
-默认尺寸
+// 小尺寸
+<xb-select size="small" :options="option13" ></xb-select>
+export default {
+  data() {
+    return {
+      option13: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+    };
+  },
+};
+```
 
-<xb-select size="medium" :options="option11"></xb-select>
+#### 输入框，无边框样式展示
 
-小尺寸
+<div class="demo-button">
+  <div>
+  <xb-select :options="option14" :borderShow="false"></xb-select>
+  </div>
+</div>
 
-<xb-select size="small" :options="option12"></xb-select>
+```js
+// 只修改输入框的尺寸
+<xb-select :options="option14" borderShow="false" ></xb-select>
+export default {
+  data() {
+    return {
+      option14: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+    };
+  },
+};
 ```
 
 <script>
@@ -238,15 +304,15 @@ export default {
           value: 'value2'
         }],
 
-        option2: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+        option2: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
 
-        option3: [{value: '这里展示的是筛选项的数据',disabled:true},{value: 'value1'},{value: 'value2'},{value: "value3"}],
+        option3: [{value: '这里展示的是筛选项的数据',disabled:true},{value: 'value1'},{value: 'value2'}],
 
-        option4: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+        option4: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
 
-        option5: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+        option5: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
 
-        option6: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+        option6: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
 
         option7: [{
           title: "这里是标题",
@@ -259,15 +325,19 @@ export default {
           group:[{value: "value0"},{value: "value1"},{value: "value2"}]
         }],
 
-        option8: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+        option8: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
 
-        option9: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+        option9: [{value: "value1"},{value: "value2"}],
 
-        option10: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+        option10: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
 
-        option11: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+        option11: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
 
-        option12: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"},{value: "value3"}],
+        option12: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+
+        option13: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+
+        option14: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
       }
     }
   }
@@ -278,19 +348,18 @@ export default {
 
 在分组的情况下，存在多选的情况
 
-点击旁边，关闭筛选框
-
 展示默认值
 
 ## 参数表
 
-| 参数名      | 参数说明       | 类型    | 可选值                 | 默认值    |
-| :---------- | :------------- | :------ | :--------------------- | :-------- |
-| placeHolder | 输入框占位文本 | string  | ——                     | 请选择... |
-| options     | 下拉框的数组   | array   | ——                     | ——        |
-| disabled    | 禁用           | boolean | ——                     | false     |
-| clearable   | 可清空单选     | boolean | ——                     | false     |
-| multiple    | 多选           | boolean | ——                     | false     |
-| filterable  | 可搜索         | boolean | ——                     | false     |
-| width       | 输入框宽度     | number  | ——                     | 240       |
-| size        | 输入框尺寸     | string  | large / medium / small | medium    |
+| 参数名       | 参数说明                                   | 类型    | 可选值                 | 默认值     |
+| :----------- | :----------------------------------------- | :------ | :--------------------- | :--------- |
+| placeHolder  | 输入框占位文本                             | string  | ——                     | 请选择...  |
+| options      | 下拉框的数组                               | array   | ——                     | ——         |
+| disabled     | 禁用                                       | boolean | ——                     | false      |
+| clearable    | 可清空单选                                 | boolean | ——                     | false      |
+| multiple     | 多选                                       | boolean | ——                     | false      |
+| filterable   | 可搜索                                     | boolean | ——                     | false      |
+| notFoundText | 当下拉列表为空时显示的内容（仅搜索时可用） | string  | ——                     | 无匹配数据 |
+| width        | 输入框宽度                                 | number  | ——                     | 240        |
+| size         | 输入框尺寸                                 | string  | large / medium / small | medium     |

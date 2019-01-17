@@ -21,7 +21,7 @@
       <ul :class='classesSelectUl'>
         <!-- 不分组 -->
         <li v-for="item in selectArray" v-if="!item.group" :class='[classesSelectLi,item.disabled?classesSelectDisabled:""]' @click="toggleMenuLi(item)">
-          <span :class='classesSelectLiSpan' v-bind:style="{ textAlign: item.value=='无匹配数据'?'center':'' }">{{item.value}}</span>
+          <span :class='classesSelectLiSpan' v-bind:style="{ textAlign: item.value==notFoundText?'center':'' }">{{item.value}}</span>
           <i :class='classesSelectLiIcon' v-if="item.isCheck"></i>
         </li>
         <!-- 分组 -->
@@ -41,11 +41,15 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import clickoutside from "src/directives/clickoutside";
 const prefixCls = "xbui-select";
-@Component({ name: "XbSelect",directives:{ clickoutside } })
+@Component({ name: "XbSelect", directives: { clickoutside } })
 export default class XbSelect extends Vue {
   // 默认文案
   @Prop({ default: "请选择..." })
   placeHolder!: string;
+
+  // // 将被选中的数据，在初始化前就展示出来
+  // @Prop({ default: "" })
+  // inputValue!: string;
 
   // 数组
   @Prop({ default: "" })
@@ -67,6 +71,10 @@ export default class XbSelect extends Vue {
   @Prop({ default: false })
   filterable!: boolean;
 
+  // 当下拉列表为空时显示的内容
+  @Prop({ default: "无匹配数据" })
+  notFoundText!: string;
+
   /** input 宽度样式 */
   @Prop({ default: 240 })
   width!: number;
@@ -75,8 +83,13 @@ export default class XbSelect extends Vue {
   @Prop({ default: "medium" })
   size!: string;
 
+  /** 输入框，无边框样式展示 */
+  @Prop({ default: true })
+  borderShow!: boolean;
+
   readonlyShow: boolean = !this.filterable;
   toggleMenuShow: boolean = false;
+  // textValue: string = this.inputValue;
   textValue: string = "";
   valueMultiple: any = [];
   selectArray: any = this.options;
@@ -92,6 +105,7 @@ export default class XbSelect extends Vue {
     return [
       `${prefixCls}-input`,
       {
+        [`${prefixCls}-input-border`]: this.borderShow,
         [`${prefixCls}-input-multiple`]: this.multiple,
         [`${prefixCls}-input-disabled`]: this.disabled,
         [`${prefixCls}-input-large`]: this.size === "large",
@@ -266,11 +280,13 @@ export default class XbSelect extends Vue {
       }
     });
     if (this.selectArray.length === 0) {
-      this.selectArray.push({ value: "无匹配数据", isValue: false });
+      this.selectArray.push({ value: this.notFoundText, isValue: false });
     }
   }
-  handleClose(){
-        this.toggleMenuShow = false;
+
+  handleClose() {
+    // 点击外部空间，关闭筛选框
+    this.toggleMenuShow = false;
   }
 }
 </script>

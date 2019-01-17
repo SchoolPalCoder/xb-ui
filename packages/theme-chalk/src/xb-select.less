@@ -9,24 +9,30 @@
 
 .@{select-prefix}-input {
   width: 100%;
-  border: 1px solid #cccccc;
   border-radius: 3px;
   box-sizing: border-box;
 }
+
+.@{select-prefix}-input-border {
+  border: 1px solid #cccccc;
+}
+
 .@{select-prefix}-input-large {
   height: 40px;
   padding: 6px 15px;
 }
+
 .@{select-prefix}-input-medium {
   height: 32px;
   padding: 6px 12px;
 }
+
 .@{select-prefix}-input-small {
   height: 28px;
   padding: 6px 10px;
 }
 
-.@{select-prefix}-input:hover {
+.@{select-prefix}-input-border:hover {
   border: 1px solid #5b8af9;
 }
 
@@ -48,6 +54,7 @@
   height: 100%;
   outline: none;
   width: calc(100% - 10px);
+  cursor: pointer;
 }
 
 .@{select-prefix}-input-disabled-show {
@@ -61,6 +68,7 @@
   height: auto;
   min-height: 32px;
 }
+
 .@{select-prefix}-multiple {
   background-color: rgba(91, 138, 249, 0.1);
   color: #5a5e66;
@@ -73,11 +81,13 @@
   margin-bottom: 5px;
   margin-right: 10px;
 }
+
 .@{select-prefix}-multiple-show {
   vertical-align: middle;
   display: inline-block;
   margin-top: -2px;
 }
+
 .@{select-prefix}-multiple-icon {
   vertical-align: middle;
   margin-left: 8px;
@@ -87,11 +97,13 @@
   background: white;
   border-radius: 50%;
 }
+
 // icon显示
 .@{select-prefix}-icon {
   position: absolute;
   top: 30%;
 }
+
 .@{select-prefix}-icon-multiple {
   top: 47%;
 }
