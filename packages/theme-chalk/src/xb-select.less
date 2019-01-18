@@ -50,13 +50,14 @@
 }
 
 .@{select-prefix}-input-show {
-  border: none;
+  display: inline-block;
   height: 100%;
-  outline: none;
-  width: calc(100% - 10px);
+  line-height: 1;
   cursor: pointer;
 }
-
+.@{select-prefix}-input-show-border {
+  width: calc(100% - 10px);
+}
 .@{select-prefix}-input-disabled-show {
   background-color: #f5f5f5;
   color: #c0c4cc;
@@ -102,6 +103,7 @@
 .@{select-prefix}-icon {
   position: absolute;
   top: 30%;
+  right: 12px;
 }
 
 .@{select-prefix}-icon-multiple {

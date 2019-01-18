@@ -161,6 +161,48 @@ export default {
 };
 ```
 
+## 可传入默认值
+
+#### 不分组，单选，拥有默认值
+
+<div class="demo-button">
+  <div>
+    <xb-select :options="option8" inputValue="value1"></xb-select>
+  </div>
+</div>
+
+```js
+<xb-select :options="option8" inputValue="value1"></xb-select>;
+
+export default {
+  data() {
+    return {
+    option8: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+    };
+  },
+};
+```
+
+#### 不分组，多选，拥有默认值
+
+<div class="demo-button">
+  <div>
+    <xb-select :options="option9" :inputValue="['value1','value2']" multiple='true'></xb-select>
+  </div>
+</div>
+
+```js
+<xb-select :options="option9" :inputValue="['value1','value2']" multiple='true'></xb-select>;
+
+export default {
+  data() {
+    return {
+     option9: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+    };
+  },
+};
+```
+
 ## 可搜索
 
 可以利用搜索功能快速查找选项
@@ -169,17 +211,17 @@ export default {
 
 <div class="demo-button">
   <div>
-    <xb-select :options="option8" filterable="true"></xb-select>
+    <xb-select :options="option10" filterable="true"></xb-select>
   </div>
 </div>
 
 ```js
-<xb-select :options="option8" filterable="true"></xb-select>;
+<xb-select :options="option10" filterable="true"></xb-select>;
 
 export default {
   data() {
     return {
-      option8: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+      option10: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
     };
   },
 };
@@ -189,17 +231,17 @@ export default {
 
 <div class="demo-button">
   <div>
-    <xb-select :options="option9" filterable="true" notFoundText="找不到相关内容"></xb-select>
+    <xb-select :options="option11" filterable="true" notFoundText="找不到相关内容"></xb-select>
   </div>
 </div>
 
 ```js
-<xb-select :options="option9" filterable="true" notFoundText="找不到相关内容"></xb-select>;
+<xb-select :options="option11" filterable="true" notFoundText="找不到相关内容"></xb-select>;
 
 export default {
   data() {
     return {
-      option9: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+      option11: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
     };
   },
 };
@@ -211,17 +253,17 @@ export default {
 
 <div class="demo-button">
   <div>
-  <xb-select width="500" :options="option10" ></xb-select>
+  <xb-select width="500" :options="option12" ></xb-select>
   </div>
 </div>
 
 ```js
 // 只修改输入框的尺寸
-<xb-select width="500" :options="option10" ></xb-select>
+<xb-select width="500" :options="option12" ></xb-select>
 export default {
   data() {
     return {
-      option10: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+      option12: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
     };
   },
 };
@@ -231,41 +273,46 @@ export default {
 
 <div class="demo-button">
   <div>
-    <xb-select size="large" :options="option11" ></xb-select>
+    <xb-select size="large" :options="option13" ></xb-select>
     <br>
-    <xb-select size="medium" :options="option12"></xb-select>
+    <xb-select size="medium" :options="option14"></xb-select>
      <br>
-    <xb-select size="small" :options="option13"></xb-select>
+    <xb-select size="small" :options="option15"></xb-select>
   </div>
 </div>
 
 ```js
 // 大尺寸
-<xb-select size="large" :options="option11" ></xb-select>
-export default {
-  data() {
-    return {
-      option11: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
-    };
-  },
-};
+<xb-select size="large" :options="option13" ></xb-select>
 
-// 默认尺寸
-<xb-select size="medium" :options="option12" ></xb-select>
-export default {
-  data() {
-    return {
-      option12: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
-    };
-  },
-};
-
-// 小尺寸
-<xb-select size="small" :options="option13" ></xb-select>
 export default {
   data() {
     return {
       option13: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+    };
+  },
+};
+
+
+// 默认尺寸
+<xb-select size="medium" :options="option14" ></xb-select>
+
+export default {
+  data() {
+    return {
+      option14: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+    };
+  },
+};
+
+
+// 小尺寸
+<xb-select size="small" :options="option15" ></xb-select>
+
+export default {
+  data() {
+    return {
+      option15: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
     };
   },
 };
@@ -275,17 +322,18 @@ export default {
 
 <div class="demo-button">
   <div>
-  <xb-select :options="option14" :borderShow="false"></xb-select>
+  <xb-select :options="option16" :borderShow="false"></xb-select>
   </div>
 </div>
 
 ```js
 // 只修改输入框的尺寸
-<xb-select :options="option14" borderShow="false" ></xb-select>
+<xb-select :options="option16" borderShow="false" ></xb-select>
+
 export default {
   data() {
     return {
-      option14: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+      option16: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
     };
   },
 };
@@ -327,7 +375,7 @@ export default {
 
         option8: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
 
-        option9: [{value: "value1"},{value: "value2"}],
+        option9: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
 
         option10: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
 
@@ -338,6 +386,10 @@ export default {
         option13: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
 
         option14: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+
+        option15: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
+
+        option16: [{value: "这里展示的是筛选项的数据"},{value: "value1"},{value: "value2"}],
       }
     }
   }
@@ -348,13 +400,16 @@ export default {
 
 在分组的情况下，存在多选的情况
 
-展示默认值
+在分组的情况下，展示默认值
+
+根据页面高度，将筛选框往上或往下展示
 
 ## 参数表
 
 | 参数名       | 参数说明                                   | 类型    | 可选值                 | 默认值     |
 | :----------- | :----------------------------------------- | :------ | :--------------------- | :--------- |
 | placeHolder  | 输入框占位文本                             | string  | ——                     | 请选择...  |
+| inputValue   | 将被选中的数据，在初始化前就展示出来       | any     | ——                     | ——         |
 | options      | 下拉框的数组                               | array   | ——                     | ——         |
 | disabled     | 禁用                                       | boolean | ——                     | false      |
 | clearable    | 可清空单选                                 | boolean | ——                     | false      |

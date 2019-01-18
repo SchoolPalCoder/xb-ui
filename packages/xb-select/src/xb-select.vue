@@ -4,7 +4,7 @@
     <div :class='classesDiv' @click="toggleMenu">
       <div :class='classesInput'>
         <!-- 搜索框 -->
-        <input v-model="textValue" :placeholder="placeHolder" :class='classesInputShow' v-if="!valueMultiple.length" @keyup="getValue(textValue)" :readonly='readonlyShow'/>
+        <span :class='classesInputShow' v-if="!valueMultiple.length" @keyup="getValue(textValue)" :readonly='readonlyShow'>{{textValue?textValue:placeHolder}}</span>
         <!-- 多选数据 展示 -->
         <div style="line-height: 19px;" v-if="valueMultiple.length">
           <span :class='classesMultiple' v-for="itemMultiple in valueMultiple">
@@ -47,9 +47,9 @@ export default class XbSelect extends Vue {
   @Prop({ default: "请选择..." })
   placeHolder!: string;
 
-  // // 将被选中的数据，在初始化前就展示出来
-  // @Prop({ default: "" })
-  // inputValue!: string;
+  // 将被选中的数据，在初始化前就展示出来
+  @Prop({ default: "" })
+  inputValue!: any;
 
   // 数组
   @Prop({ default: "" })
@@ -89,9 +89,8 @@ export default class XbSelect extends Vue {
 
   readonlyShow: boolean = !this.filterable;
   toggleMenuShow: boolean = false;
-  // textValue: string = this.inputValue;
-  textValue: string = "";
-  valueMultiple: any = [];
+  textValue: string = typeof this.inputValue === "string" ? this.inputValue : "";
+  valueMultiple: any = typeof this.inputValue === "object" ? this.inputValue : [];
   selectArray: any = this.options;
 
   get classesWholeDiv() {
@@ -118,6 +117,7 @@ export default class XbSelect extends Vue {
     return [
       `${prefixCls}-input-show`,
       {
+        [`${prefixCls}-input-show-border`]: this.borderShow,
         [`${prefixCls}-input-disabled-show`]: this.disabled,
       },
     ];
@@ -175,7 +175,33 @@ export default class XbSelect extends Vue {
   toggleMenu(state) {
     if (!this.disabled) {
       if (!this.clearable || (this.clearable && !this.toggleMenuShow)) {
-        this.toggleMenuShow = !this.toggleMenuShow;
+        if (this.toggleMenuShow) {
+          // 收拢筛选框
+          this.toggleMenuShow = false;
+        } else {
+          // 打开筛选框
+          this.toggleMenuShow = true;
+          this.selectArray.map((re) => {
+            if (re.title) {
+              // 分组
+            } else {
+              // 不分组
+              if (typeof this.inputValue === "string") {
+                // 单选
+                if (re.value === this.inputValue) {
+                  re.isCheck = true;
+                }
+              } else {
+                // 多选
+                this.inputValue.forEach((ele) => {
+                  if (re.value === ele) {
+                    re.isCheck = true;
+                  }
+                });
+              }
+            }
+          });
+        }
       }
     }
   }
