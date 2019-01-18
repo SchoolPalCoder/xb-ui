@@ -1,7 +1,9 @@
 <template>
-  <div :style="{width: width +'px'}" v-clickoutside="handleClose">
+<div>
+
+  <div :style="{width: width +'px'}" style="position: relative;" v-clickoutside="handleClose">
     <!-- 输入框 -->
-    <div :class='classesDiv' @click="toggleMenu">
+    <div :class='classesDiv' @click="toggleMenu()">
       <div :class='classesInput'>
         <!-- 搜索框 -->
         <span :class='classesInputShow' v-if="!valueMultiple.length" @keyup="getValue(textValue)" :readonly='readonlyShow'>{{textValue?textValue:placeHolder}}</span>
@@ -17,7 +19,7 @@
       </div>
     </div>
     <!-- 筛选框 -->
-    <div :class='classesSelectDiv' v-if="toggleMenuShow">
+    <div :class='classesSelectDiv' v-if="toggleMenuShow" :style="{width: width +'px'}">
       <ul :class='classesSelectUl'>
         <!-- 不分组 -->
         <li v-for="item in selectArray" v-if="!item.group" :class='[classesSelectLi,item.disabled?classesSelectDisabled:""]' @click="toggleMenuLi(item)">
@@ -35,6 +37,7 @@
       </ul>
     </div>
   </div>
+</div>
 </template>
 
 <script lang="ts">
@@ -172,7 +175,8 @@ export default class XbSelect extends Vue {
   }
 
   // 点击展开、收缩 数据框
-  toggleMenu(state) {
+  toggleMenu(e) {
+    // console.log(this.$refs.menu);
     if (!this.disabled) {
       if (!this.clearable || (this.clearable && !this.toggleMenuShow)) {
         if (this.toggleMenuShow) {
