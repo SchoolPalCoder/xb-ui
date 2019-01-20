@@ -66,6 +66,10 @@
               {
                 "text": "xb-search-btn",
                 "path": "/xb-search-btn"
+              },
+              {
+                "text": "xb-select",
+                "path": "/xb-select"
               }
             ]
           },
