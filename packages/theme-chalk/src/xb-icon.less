@@ -1,254 +1,545 @@
+@xbuiicons-font-path: "./fonts";
 @font-face {
-  font-family: "icomoon";
-  src: url("fonts/icomoon.eot?xx11iq");
-  src: url("fonts/icomoon.eot?xx11iq#iefix") format("embedded-opentype"),
-    url("fonts/icomoon.ttf?xx11iq") format("truetype"), url("fonts/icomoon.woff?xx11iq") format("woff"),
-    url("fonts/icomoon.svg?xx11iq#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+	font-family: "xbui-icons";
+	src: url('@{xbuiicons-font-path}/xbui-icons.eot?v=1');
+	src: url('@{xbuiicons-font-path}/xbui-icons.eot?v=1#iefix') format('eot'),
+    	url('@{xbuiicons-font-path}/xbui-icons.ttf?v=1') format('truetype'),
+		url('@{xbuiicons-font-path}/xbui-icons.woff?v=1') format('woff'),
+		url('@{xbuiicons-font-path}/xbui-icons.svg?v=1#xbui-icons') format('svg');
 }
 
-[class^="xb-icon-"],
-[class*=" xb-icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.xbui-icon {
+	font-family: "xbui-icons";
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.xb-icon-edit:before {
-  content: "\e94b";
+@icon-heart-empty: "\E001";
+@icon-heart-full: "\E002";
+@icon-heart-half: "\E003";
+@icon-heart-question: "\E004";
+@icon-alert-circled: "\E005";
+@icon-alert-filled: "\E006";
+@icon-align-center: "\E007";
+@icon-align-justify: "\E008";
+@icon-align-left: "\E009";
+@icon-align-right: "\E00A";
+@icon-arrow-down-circled: "\E00B";
+@icon-arrow-down: "\E00C";
+@icon-arrow-left-circled: "\E00D";
+@icon-arrow-left: "\E00E";
+@icon-arrow-right-circled: "\E00F";
+@icon-arrow-right: "\E010";
+@icon-arrow-up-circled: "\E011";
+@icon-arrow-up: "\E012";
+@icon-bell: "\E013";
+@icon-book: "\E014";
+@icon-bookmark: "\E015";
+@icon-briefcase: "\E016";
+@icon-cake: "\E017";
+@icon-calendar: "\E018";
+@icon-camera: "\E019";
+@icon-card: "\E01A";
+@icon-checkmark-circled: "\E01B";
+@icon-checkmark-filled: "\E01C";
+@icon-checkmark: "\E01D";
+@icon-chevron-down: "\E01E";
+@icon-chevron-left: "\E01F";
+@icon-chevron-right: "\E020";
+@icon-chevron-up: "\E021";
+@icon-clipboard: "\E022";
+@icon-clock: "\E023";
+@icon-close-circled: "\E024";
+@icon-close-filled: "\E025";
+@icon-close: "\E026";
+@icon-cloud-download: "\E027";
+@icon-cloud-upload: "\E028";
+@icon-comment: "\E029";
+@icon-compose-outline: "\E02A";
+@icon-currency: "\E02B";
+@icon-cursorshap: "\E02C";
+@icon-document: "\E02D";
+@icon-download: "\E02E";
+@icon-edit-pen: "\E02F";
+@icon-edit: "\E030";
+@icon-email: "\E031";
+@icon-excel: "\E032";
+@icon-exit: "\E033";
+@icon-eye-off: "\E034";
+@icon-eye: "\E035";
+@icon-fast-backward: "\E036";
+@icon-fast-forward: "\E037";
+@icon-female: "\E038";
+@icon-flash: "\E039";
+@icon-folder: "\E03A";
+@icon-forbidden: "\E03B";
+@icon-funnel: "\E03C";
+@icon-happy: "\E03D";
+@icon-headphone: "\E03E";
+@icon-heart: "\E03F";
+@icon-help-circled: "\E040";
+@icon-help-filled: "\E041";
+@icon-home: "\E042";
+@icon-image: "\E043";
+@icon-inbox: "\E044";
+@icon-information-circled: "\E045";
+@icon-information-filled: "\E046";
+@icon-layers: "\E047";
+@icon-link: "\E048";
+@icon-loading: "\E049";
+@icon-location: "\E04A";
+@icon-locked: "\E04B";
+@icon-male: "\E04C";
+@icon-map: "\E04D";
+@icon-maximize-b: "\E04E";
+@icon-maximize: "\E04F";
+@icon-md-add-circle: "\E050";
+@icon-md-remove-circle: "\E051";
+@icon-merge: "\E052";
+@icon-microphone: "\E053";
+@icon-minimize-b: "\E054";
+@icon-minimize: "\E055";
+@icon-minus-circled: "\E056";
+@icon-minus: "\E057";
+@icon-monitor: "\E058";
+@icon-moon: "\E059";
+@icon-more: "\E05A";
+@icon-navigation: "\E05B";
+@icon-neutral: "\E05C";
+@icon-pause: "\E05D";
+@icon-phone: "\E05E";
+@icon-play-circled: "\E05F";
+@icon-play: "\E060";
+@icon-plus-circled: "\E061";
+@icon-plus-filled: "\E062";
+@icon-plus: "\E063";
+@icon-printer: "\E064";
+@icon-refresh: "\E065";
+@icon-sad: "\E066";
+@icon-save: "\E067";
+@icon-scan: "\E068";
+@icon-search: "\E069";
+@icon-service: "\E06A";
+@icon-settings: "\E06B";
+@icon-share: "\E06C";
+@icon-skip-back: "\E06D";
+@icon-skip-forward: "\E06E";
+@icon-sphome: "\E06F";
+@icon-star-filled: "\E070";
+@icon-star: "\E071";
+@icon-stop-circled: "\E072";
+@icon-stop: "\E073";
+@icon-sun: "\E074";
+@icon-swap-horiz: "\E075";
+@icon-swap-vert: "\E076";
+@icon-tag: "\E077";
+@icon-thumbs-down: "\E078";
+@icon-thumbs-up: "\E079";
+@icon-trash: "\E07A";
+@icon-upload-b : "\E07B";
+@icon-upload: "\E07C";
+@icon-user: "\E07D";
+@icon-zoom-in: "\E07E";
+@icon-zoom-out: "\E07F";
+
+
+.xbui-icon-char(@icon-variable) {
+	content: @@icon-variable;
+}
+
+.xbui-icon-base-pseudo(@filename, @insert: before) {
+	@pseudo-selector: ~":@{insert}";
+    @icon-variable: ~"icon-@{filename}";
+	&@{pseudo-selector} {
+		.xbui-icon-char(@icon-variable);
+	}
+}
+
+.xbui-icon-heart-empty {
+	.xbui-icon-base-pseudo(heart-empty);
 }
-.xb-icon-achievement:before {
-  content: "\e900";
+.xbui-icon-heart-full {
+	.xbui-icon-base-pseudo(heart-full);
 }
-.xb-icon-activity:before {
-  content: "\e901";
+.xbui-icon-heart-half {
+	.xbui-icon-base-pseudo(heart-half);
 }
-.xb-icon-annex:before {
-  content: "\e902";
+.xbui-icon-heart-question {
+	.xbui-icon-base-pseudo(heart-question);
 }
-.xb-icon-announcement:before {
-  content: "\e903";
+.xbui-icon-alert-circled {
+	.xbui-icon-base-pseudo(alert-circled);
 }
-.xb-icon-arrow-down:before {
-  content: "\e904";
+.xbui-icon-alert-filled {
+	.xbui-icon-base-pseudo(alert-filled);
 }
-.xb-icon-arrow-left:before {
-  content: "\e905";
+.xbui-icon-align-center {
+	.xbui-icon-base-pseudo(align-center);
 }
-.xb-icon-arrow-right:before {
-  content: "\e906";
+.xbui-icon-align-justify {
+	.xbui-icon-base-pseudo(align-justify);
 }
-.xb-icon-arrow-up:before {
-  content: "\e907";
+.xbui-icon-align-left {
+	.xbui-icon-base-pseudo(align-left);
 }
-.xb-icon-Attendance:before {
-  content: "\e908";
+.xbui-icon-align-right {
+	.xbui-icon-base-pseudo(align-right);
 }
-.xb-icon-audio:before {
-  content: "\e909";
+.xbui-icon-arrow-down-circled {
+	.xbui-icon-base-pseudo(arrow-down-circled);
 }
-.xb-icon-bars:before {
-  content: "\e90a";
+.xbui-icon-arrow-down {
+	.xbui-icon-base-pseudo(arrow-down);
 }
-.xb-icon-bedroom:before {
-  content: "\e90b";
+.xbui-icon-arrow-left-circled {
+	.xbui-icon-base-pseudo(arrow-left-circled);
 }
-.xb-icon-campus:before {
-  content: "\e90c";
+.xbui-icon-arrow-left {
+	.xbui-icon-base-pseudo(arrow-left);
 }
-.xb-icon-caret-bottom:before {
-  content: "\e90d";
+.xbui-icon-arrow-right-circled {
+	.xbui-icon-base-pseudo(arrow-right-circled);
 }
-.xb-icon-caret-left:before {
-  content: "\e90e";
+.xbui-icon-arrow-right {
+	.xbui-icon-base-pseudo(arrow-right);
 }
-.xb-icon-caret-right:before {
-  content: "\e90f";
+.xbui-icon-arrow-up-circled {
+	.xbui-icon-base-pseudo(arrow-up-circled);
 }
-.xb-icon-caret-top:before {
-  content: "\e910";
+.xbui-icon-arrow-up {
+	.xbui-icon-base-pseudo(arrow-up);
 }
-.xb-icon-check:before {
-  content: "\e911";
+.xbui-icon-bell {
+	.xbui-icon-base-pseudo(bell);
 }
-.xb-icon-Child:before {
-  content: "\e912";
+.xbui-icon-book {
+	.xbui-icon-base-pseudo(book);
 }
-.xb-icon-circle-check:before {
-  content: "\e913";
+.xbui-icon-bookmark {
+	.xbui-icon-base-pseudo(bookmark);
 }
-.xb-icon-circle-check-outline:before {
-  content: "\e914";
+.xbui-icon-briefcase {
+	.xbui-icon-base-pseudo(briefcase);
 }
-.xb-icon-circle-close:before {
-  content: "\e915";
+.xbui-icon-cake {
+	.xbui-icon-base-pseudo(cake);
 }
-.xb-icon-circle-close-outline:before {
-  content: "\e916";
+.xbui-icon-calendar {
+	.xbui-icon-base-pseudo(calendar);
 }
-.xb-icon-circle-download:before {
-  content: "\e917";
+.xbui-icon-camera {
+	.xbui-icon-base-pseudo(camera);
 }
-.xb-icon-circle-plus:before {
-  content: "\e918";
+.xbui-icon-card {
+	.xbui-icon-base-pseudo(card);
 }
-.xb-icon-circle-remove:before {
-  content: "\e919";
+.xbui-icon-checkmark-circled {
+	.xbui-icon-base-pseudo(checkmark-circled);
 }
-.xb-icon-circle-upload:before {
-  content: "\e91a";
+.xbui-icon-checkmark-filled {
+	.xbui-icon-base-pseudo(checkmark-filled);
 }
-.xb-icon-class:before {
-  content: "\e91b";
+.xbui-icon-checkmark {
+	.xbui-icon-base-pseudo(checkmark);
 }
-.xb-icon-close:before {
-  content: "\e91c";
+.xbui-icon-chevron-down {
+	.xbui-icon-base-pseudo(chevron-down);
 }
-.xb-icon-comment:before {
-  content: "\e91d";
+.xbui-icon-chevron-left {
+	.xbui-icon-base-pseudo(chevron-left);
 }
-.xb-icon-comment-outline:before {
-  content: "\e91e";
+.xbui-icon-chevron-right {
+	.xbui-icon-base-pseudo(chevron-right);
 }
-.xb-icon-copy:before {
-  content: "\e91f";
+.xbui-icon-chevron-up {
+	.xbui-icon-base-pseudo(chevron-up);
 }
-.xb-icon-curriculum:before {
-  content: "\e920";
+.xbui-icon-clipboard {
+	.xbui-icon-base-pseudo(clipboard);
 }
-.xb-icon-data-disk:before {
-  content: "\e921";
+.xbui-icon-clock {
+	.xbui-icon-base-pseudo(clock);
 }
-.xb-icon-date:before {
-  content: "\e922";
+.xbui-icon-close-circled {
+	.xbui-icon-base-pseudo(close-circled);
 }
-.xb-icon-delete:before {
-  content: "\e923";
+.xbui-icon-close-filled {
+	.xbui-icon-base-pseudo(close-filled);
 }
-.xb-icon-disable:before {
-  content: "\e924";
+.xbui-icon-close {
+	.xbui-icon-base-pseudo(close);
 }
-.xb-icon-drag:before {
-  content: "\e925";
+.xbui-icon-cloud-download {
+	.xbui-icon-base-pseudo(cloud-download);
 }
-.xb-icon-error-circle:before {
-  content: "\e926";
+.xbui-icon-cloud-upload {
+	.xbui-icon-base-pseudo(cloud-upload);
 }
-.xb-icon-exam:before {
-  content: "\e927";
+.xbui-icon-comment {
+	.xbui-icon-base-pseudo(comment);
 }
-.xb-icon-export:before {
-  content: "\e928";
+.xbui-icon-compose-outline {
+	.xbui-icon-base-pseudo(compose-outline);
 }
-.xb-icon-eye:before {
-  content: "\e929";
+.xbui-icon-currency {
+	.xbui-icon-base-pseudo(currency);
 }
-.xb-icon-eye-off:before {
-  content: "\e92a";
+.xbui-icon-cursorshap {
+	.xbui-icon-base-pseudo(cursorshap);
 }
-.xb-icon-filter:before {
-  content: "\e92b";
+.xbui-icon-document {
+	.xbui-icon-base-pseudo(document);
 }
-.xb-icon-Finance:before {
-  content: "\e92c";
+.xbui-icon-download {
+	.xbui-icon-base-pseudo(download);
 }
-.xb-icon-home:before {
-  content: "\e92d";
+.xbui-icon-edit-pen {
+	.xbui-icon-base-pseudo(edit-pen);
 }
-.xb-icon-info-circle:before {
-  content: "\e92e";
+.xbui-icon-edit {
+	.xbui-icon-base-pseudo(edit);
 }
-.xb-icon-learning-tasks:before {
-  content: "\e92f";
+.xbui-icon-email {
+	.xbui-icon-base-pseudo(email);
 }
-.xb-icon-list:before {
-  content: "\e930";
+.xbui-icon-excel {
+	.xbui-icon-base-pseudo(excel);
 }
-.xb-icon-loading:before {
-  content: "\e931";
+.xbui-icon-exit {
+	.xbui-icon-base-pseudo(exit);
 }
-.xb-icon-management:before {
-  content: "\e932";
+.xbui-icon-eye-off {
+	.xbui-icon-base-pseudo(eye-off);
 }
-.xb-icon-mechanism:before {
-  content: "\e933";
+.xbui-icon-eye {
+	.xbui-icon-base-pseudo(eye);
 }
-.xb-icon-minus:before {
-  content: "\e934";
+.xbui-icon-fast-backward {
+	.xbui-icon-base-pseudo(fast-backward);
 }
-.xb-icon-more:before {
-  content: "\e935";
+.xbui-icon-fast-forward {
+	.xbui-icon-base-pseudo(fast-forward);
 }
-.xb-icon-password:before {
-  content: "\e936";
+.xbui-icon-female {
+	.xbui-icon-base-pseudo(female);
 }
-.xb-icon-plus:before {
-  content: "\e937";
+.xbui-icon-flash {
+	.xbui-icon-base-pseudo(flash);
 }
-.xb-icon-printer:before {
-  content: "\e938";
+.xbui-icon-folder {
+	.xbui-icon-base-pseudo(folder);
 }
-.xb-icon-Progression:before {
-  content: "\e939";
+.xbui-icon-forbidden {
+	.xbui-icon-base-pseudo(forbidden);
 }
-.xb-icon-question-circle:before {
-  content: "\e93a";
+.xbui-icon-funnel {
+	.xbui-icon-base-pseudo(funnel);
 }
-.xb-icon-recruit-students:before {
-  content: "\e93b";
+.xbui-icon-happy {
+	.xbui-icon-base-pseudo(happy);
 }
-.xb-icon-role:before {
-  content: "\e93c";
+.xbui-icon-headphone {
+	.xbui-icon-base-pseudo(headphone);
 }
-.xb-icon-same-level:before {
-  content: "\e93d";
+.xbui-icon-heart {
+	.xbui-icon-base-pseudo(heart);
 }
-.xb-icon-save:before {
-  content: "\e93e";
+.xbui-icon-help-circled {
+	.xbui-icon-base-pseudo(help-circled);
 }
-.xb-icon-schedule:before {
-  content: "\e93f";
+.xbui-icon-help-filled {
+	.xbui-icon-base-pseudo(help-filled);
 }
-.xb-icon-school:before {
-  content: "\e940";
+.xbui-icon-home {
+	.xbui-icon-base-pseudo(home);
 }
-.xb-icon-search:before {
-  content: "\e941";
+.xbui-icon-image {
+	.xbui-icon-base-pseudo(image);
 }
-.xb-icon-staff:before {
-  content: "\e942";
+.xbui-icon-inbox {
+	.xbui-icon-base-pseudo(inbox);
 }
-.xb-icon-student:before {
-  content: "\e943";
+.xbui-icon-information-circled {
+	.xbui-icon-base-pseudo(information-circled);
 }
-.xb-icon-success-circle:before {
-  content: "\e944";
+.xbui-icon-information-filled {
+	.xbui-icon-base-pseudo(information-filled);
 }
-.xb-icon-sync:before {
-  content: "\e945";
+.xbui-icon-layers {
+	.xbui-icon-base-pseudo(layers);
 }
-.xb-icon-teaching-setting:before {
-  content: "\e946";
+.xbui-icon-link {
+	.xbui-icon-base-pseudo(link);
 }
-.xb-icon-time:before {
-  content: "\e947";
+.xbui-icon-loading {
+	.xbui-icon-base-pseudo(loading);
 }
-.xb-icon-tree_ico:before {
-  content: "\e948";
+.xbui-icon-location {
+	.xbui-icon-base-pseudo(location);
 }
-.xb-icon-user:before {
-  content: "\e949";
+.xbui-icon-locked {
+	.xbui-icon-base-pseudo(locked);
 }
-.xb-icon-warning-circle:before {
-  content: "\e94a";
+.xbui-icon-male {
+	.xbui-icon-base-pseudo(male);
+}
+.xbui-icon-map {
+	.xbui-icon-base-pseudo(map);
+}
+.xbui-icon-maximize-b {
+	.xbui-icon-base-pseudo(maximize-b);
+}
+.xbui-icon-maximize {
+	.xbui-icon-base-pseudo(maximize);
+}
+.xbui-icon-md-add-circle {
+	.xbui-icon-base-pseudo(md-add-circle);
+}
+.xbui-icon-md-remove-circle {
+	.xbui-icon-base-pseudo(md-remove-circle);
+}
+.xbui-icon-merge {
+	.xbui-icon-base-pseudo(merge);
+}
+.xbui-icon-microphone {
+	.xbui-icon-base-pseudo(microphone);
+}
+.xbui-icon-minimize-b {
+	.xbui-icon-base-pseudo(minimize-b);
+}
+.xbui-icon-minimize {
+	.xbui-icon-base-pseudo(minimize);
+}
+.xbui-icon-minus-circled {
+	.xbui-icon-base-pseudo(minus-circled);
+}
+.xbui-icon-minus {
+	.xbui-icon-base-pseudo(minus);
+}
+.xbui-icon-monitor {
+	.xbui-icon-base-pseudo(monitor);
+}
+.xbui-icon-moon {
+	.xbui-icon-base-pseudo(moon);
+}
+.xbui-icon-more {
+	.xbui-icon-base-pseudo(more);
+}
+.xbui-icon-navigation {
+	.xbui-icon-base-pseudo(navigation);
+}
+.xbui-icon-neutral {
+	.xbui-icon-base-pseudo(neutral);
+}
+.xbui-icon-pause {
+	.xbui-icon-base-pseudo(pause);
+}
+.xbui-icon-phone {
+	.xbui-icon-base-pseudo(phone);
+}
+.xbui-icon-play-circled {
+	.xbui-icon-base-pseudo(play-circled);
+}
+.xbui-icon-play {
+	.xbui-icon-base-pseudo(play);
+}
+.xbui-icon-plus-circled {
+	.xbui-icon-base-pseudo(plus-circled);
+}
+.xbui-icon-plus-filled {
+	.xbui-icon-base-pseudo(plus-filled);
+}
+.xbui-icon-plus {
+	.xbui-icon-base-pseudo(plus);
+}
+.xbui-icon-printer {
+	.xbui-icon-base-pseudo(printer);
+}
+.xbui-icon-refresh {
+	.xbui-icon-base-pseudo(refresh);
+}
+.xbui-icon-sad {
+	.xbui-icon-base-pseudo(sad);
+}
+.xbui-icon-save {
+	.xbui-icon-base-pseudo(save);
+}
+.xbui-icon-scan {
+	.xbui-icon-base-pseudo(scan);
+}
+.xbui-icon-search {
+	.xbui-icon-base-pseudo(search);
+}
+.xbui-icon-service {
+	.xbui-icon-base-pseudo(service);
+}
+.xbui-icon-settings {
+	.xbui-icon-base-pseudo(settings);
+}
+.xbui-icon-share {
+	.xbui-icon-base-pseudo(share);
+}
+.xbui-icon-skip-back {
+	.xbui-icon-base-pseudo(skip-back);
+}
+.xbui-icon-skip-forward {
+	.xbui-icon-base-pseudo(skip-forward);
+}
+.xbui-icon-sphome {
+	.xbui-icon-base-pseudo(sphome);
+}
+.xbui-icon-star-filled {
+	.xbui-icon-base-pseudo(star-filled);
+}
+.xbui-icon-star {
+	.xbui-icon-base-pseudo(star);
+}
+.xbui-icon-stop-circled {
+	.xbui-icon-base-pseudo(stop-circled);
+}
+.xbui-icon-stop {
+	.xbui-icon-base-pseudo(stop);
+}
+.xbui-icon-sun {
+	.xbui-icon-base-pseudo(sun);
+}
+.xbui-icon-swap-horiz {
+	.xbui-icon-base-pseudo(swap-horiz);
+}
+.xbui-icon-swap-vert {
+	.xbui-icon-base-pseudo(swap-vert);
+}
+.xbui-icon-tag {
+	.xbui-icon-base-pseudo(tag);
+}
+.xbui-icon-thumbs-down {
+	.xbui-icon-base-pseudo(thumbs-down);
+}
+.xbui-icon-thumbs-up {
+	.xbui-icon-base-pseudo(thumbs-up);
+}
+.xbui-icon-trash {
+	.xbui-icon-base-pseudo(trash);
+}
+.xbui-icon-upload-b  {
+	.xbui-icon-base-pseudo(upload-b );
+}
+.xbui-icon-upload {
+	.xbui-icon-base-pseudo(upload);
+}
+.xbui-icon-user {
+	.xbui-icon-base-pseudo(user);
+}
+.xbui-icon-zoom-in {
+	.xbui-icon-base-pseudo(zoom-in);
+}
+.xbui-icon-zoom-out {
+	.xbui-icon-base-pseudo(zoom-out);
 }

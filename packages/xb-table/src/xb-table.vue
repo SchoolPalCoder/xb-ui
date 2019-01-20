@@ -154,6 +154,15 @@ let columnKey = 1;
 
 @Component({ name: "XbTable", components: { tableHead, tableBody } })
 export default class XbTable extends Mixins(Locale) {
+  public $refs!: {
+    title: HTMLElement;
+    header: HTMLElement;
+    tableHead: tableHead;
+    footer: HTMLElement;
+  };
+
+  prefixCl = "xbui-table";
+
   @Prop({
     type: Array,
     default: () => [],
@@ -419,7 +428,6 @@ export default class XbTable extends Mixins(Locale) {
     return this.rowClassName(this.data[index], index);
   }
   handleResize() {
-    // let tableWidth = parseInt(getStyle(this.$el, 'width')) - 1;
     const tableWidth = this.$el.offsetWidth - 1;
     const columnsWidth = {};
     let sumMinWidth = 0;
@@ -623,9 +631,9 @@ export default class XbTable extends Mixins(Locale) {
   fixedHeader() {
     if (this.height) {
       this.$nextTick(() => {
-        const titleHeight = parseInt(getStyle(this.$refs.title as HTMLElement, "height"), 10) || 0;
-        const headerHeight = parseInt(getStyle(this.$refs.header as HTMLElement, "height"), 10) || 0;
-        const footerHeight = parseInt(getStyle(this.$refs.footer as HTMLElement, "height"), 10) || 0;
+        const titleHeight = parseInt(getStyle(this.$refs.title, "height"), 10) || 0;
+        const headerHeight = parseInt(getStyle(this.$refs.header, "height"), 10) || 0;
+        const footerHeight = parseInt(getStyle(this.$refs.footer, "height"), 10) || 0;
         this.bodyHeight = Number(this.height) - titleHeight - headerHeight - footerHeight;
         this.$nextTick(() => this.fixedBody());
       });
@@ -704,7 +712,7 @@ export default class XbTable extends Mixins(Locale) {
     if (deltaY > 0 && body.scrollHeight - body.clientHeight > currentScrollTop) {
       event.preventDefault();
     }
-    //body.scrollTop += deltaY;
+    // body.scrollTop += deltaY;
     let step = 0;
     const timeId = setInterval(() => {
       step += 5;

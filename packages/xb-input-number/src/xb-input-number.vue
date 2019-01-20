@@ -1,9 +1,6 @@
 <template>
   <div :class="wholeClasses">
-    <div
-      :class="inputDivClasses"
-      :style="inputStyle"
-    >
+    <div :class="inputDivClasses" :style="inputStyle">
       <!-- :是v-bind的缩写，是为了动态绑定数据。 -->
       <!-- @input：每次输入都触发相关函数，@change：鼠标焦点离开输入框时触发相关函数 -->
       <input
@@ -14,19 +11,13 @@
         @input="inputChange(num)"
         @change="changeInput(num)"
         @focus="focus()"
-      />
+      >
     </div>
     <span :class="arrowDivClasses">
       <!-- 添加 -->
-      <span
-        :class="arrowDownClasses"
-        @click="addValue(disabled?true:false)"
-      >+</span>
+      <span :class="arrowDownClasses" @click="addValue(disabled?true:false)">+</span>
       <!-- 减少 -->
-      <span
-        :class="arrowClasses"
-        @click="subtractValue(disabled?true:false)"
-      >-</span>
+      <span :class="arrowClasses" @click="subtractValue(disabled?true:false)">-</span>
     </span>
   </div>
 </template>
@@ -39,7 +30,7 @@ const prefixCls = "xbui-input-number";
 export default class XbInputNumber extends Vue {
   // 感叹号是非null和非undefined的类型断言，所以表示对该属性进行非空断言。
   /** 初始值 */
-  @Prop({ default: 1 })
+  @Prop({ type: Number, default: 1 })
   firstNum!: number;
 
   /** 最小值 */
@@ -81,7 +72,7 @@ export default class XbInputNumber extends Vue {
       // inputNum作为暂时存在的数据
       let inputNum = 0;
       this.showNum = this.num;
-      inputNum = this.num == this.max ? this.max : this.num + parseInt(String(this.step));
+      inputNum = this.num == this.max ? this.max : this.num + parseInt(String(this.step), 10);
       // 获取数据后，原来的数据进行正则判断
       this.inputChange(inputNum);
     }

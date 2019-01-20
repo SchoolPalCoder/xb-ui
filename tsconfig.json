@@ -31,5 +31,5 @@
     "test/**/*.ts",
     "test/**/*.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["build", "node_modules"]
 }
