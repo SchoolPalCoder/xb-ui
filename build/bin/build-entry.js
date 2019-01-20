@@ -1,29 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 const os = require("os");
-const render = require("../utils/string_replace");
-const lodash = require("lodash");
 const pkg = require("../../package.json");
+const utils = require("../utils");
 
-const uppercamelcase = (name) => {
-  const camelCase = lodash.camelCase(name);
-  return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
-};
-
-const readDirSync = (path) => {
-  const pa = fs.readdirSync(path);
-  const reg = /^xb-(([a-z]|-)+$)/;
-  const dir = [];
-  pa.forEach((ele, index) => {
-    const info = fs.statSync(path + "/" + ele);
-    if (info.isDirectory() && reg.test(ele)) {
-      dir.push(ele);
-    }
-  });
-  return dir;
-};
-
-const ComponentNames = readDirSync(path.resolve(process.cwd(), "packages"));
+const ComponentNames = utils.readDirSync(path.resolve(process.cwd(), "packages"), /^xb-(([a-z]|-)+$)/);
 
 const endOfLine = os.EOL;
 const OUTPUT_PATH = path.join(__dirname, "../../src/index.ts");
@@ -83,10 +64,10 @@ const installTemplate = [];
 const listTemplate = [];
 
 ComponentNames.forEach((name) => {
-  const componentName = uppercamelcase(name);
+  const componentName = utils.upperCamelCase(name);
 
   includeComponentTemplate.push(
-    render(IMPORT_TEMPLATE, {
+    utils.stringReplace(IMPORT_TEMPLATE, {
       name: componentName,
       package: name,
     })
@@ -94,7 +75,7 @@ ComponentNames.forEach((name) => {
 
   if (["Loading", "MessageBox", "Notification", "Message"].indexOf(componentName) === -1) {
     installTemplate.push(
-      render(INSTALL_COMPONENT_TEMPLATE, {
+      utils.stringReplace(INSTALL_COMPONENT_TEMPLATE, {
         name: componentName,
         component: name,
       })
@@ -106,7 +87,7 @@ ComponentNames.forEach((name) => {
   }
 });
 
-const template = render(MAIN_TEMPLATE, {
+const template = utils.stringReplace(MAIN_TEMPLATE, {
   include: includeComponentTemplate.join(endOfLine),
   install: installTemplate.join("," + endOfLine),
   version: pkg.version,

@@ -9,7 +9,7 @@
     "create:component": "node tools/create-component",
     "create:componentMd": "node tools/create-componentMd",
     "dist:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
-    "dist": "webpack --config build/webpack.production.js --mode production && npm run dist:style",
+    "dist": "npm run build:file & webpack --config build/webpack.production.js --mode production",
     "init:icon": "node build/iconinit"
   },
   "style": "lib/theme-chalk/index.css",
