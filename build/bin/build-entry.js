@@ -56,11 +56,10 @@ const install: PluginFunction<any> = (vue: VueConstructor<Vue>, options: any = {
   };
 
   vue.prototype.$Message = XbMessageTips;
-
 };
 
 module.exports = {
-  version: '{{version}}',
+  version: "{{version}}",
   locale: locale.use,
   i18n: locale.i18n,
   install,

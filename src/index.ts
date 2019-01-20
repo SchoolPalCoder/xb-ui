@@ -1,6 +1,6 @@
 /*
 * 此代码由构建工具自动生成，请勿修改此部分代码
-* 工具： './build/bin/build-entry.js'
+* 工具： '../build/bin/build-entry.js'
 */
 
 import Vue, { VueConstructor, PluginFunction } from "vue";
@@ -63,11 +63,10 @@ const install: PluginFunction<any> = (vue: VueConstructor<Vue>, options: any = {
   };
 
   vue.prototype.$Message = XbMessageTips;
-
 };
 
 module.exports = {
-  version: '1.1.0',
+  version: "1.1.0",
   locale: locale.use,
   i18n: locale.i18n,
   install,

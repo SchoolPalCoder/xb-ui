@@ -4,7 +4,7 @@
   "description": "SchoolPal's UI components",
   "main": "lib/xb-ui.common.js",
   "scripts": {
-    "build:file": "node build/bin/build-entry.js",
+    "build:file": "node build/bin/gen-icon-font.js & node build/bin/build-entry.js",
     "dev": "webpack-dev-server --config ./build/webpack.examples.conf.js ",
     "create:component": "node tools/create-component",
     "create:componentMd": "node tools/create-componentMd",
@@ -55,6 +55,8 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-clean-css": "^3.9.3",
+    "gulp-iconfont": "^10.0.2",
+    "gulp-iconfont-css": "^3.0.0",
     "gulp-less": "^4.0.1",
     "gulp-rename": "^1.4.0",
     "html-loader": "^0.5.1",
