@@ -1,11 +1,11 @@
-@spicons-font-path: "./fonts";
+@xbuiicons-font-path: "./fonts";
 @font-face {
 	font-family: "<%= fontName %>";
-	src: url('@{spicons-font-path}/<%= fontName %>.eot?v=1');
-	src: url('@{spicons-font-path}/<%= fontName %>.eot?v=1#iefix') format('eot'),
-    	url('@{spicons-font-path}/<%= fontName %>.ttf?v=1') format('truetype'),
-		url('@{spicons-font-path}/<%= fontName %>.woff?v=1') format('woff'),
-		url('@{spicons-font-path}/<%= fontName %>.svg?v=1#<%= fontName %>') format('svg');
+	src: url('@{xbuiicons-font-path}/<%= fontName %>.eot?v=1');
+	src: url('@{xbuiicons-font-path}/<%= fontName %>.eot?v=1#iefix') format('eot'),
+    	url('@{xbuiicons-font-path}/<%= fontName %>.ttf?v=1') format('truetype'),
+		url('@{xbuiicons-font-path}/<%= fontName %>.woff?v=1') format('woff'),
+		url('@{xbuiicons-font-path}/<%= fontName %>.svg?v=1#<%= fontName %>') format('svg');
 }
 
 .<%= cssClass%> {
@@ -36,7 +36,7 @@
 	}
 }
 
-<% _.each(glyphs, function(glyph) { 
+<% _.each(glyphs, function(glyph) {
     %>.<%= cssClass%>-<%= glyph.fileName.replace(/[\d]{1,}([\-])/, "") %> {
 	.<%= cssClass%>-base-pseudo(<%= glyph.fileName.replace(/[\d]{1,}([\-])/, "") %>);
 }

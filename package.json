@@ -4,7 +4,7 @@
   "description": "SchoolPal's UI components",
   "main": "lib/xb-ui.common.js",
   "scripts": {
-    "build:file": "node build/bin/gen-icon-font.js & node build/bin/build-entry.js",
+    "build:file": "gulp --gulpfile build/bin/gen-icon-font.js & node build/bin/build-entry.js",
     "dev": "webpack-dev-server --config ./build/webpack.examples.conf.js ",
     "create:component": "node tools/create-component",
     "create:componentMd": "node tools/create-componentMd",

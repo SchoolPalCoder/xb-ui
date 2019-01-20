@@ -32,5 +32,3 @@ gulp.task("Iconfont", function() {
 });
 
 gulp.task("default", ["Iconfont"]);
-
-console.log("[build icons] DONE ");
