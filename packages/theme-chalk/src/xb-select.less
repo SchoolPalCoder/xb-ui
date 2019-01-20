@@ -1,0 +1,195 @@
+@import "common/var.less";
+
+@select-prefix: ~"@{css-prefix}select";
+
+// 输入框样式
+.@{select-prefix}-div {
+  position: relative;
+}
+
+.@{select-prefix}-input {
+  width: 100%;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.@{select-prefix}-input-border {
+  border: 1px solid #cccccc;
+}
+
+.@{select-prefix}-input-large {
+  height: 40px;
+  padding: 6px 15px;
+}
+
+.@{select-prefix}-input-medium {
+  height: 32px;
+  padding: 6px 12px;
+}
+
+.@{select-prefix}-input-small {
+  height: 28px;
+  padding: 6px 10px;
+}
+
+.@{select-prefix}-input-border:hover {
+  border: 1px solid #5b8af9;
+}
+
+.@{select-prefix}-input-clearable {
+  display: none;
+}
+
+.@{select-prefix}-input-clearable:hover {
+  display: block;
+}
+
+.@{select-prefix}-input-disabled {
+  border: 1px solid #e5e5e5;
+  background-color: #f5f5f5;
+}
+
+.@{select-prefix}-input-show {
+  display: inline-block;
+  height: 100%;
+  line-height: 1;
+  cursor: pointer;
+}
+.@{select-prefix}-input-show-border {
+  width: calc(100% - 10px);
+}
+.@{select-prefix}-input-disabled-show {
+  background-color: #f5f5f5;
+  color: #c0c4cc;
+  cursor: not-allowed;
+}
+
+// 多选被选中后的样式
+.@{select-prefix}-input-multiple {
+  height: auto;
+  min-height: 32px;
+}
+
+.@{select-prefix}-multiple {
+  background-color: rgba(91, 138, 249, 0.1);
+  color: #5a5e66;
+  padding: 3px 6px 3px 10px;
+  border-radius: 3px;
+  height: 18px;
+  display: inline-block;
+  line-height: 18px;
+  font-size: 12px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.@{select-prefix}-multiple-show {
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: -2px;
+}
+
+.@{select-prefix}-multiple-icon {
+  vertical-align: middle;
+  margin-left: 8px;
+  margin-top: -2px;
+  display: inline-block;
+  color: #aaaaaa;
+  background: white;
+  border-radius: 50%;
+}
+
+// icon显示
+.@{select-prefix}-icon {
+  position: absolute;
+  top: 30%;
+  right: 12px;
+}
+
+.@{select-prefix}-icon-multiple {
+  top: 47%;
+}
+
+.@{select-prefix}-icon-gray {
+  color: #aaaaaa;
+}
+
+// 筛选框样式
+.@{select-prefix}-select-div {
+  position: absolute;
+  z-index: 2;
+  top: 32px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.06), 0 0 12px rgba(0, 0, 0, 0.06), 0 2px 12px rgba(0, 0, 0, 0.06),
+    0 0 12px rgba(0, 0, 0, 0.06);
+}
+
+.@{select-prefix}-select-ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.@{select-prefix}-select-li {
+  color: #737373;
+  font-size: 14px;
+  font-weight: 400;
+  word-break: break-word;
+  line-height: 18px;
+  padding: 0 10px 0 17px;
+  cursor: pointer;
+}
+
+.@{select-prefix}-select-li:hover {
+  background-color: #f4f8ff;
+}
+
+.@{select-prefix}-select-li-span {
+  display: inline-block;
+  width: calc(100% - 25px);
+  vertical-align: middle;
+  padding: 7px 0;
+}
+
+.@{select-prefix}-select-li-icon {
+  display: inline-block;
+  width: 15px;
+  vertical-align: middle;
+}
+
+// 分组显示
+.@{select-prefix}-select-li-group {
+  border-bottom: 1px solid #dcdfe6;
+  margin: 0 0 10px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.@{select-prefix}-select-li-group:last-child {
+  border-bottom: none;
+}
+
+.@{select-prefix}-select-li-group-title {
+  color: #aaaaaa;
+  font-size: 12px;
+  padding: 5px 10px 5px 17px;
+  cursor: default;
+}
+
+.@{select-prefix}-select-li-group-content {
+  padding: 5px 10px 5px 17px;
+}
+
+// 禁用
+.@{select-prefix}-select-disabled {
+  color: #c0c4cc;
+  cursor: not-allowed;
+}
+
+.@{select-prefix}-select-disabled:hover {
+  background-color: transparent !important;
+}
