@@ -1,9 +1,8 @@
 const path = require("path");
 const baseConf = require("./webpack.base");
-const utils = require("./utils");
+const path = require("path");
 const merge = require("webpack-merge");
 const config = require("./config");
-const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const MarkdownItAncher = require("markdown-it-anchor");
 // const MarkdownItContainer = require("markdown-it-container");
@@ -67,6 +66,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 //   },
 // };
 
+const resolve = (pathStr) => {
+  return path.resolve(__dirname, pathStr);
+};
+
 console.log("run at http://127.0.0.1:8086");
 
 module.exports = merge(baseConf, {
@@ -91,10 +94,10 @@ module.exports = merge(baseConf, {
   resolve: {
     extensions: [".js", ".vue", ".json", ".ts"],
     alias: Object.assign(config.alias, {
-      examples: utils.dirname_resolve("../examples"),
-      docs: utils.dirname_resolve("../examples/docs"),
-      guide: utils.dirname_resolve("../examples/docs/guide"),
-      components: utils.dirname_resolve("../examples/docs/components"),
+      examples: resolve("../examples"),
+      docs: resolve("../examples/docs"),
+      guide: resolve("../examples/docs/guide"),
+      components: resolve("../examples/docs/components"),
     }),
     modules: ["node_modules"],
   },
@@ -121,6 +124,5 @@ module.exports = merge(baseConf, {
       filename: "./index.html",
       favicon: "./examples/favicon.ico",
     }),
-    new ProgressBarPlugin(),
   ],
 });

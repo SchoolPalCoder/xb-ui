@@ -4,9 +4,8 @@
   "description": "SchoolPal's UI components",
   "main": "lib/xb-ui.common.js",
   "scripts": {
+    "build:file": "node build/bin/build-entry.js",
     "dev": "webpack-dev-server --config ./build/webpack.examples.conf.js ",
-    "dist:dev": "webpack --config ./build/webpack.examples.dist.conf.js",
-    "debug": "node --inspect-brk node_modules/.bin/webpack --config ./build/webpack.examples.conf.js",
     "create:component": "node tools/create-component",
     "create:componentMd": "node tools/create-componentMd",
     "dist:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
@@ -106,6 +105,7 @@
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.6.0"
   },
   "peerDependencies": {
@@ -114,7 +114,6 @@
   "dependencies": {
     "async-validator": "^1.10.1",
     "deepmerge": "^2.2.1",
-    "element-resize-detector": "^1.1.14",
-    "webpack-merge": "^4.2.1"
+    "element-resize-detector": "^1.1.14"
   }
 }

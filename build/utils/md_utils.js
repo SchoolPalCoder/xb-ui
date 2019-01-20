@@ -1,15 +1,3 @@
-"use strict";
-
-const path = require("path");
-
-/**
- * path.resolve(__dirname, 'xxx')的简写
- * @param {String} pathStr
- */
-exports.dirname_resolve = (pathStr) => {
-  return path.resolve(__dirname, pathStr);
-};
-
 exports.wrapCustomClass = function(render) {
   return function(...args) {
     return render(...args)

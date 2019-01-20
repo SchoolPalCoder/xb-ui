@@ -1,51 +1,105 @@
-import { camelCase, upperFirst } from "lodash";
+/*
+* 此代码由构建工具自动生成，请勿修改此部分代码
+* 工具： './build/bin/build-entry.js'
+*/
 
-const requireComponent = require.context(
-  // 其组件目录的相对路径
-  "../packages",
-  // 是否查询其子目录
-  true,
-  // 匹配基础组件文件名的正则表达式
-  /index\.ts$/
-);
+import Vue, { VueConstructor, PluginFunction } from "vue";
+import locale from "src/locale";
+import XbButton from "@/xb-button/index.ts";
+import XbCheckbox from "@/xb-checkbox/index.ts";
+import XbCheckboxGroup from "@/xb-checkbox-group/index.ts";
+import XbColor from "@/xb-color/index.ts";
+import XbForm from "@/xb-form/index.ts";
+import XbFormItem from "@/xb-form-item/index.ts";
+import XbIcon from "@/xb-icon/index.ts";
+import XbInputNumber from "@/xb-input-number/index.ts";
+import XbLoading from "@/xb-loading/index.ts";
+import XbMessageTips from "@/xb-message-tips/index.ts";
+import XbNav from "@/xb-nav/index.ts";
+import XbNavItem from "@/xb-nav-item/index.ts";
+import XbPoptip from "@/xb-poptip/index.ts";
+import XbPopupWindow from "@/xb-popup-window/index.ts";
+import XbRadio from "@/xb-radio/index.ts";
+import XbRadioGroup from "@/xb-radio-group/index.ts";
+import XbSearchBtn from "@/xb-search-btn/index.ts";
+import XbSubnav from "@/xb-subnav/index.ts";
+import XbTable from "@/xb-table/index.ts";
+import XbText from "@/xb-text/index.ts";
 
-const install = function (Vue, opts = {}) {
+const components = [
+  XbButton,
+  XbCheckbox,
+  XbCheckboxGroup,
+  XbColor,
+  XbForm,
+  XbFormItem,
+  XbIcon,
+  XbInputNumber,
+  XbLoading,
+  XbMessageTips,
+  XbNav,
+  XbNavItem,
+  XbPoptip,
+  XbPopupWindow,
+  XbRadio,
+  XbRadioGroup,
+  XbSearchBtn,
+  XbSubnav,
+  XbTable,
+  XbText,
+];
 
-  requireComponent.keys().forEach((fileName) => {
-    if (fileName !== "theme-chalk") {
-      // 获取组件配置
-      const componentConfig = requireComponent(fileName);
+const install: PluginFunction<any> = (vue: VueConstructor<Vue>, options: any = {}) => {
+  locale.use(options.locale);
+  locale.i18n(options.i18n);
 
-      // 获取组件的 PascalCase 命名
-      const componentName = upperFirst(
-        camelCase(
-          // 剥去文件名开头的 `./` 和结尾的扩展名
-          fileName.replace(/^\.\/(.*)\/index\.ts+$/, "$1")
-        )
-      );
-
-      // 全局注册组件
-      Vue.component(
-        componentName,
-        // 如果这个组件选项是通过 `export default` 导出的，
-        // 那么就会优先使用 `.default`，
-        // 否则回退到使用模块的根。
-        componentConfig.default || componentConfig
-      );
-      if (componentName === "XbMessageTips") {
-        Vue.prototype.$message = componentConfig.default;
-      }
-    }
+  Object.keys(components).forEach((component) => {
+    vue.component(component, components[component]);
   });
+
+  vue.prototype.$XBUI = {
+    size: options.size || "",
+    transfer: "transfer" in options ? options.transfer : "",
+  };
+
+  vue.prototype.$Message = XbMessageTips;
+
 };
 
-// if (typeof window !== 'undefined' && window.Vue) {
-//   install(window.Vue);
-// }
-
 module.exports = {
-  version: "1.0.0",
+  version: '1.1.0',
+  locale: locale.use,
+  i18n: locale.i18n,
   install,
+  lang: (code) => {
+    const langObject = window["xbui/locale"].default;
+    if (code === langObject.i.locale) {
+      locale.use(langObject);
+    } else {
+      // tslint:disable-next-line:no-console
+      console.log(`The ${code} language pack is not loaded.`);
+    }
+  },
+  XbButton,
+  XbCheckbox,
+  XbCheckboxGroup,
+  XbColor,
+  XbForm,
+  XbFormItem,
+  XbIcon,
+  XbInputNumber,
+  XbLoading,
+  XbMessageTips,
+  XbNav,
+  XbNavItem,
+  XbPoptip,
+  XbPopupWindow,
+  XbRadio,
+  XbRadioGroup,
+  XbSearchBtn,
+  XbSubnav,
+  XbTable,
+  XbText
 };
 
 module.exports.default = module.exports;

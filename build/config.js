@@ -24,11 +24,6 @@ const newExternals = [
 
 exports.externals = newExternals;
 
-exports.alias = {
-  "@": path.resolve(__dirname, "../packages"),
-  src: path.resolve(__dirname, "../src"),
-};
-
 exports.vue = {
   root: "Vue",
   commonjs: "vue",

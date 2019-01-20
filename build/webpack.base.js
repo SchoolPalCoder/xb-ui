@@ -3,8 +3,9 @@
  */
 const path = require("path");
 const webpack = require("webpack");
-const pkg = require("../package.json");
+const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const pkg = require("../package.json");
 
 module.exports = {
   resolve: {
@@ -82,5 +83,11 @@ module.exports = {
       },
     ],
   },
-  plugins: [new VueLoaderPlugin()],
+  plugins: [
+    new ProgressBarPlugin(),
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      "process.env.VERSION": `'${pkg.version}'`,
+    }),
+  ],
 };
