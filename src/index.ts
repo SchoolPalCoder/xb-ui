@@ -22,6 +22,7 @@ import XbPopupWindow from "@/xb-popup-window/index.ts";
 import XbRadio from "@/xb-radio/index.ts";
 import XbRadioGroup from "@/xb-radio-group/index.ts";
 import XbSearchBtn from "@/xb-search-btn/index.ts";
+import XbSelect from "@/xb-select/index.ts";
 import XbSubnav from "@/xb-subnav/index.ts";
 import XbTable from "@/xb-table/index.ts";
 import XbText from "@/xb-text/index.ts";
@@ -44,6 +45,7 @@ const components = [
   XbRadio,
   XbRadioGroup,
   XbSearchBtn,
+  XbSelect,
   XbSubnav,
   XbTable,
   XbText,
@@ -96,6 +98,7 @@ module.exports = {
   XbRadio,
   XbRadioGroup,
   XbSearchBtn,
+  XbSelect,
   XbSubnav,
   XbTable,
   XbText

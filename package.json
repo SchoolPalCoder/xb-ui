@@ -2,8 +2,7 @@
   "name": "xb-ui",
   "version": "1.1.0",
   "description": "SchoolPal's UI components",
-  "main": "lib/xb-ui.common.js",
-  "unpkg": "lib/index.js",
+  "main": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "scripts": {
     "build:file": "gulp --gulpfile build/bin/gen-icon-font.js & node build/bin/build-entry.js",
