@@ -1,0 +1,43 @@
+@xbuiicons-font-path: "./fonts";
+@font-face {
+	font-family: "<%= fontName %>";
+	src: url('@{xbuiicons-font-path}/<%= fontName %>.eot?v=1');
+	src: url('@{xbuiicons-font-path}/<%= fontName %>.eot?v=1#iefix') format('eot'),
+    	url('@{xbuiicons-font-path}/<%= fontName %>.ttf?v=1') format('truetype'),
+		url('@{xbuiicons-font-path}/<%= fontName %>.woff?v=1') format('woff'),
+		url('@{xbuiicons-font-path}/<%= fontName %>.svg?v=1#<%= fontName %>') format('svg');
+}
+
+.<%= cssClass%> {
+	font-family: "<%= fontName %>";
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+<% _.each(glyphs, function(glyph) { %>@icon-<%= glyph.fileName.replace(/[\d]{1,}([\-])/, "") %>: "\<%= glyph.codePoint %>";
+<% }); %>
+
+.<%= cssClass%>-char(@icon-variable) {
+	content: @@icon-variable;
+}
+
+.<%= cssClass%>-base-pseudo(@filename, @insert: before) {
+	@pseudo-selector: ~":@{insert}";
+    @icon-variable: ~"icon-@{filename}";
+	&@{pseudo-selector} {
+		.<%= cssClass%>-char(@icon-variable);
+	}
+}
+
+<% _.each(glyphs, function(glyph) {
+    %>.<%= cssClass%>-<%= glyph.fileName.replace(/[\d]{1,}([\-])/, "") %> {
+	.<%= cssClass%>-base-pseudo(<%= glyph.fileName.replace(/[\d]{1,}([\-])/, "") %>);
+}
+<% }); %>

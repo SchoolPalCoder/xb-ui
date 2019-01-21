@@ -1,0 +1,83 @@
+@import "common/var.less";
+@import "mixins/clearfix.less";
+
+@nav-prefix: ~"@{css-prefix}nav";
+
+.@{nav-prefix}{
+    position: relative;
+    z-index: 1000;
+    display: block;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    list-style: none;
+    color: @color-gray2;
+    font-size: @font-size-base;
+    .clearfix;
+    &-primary{
+        background: @color-primary6;
+    }
+    &-item{
+        position: relative;
+        display: block;
+        z-index: 1;
+        padding-left: 43px;
+        list-style: none;
+        outline: none;
+        font-size: @font-size-base;
+        cursor: pointer;
+        &>i{
+          margin-right: 6px;  
+        }
+    }
+    &-vertical &-item,
+    &-vertical &-subnav-title{
+        padding: 14px 24px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1;
+        transition: all @transition-time @ease-in-out;
+        &-icon{
+            float: right;
+            position: relative;
+            top: 4px;
+            transition: transform @transition-time @ease-in-out;
+        }
+    }
+    &-vertical &-subnav-title{
+        background-color:  @color-primary7;
+        &>i{
+            margin-right: 8px; 
+        }
+    }
+    &-subnav-list{
+        transition: all @transition-time @ease-in-out;
+    }
+    // &-horizontal &-item{
+    //     float: left;
+    //     padding: 0 20px;
+    //     position: relative;
+    //     cursor: pointer;
+    //     z-index: 3;
+    //     transition: all @transition-time @ease-in-out;
+    //     height: 60px;
+    //     line-height: 60px;
+    // }
+    &-primary{
+        &.@{nav-prefix}-vertical .@{nav-prefix}-item{
+            color: @color-gray2;
+            &:hover{
+                color: @color-white;
+                background: @color-primary5;
+            }
+            &-active, &-active:hover{
+                color: @color-white;
+                background: @color-primary5;
+            }
+        }
+    }
+    &-opened > * > &-subnav-title-icon{
+        transform: rotate(180deg);
+    }
+}
+

@@ -66,6 +66,10 @@
               {
                 "text": "xb-search-btn",
                 "path": "/xb-search-btn"
+              },
+              {
+                "text": "xb-select",
+                "path": "/xb-select"
               }
             ]
           },
@@ -117,7 +121,12 @@
           {
             "groupName": "导航组件",
             "folder": "navigation",
-            "list": []
+            "list": [
+              {
+                "text": "xb-nav",
+                "path": "/xb-nav"
+              }
+            ]
           },
           {
             "groupName": "其他组件",
