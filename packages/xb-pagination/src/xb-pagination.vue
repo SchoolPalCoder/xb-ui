@@ -1,26 +1,42 @@
 <template>
   <div :class="prefixCls">
     <span :class="[prefixCls + '-total']">共{{total}}条</span>
-    <ul>
+    <ul :class="{[prefixCls+ '-bg']:background}">
       <li :class="[prefixCls + '-item']" @click="arrowLeftClick">
         <a>
           <xb-icon type="arrow-left"></xb-icon>
         </a>
       </li>
-      <li :class="[prefixCls + '-item']" v-for="p in frontPages">
-        <a>{{p}}</a>
+      <li
+        :class="[prefixCls + '-item',{[prefixCls + '-current']:p === currentPage}]"
+        v-for="p in frontPages"
+      >
+        <a @click="pageClick(p)">{{p}}</a>
       </li>
-      <li v-if="currentPage>4" :class="[prefixCls + '-item']">
+      <li
+        v-if="frontPages.length===1&&(centerPages.length||behindPages.length)"
+        :class="[prefixCls + '-item']"
+      >
         <a>...</a>
       </li>
-      <li :class="[prefixCls + '-item']" v-for="p in centerPages">
-        <a>{{p}}</a>
+      <li
+        :class="[prefixCls + '-item',{[prefixCls + '-current']:p === currentPage}]"
+        v-for="p in centerPages"
+      >
+        <a @click="pageClick(p)">{{p}}</a>
       </li>
-      <li v-if="currentPage < pageCount - 3" :class="[prefixCls + '-item']">
+      <li
+        v-if="behindPages.length===1&&(frontPages.length || centerPages.length)"
+        :class="[prefixCls + '-item']"
+      >
         <a>...</a>
       </li>
-      <li v-if="pageCount>1" :class="[prefixCls + '-item']" v-for="p in behindPages">
-        <a>{{p}}</a>
+      <li
+        v-if="pageCount>1"
+        :class="[prefixCls + '-item',{[prefixCls + '-current']:p === currentPage}]"
+        v-for="p in behindPages"
+      >
+        <a @click="pageClick(p)">{{p}}</a>
       </li>
       <li :class="[prefixCls + '-item']" @click="arrowRightClick">
         <a>
@@ -57,12 +73,22 @@ export default class XbPagination extends Vue {
 
   //是否显示pageSize下拉选择
   @Prop({ type: Boolean, default: false })
-  showSizer!: boolean;
+
+  //是否为分页按钮添加背景色
+  @Prop({ type: Boolean, default: false })
+  background!: boolean;
+
   prefixCls = "xbui-pagination";
   arrowLeftClick(event: void) {
-    this.$emit("page-change", { "0": this.currentPage - 1, "1": this.pageSize });
+    this.currentPage = this.currentPage - 1;
+    this.$emit("page-change", { "0": this.currentPage, "1": this.pageSize });
   }
   arrowRightClick(event: void) {
+    this.currentPage = this.currentPage + 1;
+    this.$emit("page-change", { "0": this.currentPage, "1": this.pageSize });
+  }
+  pageClick(p: number) {
+    this.currentPage = p;
     this.$emit("page-change", { "0": this.currentPage + 1, "1": this.pageSize });
   }
   //获取总页数
@@ -71,7 +97,11 @@ export default class XbPagination extends Vue {
   }
   //获取前部分页码范围
   get frontPages() {
-    return this.currentPage < 5 ? Array.from({ length: 5 }, (value, index) => index + 1) : [1];
+    return this.pageCount < 6
+      ? Array.from({ length: this.pageCount }, (value, index) => index + 1)
+      : this.currentPage < 5
+      ? Array.from({ length: 5 }, (value, index) => index + 1)
+      : [1];
   }
   //获取中间部分页码范围
   get centerPages() {
@@ -81,9 +111,11 @@ export default class XbPagination extends Vue {
   }
   //获取后部分页码范围
   get behindPages() {
-    return this.currentPage > this.pageCount - 4
-      ? Array.from({ length: 5 }, (value, index) => this.pageCount - 4 + index)
-      : [this.pageCount];
+    return this.pageCount > 5
+      ? this.pageCount < this.currentPage + 4
+        ? Array.from({ length: 5 }, (value, index) => this.pageCount - 4 + index)
+        : [this.pageCount]
+      : [];
   }
 }
 </script>
