@@ -4,7 +4,7 @@ const os = require("os");
 const pkg = require("../../package.json");
 const utils = require("../utils");
 
-const ComponentNames = utils.readDirSync(path.resolve(process.cwd(), "packages"), /^xb-(([a-z]|-)+$)/);
+const componentNames = utils.readDirSync(path.resolve(process.cwd(), "./packages"), /^xb-(([a-z]|-)+$)/);
 
 const endOfLine = os.EOL;
 const OUTPUT_PATH = path.join(__dirname, "../../src/index.ts");
@@ -63,7 +63,7 @@ const includeComponentTemplate = [];
 const installTemplate = [];
 const listTemplate = [];
 
-ComponentNames.forEach((name) => {
+componentNames.forEach((name) => {
   const componentName = utils.upperCamelCase(name);
 
   includeComponentTemplate.push(
