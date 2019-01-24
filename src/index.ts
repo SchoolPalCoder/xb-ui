@@ -17,6 +17,7 @@ import XbLoading from "@/xb-loading/index.ts";
 import XbMessageTips from "@/xb-message-tips/index.ts";
 import XbNav from "@/xb-nav/index.ts";
 import XbNavItem from "@/xb-nav-item/index.ts";
+import XbPagination from "@/xb-pagination/index.ts";
 import XbPoptip from "@/xb-poptip/index.ts";
 import XbPopupWindow from "@/xb-popup-window/index.ts";
 import XbRadio from "@/xb-radio/index.ts";
@@ -40,6 +41,7 @@ const components = [
   XbMessageTips,
   XbNav,
   XbNavItem,
+  XbPagination,
   XbPoptip,
   XbPopupWindow,
   XbRadio,
@@ -93,6 +95,7 @@ module.exports = {
   XbMessageTips,
   XbNav,
   XbNavItem,
+  XbPagination,
   XbPoptip,
   XbPopupWindow,
   XbRadio,
