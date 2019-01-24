@@ -11,36 +11,36 @@
   cursor: pointer;
   text-decoration: none;
   position: relative;
-  color: #737373;
+  color: @color-gray5;
   margin-right: -4px !important;
   transition: color 0.3s ease-in-out;
 
   &:hover {
-    color: #57a3f3;
+    color: @color-primary;
   }
   &-disabled {
-    cursor: not-allowed;
-    color: #ccc;
+    cursor: @cursor-disabled;
+    color: @color-gray3;
   }
   &-disabled:hover {
-    color: #ccc;
+    color: @color-gray3;
   }
 }
 
 // 普通样式
 .@{tabs-prefix}-nav-line {
-  border-bottom: 1px solid #e4e7ed;
+  border-bottom: 1px solid @color-gray5;
   &-active {
-    border-bottom: 2px solid #5b8af9;
-    color: #5b8af9;
+    border-bottom: 2px solid @color-primary;
+    color: @color-primary;
   }
 }
 
 // 卡片样式
 .@{tabs-prefix}-nav-card {
-  background: #fff;
+  background: @color-white;
   margin: 0;
-  border: 1px solid #dcdee2;
+  border: 1px solid @color-gray2;
   border-bottom: 0;
   border-radius: 0;
   &:first-child {
@@ -52,15 +52,15 @@
     border-left: 0;
   }
   &-active {
-    color: #5b8af9;
+    color: @color-primary;
   }
 }
 
 // 按钮样式
 .@{tabs-prefix}-nav-btn {
-  background: #fff;
+  background: @color-white;
   margin: 0;
-  border: 1px solid #dcdee2;
+  border: 1px solid @color-gray3;
   border-radius: 0;
   &:first-child {
     border-radius: 4px 0 0 4px;
@@ -71,8 +71,8 @@
     border-left: 0;
   }
   &-active {
-    color: #5b8af9;
-    background: #f4f8ff;
+    color: @color-primary;
+    background: @color-primary1;
   }
 }
 
@@ -91,7 +91,7 @@
     border-left: 0;
   }
   &-active {
-    color: #5b8af9;
-    background: #fff;
+    color: @color-primary;
+    background: @color-white;
   }
 }
