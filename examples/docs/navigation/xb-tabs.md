@@ -8,18 +8,63 @@
 
 <div class="demo-button">
   <div>
-  <xb-tabs></xb-tabs>
-    <!-- <xb-tabs value='标签一'>
+    <xb-tabs value="标签一">
         <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
         <xb-tabs-pane label="标签二">标签二的内容</xb-tabs-pane>
         <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
-    </xb-tabs> -->
+    </xb-tabs>
   </div>
 </div>
 
+```html
+<xb-tabs value="标签一">
+  <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签二">标签二的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+</xb-tabs>
+```
+
 ## 禁用某一项
 
+禁用的选项与 xb-tabs 被选中的选项，不能是同一个
+
+<div class="demo-button">
+  <div>
+    <xb-tabs value="标签一">
+        <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签二" disabled="true">标签二的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+    </xb-tabs>
+  </div>
+</div>
+
+```html
+<xb-tabs value="标签一">
+  <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签二" disabled="true">标签二的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+</xb-tabs>
+```
+
 ## 文案前加图标
+
+<div class="demo-button">
+  <div>
+    <xb-tabs value="标签一">
+        <xb-tabs-pane label="标签一" icon="edit">标签一的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签二" icon="achievement">标签二的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签三" icon="activity">标签三的内容</xb-tabs-pane>
+    </xb-tabs>
+  </div>
+</div>
+
+```html
+<xb-tabs value="标签一">
+  <xb-tabs-pane label="标签一" icon="edit">标签一的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签二" icon="achievement">标签二的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签三" icon="activity">标签三的内容</xb-tabs-pane>
+</xb-tabs>
+```
 
 ## 可关闭标签
 
@@ -29,25 +74,49 @@
 
 <div class="demo-button">
   <div>
-    <xb-tabs type='card'></xb-tabs>
+    <xb-tabs value="标签一" type="card">
+        <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签二">标签二的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+    </xb-tabs>
   </div>
 </div>
+
+```html
+<xb-tabs value="标签一" type="card"> ... </xb-tabs>
+```
 
 #### 按钮样式
 
 <div class="demo-button">
   <div>
-    <xb-tabs type='btn'></xb-tabs>
+  <xb-tabs value="标签一" type="btn">
+        <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签二">标签二的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+    </xb-tabs>
   </div>
 </div>
+
+```html
+<xb-tabs value="标签一" type="btn"> ... </xb-tabs>
+```
 
 #### 滑块样式
 
 <div class="demo-button">
   <div>
-    <xb-tabs type='slider'></xb-tabs>
+  <xb-tabs value="标签一" type="slider">
+        <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签二">标签二的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+    </xb-tabs>
   </div>
 </div>
+
+```html
+<xb-tabs value="标签一" type="slider"> ... </xb-tabs>
+```
 
 ## 自定义编辑文案样式
 
@@ -67,13 +136,19 @@
 
 #### 自定义修改样式
 
-<script>
-  export default {
-    data() {
-      return {
+## 参数表
 
+#### xb-tabs
 
-      }
-    }
-  }
-</script>
+| 参数名 | 参数说明                                                    | 类型   | 可选值                  | 默认值 |
+| :----- | :---------------------------------------------------------- | :----- | :---------------------- | :----- |
+| value  | 被选中的值，其内容必须与 xb-tabs-pane 的 label 中的一个相同 | string | ——                      | ——     |
+| type   | 切换组件 样式展示                                           | string | line, card, btn, slider | line   |
+
+#### xb-tabs-pane
+
+| 参数名   | 参数说明                               | 类型   | 可选值 | 默认值 |
+| :------- | :------------------------------------- | :----- | :----- | :----- |
+| label    | 标签，用来与 xb-tabs 的 value 进行匹配 | string | ——     | ——     |
+| disabled | 禁用某一选项                           | object | ——     | false  |
+| icon     | 文案前面的 icon                        | string | ——     | ——     |

@@ -2,8 +2,6 @@
 
 @tabs-prefix: ~"@{css-prefix}tabs";
 
-.@{tabs-prefix}-nav {
-}
 .@{tabs-prefix}-nav-item {
   display: inline-block;
   font-weight: 400;
@@ -14,20 +12,30 @@
   text-decoration: none;
   position: relative;
   color: #737373;
+  margin-right: -4px !important;
   transition: color 0.3s ease-in-out;
-}
-.@{tabs-prefix}-nav-item:hover {
-  color: #57a3f3;
-}
-// 普通样式
-.@{tabs-prefix}-nav-line {
-  margin-right: 16px;
+
+  &:hover {
+    color: #57a3f3;
+  }
+  &-disabled {
+    cursor: not-allowed;
+    color: #ccc;
+  }
+  &-disabled:hover {
+    color: #ccc;
+  }
 }
 
-.@{tabs-prefix}-nav-line-active {
-  border-bottom: 2px solid #5b8af9;
-  color: #5b8af9;
+// 普通样式
+.@{tabs-prefix}-nav-line {
+  border-bottom: 1px solid #e4e7ed;
+  &-active {
+    border-bottom: 2px solid #5b8af9;
+    color: #5b8af9;
+  }
 }
+
 // 卡片样式
 .@{tabs-prefix}-nav-card {
   background: #fff;
@@ -35,53 +43,55 @@
   border: 1px solid #dcdee2;
   border-bottom: 0;
   border-radius: 0;
+  &:first-child {
+    border-radius: 4px 0 0 0;
+    border-right: 0;
+  }
+  &:last-child {
+    border-radius: 0 4px 0 0;
+    border-left: 0;
+  }
+  &-active {
+    color: #5b8af9;
+  }
 }
-.@{tabs-prefix}-nav-card:first-child {
-  border-radius: 4px 0 0 0;
-  border-right: 0;
-}
-.@{tabs-prefix}-nav-card:last-child {
-  border-radius: 0 4px 0 0;
-  border-left: 0;
-}
-.@{tabs-prefix}-nav-card-active {
-  color: #5b8af9;
-}
+
 // 按钮样式
 .@{tabs-prefix}-nav-btn {
   background: #fff;
   margin: 0;
   border: 1px solid #dcdee2;
   border-radius: 0;
+  &:first-child {
+    border-radius: 4px 0 0 4px;
+    border-right: 0;
+  }
+  &:last-child {
+    border-radius: 0 4px 4px 0;
+    border-left: 0;
+  }
+  &-active {
+    color: #5b8af9;
+    background: #f4f8ff;
+  }
 }
-.@{tabs-prefix}-nav-btn:first-child {
-  border-radius: 4px 0 0 4px;
-  border-right: 0;
-}
-.@{tabs-prefix}-nav-btn:last-child {
-  border-radius: 0 4px 4px 0;
-  border-left: 0;
-}
-.@{tabs-prefix}-nav-btn-active {
-  color: #5b8af9;
-  background: #f4f8ff;
-}
+
 // 滑块样式
 .@{tabs-prefix}-nav-slider {
   background: rgba(91, 138, 249, 0.1);
   margin: 0;
-  border: 1px solid rgba(91, 138, 249, 0.1);
+  border: 2px solid rgba(91, 138, 249, 0.1);
   border-radius: 0;
-}
-.@{tabs-prefix}-nav-slider:first-child {
-  border-radius: 4px 0 0 4px;
-  border-right: 0;
-}
-.@{tabs-prefix}-nav-slider:last-child {
-  border-radius: 0 4px 4px 0;
-  border-left: 0;
-}
-.@{tabs-prefix}-nav-slider-active {
-  color: #5b8af9;
-  background: #fff;
+  &:first-child {
+    border-radius: 4px 0 0 4px;
+    border-right: 0;
+  }
+  &:last-child {
+    border-radius: 0 4px 4px 0;
+    border-left: 0;
+  }
+  &-active {
+    color: #5b8af9;
+    background: #fff;
+  }
 }
