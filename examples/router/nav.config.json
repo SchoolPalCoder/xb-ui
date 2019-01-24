@@ -121,6 +121,10 @@
               {
                 "text": "xb-nav",
                 "path": "/xb-nav"
+              },
+              {
+                "text": "xb-tabs",
+                "path": "/xb-tabs"
               }
             ]
           },
