@@ -1,7 +1,11 @@
 <template>
   <div :style="{'border-bottom':type==='card'?'1px solid #e5e5e5':''}">
     <div :class="prefixCls+'-nav'">
-      <div v-if="type==='card'" :class="prefixCls+'-nav-border'" :style="{'width':borderWidth+'px','left':borderLeft+'px'}"></div>
+      <div
+        v-if="type==='card'"
+        :class="prefixCls+'-nav-border'"
+        :style="{'width':borderWidth+'px','left':borderLeft+'px'}"
+      ></div>
       <slot></slot>
     </div>
     <div style="clear:both"></div>

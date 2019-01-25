@@ -1,8 +1,20 @@
 <template>
-  <div :class="[prefixCls+'-nav-item',prefixCls+'-nav-'+parentType,isAcitve?prefixCls+'-nav-'+parentType+'-active':'',disabled?prefixCls+'-nav-item-disabled':'']" @click="handleClick()" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+  <div
+    :class="[prefixCls+'-nav-item',prefixCls+'-nav-'+parentType,isAcitve?prefixCls+'-nav-'+parentType+'-active':'',disabled?prefixCls+'-nav-item-disabled':'']"
+    @click="handleClick()"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
+  >
     <xb-icon :class="prefixCls+'-nav-vertical'" :type="icon" v-if="icon"></xb-icon>
-    <span :class="prefixCls+'-nav-vertical'"><slot></slot></span>
-    <xb-icon :class="prefixCls+'-nav-vertical'" type="close" v-if="(closable&&$parent.type==='card')&&(isAcitve||isIcon)" @click.native.stop="removeClick()"></xb-icon>
+    <span :class="prefixCls+'-nav-vertical'">
+      <slot></slot>
+    </span>
+    <xb-icon
+      :class="prefixCls+'-nav-vertical'"
+      type="close"
+      v-if="(closable&&$parent.type==='card')&&(isAcitve||isIcon)"
+      @click.native.stop="removeClick()"
+    ></xb-icon>
   </div>
 </template>
 
