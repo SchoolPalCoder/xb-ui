@@ -11,7 +11,7 @@
   box-sizing: border-box;
   position: relative;
   &-border {
-    height: 4px;
+    height: 2px;
     box-sizing: border-box;
     background-color: @color-white;
     position: absolute;
@@ -65,9 +65,13 @@
     border-radius: 4px 0 0 0;
     border-right: 0;
   }
+  &:nth-child(n + 3) {
+    border-radius: 0;
+    border-right: 0;
+  }
   &:last-child {
     border-radius: 0 4px 0 0;
-    border-left: 0;
+    border-right: 1px solid @color-gray2;
   }
   &-active {
     color: @color-primary;
