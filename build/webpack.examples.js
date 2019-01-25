@@ -66,13 +66,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // };
 
 const resolve = (pathStr) => {
-  return path.resolve(__dirname, pathStr);
+  return path.resolve(process.cwd(), pathStr);
 };
 
 console.log("run at http://127.0.0.1:8086");
 
 module.exports = merge(baseConf, {
-  mode: "development",
   entry: {
     app: "./examples/main.ts",
   },
@@ -87,24 +86,29 @@ module.exports = merge(baseConf, {
   },
   devtool: "inline-source-map",
   output: {
-    path: path.resolve(process.cwd(), "./examples/dist/"),
+    path: resolve("./examples/dist/"),
     filename: "[name].js",
   },
   resolve: {
     extensions: [".js", ".vue", ".json", ".ts"],
-    alias: Object.assign(config.alias, {
-      examples: resolve("../examples"),
-      docs: resolve("../examples/docs"),
-      guide: resolve("../examples/docs/guide"),
-      components: resolve("../examples/docs/components"),
-    }),
+    alias: {
+      examples: resolve("./examples"),
+      docs: resolve("./examples/docs"),
+      guide: resolve("./examples/docs/guide"),
+      components: resolve("./examples/docs/components"),
+    },
     modules: ["node_modules"],
   },
   module: {
     noParse: /^(vue|vue-router|vuex|vuex-router-sync)$/,
     rules: [
       {
+        test: /\.css$/,
+        loader: ["style-loader", "css-loader"],
+      },
+      {
         test: /\.md$/,
+        include: [resolve("./examples/docs")],
         use: [
           {
             loader: "vue-loader",

@@ -6,11 +6,12 @@
   "style": "lib/theme-chalk/index.css",
   "scripts": {
     "build:file": "gulp --gulpfile build/bin/gen-icon-font.js & node build/bin/build-entry.js",
-    "dev": "webpack-dev-server --config ./build/webpack.examples.conf.js ",
+    "dev": "webpack-dev-server --config ./build/webpack.examples.js --mode=development ",
+    "prod": "webpack-dev-server --config ./build/webpack.examples.js --mode=production ",
     "create:component": "node tools/create-component",
     "create:componentMd": "node tools/create-componentMd",
     "dist:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
-    "dist": "npm run build:file & npm run dist:style & webpack --config build/webpack.production.js --mode production",
+    "dist": "npm run build:file & npm run dist:style & webpack --config build/webpack.production.js",
     "init:icon": "node build/iconinit"
   },
   "repository": {
@@ -100,7 +101,6 @@
     "vue": "^2.5.22",
     "vue-loader": "^15.5.1",
     "vue-markdown-loader": "^2.4.1",
-    "vue-property-decorator": "^7.3.0",
     "vue-router": "^2.3.0",
     "vue-template-compiler": "^2.5.22",
     "webpack": "^4.28.4",
@@ -110,11 +110,12 @@
     "webpack-node-externals": "^1.6.0"
   },
   "peerDependencies": {
-    "vue": "^2.5.17"
+    "vue": "^2.5.22"
   },
   "dependencies": {
     "async-validator": "^1.10.1",
     "deepmerge": "^2.2.1",
-    "element-resize-detector": "^1.1.14"
+    "element-resize-detector": "^1.1.14",
+    "vue-property-decorator": "^7.3.0"
   }
 }
