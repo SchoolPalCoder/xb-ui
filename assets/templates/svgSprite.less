@@ -1,0 +1,15 @@
+.<%=common %> {
+      font-size: <%= baseSize %>px;
+      vertical-align:middle;
+      display: inline-block;
+      background-image: url("<%=svgPath%>");
+      background-repeat: no-repeat;
+      background-size: <%= relWidth %>em <%= relHeight %>em;
+}
+<% _.each(svg, function(svgItem) { 
+    %>.<%=common %>.<%=svgItem.name%> {
+      background-position: <%= svgItem.relPositionX %>em <%= svgItem.relPositionY %>em;
+      width: <%= svgItem.relWidth %>em;
+      height: <%= svgItem.relHeight %>em;
+  }
+<% }); %>
