@@ -23,12 +23,9 @@ module.exports = merge(baseConf, {
     libraryTarget: "commonjs2",
   },
   externals: config.externals,
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //     "process.env.NODE_ENV": JSON.stringify("production"),
-  //   }),
-  //   new webpack.LoaderOptionsPlugin({
-  //     minimize: true,
-  //   }),
-  // ],
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    }),
+  ],
 });

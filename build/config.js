@@ -1,12 +1,13 @@
 const path = require("path");
 const fs = require("fs");
 const nodeExternals = require("webpack-node-externals");
-const Components = require("../components.json");
-const utilsList = fs.readdirSync(path.resolve(__dirname, "../src/utils"));
+const utils = require("./utils");
+const componentFolders = utils.readDirSync(path.resolve(process.cwd(), "./packages"), /^xb-(([a-z]|-)+$)/);
+const utilsList = fs.readdirSync(path.resolve(process.cwd(), "./src/utils"));
 const externals = {};
 
-Object.keys(Components).forEach((key) => {
-  externals[`xb-ui/packages/${key}`] = `xb-ui/lib/${key}`;
+componentFolders.forEach((componentName) => {
+  externals[`xb-ui/packages/${componentName}`] = `xb-ui/lib/${componentName}`;
 });
 
 externals["xb-ui/src/locale"] = "xb-ui/lib/locale";
@@ -23,12 +24,3 @@ const newExternals = [
 ];
 
 exports.externals = newExternals;
-
-exports.vue = {
-  root: "Vue",
-  commonjs: "vue",
-  commonjs2: "vue",
-  amd: "vue",
-};
-
-exports.jsexclude = /node_modules|utils\/popper\.js|utils\/date.\js/;
