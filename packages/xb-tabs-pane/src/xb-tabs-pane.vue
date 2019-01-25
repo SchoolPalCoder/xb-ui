@@ -1,8 +1,8 @@
 <template>
-  <div :class="[prefixCls+'-nav-item',prefixCls+'-nav-'+parentType,
-  isAcitve?prefixCls+'-nav-'+parentType+'-active':'',disabled?prefixCls+'-nav-item-disabled':'']">
-    <xb-icon :type="icon" v-if="icon"></xb-icon>
-    <slot></slot>
+  <div :class="[prefixCls+'-nav-item',prefixCls+'-nav-'+parentType,isAcitve?prefixCls+'-nav-'+parentType+'-active':'',disabled?prefixCls+'-nav-item-disabled':'']">
+    <xb-icon :class="prefixCls+'-nav-vertical'" :type="icon" v-if="icon"></xb-icon>
+    <span :class="prefixCls+'-nav-vertical'"><slot></slot></span>
+    <xb-icon :class="prefixCls+'-nav-vertical'" type="close" v-if="closable&&$parent.type==='card'"></xb-icon>
   </div>
 </template>
 
@@ -20,6 +20,9 @@ export default class XbTabsPane extends Vue {
   @Prop({ default: false })
   disabled!: boolean;
 
+  @Prop({ default: false })
+  closable!: boolean;
+
   prefixCls = "xbui-tabs";
   parentType: string = this.$parent.type;
   isAcitve: boolean = this.label === this.$parent.value ? true : false;
@@ -36,8 +39,9 @@ export default class XbTabsPane extends Vue {
   }
 
   updateNav() {
-    console.log(this.disabled);
-    this.$parent.updateNav();
+    if (this.parentType === "card" && this.isAcitve) {
+      this.$parent.updateNav(this.closable ? this.$el.offsetWidth + 3 : this.$el.offsetWidth, this.$el.offsetLeft);
+    }
   }
 
   mounted() {

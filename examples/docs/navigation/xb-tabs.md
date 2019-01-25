@@ -68,6 +68,26 @@
 
 ## 可关闭标签
 
+将当前标签页移除,若当前标签页被选中了，则被选中项自动向后移一位
+
+<div class="demo-button">
+  <div>
+    <xb-tabs value="标签一" type="card">
+        <xb-tabs-pane label="标签一" closable="true">标签一的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签二" closable="true">标签二的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签三" closable="true">标签三的内容</xb-tabs-pane>
+    </xb-tabs>
+  </div>
+</div>
+
+```html
+<xb-tabs value="标签一" type="card">
+  <xb-tabs-pane label="标签一" closable="true">标签一的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签二" closable="true">标签二的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签三" closable="true">标签三的内容</xb-tabs-pane>
+</xb-tabs>
+```
+
 ## 多样式展示
 
 #### 卡片样式
@@ -136,6 +156,12 @@
 
 #### 自定义修改样式
 
+##TODO
+
+点击标签，切换内容
+
+关闭项，只有在被选中或鼠标移上去的时候才会显示
+
 ## 参数表
 
 #### xb-tabs
@@ -147,8 +173,9 @@
 
 #### xb-tabs-pane
 
-| 参数名   | 参数说明                               | 类型   | 可选值 | 默认值 |
-| :------- | :------------------------------------- | :----- | :----- | :----- |
-| label    | 标签，用来与 xb-tabs 的 value 进行匹配 | string | ——     | ——     |
-| disabled | 禁用某一选项                           | object | ——     | false  |
-| icon     | 文案前面的 icon                        | string | ——     | ——     |
+| 参数名   | 参数说明                                 | 类型   | 可选值 | 默认值 |
+| :------- | :--------------------------------------- | :----- | :----- | :----- |
+| label    | 标签，用来与 xb-tabs 的 value 进行匹配   | string | ——     | ——     |
+| disabled | 禁用某一选项                             | object | ——     | false  |
+| icon     | 文案前面的 icon                          | string | ——     | ——     |
+| closable | 可以关闭某一项，仅在 type 为 card 时有效 | object | ——     | false  |

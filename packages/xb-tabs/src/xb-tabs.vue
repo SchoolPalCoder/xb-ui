@@ -1,7 +1,10 @@
 <template>
-
-  <div>
+  <div :style="{'border-bottom':type==='card'?'1px solid #e5e5e5':''}">
+    <div :class="prefixCls+'-nav'">
+      <div v-if="type==='card'" :class="prefixCls+'-nav-border'" :style="{'width':borderWidth+'px','left':borderLeft+'px'}"></div>
       <slot></slot>
+    </div>
+    <div style="clear:both"></div>
   </div>
 </template>
 
@@ -18,7 +21,13 @@ export default class XbTabs extends Vue {
   type!: string;
 
   prefixCls = "xbui-tabs";
-  // navList: any = [];
+  borderWidth: number = 0;
+  borderLeft: number = 0;
+
+  updateNav(width, left) {
+    this.borderWidth = width;
+    this.borderLeft = left;
+  }
 }
 </script>
 

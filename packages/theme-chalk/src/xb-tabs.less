@@ -2,8 +2,27 @@
 
 @tabs-prefix: ~"@{css-prefix}tabs";
 
+// 外边框
+.@{tabs-prefix}-nav {
+  padding-left: 0;
+  margin: 0;
+  float: left;
+  list-style: none;
+  box-sizing: border-box;
+  position: relative;
+  &-border {
+    height: 4px;
+    box-sizing: border-box;
+    background-color: @color-white;
+    position: absolute;
+    bottom: -2px;
+    z-index: 1;
+  }
+}
+
+// 每一个tab样式展示
 .@{tabs-prefix}-nav-item {
-  display: inline-block;
+  float: left;
   font-weight: 400;
   height: 100%;
   padding: 9px 20px;
@@ -12,7 +31,6 @@
   text-decoration: none;
   position: relative;
   color: @color-gray5;
-  margin-right: -4px !important;
   transition: color 0.3s ease-in-out;
 
   &:hover {
@@ -31,7 +49,7 @@
 .@{tabs-prefix}-nav-line {
   border-bottom: 1px solid @color-gray5;
   &-active {
-    border-bottom: 2px solid @color-primary;
+    border-bottom: 1px solid @color-primary;
     color: @color-primary;
   }
 }
@@ -43,7 +61,7 @@
   border: 1px solid @color-gray2;
   border-bottom: 0;
   border-radius: 0;
-  &:first-child {
+  &:nth-child(2) {
     border-radius: 4px 0 0 0;
     border-right: 0;
   }
@@ -94,4 +112,9 @@
     color: @color-primary;
     background: @color-white;
   }
+}
+
+// 垂直居中样式
+.@{tabs-prefix}-nav-vertical {
+  vertical-align: middle;
 }
