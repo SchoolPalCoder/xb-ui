@@ -17,7 +17,7 @@ module.exports = merge(baseConf, {
   entry,
   output: {
     path: path.resolve(process.cwd(), "./lib"),
-    publicPath: "/lib/",
+    publicPath: "/dist/",
     filename: "[name].js",
     chunkFilename: "[id].js",
     libraryTarget: "commonjs2",

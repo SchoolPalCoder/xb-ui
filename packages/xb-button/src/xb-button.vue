@@ -1,9 +1,5 @@
 <template>
-  <button
-    :class="classes"
-    @click="handleClick"
-    :disabled="disabled"
-  >
+  <button :class="classes" @click="handleClick" :disabled="disabled">
     <xb-icon v-if="icon" :type="icon"></xb-icon>
     <span v-if="$slots.default">
       <slot></slot>
@@ -16,9 +12,7 @@ import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import Locale from "../../../src/mixins/locale";
 
 const prefixCls = "xbui-button";
-@Component({
-  mixins: [Locale],
-})
+@Component({ name: "XbButton", mixins: [Locale] })
 export default class XbButton extends Vue {
   /** 按钮样式 */
   @Prop({ type: String, default: "default" })

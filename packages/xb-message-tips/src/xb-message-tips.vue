@@ -15,7 +15,7 @@
 <script lang="ts">
 import { Component, Prop, Vue, Provide } from "vue-property-decorator";
 
-@Component
+@Component({ name: "XbMessageTips" })
 export default class XbMessageTips extends Vue {
   show: Boolean = false;
   text: String = "";
