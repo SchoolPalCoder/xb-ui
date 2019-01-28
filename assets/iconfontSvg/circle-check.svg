@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>circle-check</title>
+    <desc>Created with Sketch.</desc>
+    <g id="circle-check" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,8 C0,3.58162268 3.58162268,0 8,0 C12.4183773,0 16,3.58162268 16,8 C16,12.4183773 12.4183773,16 8,16 C3.58162268,16 0,12.4183773 0,8 Z M11.5403806,4.54038059 L6,10.0807612 L3.95961941,8.04038059 C3.70577862,7.7865398 3.29422138,7.7865398 3.04038059,8.04038059 C2.7865398,8.29422138 2.7865398,8.70577862 3.04038059,8.95961941 L5.1868272,11.106066 C5.63593014,11.555169 6.36406986,11.555169 6.8131728,11.106066 L12.4596194,5.45961941 C12.7134602,5.20577862 12.7134602,4.79422138 12.4596194,4.54038059 C12.2057786,4.2865398 11.7942214,4.2865398 11.5403806,4.54038059 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>

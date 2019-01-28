@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>info-circle</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M7,11 C6.44771525,11 6,11.4477153 6,12 C6,12.5522847 6.44771525,13 7,13 L7.5,13 L8.5,13 L9,13 C9.55228475,13 10,12.5522847 10,12 C10,11.4477153 9.55228475,11 9,11 L9,6.5 C9,6.22385763 8.77614237,6 8.5,6 L7.5,6 L7,6 C6.44771525,6 6,6.44771525 6,7 C6,7.55228475 6.44771525,8 7,8 L7,11 Z M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M8,5 C8.82842712,5 9.5,4.32842712 9.5,3.5 C9.5,2.67157288 8.82842712,2 8,2 C7.17157288,2 6.5,2.67157288 6.5,3.5 C6.5,4.32842712 7.17157288,5 8,5 Z" id="path-1"></path>
+    </defs>
+    <g id="info-circle" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#000000" xlink:href="#path-1"></use>
+    </g>
+</svg>

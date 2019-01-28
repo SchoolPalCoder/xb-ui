@@ -1,0 +1,118 @@
+@import "common/var.less";
+
+@text-prefix: ~"@{css-prefix}input";
+
+.@{text-prefix}-div {
+  width: 260px;
+  position: relative;
+}
+
+// input输入框 样式
+.@{text-prefix}-input {
+  background-color: @color-white;
+  background-image: none;
+  border-radius: 3px;
+  border: 1px solid @color-gray3;
+  box-sizing: border-box;
+  color: @color-gray6;
+  display: inline-block;
+  width: 100%;
+}
+.@{text-prefix}-input-large {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  font-size: @font-size-base;
+}
+.@{text-prefix}-input-medium {
+  height: 32px;
+  line-height: 32px;
+  padding: 0 12px;
+  font-size: @font-size-base;
+}
+.@{text-prefix}-input-small {
+  height: 20px;
+  line-height: 20px;
+  padding: 0 10px;
+  font-size: @font-size-12;
+}
+
+// 状态为“失败”的时候，input需要展示一个红边框
+.@{text-prefix}-fail-input {
+  font-size: 16px;
+  border-color: @color-red;
+}
+
+// 自定义样式，展示在首部
+.@{text-prefix}-left-input {
+  padding-left: 30px;
+}
+
+// 自定义样式，展示在尾部  或者  可清空，成功，失败 三种状态
+.@{text-prefix}-right-input {
+  padding-right: 30px;
+}
+
+// 鼠标hover样式
+.@{text-prefix}-input:hover {
+  border-color: @color-primary;
+}
+
+// textarea输入框
+.@{text-prefix}-textarea {
+  padding: 5px 15px;
+  line-height: 20px;
+  min-height: 50px;
+  resize: none;
+}
+
+// 禁用
+.@{text-prefix}-disabled {
+  background-color: @color-disabled-base;
+  border-color: @color-gray2 !important;
+  color: @color-gray3;
+  cursor: not-allowed;
+}
+
+// 左侧icon
+.@{text-prefix}-left-icon {
+  position: absolute;
+  height: 75%;
+  left: 10px;
+  top: 25%;
+  text-align: center;
+  color: rgb(192, 196, 204);
+  vertical-align: baseline;
+  display: inline-block;
+}
+
+// 右侧icon
+.@{text-prefix}-right-icon {
+  position: absolute;
+  height: 75%;
+  right: 10px;
+  top: 25%;
+  text-align: center;
+  color: rgb(192, 196, 204);
+  vertical-align: baseline;
+  display: inline-block;
+}
+
+// 清空icon
+.@{text-prefix}-close-icon {
+  font-size: 16px;
+  color: @color-gray4;
+  cursor: pointer;
+}
+
+// 成功icon
+.@{text-prefix}-success-icon {
+  font-size: 16px;
+  color: @color-green;
+}
+
+// 失败icon
+.@{text-prefix}-fail-icon {
+  font-size: 16px;
+  color: @color-red;
+}

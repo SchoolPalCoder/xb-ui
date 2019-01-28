@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="512px" height="512px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<path d="M98.9,184.7l1.8,2.1l136,156.5c4.6,5.3,11.5,8.6,19.2,8.6c7.7,0,14.6-3.4,19.2-8.6L411,187.1l2.3-2.6
-	c1.7-2.5,2.7-5.5,2.7-8.7c0-8.7-7.4-15.8-16.6-15.8v0H112.6v0c-9.2,0-16.6,7.1-16.6,15.8C96,179.1,97.1,182.2,98.9,184.7z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-down</title>
+    <desc>Created with Sketch.</desc>
+    <g id="arrow-down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M13.6462613,4.646632 C13.8414211,4.45126752 14.1580035,4.45110156 14.353368,4.64626131 C14.5487325,4.84142107 14.5488984,5.15800352 14.3537387,5.353368 L9.06676172,10.5577187 C8.48128241,11.1438121 7.53153507,11.1443099 6.94544144,10.5588304 L1.64663176,5.35373844 C1.45126741,5.15857855 1.45110167,4.8419961 1.64626156,4.64663176 C1.84142145,4.45126741 2.1580039,4.45110167 2.35336824,4.64626156 L7.65217771,9.85135328 C7.84754218,10.046513 8.16412463,10.0463471 8.35928437,9.85098267 L13.6462613,4.646632 Z" id="Path-8" fill="#000000" fill-rule="nonzero"></path>
+    </g>
 </svg>
