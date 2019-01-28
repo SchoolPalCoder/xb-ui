@@ -5,10 +5,16 @@
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
   >
+    <!-- 文案前的icon -->
     <xb-icon :class="prefixCls+'-nav-vertical'" :type="icon" v-if="icon"></xb-icon>
+    <!-- 标签页title -->
     <span :class="prefixCls+'-nav-vertical'">
-      <slot></slot>
+      {{label}}
+      <!-- <slot></slot> -->
     </span>
+    <!-- 用户未读信息 -->
+    <span v-if="count" :class="prefixCls+'-nav-item-count'">{{count>99?'99+':count}}</span>
+    <!-- 关闭icon -->
     <xb-icon
       :class="prefixCls+'-nav-vertical'"
       type="close"
@@ -34,6 +40,9 @@ export default class XbTabsPane extends Vue {
 
   @Prop({ default: false })
   closable!: boolean;
+
+  @Prop({ default: "" })
+  count!: number;
 
   prefixCls = "xbui-tabs";
   parentType: string = this.$parent.type;
@@ -68,16 +77,13 @@ export default class XbTabsPane extends Vue {
 
   // 更新type===card的时候，下方border的位置
   updateNavBorder() {
-    if (this.parentType === "card" && this.isAcitve) {
-      this.$parent.updateNavBorder(
-        this.closable ? this.$el.offsetWidth + 3 : this.$el.offsetWidth,
-        this.$el.offsetLeft
-      );
-    }
+    this.$parent.updateNavBorder(this.closable ? this.$el.offsetWidth + 3 : this.$el.offsetWidth, this.$el.offsetLeft);
   }
 
   mounted() {
-    this.updateNavBorder();
+    if (this.parentType === "card" && this.isAcitve) {
+      this.updateNavBorder();
+    }
   }
 
   destroyed() {

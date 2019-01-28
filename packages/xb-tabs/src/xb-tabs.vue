@@ -8,6 +8,9 @@
       ></div>
       <slot></slot>
     </div>
+    <!-- <div style="float:right;margin-top:7px;">
+      <slot name="editBtn"></slot>
+    </div>-->
     <div style="clear:both"></div>
   </div>
 </template>
@@ -41,7 +44,8 @@ export default class XbTabs extends Vue {
       if (re.isAcitve) {
         prevIndex = index;
         re.isAcitve = false;
-      } else if (re.label === label) {
+      }
+      if (re.label === label) {
         re.isAcitve = true;
         this.borderWidth = re.$el.offsetWidth;
         this.borderLeft =

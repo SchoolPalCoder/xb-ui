@@ -9,18 +9,18 @@
 <div class="demo-button">
   <div>
     <xb-tabs value="标签一">
-        <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签二">标签二的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签一">标签标题一</xb-tabs-pane>
+        <xb-tabs-pane label="标签二">标签标题二</xb-tabs-pane>
+        <xb-tabs-pane label="标签三">标签标题三</xb-tabs-pane>
     </xb-tabs>
   </div>
 </div>
 
 ```html
 <xb-tabs value="标签一">
-  <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
-  <xb-tabs-pane label="标签二">标签二的内容</xb-tabs-pane>
-  <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签一">标签标题一</xb-tabs-pane>
+  <xb-tabs-pane label="标签二">标签标题二</xb-tabs-pane>
+  <xb-tabs-pane label="标签三">标签标题三</xb-tabs-pane>
 </xb-tabs>
 ```
 
@@ -31,18 +31,18 @@
 <div class="demo-button">
   <div>
     <xb-tabs value="标签一">
-        <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签二" disabled="true">标签二的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签一">标签标题一</xb-tabs-pane>
+        <xb-tabs-pane label="标签二" disabled="true">标签标题二</xb-tabs-pane>
+        <xb-tabs-pane label="标签三">标签标题三</xb-tabs-pane>
     </xb-tabs>
   </div>
 </div>
 
 ```html
 <xb-tabs value="标签一">
-  <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
-  <xb-tabs-pane label="标签二" disabled="true">标签二的内容</xb-tabs-pane>
-  <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签一">标签标题一</xb-tabs-pane>
+  <xb-tabs-pane label="标签二" disabled="true">标签标题二</xb-tabs-pane>
+  <xb-tabs-pane label="标签三">标签标题三</xb-tabs-pane>
 </xb-tabs>
 ```
 
@@ -51,18 +51,18 @@
 <div class="demo-button">
   <div>
     <xb-tabs value="标签一">
-        <xb-tabs-pane label="标签一" icon="edit">标签一的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签二" icon="achievement">标签二的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签三" icon="activity">标签三的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签一" icon="edit">标签标题一</xb-tabs-pane>
+        <xb-tabs-pane label="标签二" icon="achievement">标签标题二</xb-tabs-pane>
+        <xb-tabs-pane label="标签三" icon="activity">标签标题三</xb-tabs-pane>
     </xb-tabs>
   </div>
 </div>
 
 ```html
 <xb-tabs value="标签一">
-  <xb-tabs-pane label="标签一" icon="edit">标签一的内容</xb-tabs-pane>
-  <xb-tabs-pane label="标签二" icon="achievement">标签二的内容</xb-tabs-pane>
-  <xb-tabs-pane label="标签三" icon="activity">标签三的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签一" icon="edit">标签标题一</xb-tabs-pane>
+  <xb-tabs-pane label="标签二" icon="achievement">标签标题二</xb-tabs-pane>
+  <xb-tabs-pane label="标签三" icon="activity">标签标题三</xb-tabs-pane>
 </xb-tabs>
 ```
 
@@ -73,18 +73,18 @@
 <div class="demo-button">
   <div>
     <xb-tabs value="标签一" type="card">
-        <xb-tabs-pane label="标签一" closable="true">标签一的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签二" closable="true">标签二的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签三" closable="true">标签三的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签一" closable="true">标签标题一</xb-tabs-pane>
+        <xb-tabs-pane label="标签二" closable="true">标签标题二</xb-tabs-pane>
+        <xb-tabs-pane label="标签三" closable="true">标签标题三</xb-tabs-pane>
     </xb-tabs>
   </div>
 </div>
 
 ```html
 <xb-tabs value="标签一" type="card">
-  <xb-tabs-pane label="标签一" closable="true">标签一的内容</xb-tabs-pane>
-  <xb-tabs-pane label="标签二" closable="true">标签二的内容</xb-tabs-pane>
-  <xb-tabs-pane label="标签三" closable="true">标签三的内容</xb-tabs-pane>
+  <xb-tabs-pane label="标签一" closable="true">标签标题一</xb-tabs-pane>
+  <xb-tabs-pane label="标签二" closable="true">标签标题二</xb-tabs-pane>
+  <xb-tabs-pane label="标签三" closable="true">标签标题三</xb-tabs-pane>
 </xb-tabs>
 ```
 
@@ -95,9 +95,9 @@
 <div class="demo-button">
   <div>
     <xb-tabs value="标签一" type="card">
-        <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签二">标签二的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签一">标签标题一</xb-tabs-pane>
+        <xb-tabs-pane label="标签二">标签标题二</xb-tabs-pane>
+        <xb-tabs-pane label="标签三">标签标题三</xb-tabs-pane>
     </xb-tabs>
   </div>
 </div>
@@ -111,9 +111,9 @@
 <div class="demo-button">
   <div>
   <xb-tabs value="标签一" type="btn">
-        <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签二">标签二的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签一">标签标题一</xb-tabs-pane>
+        <xb-tabs-pane label="标签二">标签标题二</xb-tabs-pane>
+        <xb-tabs-pane label="标签三">标签标题三</xb-tabs-pane>
     </xb-tabs>
   </div>
 </div>
@@ -127,9 +127,9 @@
 <div class="demo-button">
   <div>
   <xb-tabs value="标签一" type="slider">
-        <xb-tabs-pane label="标签一">标签一的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签二">标签二的内容</xb-tabs-pane>
-        <xb-tabs-pane label="标签三">标签三的内容</xb-tabs-pane>
+        <xb-tabs-pane label="标签一">标签标题一</xb-tabs-pane>
+        <xb-tabs-pane label="标签二">标签标题二</xb-tabs-pane>
+        <xb-tabs-pane label="标签三">标签标题三</xb-tabs-pane>
     </xb-tabs>
   </div>
 </div>
@@ -138,9 +138,25 @@
 <xb-tabs value="标签一" type="slider"> ... </xb-tabs>
 ```
 
-## 自定义编辑文案样式
+## 未读信息文案展示
 
-可以在文案后增加未读数目
+<div class="demo-button">
+  <div>
+    <xb-tabs value="标签一">
+        <xb-tabs-pane label="标签一" :count="1">标签标题一</xb-tabs-pane>
+        <xb-tabs-pane label="标签二" :count="123">标签标题二</xb-tabs-pane>
+        <xb-tabs-pane label="标签三">标签标题三</xb-tabs-pane>
+    </xb-tabs>
+  </div>
+</div>
+
+```html
+<xb-tabs value="标签一">
+  <xb-tabs-pane label="标签一" :count="1">标签标题一</xb-tabs-pane>
+  <xb-tabs-pane label="标签二" :count="123">标签标题二</xb-tabs-pane>
+  <xb-tabs-pane label="标签三">标签标题三</xb-tabs-pane>
+</xb-tabs>
+```
 
 ## 动态编辑标签
 
@@ -148,15 +164,9 @@
 
 #### 紧跟标签内容，增加编辑按钮
 
-## 不使用动画
-
 ## 外部传入的样式
 
-#### 组件内提供的 3 种尺寸
-
-#### 自定义修改样式
-
-##TODO
+## TODO
 
 将当前标签页移除到最后一项的时候，需要给出一个提示，我直接用了 alert，以后需要根据需求修改掉
 
@@ -177,3 +187,4 @@
 | disabled | 禁用某一选项                             | object | ——     | false  |
 | icon     | 文案前面的 icon                          | string | ——     | ——     |
 | closable | 可以关闭某一项，仅在 type 为 card 时有效 | object | ——     | false  |
+| count    | 用户的未读数目，超过 99 则显示为：99+    | number | ——     | ——     |

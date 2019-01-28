@@ -5,7 +5,7 @@ import demoBlock from "./components/demo-block.vue";
 import { camelCase, upperFirst } from "lodash";
 import "../packages/theme-chalk/src/index.less";
 
-debugger
+
 if (process.env.NODE_ENV === "production") {
   // tslint:disable-next-line:no-var-requires
   const XBUI = require("../lib/index");

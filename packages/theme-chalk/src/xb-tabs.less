@@ -31,7 +31,6 @@
   text-decoration: none;
   position: relative;
   color: @color-gray5;
-  transition: color 0.3s ease-in-out;
 
   &:hover {
     color: @color-primary;
@@ -42,6 +41,18 @@
   }
   &-disabled:hover {
     color: @color-gray3;
+  }
+  &-count {
+    border-radius: 12px;
+    min-width: 16px;
+    background: @color-red;
+    border: 1px solid transparent;
+    color: @color-white;
+    line-height: @font-size-12;
+    text-align: center;
+    padding: 0 6px;
+    font-size: @font-size-12;
+    vertical-align: middle;
   }
 }
 
@@ -88,9 +99,13 @@
     border-radius: 4px 0 0 4px;
     border-right: 0;
   }
+  &:nth-child(n + 2) {
+    border-radius: 0;
+    border-right: 0;
+  }
   &:last-child {
     border-radius: 0 4px 4px 0;
-    border-left: 0;
+    border-right: 1px solid @color-gray3;
   }
   &-active {
     color: @color-primary;
