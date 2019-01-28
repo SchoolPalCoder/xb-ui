@@ -2,6 +2,7 @@
   <div :class="classesTextDiv">
     <input
       v-model="num"
+      :type="type"
       v-if="type !== 'textarea'"
       :style="inputStyle"
       :placeholder="placeHolder"
