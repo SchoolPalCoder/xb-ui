@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>time</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8,8 L10.5,8 C10.7761424,8 11,8.22385763 11,8.5 C11,8.77614237 10.7761424,9 10.5,9 L7.5,9 C7.22385763,9 7,8.77614237 7,8.5 L7,3.5 C7,3.22385763 7.22385763,3 7.5,3 C7.77614237,3 8,3.22385763 8,3.5 L8,8 Z M0,7.99996875 C0,3.582 3.582,0 8,0 C12.418,0 16,3.582 16,7.99996875 C16,12.418 12.418,16 8,16 C3.582,16 0,12.418 0,7.99996875 Z M1,7.99996354 C1,11.8598802 4.14008333,15 8,15 C11.8599167,15 15,11.8598802 15,7.99996354 C15,4.14004688 11.8599167,1 8,1 C4.14008333,1 1,4.14004688 1,7.99996354 Z" id="path-1"></path>
+    </defs>
+    <g id="time" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#000000" xlink:href="#path-1"></use>
+    </g>
+</svg>

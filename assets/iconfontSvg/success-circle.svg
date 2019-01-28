@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>success-circle</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M4,7.5 L2.5,7.5 L5.5,12 L7.5,12 C8.14855022,10.9766441 9.14855022,9.55997738 10.5,7.75 C11.1936378,6.82102085 12.3603044,5.57102085 14,4 L14,3.5 C13.2541113,3.70418289 12.1707779,4.37084956 10.75,5.5 C9.32922206,6.62915044 7.91255539,7.96248378 6.5,9.5 L4,7.5 Z" id="path-1"></path>
+    </defs>
+    <g id="success-circle" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#000000" xlink:href="#path-1"></use>
+    </g>
+</svg>

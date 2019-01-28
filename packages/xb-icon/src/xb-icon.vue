@@ -5,7 +5,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 const prefixCls = "xb-icon";
-@Component
+@Component({ name: "XbIcon" })
 export default class XbIcon extends Vue {
   @Prop({ type: String })
   type!: string;

@@ -28,7 +28,7 @@ import XbSubnav from "@/xb-subnav/index.ts";
 import XbTable from "@/xb-table/index.ts";
 import XbText from "@/xb-text/index.ts";
 
-const components = [
+const components = {
   XbButton,
   XbCheckbox,
   XbCheckboxGroup,
@@ -51,7 +51,7 @@ const components = [
   XbSubnav,
   XbTable,
   XbText,
-];
+};
 
 const install: PluginFunction<any> = (vue: VueConstructor<Vue>, options: any = {}) => {
   locale.use(options.locale);

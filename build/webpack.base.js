@@ -52,10 +52,6 @@ module.exports = {
         use: ["style-loader", "css-loader", "less-loader"],
       },
       {
-        test: /\.html$/,
-        loader: "html-loader?minimize=false",
-      },
-      {
         test: /\.otf|ttf|woff2?|eot(\?\S*)?$/,
         loader: "url-loader",
         query: {

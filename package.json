@@ -22,8 +22,7 @@
     "vue",
     "xb",
     "ui",
-    "vue-components",
-    "vuepress"
+    "vue-components"
   ],
   "author": "SchoolPal Coder",
   "license": "ISC",

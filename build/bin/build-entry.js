@@ -19,9 +19,9 @@ import Vue, { VueConstructor, PluginFunction } from "vue";
 import locale from "src/locale";
 {{include}}
 
-const components = [
+const components = {
 {{install}},
-];
+};
 
 const install: PluginFunction<any> = (vue: VueConstructor<Vue>, options: any = {}) => {
   locale.use(options.locale);

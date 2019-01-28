@@ -26,7 +26,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 const prefixCls = "xbui-input-number";
 
-@Component
+@Component({ name: "XbInputNumber" })
 export default class XbInputNumber extends Vue {
   // 感叹号是非null和非undefined的类型断言，所以表示对该属性进行非空断言。
   /** 初始值 */

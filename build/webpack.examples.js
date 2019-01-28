@@ -103,6 +103,10 @@ module.exports = merge(baseConf, {
     noParse: /^(vue|vue-router|vuex|vuex-router-sync)$/,
     rules: [
       {
+        test: /\.html$/,
+        loader: "html-loader?minimize=false",
+      },
+      {
         test: /\.css$/,
         loader: ["style-loader", "css-loader"],
       },
