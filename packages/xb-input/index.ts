@@ -1,9 +1,9 @@
 import { PluginObject } from "vue";
-import XbText from "./src/xb-text.vue";
-export default XbText;
+import XbInput from "./src/xb-input.vue";
+export default XbInput;
 
-export const xbText: PluginObject<XbText> = {
+export const xbText: PluginObject<XbInput> = {
   install: (Vue) => {
-    Vue.component("XbText", XbText);
+    Vue.component("XbText", XbInput);
   },
 };

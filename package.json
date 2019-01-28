@@ -5,14 +5,14 @@
   "main": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "scripts": {
-    "build:file": "gulp --gulpfile build/bin/gen-icon-font.js & node build/bin/build-entry.js",
+    "build:file": "npm run init:icon & node build/bin/build-entry.js",
     "dev": "webpack-dev-server --config ./build/webpack.examples.js --mode=development ",
     "prod": "webpack-dev-server --config ./build/webpack.examples.js --mode=production ",
     "create:component": "node tools/create-component",
     "create:componentMd": "node tools/create-componentMd",
     "dist:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
     "dist": "npm run build:file & npm run dist:style & webpack --config build/webpack.production.js",
-    "init:icon": "node build/iconinit"
+    "init:icon": "gulp --gulpfile build/bin/gen-icon-font.js"
   },
   "repository": {
     "type": "git",

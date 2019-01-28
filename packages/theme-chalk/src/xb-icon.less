@@ -3,317 +3,235 @@
 	font-family: "xbui-icons";
 	src: url('@{xbuiicons-font-path}/xbui-icons.eot?v=1');
 	src: url('@{xbuiicons-font-path}/xbui-icons.eot?v=1#iefix') format('eot'),
-    	url('@{xbuiicons-font-path}/xbui-icons.ttf?v=1') format('truetype'),
+    url('@{xbuiicons-font-path}/xbui-icons.ttf?v=1') format('truetype'),
 		url('@{xbuiicons-font-path}/xbui-icons.woff?v=1') format('woff'),
 		url('@{xbuiicons-font-path}/xbui-icons.svg?v=1#xbui-icons') format('svg');
 }
 
 .xbui-icon {
 	font-family: "xbui-icons";
-    display: inline-block;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    text-rendering: auto;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@icon-heart-empty: "\E001";
-@icon-heart-full: "\E002";
-@icon-heart-half: "\E003";
-@icon-heart-question: "\E004";
-@icon-alert-circled: "\E005";
-@icon-alert-filled: "\E006";
-@icon-align-center: "\E007";
-@icon-align-justify: "\E008";
-@icon-align-left: "\E009";
-@icon-align-right: "\E00A";
-@icon-arrow-down-circled: "\E00B";
-@icon-arrow-down: "\E00C";
-@icon-arrow-left-circled: "\E00D";
-@icon-arrow-left: "\E00E";
-@icon-arrow-right-circled: "\E00F";
-@icon-arrow-right: "\E010";
-@icon-arrow-up-circled: "\E011";
-@icon-arrow-up: "\E012";
-@icon-bell: "\E013";
-@icon-book: "\E014";
-@icon-bookmark: "\E015";
-@icon-briefcase: "\E016";
-@icon-cake: "\E017";
-@icon-calendar: "\E018";
-@icon-camera: "\E019";
-@icon-card: "\E01A";
-@icon-checkmark-circled: "\E01B";
-@icon-checkmark-filled: "\E01C";
-@icon-checkmark: "\E01D";
-@icon-chevron-down: "\E01E";
-@icon-chevron-left: "\E01F";
-@icon-chevron-right: "\E020";
-@icon-chevron-up: "\E021";
-@icon-clipboard: "\E022";
-@icon-clock: "\E023";
-@icon-close-circled: "\E024";
-@icon-close-filled: "\E025";
-@icon-close: "\E026";
-@icon-cloud-download: "\E027";
-@icon-cloud-upload: "\E028";
-@icon-comment: "\E029";
-@icon-compose-outline: "\E02A";
-@icon-currency: "\E02B";
-@icon-cursorshap: "\E02C";
-@icon-document: "\E02D";
-@icon-download: "\E02E";
-@icon-edit-pen: "\E02F";
-@icon-edit: "\E030";
-@icon-email: "\E031";
-@icon-excel: "\E032";
-@icon-exit: "\E033";
-@icon-eye-off: "\E034";
-@icon-eye: "\E035";
-@icon-fast-backward: "\E036";
-@icon-fast-forward: "\E037";
-@icon-female: "\E038";
-@icon-flash: "\E039";
-@icon-folder: "\E03A";
-@icon-forbidden: "\E03B";
-@icon-funnel: "\E03C";
-@icon-happy: "\E03D";
-@icon-headphone: "\E03E";
-@icon-heart: "\E03F";
-@icon-help-circled: "\E040";
-@icon-help-filled: "\E041";
-@icon-home: "\E042";
-@icon-image: "\E043";
-@icon-inbox: "\E044";
-@icon-information-circled: "\E045";
-@icon-information-filled: "\E046";
-@icon-layers: "\E047";
-@icon-link: "\E048";
-@icon-loading: "\E049";
-@icon-location: "\E04A";
-@icon-locked: "\E04B";
-@icon-male: "\E04C";
-@icon-map: "\E04D";
-@icon-maximize-b: "\E04E";
-@icon-maximize: "\E04F";
-@icon-md-add-circle: "\E050";
-@icon-md-remove-circle: "\E051";
-@icon-merge: "\E052";
-@icon-microphone: "\E053";
-@icon-minimize-b: "\E054";
-@icon-minimize: "\E055";
-@icon-minus-circled: "\E056";
-@icon-minus: "\E057";
-@icon-monitor: "\E058";
-@icon-moon: "\E059";
-@icon-more: "\E05A";
-@icon-navigation: "\E05B";
-@icon-neutral: "\E05C";
-@icon-pause: "\E05D";
-@icon-phone: "\E05E";
-@icon-play-circled: "\E05F";
-@icon-play: "\E060";
-@icon-plus-circled: "\E061";
-@icon-plus-filled: "\E062";
-@icon-plus: "\E063";
-@icon-printer: "\E064";
-@icon-refresh: "\E065";
-@icon-sad: "\E066";
-@icon-save: "\E067";
-@icon-scan: "\E068";
-@icon-search: "\E069";
-@icon-service: "\E06A";
-@icon-settings: "\E06B";
-@icon-share: "\E06C";
-@icon-skip-back: "\E06D";
-@icon-skip-forward: "\E06E";
-@icon-sphome: "\E06F";
-@icon-star-filled: "\E070";
-@icon-star: "\E071";
-@icon-stop-circled: "\E072";
-@icon-stop: "\E073";
-@icon-sun: "\E074";
-@icon-swap-horiz: "\E075";
-@icon-swap-vert: "\E076";
-@icon-tag: "\E077";
-@icon-thumbs-down: "\E078";
-@icon-thumbs-up: "\E079";
-@icon-trash: "\E07A";
-@icon-upload-b : "\E07B";
-@icon-upload: "\E07C";
-@icon-user: "\E07D";
-@icon-zoom-in: "\E07E";
-@icon-zoom-out: "\E07F";
+@icon-achievement: "\E001";
+@icon-activity: "\E002";
+@icon-annex: "\E003";
+@icon-announcement: "\E004";
+@icon-arrow-down: "\E005";
+@icon-arrow-left: "\E006";
+@icon-arrow-right: "\E007";
+@icon-arrow-up: "\E008";
+@icon-Attendance: "\E009";
+@icon-audio: "\E00A";
+@icon-bars: "\E00B";
+@icon-bedroom: "\E00C";
+@icon-campus: "\E00D";
+@icon-caret-bottom: "\E00E";
+@icon-caret-left: "\E00F";
+@icon-caret-right: "\E010";
+@icon-caret-top: "\E011";
+@icon-check: "\E012";
+@icon-Child: "\E013";
+@icon-circle-check-outline: "\E014";
+@icon-circle-check: "\E015";
+@icon-circle-close-outline: "\E016";
+@icon-circle-close: "\E017";
+@icon-circle-download: "\E018";
+@icon-circle-plus: "\E019";
+@icon-circle-remove: "\E01A";
+@icon-circle-upload: "\E01B";
+@icon-class: "\E01C";
+@icon-close: "\E01D";
+@icon-comment-outline: "\E01E";
+@icon-comment: "\E01F";
+@icon-copy: "\E020";
+@icon-curriculum: "\E021";
+@icon-data-disk: "\E022";
+@icon-date: "\E023";
+@icon-delete: "\E024";
+@icon-disable: "\E025";
+@icon-drag: "\E026";
+@icon-edit: "\E027";
+@icon-error-circle: "\E028";
+@icon-exam: "\E029";
+@icon-export: "\E02A";
+@icon-eye-off: "\E02B";
+@icon-eye: "\E02C";
+@icon-filter: "\E02D";
+@icon-Finance: "\E02E";
+@icon-home: "\E02F";
+@icon-info-circle: "\E030";
+@icon-learning-tasks: "\E031";
+@icon-list: "\E032";
+@icon-loading: "\E033";
+@icon-management: "\E034";
+@icon-mechanism: "\E035";
+@icon-minus: "\E036";
+@icon-more: "\E037";
+@icon-password: "\E038";
+@icon-plus: "\E039";
+@icon-printer: "\E03A";
+@icon-Progression: "\E03B";
+@icon-question-circle: "\E03C";
+@icon-recruit-students: "\E03D";
+@icon-role: "\E03E";
+@icon-same-level: "\E03F";
+@icon-save: "\E040";
+@icon-schedule: "\E041";
+@icon-school: "\E042";
+@icon-search: "\E043";
+@icon-staff: "\E044";
+@icon-student: "\E045";
+@icon-success-circle: "\E046";
+@icon-sync: "\E047";
+@icon-teaching-setting: "\E048";
+@icon-time: "\E049";
+@icon-tree-ico: "\E04A";
+@icon-user: "\E04B";
+@icon-warning-circle: "\E04C";
 
-
-.xbui-icon-char(@icon-variable) {
-	content: @@icon-variable;
-}
 
 .xbui-icon-base-pseudo(@filename, @insert: before) {
 	@pseudo-selector: ~":@{insert}";
-    @icon-variable: ~"icon-@{filename}";
+  @icon-variable: ~"icon-@{filename}";
 	&@{pseudo-selector} {
-		.xbui-icon-char(@icon-variable);
+		content: @@icon-variable;
 	}
 }
 
-.xbui-icon-heart-empty {
-	.xbui-icon-base-pseudo(heart-empty);
+.xbui-icon-achievement {
+	.xbui-icon-base-pseudo(achievement);
 }
-.xbui-icon-heart-full {
-	.xbui-icon-base-pseudo(heart-full);
+.xbui-icon-activity {
+	.xbui-icon-base-pseudo(activity);
 }
-.xbui-icon-heart-half {
-	.xbui-icon-base-pseudo(heart-half);
+.xbui-icon-annex {
+	.xbui-icon-base-pseudo(annex);
 }
-.xbui-icon-heart-question {
-	.xbui-icon-base-pseudo(heart-question);
-}
-.xbui-icon-alert-circled {
-	.xbui-icon-base-pseudo(alert-circled);
-}
-.xbui-icon-alert-filled {
-	.xbui-icon-base-pseudo(alert-filled);
-}
-.xbui-icon-align-center {
-	.xbui-icon-base-pseudo(align-center);
-}
-.xbui-icon-align-justify {
-	.xbui-icon-base-pseudo(align-justify);
-}
-.xbui-icon-align-left {
-	.xbui-icon-base-pseudo(align-left);
-}
-.xbui-icon-align-right {
-	.xbui-icon-base-pseudo(align-right);
-}
-.xbui-icon-arrow-down-circled {
-	.xbui-icon-base-pseudo(arrow-down-circled);
+.xbui-icon-announcement {
+	.xbui-icon-base-pseudo(announcement);
 }
 .xbui-icon-arrow-down {
 	.xbui-icon-base-pseudo(arrow-down);
 }
-.xbui-icon-arrow-left-circled {
-	.xbui-icon-base-pseudo(arrow-left-circled);
-}
 .xbui-icon-arrow-left {
 	.xbui-icon-base-pseudo(arrow-left);
-}
-.xbui-icon-arrow-right-circled {
-	.xbui-icon-base-pseudo(arrow-right-circled);
 }
 .xbui-icon-arrow-right {
 	.xbui-icon-base-pseudo(arrow-right);
 }
-.xbui-icon-arrow-up-circled {
-	.xbui-icon-base-pseudo(arrow-up-circled);
-}
 .xbui-icon-arrow-up {
 	.xbui-icon-base-pseudo(arrow-up);
 }
-.xbui-icon-bell {
-	.xbui-icon-base-pseudo(bell);
+.xbui-icon-Attendance {
+	.xbui-icon-base-pseudo(Attendance);
 }
-.xbui-icon-book {
-	.xbui-icon-base-pseudo(book);
+.xbui-icon-audio {
+	.xbui-icon-base-pseudo(audio);
 }
-.xbui-icon-bookmark {
-	.xbui-icon-base-pseudo(bookmark);
+.xbui-icon-bars {
+	.xbui-icon-base-pseudo(bars);
 }
-.xbui-icon-briefcase {
-	.xbui-icon-base-pseudo(briefcase);
+.xbui-icon-bedroom {
+	.xbui-icon-base-pseudo(bedroom);
 }
-.xbui-icon-cake {
-	.xbui-icon-base-pseudo(cake);
+.xbui-icon-campus {
+	.xbui-icon-base-pseudo(campus);
 }
-.xbui-icon-calendar {
-	.xbui-icon-base-pseudo(calendar);
+.xbui-icon-caret-bottom {
+	.xbui-icon-base-pseudo(caret-bottom);
 }
-.xbui-icon-camera {
-	.xbui-icon-base-pseudo(camera);
+.xbui-icon-caret-left {
+	.xbui-icon-base-pseudo(caret-left);
 }
-.xbui-icon-card {
-	.xbui-icon-base-pseudo(card);
+.xbui-icon-caret-right {
+	.xbui-icon-base-pseudo(caret-right);
 }
-.xbui-icon-checkmark-circled {
-	.xbui-icon-base-pseudo(checkmark-circled);
+.xbui-icon-caret-top {
+	.xbui-icon-base-pseudo(caret-top);
 }
-.xbui-icon-checkmark-filled {
-	.xbui-icon-base-pseudo(checkmark-filled);
+.xbui-icon-check {
+	.xbui-icon-base-pseudo(check);
 }
-.xbui-icon-checkmark {
-	.xbui-icon-base-pseudo(checkmark);
+.xbui-icon-Child {
+	.xbui-icon-base-pseudo(Child);
 }
-.xbui-icon-chevron-down {
-	.xbui-icon-base-pseudo(chevron-down);
+.xbui-icon-circle-check-outline {
+	.xbui-icon-base-pseudo(circle-check-outline);
 }
-.xbui-icon-chevron-left {
-	.xbui-icon-base-pseudo(chevron-left);
+.xbui-icon-circle-check {
+	.xbui-icon-base-pseudo(circle-check);
 }
-.xbui-icon-chevron-right {
-	.xbui-icon-base-pseudo(chevron-right);
+.xbui-icon-circle-close-outline {
+	.xbui-icon-base-pseudo(circle-close-outline);
 }
-.xbui-icon-chevron-up {
-	.xbui-icon-base-pseudo(chevron-up);
+.xbui-icon-circle-close {
+	.xbui-icon-base-pseudo(circle-close);
 }
-.xbui-icon-clipboard {
-	.xbui-icon-base-pseudo(clipboard);
+.xbui-icon-circle-download {
+	.xbui-icon-base-pseudo(circle-download);
 }
-.xbui-icon-clock {
-	.xbui-icon-base-pseudo(clock);
+.xbui-icon-circle-plus {
+	.xbui-icon-base-pseudo(circle-plus);
 }
-.xbui-icon-close-circled {
-	.xbui-icon-base-pseudo(close-circled);
+.xbui-icon-circle-remove {
+	.xbui-icon-base-pseudo(circle-remove);
 }
-.xbui-icon-close-filled {
-	.xbui-icon-base-pseudo(close-filled);
+.xbui-icon-circle-upload {
+	.xbui-icon-base-pseudo(circle-upload);
+}
+.xbui-icon-class {
+	.xbui-icon-base-pseudo(class);
 }
 .xbui-icon-close {
 	.xbui-icon-base-pseudo(close);
 }
-.xbui-icon-cloud-download {
-	.xbui-icon-base-pseudo(cloud-download);
-}
-.xbui-icon-cloud-upload {
-	.xbui-icon-base-pseudo(cloud-upload);
+.xbui-icon-comment-outline {
+	.xbui-icon-base-pseudo(comment-outline);
 }
 .xbui-icon-comment {
 	.xbui-icon-base-pseudo(comment);
 }
-.xbui-icon-compose-outline {
-	.xbui-icon-base-pseudo(compose-outline);
+.xbui-icon-copy {
+	.xbui-icon-base-pseudo(copy);
 }
-.xbui-icon-currency {
-	.xbui-icon-base-pseudo(currency);
+.xbui-icon-curriculum {
+	.xbui-icon-base-pseudo(curriculum);
 }
-.xbui-icon-cursorshap {
-	.xbui-icon-base-pseudo(cursorshap);
+.xbui-icon-data-disk {
+	.xbui-icon-base-pseudo(data-disk);
 }
-.xbui-icon-document {
-	.xbui-icon-base-pseudo(document);
+.xbui-icon-date {
+	.xbui-icon-base-pseudo(date);
 }
-.xbui-icon-download {
-	.xbui-icon-base-pseudo(download);
+.xbui-icon-delete {
+	.xbui-icon-base-pseudo(delete);
 }
-.xbui-icon-edit-pen {
-	.xbui-icon-base-pseudo(edit-pen);
+.xbui-icon-disable {
+	.xbui-icon-base-pseudo(disable);
+}
+.xbui-icon-drag {
+	.xbui-icon-base-pseudo(drag);
 }
 .xbui-icon-edit {
 	.xbui-icon-base-pseudo(edit);
 }
-.xbui-icon-email {
-	.xbui-icon-base-pseudo(email);
+.xbui-icon-error-circle {
+	.xbui-icon-base-pseudo(error-circle);
 }
-.xbui-icon-excel {
-	.xbui-icon-base-pseudo(excel);
+.xbui-icon-exam {
+	.xbui-icon-base-pseudo(exam);
 }
-.xbui-icon-exit {
-	.xbui-icon-base-pseudo(exit);
+.xbui-icon-export {
+	.xbui-icon-base-pseudo(export);
 }
 .xbui-icon-eye-off {
 	.xbui-icon-base-pseudo(eye-off);
@@ -321,140 +239,41 @@
 .xbui-icon-eye {
 	.xbui-icon-base-pseudo(eye);
 }
-.xbui-icon-fast-backward {
-	.xbui-icon-base-pseudo(fast-backward);
+.xbui-icon-filter {
+	.xbui-icon-base-pseudo(filter);
 }
-.xbui-icon-fast-forward {
-	.xbui-icon-base-pseudo(fast-forward);
-}
-.xbui-icon-female {
-	.xbui-icon-base-pseudo(female);
-}
-.xbui-icon-flash {
-	.xbui-icon-base-pseudo(flash);
-}
-.xbui-icon-folder {
-	.xbui-icon-base-pseudo(folder);
-}
-.xbui-icon-forbidden {
-	.xbui-icon-base-pseudo(forbidden);
-}
-.xbui-icon-funnel {
-	.xbui-icon-base-pseudo(funnel);
-}
-.xbui-icon-happy {
-	.xbui-icon-base-pseudo(happy);
-}
-.xbui-icon-headphone {
-	.xbui-icon-base-pseudo(headphone);
-}
-.xbui-icon-heart {
-	.xbui-icon-base-pseudo(heart);
-}
-.xbui-icon-help-circled {
-	.xbui-icon-base-pseudo(help-circled);
-}
-.xbui-icon-help-filled {
-	.xbui-icon-base-pseudo(help-filled);
+.xbui-icon-Finance {
+	.xbui-icon-base-pseudo(Finance);
 }
 .xbui-icon-home {
 	.xbui-icon-base-pseudo(home);
 }
-.xbui-icon-image {
-	.xbui-icon-base-pseudo(image);
+.xbui-icon-info-circle {
+	.xbui-icon-base-pseudo(info-circle);
 }
-.xbui-icon-inbox {
-	.xbui-icon-base-pseudo(inbox);
+.xbui-icon-learning-tasks {
+	.xbui-icon-base-pseudo(learning-tasks);
 }
-.xbui-icon-information-circled {
-	.xbui-icon-base-pseudo(information-circled);
-}
-.xbui-icon-information-filled {
-	.xbui-icon-base-pseudo(information-filled);
-}
-.xbui-icon-layers {
-	.xbui-icon-base-pseudo(layers);
-}
-.xbui-icon-link {
-	.xbui-icon-base-pseudo(link);
+.xbui-icon-list {
+	.xbui-icon-base-pseudo(list);
 }
 .xbui-icon-loading {
 	.xbui-icon-base-pseudo(loading);
 }
-.xbui-icon-location {
-	.xbui-icon-base-pseudo(location);
+.xbui-icon-management {
+	.xbui-icon-base-pseudo(management);
 }
-.xbui-icon-locked {
-	.xbui-icon-base-pseudo(locked);
-}
-.xbui-icon-male {
-	.xbui-icon-base-pseudo(male);
-}
-.xbui-icon-map {
-	.xbui-icon-base-pseudo(map);
-}
-.xbui-icon-maximize-b {
-	.xbui-icon-base-pseudo(maximize-b);
-}
-.xbui-icon-maximize {
-	.xbui-icon-base-pseudo(maximize);
-}
-.xbui-icon-md-add-circle {
-	.xbui-icon-base-pseudo(md-add-circle);
-}
-.xbui-icon-md-remove-circle {
-	.xbui-icon-base-pseudo(md-remove-circle);
-}
-.xbui-icon-merge {
-	.xbui-icon-base-pseudo(merge);
-}
-.xbui-icon-microphone {
-	.xbui-icon-base-pseudo(microphone);
-}
-.xbui-icon-minimize-b {
-	.xbui-icon-base-pseudo(minimize-b);
-}
-.xbui-icon-minimize {
-	.xbui-icon-base-pseudo(minimize);
-}
-.xbui-icon-minus-circled {
-	.xbui-icon-base-pseudo(minus-circled);
+.xbui-icon-mechanism {
+	.xbui-icon-base-pseudo(mechanism);
 }
 .xbui-icon-minus {
 	.xbui-icon-base-pseudo(minus);
 }
-.xbui-icon-monitor {
-	.xbui-icon-base-pseudo(monitor);
-}
-.xbui-icon-moon {
-	.xbui-icon-base-pseudo(moon);
-}
 .xbui-icon-more {
 	.xbui-icon-base-pseudo(more);
 }
-.xbui-icon-navigation {
-	.xbui-icon-base-pseudo(navigation);
-}
-.xbui-icon-neutral {
-	.xbui-icon-base-pseudo(neutral);
-}
-.xbui-icon-pause {
-	.xbui-icon-base-pseudo(pause);
-}
-.xbui-icon-phone {
-	.xbui-icon-base-pseudo(phone);
-}
-.xbui-icon-play-circled {
-	.xbui-icon-base-pseudo(play-circled);
-}
-.xbui-icon-play {
-	.xbui-icon-base-pseudo(play);
-}
-.xbui-icon-plus-circled {
-	.xbui-icon-base-pseudo(plus-circled);
-}
-.xbui-icon-plus-filled {
-	.xbui-icon-base-pseudo(plus-filled);
+.xbui-icon-password {
+	.xbui-icon-base-pseudo(password);
 }
 .xbui-icon-plus {
 	.xbui-icon-base-pseudo(plus);
@@ -462,85 +281,57 @@
 .xbui-icon-printer {
 	.xbui-icon-base-pseudo(printer);
 }
-.xbui-icon-refresh {
-	.xbui-icon-base-pseudo(refresh);
+.xbui-icon-Progression {
+	.xbui-icon-base-pseudo(Progression);
 }
-.xbui-icon-sad {
-	.xbui-icon-base-pseudo(sad);
+.xbui-icon-question-circle {
+	.xbui-icon-base-pseudo(question-circle);
+}
+.xbui-icon-recruit-students {
+	.xbui-icon-base-pseudo(recruit-students);
+}
+.xbui-icon-role {
+	.xbui-icon-base-pseudo(role);
+}
+.xbui-icon-same-level {
+	.xbui-icon-base-pseudo(same-level);
 }
 .xbui-icon-save {
 	.xbui-icon-base-pseudo(save);
 }
-.xbui-icon-scan {
-	.xbui-icon-base-pseudo(scan);
+.xbui-icon-schedule {
+	.xbui-icon-base-pseudo(schedule);
+}
+.xbui-icon-school {
+	.xbui-icon-base-pseudo(school);
 }
 .xbui-icon-search {
 	.xbui-icon-base-pseudo(search);
 }
-.xbui-icon-service {
-	.xbui-icon-base-pseudo(service);
+.xbui-icon-staff {
+	.xbui-icon-base-pseudo(staff);
 }
-.xbui-icon-settings {
-	.xbui-icon-base-pseudo(settings);
+.xbui-icon-student {
+	.xbui-icon-base-pseudo(student);
 }
-.xbui-icon-share {
-	.xbui-icon-base-pseudo(share);
+.xbui-icon-success-circle {
+	.xbui-icon-base-pseudo(success-circle);
 }
-.xbui-icon-skip-back {
-	.xbui-icon-base-pseudo(skip-back);
+.xbui-icon-sync {
+	.xbui-icon-base-pseudo(sync);
 }
-.xbui-icon-skip-forward {
-	.xbui-icon-base-pseudo(skip-forward);
+.xbui-icon-teaching-setting {
+	.xbui-icon-base-pseudo(teaching-setting);
 }
-.xbui-icon-sphome {
-	.xbui-icon-base-pseudo(sphome);
+.xbui-icon-time {
+	.xbui-icon-base-pseudo(time);
 }
-.xbui-icon-star-filled {
-	.xbui-icon-base-pseudo(star-filled);
-}
-.xbui-icon-star {
-	.xbui-icon-base-pseudo(star);
-}
-.xbui-icon-stop-circled {
-	.xbui-icon-base-pseudo(stop-circled);
-}
-.xbui-icon-stop {
-	.xbui-icon-base-pseudo(stop);
-}
-.xbui-icon-sun {
-	.xbui-icon-base-pseudo(sun);
-}
-.xbui-icon-swap-horiz {
-	.xbui-icon-base-pseudo(swap-horiz);
-}
-.xbui-icon-swap-vert {
-	.xbui-icon-base-pseudo(swap-vert);
-}
-.xbui-icon-tag {
-	.xbui-icon-base-pseudo(tag);
-}
-.xbui-icon-thumbs-down {
-	.xbui-icon-base-pseudo(thumbs-down);
-}
-.xbui-icon-thumbs-up {
-	.xbui-icon-base-pseudo(thumbs-up);
-}
-.xbui-icon-trash {
-	.xbui-icon-base-pseudo(trash);
-}
-.xbui-icon-upload-b  {
-	.xbui-icon-base-pseudo(upload-b );
-}
-.xbui-icon-upload {
-	.xbui-icon-base-pseudo(upload);
+.xbui-icon-tree-ico {
+	.xbui-icon-base-pseudo(tree-ico);
 }
 .xbui-icon-user {
 	.xbui-icon-base-pseudo(user);
 }
-.xbui-icon-zoom-in {
-	.xbui-icon-base-pseudo(zoom-in);
+.xbui-icon-warning-circle {
+	.xbui-icon-base-pseudo(warning-circle);
 }
-.xbui-icon-zoom-out {
-	.xbui-icon-base-pseudo(zoom-out);
-}
-
