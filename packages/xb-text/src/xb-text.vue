@@ -5,82 +5,53 @@
       v-if="type !== 'textarea'"
       :style="inputStyle"
       :placeholder="placeHolder"
-      :class='classesText'
+      :class="classesText"
       :disabled="disabled"
       :readonly="readonly"
       :maxlength="maxlength?maxlength:''"
       @input="inputChange(num)"
-    />
+    >
 
     <textarea
       v-model="textValue"
       v-if="type === 'textarea'"
       :style="{'height':heightNum+10+'px'}"
       :placeholder="placeHolder"
-      :class='classesTextarea'
+      :class="classesTextarea"
       :disabled="disabled"
       :readonly="readonly"
       :maxlength="maxlength?maxlength:''"
       @input="textareaChange()"
-    >
-    </textarea>
+    ></textarea>
 
     <!-- 清空按钮 -->
     <span
       v-if="status=='clearable'&&num&&!suffixIcon"
-      :class='classedRightIcon'
+      :class="classedRightIcon"
       @click="clearClick()"
     >
-      <i
-        class="xb-icon-circle-close"
-        :class='classesCloseIcon'
-      ></i>
+      <i class="xb-icon-circle-close" :class="classesCloseIcon"></i>
     </span>
 
     <!-- 状态为“成功” -->
-    <span
-      v-if="status=='success'&&!suffixIcon"
-      :class='classedRightIcon'
-    >
-      <i
-        class="xb-icon-circle-check"
-        :class='classesSuccessIcon'
-      ></i>
+    <span v-if="status=='success'&&!suffixIcon" :class="classedRightIcon">
+      <i class="xb-icon-circle-check" :class="classesSuccessIcon"></i>
     </span>
 
     <!-- 状态为“失败” -->
-    <span
-      v-if="status=='fail'&&!suffixIcon"
-      :class='classedRightIcon'
-    >
-      <i
-        class="xb-icon-circle-close"
-        :class='classesFailIcon'
-      ></i>
+    <span v-if="status=='fail'&&!suffixIcon" :class="classedRightIcon">
+      <i class="xb-icon-circle-close" :class="classesFailIcon"></i>
     </span>
 
     <!-- 自定义样式，展示在首部 -->
-    <span
-      v-if="prefixIcon"
-      :class='classedLeftIcon'
-    >
-      <i
-        :class='prefixIcon'
-        :style="iconStyle"
-      ></i>
+    <span v-if="prefixIcon" :class="classedLeftIcon">
+      <i :class="prefixIcon" :style="iconStyle"></i>
     </span>
 
     <!-- 自定义样式，展示在尾部 -->
-    <span
-      v-if="suffixIcon"
-      :class='classedRightIcon'
-    >
-      <i
-        :class='suffixIcon'
-        :style="iconStyle"
-      ></i>
+    <span v-if="suffixIcon" :class="classedRightIcon">
+      <i :class="suffixIcon" :style="iconStyle"></i>
     </span>
-
   </div>
 </template>
 
@@ -243,11 +214,11 @@ export default class XbText extends Vue {
         [`${prefixCls}-input-large`]: this.size === "large",
         [`${prefixCls}-input-medium`]: this.size === "medium",
         [`${prefixCls}-input-small`]: this.size === "small",
-        [`${prefixCls}-disabled`]: this.disabled,
+        [`${prefixCls}-input-disabled`]: this.disabled,
         [`${prefixCls}-clearable`]: this.status === "clearable",
-        [`${prefixCls}-fail-input`]: this.status === "fail" && !this.suffixIcon,
-        [`${prefixCls}-left-input`]: this.prefixIcon,
-        [`${prefixCls}-right-input`]:
+        [`${prefixCls}-input-fail`]: this.status === "fail" && !this.suffixIcon,
+        [`${prefixCls}-input-left`]: this.prefixIcon,
+        [`${prefixCls}-input-right`]:
           this.suffixIcon || this.status === "clearable" || this.status === "success" || this.status === "fail",
       },
     ];
