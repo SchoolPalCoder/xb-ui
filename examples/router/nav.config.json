@@ -52,16 +52,16 @@
                 "path": "/xb-loading"
               },
               {
+                "text": "xb-input",
+                "path": "/xb-input"
+              },
+              {
                 "text": "xb-input-number",
                 "path": "/xb-input-number"
               },
               {
                 "text": "xb-icon",
                 "path": "/xb-icon"
-              },
-              {
-                "text": "xb-text",
-                "path": "/xb-text"
               },
               {
                 "text": "xb-search-btn",
@@ -125,6 +125,10 @@
               {
                 "text": "xb-nav",
                 "path": "/xb-nav"
+              },
+              {
+                "text": "xb-tabs",
+                "path": "/xb-tabs"
               }
             ]
           },

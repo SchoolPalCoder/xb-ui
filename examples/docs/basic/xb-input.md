@@ -1,4 +1,4 @@
-# xb-text 输入框
+# xb-input 输入框
 
 即：input 输入框 或者 textarea 输入框
 
@@ -6,38 +6,38 @@
 
 <div class="demo-button">
   <div>
-    <xb-text></xb-text>
+    <xb-input></xb-input>
   </div>
 </div>
 
 ```html
 默认输入文案：请输入，input输入框宽：180px，input输入框高：40px，默认不带可输入icon
 
-<xb-text></xb-text>
+<xb-input></xb-input>
 ```
 
 ## 修改默认文案
 
 <div class="demo-button">
   <div>
-    <xb-text placeHolder="修改默认值"></xb-text>
+    <xb-input placeHolder="修改默认值"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text placeHolder="修改默认值"></xb-text>
+<xb-input placeHolder="修改默认值"></xb-input>
 ```
 
 ## 最大输入字符串长度
 
 <div class="demo-button">
   <div>
-    <xb-text maxlength="10"></xb-text>
+    <xb-input :maxlength="10"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text maxlength="10"></xb-text>
+<xb-input :maxlength="10"></xb-input>
 ```
 
 ## 数字最大值
@@ -46,12 +46,12 @@
 
 <div class="demo-button">
   <div>
-    <xb-text :maxNum="10000"></xb-text>
+    <xb-input :maxNum="10000"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text :maxNum="10000"></xb-text>
+<xb-input :maxNum="10000"></xb-input>
 ```
 
 ## 正则表达式
@@ -60,14 +60,14 @@
 
 <div class="demo-button">
   <div>
-    <xb-text regExp="^(0|[1-9]\d*)(\.\d?)?$"></xb-text>
+    <xb-input regExp="^(0|[1-9]\d*)(\.\d?)?$"></xb-input>
   </div>
 </div>
 
 ```html
 只能输入一位小数
 
-<xb-text regExp="^(0|[1-9]\d*)(\.\d?)?$"></xb-text>
+<xb-input regExp="^(0|[1-9]\d*)(\.\d?)?$"></xb-input>
 ```
 
 ## 禁用
@@ -76,12 +76,12 @@ disabled 属性接受一个 Boolean，设置为 true 即可禁用整个组件
 
 <div class="demo-button">
   <div>
-    <xb-text disabled="true"></xb-text>
+    <xb-input :disabled="true"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text disabled="true"></xb-text>
+<xb-input :disabled="true"></xb-input>
 ```
 
 ## 只读
@@ -90,12 +90,12 @@ readonly 属性接受一个 Boolean，设置为 true 便对输入框内容不可
 
 <div class="demo-button">
   <div>
-    <xb-text readonly="true"></xb-text>
+    <xb-input :readonly="true"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text readonly="true"></xb-text>
+<xb-input :readonly="true"></xb-input>
 ```
 
 ## icon 显示
@@ -106,50 +106,50 @@ readonly 属性接受一个 Boolean，设置为 true 便对输入框内容不可
 
 <div class="demo-button">
   <div>
-    <xb-text status="clearable"></xb-text>
+    <xb-input status="clearable"></xb-input>
     <br/>
-    <xb-text status="success"></xb-text>
+    <xb-input status="success"></xb-input>
     <br/>
-    <xb-text status="fail"></xb-text>
+    <xb-input status="fail"></xb-input>
   </div>
 </div>
 
 ```html
 清空
 
-<xb-text status="clearable"></xb-text>
+<xb-input status="clearable"></xb-input>
 
 成功
 
-<xb-text status="success"></xb-text>
+<xb-input status="success"></xb-input>
 
 失败
 
-<xb-text status="fail"></xb-text>
+<xb-input status="fail"></xb-input>
 ```
 
 #### 自定义 icon 展示————首部
 
 <div class="demo-button">
   <div>
-    <xb-text prefixIcon="xb-icon-edit"></xb-text>
+    <xb-input prefixIcon="xb-icon-edit"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text prefixIcon="xb-icon-edit"></xb-text>
+<xb-input prefixIcon="xb-icon-edit"></xb-input>
 ```
 
 #### 自定义 icon 展示————尾部
 
 <div class="demo-button">
   <div>
-    <xb-text suffixIcon="xb-icon-edit"></xb-text>
+    <xb-input suffixIcon="xb-icon-edit"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text suffixIcon="xb-icon-edit"></xb-text>
+<xb-input suffixIcon="xb-icon-edit"></xb-input>
 ```
 
 #### 对自定义的 icon 进行二次样式处理
@@ -158,12 +158,15 @@ iconStyle 只有 icon 有作用，对 input 无效
 
 <div class="demo-button">
   <div>
-    <xb-text suffixIcon="xb-icon-edit" :iconStyle="{'color':'white','background-color':'red','font-size':'16px'}"></xb-text>
+    <xb-input suffixIcon="xb-icon-edit" :iconStyle="{'color':'white','background-color':'red','font-size':'16px'}"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text suffixIcon="xb-icon-edit" :iconStyle="{'color':'white','background-color':'red','font-size':'16px'}"></xb-text>
+<xb-input
+  suffixIcon="xb-icon-edit"
+  :iconStyle="{'color':'white','background-color':'red','font-size':'16px'}"
+></xb-input>
 ```
 
 ## 外部传入的样式
@@ -172,40 +175,40 @@ iconStyle 只有 icon 有作用，对 input 无效
 
 <div class="demo-button">
   <div>
-    <xb-text :inputStyle="{'width':'200px','height':'60px','font-size':'20px'}"></xb-text>
+    <xb-input :inputStyle="{'width':'200px','height':'60px','font-size':'20px'}"></xb-input>
   </div>
 </div>
 
 ```html
 只修改input输入框的尺寸
 
-<xb-text :inputStyle="{'width':'200px','height':'60px','font-size':'20px'}"></xb-text>
+<xb-input :inputStyle="{'width':'200px','height':'60px','font-size':'20px'}"></xb-input>
 ```
 
 #### 组件内提供的 3 种尺寸
 
 <div class="demo-button">
   <div>
-    <xb-text size="large"></xb-text>
+    <xb-input size="large"></xb-input>
     <br>
-    <xb-text size="medium"></xb-text>
+    <xb-input size="medium"></xb-input>
      <br>
-    <xb-text size="small"></xb-text>
+    <xb-input size="small"></xb-input>
   </div>
 </div>
 
 ```html
 大尺寸
 
-<xb-text size="large"></xb-text>
+<xb-input size="large"></xb-input>
 
 默认尺寸
 
-<xb-text size="medium"></xb-text>
+<xb-input size="medium"></xb-input>
 
 小尺寸
 
-<xb-text size="small"></xb-text>
+<xb-input size="small"></xb-input>
 ```
 
 ## textarea 文本域
@@ -216,48 +219,48 @@ iconStyle 只有 icon 有作用，对 input 无效
 
 <div class="demo-button">
   <div>
-    <xb-text type="textarea"></xb-text>
+    <xb-input type="textarea"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text type="textarea"></xb-text>
+<xb-input type="textarea"></xb-input>
 ```
 
 #### 允许输入 5 行内容
 
 <div class="demo-button">
   <div>
-    <xb-text type="textarea" :rows='5'></xb-text>
+    <xb-input type="textarea" :rows='5'></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text type="textarea" :rows="5"></xb-text>
+<xb-input type="textarea" :rows="5"></xb-input>
 ```
 
 #### 可自适应文本高度的文本域
 
 <div class="demo-button">
   <div>
-    <xb-text type="textarea" :autosize="true"></xb-text>
+    <xb-input type="textarea" :autosize="true"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text type="textarea" :autosize="true"></xb-text>
+<xb-input type="textarea" :autosize="true"></xb-input>
 ```
 
 #### 文本域高度,可自动进行调整，并指定最小行数和最大行数。
 
 <div class="demo-button">
   <div>
-    <xb-text type="textarea"  :autosize="{ min: 2, max: 4}"></xb-text>
+    <xb-input type="textarea"  :autosize="{ min: 2, max: 4}"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-text type="textarea" :autosize="{ min: 2, max: 4}"></xb-text>
+<xb-input type="textarea" :autosize="{ min: 2, max: 4}"></xb-input>
 ```
 
 [^_^]: update
