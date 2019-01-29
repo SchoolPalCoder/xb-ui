@@ -7,7 +7,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 const prefixCls = "xbui-icon";
 @Component({ name: "XbIcon" })
 export default class XbIcon extends Vue {
-  @Prop({ type: String })
+  @Prop({ required: true, type: String })
   type!: string;
 
   @Prop({ type: [Number, String] })
@@ -34,7 +34,6 @@ export default class XbIcon extends Vue {
     }
 
     return style;
-    debugger;
   }
 }
 </script>

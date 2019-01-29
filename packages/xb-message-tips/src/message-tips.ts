@@ -35,7 +35,7 @@ const iconTypes = {
 
 const messageConstructor = Vue.extend(messageVue);
 messageConstructor.prototype.close = function() {
-  var vm = this;
+  const vm = this;
   this.$on("afterLeave", () => {
     if (vm.$el && vm.$el.parentNode) {
       vm.$el.parentNode.removeChild(vm.$el);
