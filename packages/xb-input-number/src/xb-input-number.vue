@@ -15,9 +15,18 @@
     </div>
     <span :class="arrowDivClasses">
       <!-- 添加 -->
-      <span :class="arrowDownClasses" @click="addValue(disabled?true:false)">+</span>
+      <span
+        :class="arrowDownClasses"
+        @click="addValue(disabled?true:false)"
+        ref="arrow"
+        :style="{'lineHeight':lineHeight+'px'}"
+      >+</span>
       <!-- 减少 -->
-      <span :class="arrowClasses" @click="subtractValue(disabled?true:false)">-</span>
+      <span
+        :class="arrowClasses"
+        @click="subtractValue(disabled?true:false)"
+        :style="{'lineHeight':lineHeight+'px'}"
+      >-</span>
     </span>
   </div>
 </template>
@@ -63,6 +72,13 @@ export default class XbInputNumber extends Vue {
   num: number = this.firstNum;
   /** 子组件内展示的数值，如果输入的数字不符合正则表达式，则展示原来的数值 */
   showNum: number = 0;
+  // 右侧操作栏的高度
+  lineHeight: number = 0;
+
+  mounted() {
+    // 右侧操作栏的行高
+    this.lineHeight = this.$refs.arrow.offsetHeight;
+  }
 
   // 增加步进
   addValue(state) {
