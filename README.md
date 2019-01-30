@@ -22,8 +22,6 @@ git checkout -b XXX
 git push origin XXX:XXX
 ```
 
-5. 从原本的已经写了组件的项目中将 JS 组件翻译为 TS 组件并提交和创建 `PR(Pull Request)`
-
 ## 编码规范
 
 1. 书写规则
@@ -89,10 +87,7 @@ git push origin XXX:XXX
 
 ## TODO-List
 
-1. 国际化
-1. 打包
 1. 单元测试
-1. example 站点能配置开发模式和发布模式（打包前、打包后）
 1. 组件改动审核规则
    - 大家会进行组件 CodeReview
    - 每个人在各自分支开发，合并到 master 需要安然或者少波进行操作
@@ -127,8 +122,10 @@ yarn dev
 
 ## 安装
 
+目前还未发布到 npm，发布后可以使用以下命令
+
 ```bash
-npm install xb-ui
+yarn add xb-ui
 ```
 
 #### 关于单元测试移步为知笔记：
