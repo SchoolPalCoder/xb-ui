@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/SchoolPalCoder/Xb-Basic-Components.git"
+    "url": "git+ssh://git@github.com/SchoolPalCoder/xb-ui.git"
   },
   "keywords": [
     "vue",
@@ -27,9 +27,9 @@
   "author": "SchoolPal Coder",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SchoolPalCoder/Xb-Basic-Components/issues"
+    "url": "https://github.com/SchoolPalCoder/xb-ui/issues"
   },
-  "homepage": "https://github.com/SchoolPalCoder/Xb-Basic-Components#readme",
+  "homepage": "https://github.com/SchoolPalCoder/xb-ui#readme",
   "devDependencies": {
     "@types/lodash": "^4.14.120",
     "@types/node": "^10.12.18",
