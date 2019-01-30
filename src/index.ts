@@ -12,6 +12,7 @@ import XbColor from "@/xb-color/index.ts";
 import XbForm from "@/xb-form/index.ts";
 import XbFormItem from "@/xb-form-item/index.ts";
 import XbIcon from "@/xb-icon/index.ts";
+import XbInput from "@/xb-input/index.ts";
 import XbInputNumber from "@/xb-input-number/index.ts";
 import XbLoading from "@/xb-loading/index.ts";
 import XbMessageTips from "@/xb-message-tips/index.ts";
@@ -26,7 +27,6 @@ import XbSearchBtn from "@/xb-search-btn/index.ts";
 import XbSelect from "@/xb-select/index.ts";
 import XbSubnav from "@/xb-subnav/index.ts";
 import XbTable from "@/xb-table/index.ts";
-import XbText from "@/xb-text/index.ts";
 
 const components = {
   XbButton,
@@ -36,6 +36,7 @@ const components = {
   XbForm,
   XbFormItem,
   XbIcon,
+  XbInput,
   XbInputNumber,
   XbLoading,
   XbMessageTips,
@@ -50,7 +51,6 @@ const components = {
   XbSelect,
   XbSubnav,
   XbTable,
-  XbText,
 };
 
 const install: PluginFunction<any> = (vue: VueConstructor<Vue>, options: any = {}) => {
@@ -90,6 +90,7 @@ module.exports = {
   XbForm,
   XbFormItem,
   XbIcon,
+  XbInput,
   XbInputNumber,
   XbLoading,
   XbMessageTips,
@@ -104,7 +105,6 @@ module.exports = {
   XbSelect,
   XbSubnav,
   XbTable,
-  XbText
 };
 
 module.exports.default = module.exports;

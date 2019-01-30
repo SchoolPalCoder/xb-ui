@@ -1,3 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <path fill="#333" d="M8,8 L2.5,8 L2.5,8 C2.22385763,8 2,8.22385763 2,8.5 C2,8.77614237 2.22385763,9 2.5,9 L8,9 L8,14.5 C8,14.7761424 8.22385763,15 8.5,15 C8.77614237,15 9,14.7761424 9,14.5 L9,9 L14.5,9 C14.7761424,9 15,8.77614237 15,8.5 C15,8.22385763 14.7761424,8 14.5,8 L9,8 L9,2.5 L9,2.5 C9,2.22385763 8.77614237,2 8.5,2 L8.5,2 L8.5,2 C8.22385763,2 8,2.22385763 8,2.5 L8,8 Z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>plus</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M15,15 L15,3 C15,2.44771525 15.4477153,2 16,2 C16.5522847,2 17,2.44771525 17,3 L17,15 L29,15 C29.5522847,15 30,15.4477153 30,16 C30,16.5522847 29.5522847,17 29,17 L17,17 L17,29 C17,29.5522847 16.5522847,30 16,30 C15.4477153,30 15,29.5522847 15,29 L15,17 L3,17 C2.44771525,17 2,16.5522847 2,16 C2,15.4477153 2.44771525,15 3,15 L15,15 Z" id="path-1"></path>
+    </defs>
+    <g id="plus" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use fill="#000000" xlink:href="#path-1"></use>
+    </g>
 </svg>

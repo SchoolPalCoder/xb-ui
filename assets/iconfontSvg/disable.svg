@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>disable</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M4.07144858,12.5351531 C5.12403677,13.4477461 6.49752548,14 8,14 C11.3137085,14 14,11.3137085 14,8 C14,6.49752548 13.4477461,5.12403677 12.5351531,4.07144858 L4.07144858,12.5351531 Z M3.37269672,11.8196914 L11.8196914,3.37269672 C10.7820828,2.51520968 9.45120826,2 8,2 C4.6862915,2 2,4.6862915 2,8 C2,9.45120826 2.51520968,10.7820828 3.37269672,11.8196914 Z M8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 Z" id="path-1"></path>
+    </defs>
+    <g id="disable" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="icon/Disabled" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+    </g>
+</svg>

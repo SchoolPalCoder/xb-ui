@@ -48,20 +48,20 @@
                 "path": "/xb-button"
               },
               {
-                "text": "xb-loading",
-                "path": "/xb-loading"
+                "text": "xb-icon",
+                "path": "/xb-icon"
+              },
+              {
+                "text": "xb-input",
+                "path": "/xb-input"
               },
               {
                 "text": "xb-input-number",
                 "path": "/xb-input-number"
               },
               {
-                "text": "xb-icon",
-                "path": "/xb-icon"
-              },
-              {
-                "text": "xb-text",
-                "path": "/xb-text"
+                "text": "xb-loading",
+                "path": "/xb-loading"
               },
               {
                 "text": "xb-search-btn",
@@ -86,16 +86,16 @@
                 "path": "/xb-form"
               },
               {
-                "text": "xb-table",
-                "path": "/xb-table"
+                "text": "xb-pagination",
+                "path": "/xb-pagination"
               },
               {
                 "text": "xb-radio",
                 "path": "/xb-radio"
               },
               {
-                "text": "xb-pagination",
-                "path": "/xb-pagination"
+                "text": "xb-table",
+                "path": "/xb-table"
               }
             ]
           },
@@ -109,12 +109,12 @@
             "folder": "notice",
             "list": [
               {
-                "text": "xb-popup-window",
-                "path": "/xb-popup-window"
-              },
-              {
                 "text": "xb-message-tips",
                 "path": "/xb-message-tips"
+              },
+              {
+                "text": "xb-popup-window",
+                "path": "/xb-popup-window"
               }
             ]
           },
@@ -125,18 +125,17 @@
               {
                 "text": "xb-nav",
                 "path": "/xb-nav"
+              },
+              {
+                "text": "xb-tabs",
+                "path": "/xb-tabs"
               }
             ]
           },
           {
             "groupName": "其他组件",
             "folder": "others",
-            "list": [
-              {
-                "text": "xb-ueditor",
-                "path": "/xb-ueditor"
-              }
-            ]
+            "list": []
           }
         ]
       }

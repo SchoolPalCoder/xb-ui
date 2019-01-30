@@ -1,13 +1,13 @@
 # xb-form
-----
+
+---
 
 # 概述
-
-
 
 # 示例
 
 ## 基础用法
+
 <template>
   <xb-form ref="formInline" :model="formInline" :rules="ruleInline" inline>
     <xb-form-item prop="text">
@@ -48,3 +48,9 @@
     }
   }
 </script>
+
+## 作者列表
+
+| 作者 | 更新时间                    | 主要修改点 |
+| :--- | :-------------------------- | :--------- |
+| 海良 | 2019 年 1 月 30 日 13:14:00 | 搭建组件   |

@@ -1,0 +1,11 @@
+/.vscode
+/.idea
+.*
+*.md
+*.yml
+build/
+node_modules/
+test/
+gulpfile.js
+package-lock.json
+yarn-error.log

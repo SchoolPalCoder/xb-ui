@@ -122,3 +122,9 @@ export default {
 | size        | 搜索 input 框尺寸    | string  | large/medium/small | medium                        |
 | hidden      | 搜索 icon 的显示样式 | boolean | false/true         | false                         |
 | @click      | 点击事件             |         |                    | 点击后只会返回 input 的输入值 |
+
+## 作者列表
+
+| 作者 | 更新时间                    | 主要修改点 |
+| :--- | :-------------------------- | :--------- |
+| 黄莹 | 2019 年 1 月 30 日 13:14:00 | 搭建组件   |

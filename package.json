@@ -5,18 +5,18 @@
   "main": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "scripts": {
-    "build:file": "gulp --gulpfile build/bin/gen-icon-font.js & node build/bin/build-entry.js",
+    "build:file": "npm run init:icon & node build/bin/gen-entry.js",
     "dev": "webpack-dev-server --config ./build/webpack.examples.js --mode=development ",
     "prod": "webpack-dev-server --config ./build/webpack.examples.js --mode=production ",
     "create:component": "node tools/create-component",
     "create:componentMd": "node tools/create-componentMd",
     "dist:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
     "dist": "npm run build:file & npm run dist:style & webpack --config build/webpack.production.js",
-    "init:icon": "node build/iconinit"
+    "init:icon": "gulp --gulpfile build/bin/gen-icon-font.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/SchoolPalCoder/Xb-Basic-Components.git"
+    "url": "git+ssh://git@github.com/SchoolPalCoder/xb-ui.git"
   },
   "keywords": [
     "vue",
@@ -27,9 +27,9 @@
   "author": "SchoolPal Coder",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SchoolPalCoder/Xb-Basic-Components/issues"
+    "url": "https://github.com/SchoolPalCoder/xb-ui/issues"
   },
-  "homepage": "https://github.com/SchoolPalCoder/Xb-Basic-Components#readme",
+  "homepage": "https://github.com/SchoolPalCoder/xb-ui#readme",
   "devDependencies": {
     "@types/lodash": "^4.14.120",
     "@types/node": "^10.12.18",

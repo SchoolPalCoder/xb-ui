@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>circle-upload</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M8.5,13 C8.77614237,13 9,12.7761424 9,12.5 L9,7 L7,7 L7,12.5 C7,12.7761424 7.22385763,13 7.5,13 L8.5,13 Z M11.0029699,7 C11.5536144,7 11.6861267,6.68612671 11.2940879,6.29408795 L8.35497332,3.35497332 C8.15892697,3.15892697 7.84807968,3.15192032 7.64502668,3.35497332 L4.70591205,6.29408795 C4.31604759,6.68395241 4.45303631,7 4.99703014,7 L11.0029699,7 Z" id="path-1"></path>
+    </defs>
+    <g id="circle-upload" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="icon/general/上传" fill="#000000" xlink:href="#path-1"></use>
+    </g>
+</svg>
