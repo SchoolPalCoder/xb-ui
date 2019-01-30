@@ -263,8 +263,6 @@ iconStyle 只有 icon 有作用，对 input 无效
 <xb-input type="textarea" :autosize="{ min: 2, max: 4}"></xb-input>
 ```
 
-[^_^]: update
-
 ## 参数表
 
 | 参数名      | 参数说明                               | 类型           | 可选值                                      | 默认值 | 有效范围         | 备注                                                       |
@@ -283,3 +281,9 @@ iconStyle 只有 icon 有作用，对 input 无效
 | size        | 输入框尺寸                             | string         | large / medium / small                      | medium | type!="textarea" |                                                            |
 | rows        | 展示行数                               | number         | ——                                          | 2      | type="textarea"  |                                                            |
 | autosize    | 自适应内容高度                         | boolean/object | 可传入布尔值和对象，如，{ min: 2, max: 6 }  | false  | type="textarea"  |                                                            |
+
+## 作者列表
+
+| 作者 | 更新时间                    | 主要修改点 |
+| :--- | :-------------------------- | :--------- |
+| 黄莹 | 2019 年 1 月 30 日 13:14:00 | 搭建组件   |

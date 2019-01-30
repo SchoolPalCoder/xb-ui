@@ -1,12 +1,13 @@
 # xb-pagination
-----
+
+---
+
 # 概述
-
-
 
 # 示例
 
 ## 基础用法
+
 <template>
 <div style="border:1px,">
   <xb-pagination :total="60" :current-page="6" v-on:page-change="pageChange">
@@ -30,3 +31,9 @@ module.exports = {
     }
   }
 </script>
+
+## 作者列表
+
+| 作者 | 更新时间                    | 主要修改点 |
+| :--- | :-------------------------- | :--------- |
+| 倩倩 | 2019 年 1 月 30 日 13:14:00 | 搭建组件   |
