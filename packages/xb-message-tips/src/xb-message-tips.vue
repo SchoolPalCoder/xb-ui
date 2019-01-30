@@ -17,10 +17,10 @@ import { Component, Prop, Vue, Provide } from "vue-property-decorator";
 
 @Component({ name: "XbMessageTips" })
 export default class XbMessageTips extends Vue {
-  show: Boolean = false;
-  text: String = "";
-  type: String = "";
-  closable: Boolean = false;
+  show: boolean = false;
+  text: string = "";
+  type: string = "";
+  closable: boolean = false;
   afterLeave() {
     return this.$emit("afterLeave");
   }
