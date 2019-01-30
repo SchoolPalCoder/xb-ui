@@ -43,3 +43,9 @@
   <div class="item orange"><div>orange</div><div>#FAAD14</div></div>
   <div class="item gray3"><div>gray-3</div><div>#F5222D</div></div>
 </div>
+
+## 作者列表
+
+| 作者   | 更新时间                    | 主要修改点 |
+| :----- | :-------------------------- | :--------- |
+| 黄李杰 | 2019 年 1 月 30 日 13:14:00 | 搭建组件   |

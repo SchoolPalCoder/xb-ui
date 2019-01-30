@@ -104,7 +104,7 @@ module.exports = {
   XbSearchBtn,
   XbSelect,
   XbSubnav,
-  XbTable
+  XbTable,
 };
 
 module.exports.default = module.exports;

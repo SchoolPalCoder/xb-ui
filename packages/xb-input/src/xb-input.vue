@@ -2,6 +2,7 @@
   <div :class="classesTextDiv">
     <input
       v-model="num"
+      :type="type"
       v-if="type !== 'textarea'"
       :style="inputStyle"
       :placeholder="placeHolder"
@@ -214,11 +215,11 @@ export default class XbInput extends Vue {
         [`${prefixCls}-input-large`]: this.size === "large",
         [`${prefixCls}-input-medium`]: this.size === "medium",
         [`${prefixCls}-input-small`]: this.size === "small",
-        [`${prefixCls}-disabled`]: this.disabled,
+        [`${prefixCls}-input-disabled`]: this.disabled,
         [`${prefixCls}-clearable`]: this.status === "clearable",
-        [`${prefixCls}-fail-input`]: this.status === "fail" && !this.suffixIcon,
-        [`${prefixCls}-left-input`]: this.prefixIcon,
-        [`${prefixCls}-right-input`]:
+        [`${prefixCls}-input-fail`]: this.status === "fail" && !this.suffixIcon,
+        [`${prefixCls}-input-left`]: this.prefixIcon,
+        [`${prefixCls}-input-right`]:
           this.suffixIcon || this.status === "clearable" || this.status === "success" || this.status === "fail",
       },
     ];

@@ -32,12 +32,12 @@
 
 <div class="demo-button">
   <div>
-    <xb-input maxlength="10"></xb-input>
+    <xb-input :maxlength="10"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-input maxlength="10"></xb-input>
+<xb-input :maxlength="10"></xb-input>
 ```
 
 ## 数字最大值
@@ -76,12 +76,12 @@ disabled 属性接受一个 Boolean，设置为 true 即可禁用整个组件
 
 <div class="demo-button">
   <div>
-    <xb-input disabled="true"></xb-input>
+    <xb-input :disabled="true"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-input disabled="true"></xb-input>
+<xb-input :disabled="true"></xb-input>
 ```
 
 ## 只读
@@ -90,12 +90,12 @@ readonly 属性接受一个 Boolean，设置为 true 便对输入框内容不可
 
 <div class="demo-button">
   <div>
-    <xb-input readonly="true"></xb-input>
+    <xb-input :readonly="true"></xb-input>
   </div>
 </div>
 
 ```html
-<xb-input readonly="true"></xb-input>
+<xb-input :readonly="true"></xb-input>
 ```
 
 ## icon 显示
@@ -163,7 +163,10 @@ iconStyle 只有 icon 有作用，对 input 无效
 </div>
 
 ```html
-<xb-input suffixIcon="xb-icon-edit" :iconStyle="{'color':'white','background-color':'red','font-size':'16px'}"></xb-input>
+<xb-input
+  suffixIcon="xb-icon-edit"
+  :iconStyle="{'color':'white','background-color':'red','font-size':'16px'}"
+></xb-input>
 ```
 
 ## 外部传入的样式
@@ -260,8 +263,6 @@ iconStyle 只有 icon 有作用，对 input 无效
 <xb-input type="textarea" :autosize="{ min: 2, max: 4}"></xb-input>
 ```
 
-[^_^]: update
-
 ## 参数表
 
 | 参数名      | 参数说明                               | 类型           | 可选值                                      | 默认值 | 有效范围         | 备注                                                       |
@@ -280,3 +281,9 @@ iconStyle 只有 icon 有作用，对 input 无效
 | size        | 输入框尺寸                             | string         | large / medium / small                      | medium | type!="textarea" |                                                            |
 | rows        | 展示行数                               | number         | ——                                          | 2      | type="textarea"  |                                                            |
 | autosize    | 自适应内容高度                         | boolean/object | 可传入布尔值和对象，如，{ min: 2, max: 6 }  | false  | type="textarea"  |                                                            |
+
+## 作者列表
+
+| 作者 | 更新时间                    | 主要修改点 |
+| :--- | :-------------------------- | :--------- |
+| 黄莹 | 2019 年 1 月 30 日 13:14:00 | 搭建组件   |
