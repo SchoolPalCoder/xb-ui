@@ -64,6 +64,10 @@
                 "path": "/xb-icon"
               },
               {
+                "text": "xb-input",
+                "path": "/xb-input"
+              },
+              {
                 "text": "xb-search-btn",
                 "path": "/xb-search-btn"
               },
