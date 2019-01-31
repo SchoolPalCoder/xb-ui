@@ -1,21 +1,23 @@
 <template>
   <div :class="classesTextDiv">
     <input
-      v-model="num"
-      :type="type"
       v-if="type !== 'textarea'"
+      ref="input"
+      :value="nativeInputValue"
+      :type="type"
       :style="inputStyle"
       :placeholder="placeHolder"
       :class="classesText"
       :disabled="disabled"
       :readonly="readonly"
       :maxlength="maxlength?maxlength:''"
-      @input="inputChange(num)"
+      @input="inputChange"
     >
 
     <textarea
-      v-model="textValue"
-      v-if="type === 'textarea'"
+      v-else
+      ref="textarea"
+      :value="nativeInputValue"
       :style="{'height':heightNum+10+'px'}"
       :placeholder="placeHolder"
       :class="classesTextarea"
@@ -26,33 +28,47 @@
     ></textarea>
 
     <!-- 清空按钮 -->
-    <span
-      v-if="status=='clearable'&&num&&!suffixIcon"
-      :class="classedRightIcon"
-      @click="clearClick()"
-    >
-      <i class="xb-icon-circle-close" :class="classesCloseIcon"></i>
+    <span @click="clearClick">
+      <xb-icon
+        v-if="status=='clearable'&&nativeInputValue&&!suffixIcon"
+        :class="classedRightIcon"
+        type="circle-close"
+        color="#aaaaaa"
+      ></xb-icon>
     </span>
-
     <!-- 状态为“成功” -->
-    <span v-if="status=='success'&&!suffixIcon" :class="classedRightIcon">
-      <i class="xb-icon-circle-check" :class="classesSuccessIcon"></i>
-    </span>
+    <xb-icon
+      v-if="status=='success'&&!suffixIcon"
+      :class="classedRightIcon"
+      type="circle-check"
+      color="#52c41a"
+    ></xb-icon>
 
     <!-- 状态为“失败” -->
-    <span v-if="status=='fail'&&!suffixIcon" :class="classedRightIcon">
-      <i class="xb-icon-circle-close" :class="classesFailIcon"></i>
-    </span>
+    <xb-icon
+      v-if="status=='fail'&&!suffixIcon"
+      :class="classedRightIcon"
+      type="circle-close"
+      color="#f5222d"
+    ></xb-icon>
 
     <!-- 自定义样式，展示在首部 -->
-    <span v-if="prefixIcon" :class="classedLeftIcon">
-      <i :class="prefixIcon" :style="iconStyle"></i>
-    </span>
+    <xb-icon
+      v-if="prefixIcon"
+      :class="classedLeftIcon"
+      :type="prefixIcon"
+      :size="iconSize"
+      :color="iconColor"
+    ></xb-icon>
 
     <!-- 自定义样式，展示在尾部 -->
-    <span v-if="suffixIcon" :class="classedRightIcon">
-      <i :class="suffixIcon" :style="iconStyle"></i>
-    </span>
+    <xb-icon
+      v-if="suffixIcon"
+      :class="classedRightIcon"
+      :type="suffixIcon"
+      :size="iconSize"
+      :color="iconColor"
+    ></xb-icon>
   </div>
 </template>
 
@@ -62,6 +78,10 @@ import { clearTimeout } from "timers";
 const prefixCls = "xbui-input";
 @Component({ name: "XbInput" })
 export default class XbInput extends Vue {
+  /** 传入的model值，必传 */
+  @Prop({ default: "" })
+  value!: [string, number];
+
   /** 类型（默认为input，传值可允许为textarea） */
   @Prop({ default: "text", type: String })
   type!: string;
@@ -90,9 +110,13 @@ export default class XbInput extends Vue {
   @Prop({ default: "", type: String })
   suffixIcon!: string;
 
-  /** 对icon样式进行处理（只有在有存在icon的时候，此参数才会有用） */
-  @Prop({ type: Object })
-  iconStyle!: object;
+  /** 对icon尺寸进行处理（只有在有存在icon的时候，此参数才会有用） */
+  @Prop({ default: "", type: String })
+  iconSize!: string;
+
+  /** 对icon颜色进行处理（只有在有存在icon的时候，此参数才会有用） */
+  @Prop({ default: "", type: String })
+  iconColor!: string;
 
   /** input样式 */
   @Prop({ type: Object })
@@ -122,51 +146,61 @@ export default class XbInput extends Vue {
   @Prop({ default: false, type: [Boolean, Object] })
   autosize!: boolean | object;
 
-  num: any = "";
-  textValue: any = "";
-  showNum: number = 0;
+  nativeInputValue: any = this.value;
+  showNum: any = "";
   heightNum: number = this.rows * 20;
 
+  // 实时处理或者清空数据的时候，更新页面上的数据
+  changeValue() {
+    let input = this.$refs.input || this.$refs.textarea;
+    input.value = this.nativeInputValue;
+  }
+
   // input实时输入处理
-  inputChange(info) {
+  inputChange(event) {
     if (this.maxNum) {
       // 如果存在最大值，则只允许输入纯数字
       const regNum = /^(0|[1-9]\d*)(\.\d{1,10000}?)?$/;
-
       // 存在正则
       if (this.regExp) {
-        if (new RegExp(this.regExp).test(info) && new RegExp(regNum).test(info)) {
-          if (info > this.maxNum) {
-            this.num = this.showNum;
+        if (new RegExp(this.regExp).test(event.target.value) && new RegExp(regNum).test(event.target.value)) {
+          if (event.target.value > this.maxNum) {
+            this.nativeInputValue = this.showNum;
           } else {
-            this.num = info;
-            this.showNum = info;
+            this.nativeInputValue = event.target.value;
+            this.showNum = event.target.value;
           }
         } else {
-          this.num = this.showNum;
+          this.nativeInputValue = this.showNum;
         }
       } else {
-        if (new RegExp(regNum).test(info)) {
+        if (new RegExp(regNum).test(event.target.value)) {
           // 数字
-          if (info > this.maxNum) {
-            this.num = this.showNum;
+          if (event.target.value > this.maxNum) {
+            this.nativeInputValue = this.showNum;
           } else {
-            this.num = info;
-            this.showNum = info;
+            this.nativeInputValue = event.target.value;
+            this.showNum = event.target.value;
           }
         } else {
           // 非数字
-          this.num = this.showNum;
+          this.nativeInputValue = this.showNum;
         }
       }
     } else if (this.regExp) {
-      if (new RegExp(this.regExp).test(info)) {
-        this.num = info;
-        this.showNum = info;
+      if (new RegExp(this.regExp).test(event.target.value)) {
+        this.nativeInputValue = event.target.value;
+        this.showNum = event.target.value;
       } else {
-        this.num = info ? this.showNum : "";
+        this.nativeInputValue = event.target.value ? this.showNum : "";
       }
+    } else {
+      this.nativeInputValue = event.target.value;
     }
+    this.$emit("input", this.nativeInputValue);
+    this.$nextTick(() => {
+      this.changeValue();
+    });
   }
 
   // textarea实时输入处理
@@ -199,8 +233,12 @@ export default class XbInput extends Vue {
 
   // 清空输入内容
   clearClick() {
-    this.num = "";
+    this.nativeInputValue = "";
     this.showNum = 0;
+    this.$emit("input", this.nativeInputValue);
+    this.$nextTick(() => {
+      this.changeValue();
+    });
   }
 
   // 样式
@@ -216,7 +254,6 @@ export default class XbInput extends Vue {
         [`${prefixCls}-input-medium`]: this.size === "medium",
         [`${prefixCls}-input-small`]: this.size === "small",
         [`${prefixCls}-input-disabled`]: this.disabled,
-        [`${prefixCls}-clearable`]: this.status === "clearable",
         [`${prefixCls}-input-fail`]: this.status === "fail" && !this.suffixIcon,
         [`${prefixCls}-input-left`]: this.prefixIcon,
         [`${prefixCls}-input-right`]:
@@ -240,19 +277,12 @@ export default class XbInput extends Vue {
   }
   // 右侧icon
   get classedRightIcon() {
-    return [`${prefixCls}-right-icon`];
-  }
-  // 清空
-  get classesCloseIcon() {
-    return [`${prefixCls}-close-icon`];
-  }
-  // 成功
-  get classesSuccessIcon() {
-    return [`${prefixCls}-success-icon`];
-  }
-  // 失败
-  get classesFailIcon() {
-    return [`${prefixCls}-fail-icon`];
+    return [
+      `${prefixCls}-right-icon`,
+      {
+        [`${prefixCls}-close-icon`]: this.status === "clearable",
+      },
+    ];
   }
 }
 </script>
