@@ -52,12 +52,12 @@
     border-color: @color-red;
   }
   // 自定义样式，展示在首部
-  &-input-left {
+  &-left {
     padding-left: 30px;
   }
 
   // 自定义样式，展示在尾部  或者  可清空，成功，失败 三种状态
-  &-input-right {
+  &-right {
     padding-right: 30px;
   }
 }
@@ -92,23 +92,10 @@
   color: rgb(192, 196, 204);
   vertical-align: baseline;
   display: inline-block;
+  font-size: @font-size-16;
 }
 
 // 清空icon
 .@{text-prefix}-close-icon {
-  font-size: @font-size-16;
-  color: @color-gray4;
   cursor: pointer;
-}
-
-// 成功icon
-.@{text-prefix}-success-icon {
-  font-size: @font-size-16;
-  color: @color-green;
-}
-
-// 失败icon
-.@{text-prefix}-fail-icon {
-  font-size: @font-size-16;
-  color: @color-red;
 }
