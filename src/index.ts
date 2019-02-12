@@ -27,6 +27,8 @@ import XbSearchBtn from "@/xb-search-btn/index.ts";
 import XbSelect from "@/xb-select/index.ts";
 import XbSubnav from "@/xb-subnav/index.ts";
 import XbTable from "@/xb-table/index.ts";
+import XbTabs from "@/xb-tabs/index.ts";
+import XbTabsPane from "@/xb-tabs-pane/index.ts";
 
 const components = {
   XbButton,
@@ -51,6 +53,8 @@ const components = {
   XbSelect,
   XbSubnav,
   XbTable,
+  XbTabs,
+  XbTabsPane,
 };
 
 const install: PluginFunction<any> = (vue: VueConstructor<Vue>, options: any = {}) => {
@@ -105,6 +109,8 @@ module.exports = {
   XbSelect,
   XbSubnav,
   XbTable,
+  XbTabs,
+  XbTabsPane
 };
 
 module.exports.default = module.exports;
