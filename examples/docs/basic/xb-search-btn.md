@@ -1,3 +1,25 @@
+<script>
+  export default {
+    data() {
+      return {
+        value1: '',
+        value2: '',
+        value3_1: '',
+        value3_2: '',
+        value3_3: '',
+        value3_4: '',
+        value4: '',
+        value5: '',
+      }
+    },
+    methods: {
+      clickFunc(value) {
+        alert('输入框内的值是'+value)
+      }
+    }
+  }
+</script>
+
 # xb-search-btn
 
 默认点击无反应，如果需要点击事件，必须写@click
@@ -8,24 +30,24 @@
 
 <div class="demo-button">
   <div>
-    <xb-search-btn></xb-search-btn>
+    <xb-search-btn  v-model="value1"></xb-search-btn>
   </div>
 </div>
 
 ```html
-<xb-search-btn></xb-search-btn>
+<xb-search-btn v-model="value1"></xb-search-btn>
 ```
 
 ## 修改默认值
 
 <div class="demo-button">
   <div>
-    <xb-search-btn placeholder="修改默认值"></xb-search-btn>
+    <xb-search-btn v-model="value2" placeholder="修改默认值"></xb-search-btn>
   </div>
 </div>
 
 ```html
-<xb-search-btn placeholder="修改默认值"></xb-search-btn>
+<xb-search-btn v-model="value2" placeholder="修改默认值"></xb-search-btn>
 ```
 
 ## 自定义输入框大小
@@ -36,73 +58,59 @@
 
 <div class="demo-button">
   <div>
-    <xb-search-btn :inputStyle="{'height':'50px','font-size':'20px','width':'400px'}"></xb-search-btn>
+    <xb-search-btn v-model="value3_1" :inputStyle="{'height':'50px','font-size':'20px','width':'400px'}"></xb-search-btn>
   </div>
 </div>
 
 ```html
-<xb-search-btn :inputStyle="{'height':'50px','font-size':'20px','width':'400px'}"></xb-search-btn>
+<xb-search-btn v-model="value3_1" :inputStyle="{'height':'50px','font-size':'20px','width':'400px'}"></xb-search-btn>
 ```
 
 #### 组件内自带的大小
 
 <div class="demo-button">
   <div>
-    <xb-search-btn size="large"></xb-search-btn>
+    <xb-search-btn v-model="value3_2" size="large"></xb-search-btn>
     <br/>
-     <xb-search-btn size="medium"></xb-search-btn>
-     <br/>
-       <xb-search-btn size="small"></xb-search-btn>
+    <xb-search-btn v-model="value3_3" size="medium"></xb-search-btn>
+    <br/>
+    <xb-search-btn v-model="value3_4" size="small"></xb-search-btn>
   </div>
 </div>
 
 ```html
-large
+<!-- large -->
+<xb-search-btn v-model="value3_2" size="large"></xb-search-btn>
 
-<xb-search-btn size="large"></xb-search-btn>
+<!-- medium (不对大小进行处理的时候，采用的是 medium 尺寸的数据) -->
+<xb-search-btn v-model="value3_3" size="medium"></xb-search-btn>
 
-medium (不对大小进行处理的时候，采用的是 medium 尺寸的数据)
-
-<xb-search-btn size="medium"></xb-search-btn>
-
-small
-
-<xb-search-btn size="small"></xb-search-btn>
+<!-- small -->
+<xb-search-btn v-model="value3_4" size="small"></xb-search-btn>
 ```
 
 ## 隐藏搜索按钮（在内部显示）
 
 <div class="demo-button">
   <div>
-    <xb-search-btn :hidden="true"></xb-search-btn>
+    <xb-search-btn v-model="value4" :hidden="true"></xb-search-btn>
   </div>
 </div>
 
 ```html
-<xb-search-btn :hidden="true"></xb-search-btn>
+<xb-search-btn v-model="value4" :hidden="true"></xb-search-btn>
 ```
 
 ## 获取搜索的值
 
-@click 所调用的函数，不能加（），一定是直接写方法名称，否则传递的参数无效
-
 <div class="demo-button">
   <div>
-    <xb-search-btn  @click="clickFunc"></xb-search-btn>
+    <xb-search-btn v-model="value5"  @click="clickFunc"></xb-search-btn>
   </div>
 </div>
-<script>
-export default {
-  methods: {
-    clickFunc(value) {
-      alert('输入框内的值是'+value)
-    }
-  }
-}
-</script>
 
 ```js
-<xb-search-btn  @click="clickFunc"></xb-search-btn>
+<xb-search-btn v-model="value5" @click="clickFunc"></xb-search-btn>
 
 export default {
   methods: {
