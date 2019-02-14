@@ -24,7 +24,7 @@
       :disabled="disabled"
       :readonly="readonly"
       :maxlength="maxlength?maxlength:''"
-      @input="textareaChange()"
+      @input="textareaChange"
     ></textarea>
 
     <!-- 清空按钮 -->

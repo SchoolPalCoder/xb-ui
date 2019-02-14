@@ -1,30 +1,12 @@
 <template>
-  <div
-    :class="classesDiv"
-    :style="inputStyle"
-  >
-    <input
-      :class="classesInput"
-      :placeholder="placeholder"
-      v-model="value"
-    />
-
-    <div
-      v-if="!hidden"
-      :class="classesSearchDiv"
-      @click="handleClick"
-    >
-      <i class="xb-icon-search"></i>
+  <div :class="classesDiv" :style="inputStyle">
+    <input :class="classesInput" :placeholder="placeholder" :value="nativeValue" ref="input">
+    <div v-if="!hidden" :class="classesSearchDiv" @click="handleClick">
+      <xb-icon type="search"></xb-icon>
     </div>
-
-    <div
-      v-if="hidden"
-      :class="classesSearchDivHidden"
-      @click="handleClick"
-    >
-      <i class="xb-icon-search"></i>
+    <div v-if="hidden" :class="classesSearchDivHidden" @click="handleClick">
+      <xb-icon type="search"></xb-icon>
     </div>
-
     <div style="clear:both;"></div>
   </div>
 </template>
@@ -34,6 +16,10 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 const prefixCls = "xbui-search-btn";
 @Component({ name: "XbSearchBtn" })
 export default class XbSearchBtn extends Vue {
+  /** 传入的model值，必传 */
+  @Prop({ default: "" })
+  value!: any;
+
   // 默认输入文案
   @Prop({ default: "请输入..." })
   placeholder!: string;
@@ -50,10 +36,11 @@ export default class XbSearchBtn extends Vue {
   @Prop({ default: false })
   hidden!: boolean;
 
-  value: any = "";
+  nativeValue: any = this.value;
   // 搜索的点击事件
   handleClick() {
-    this.$emit("click", this.value);
+    this.nativeValue = this.$refs.input.value;
+    this.$emit("click", this.nativeValue);
   }
 
   // 样式
