@@ -57,7 +57,7 @@
 
 ```js
 <template>
-    <Table :columns="columns1" :data="data1"></Table>
+    <xb-table :columns="columns1" :data="data1"></xb-table>
 </template>
 <script>
     export default {
